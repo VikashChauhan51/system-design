@@ -12,62 +12,90 @@ public class UrlShortenerController : Controller
     private static readonly ConcurrentDictionary<string, string> urlMap = new ConcurrentDictionary<string, string>();
     // A constant string of possible characters for the short url
     private const string UrlCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    const int MAX_LENGTH = 8;
 
 
-    [HttpGet("{shortUrl}")]
-    public IActionResult Index(string shortUrl)
+    [HttpGet("{key}")]
+    public IActionResult Index(string key)
     {
-        var pair = urlMap.FirstOrDefault(p => p.Value == shortUrl);
-
-        if (string.IsNullOrEmpty(pair.Key))
+        if (urlMap.TryGetValue(key, out var value))
         {
-            return View(new { url = shortUrl });
+            // 302 - Moved Temporarily
+            return Redirect(value);
         }
-        // 302 - Moved Temporarily
-        return Redirect(pair.Key);
+
+        return View(new { url = (string?)null });
 
     }
+
+
     [HttpGet]
     public IActionResult ShortUrl()
     {
         return View();
     }
 
+
+
     [HttpPost]
     public IActionResult ShortUrl(UrlShortenerModel request)
     {
-        if (urlMap.TryGetValue(request.LongUrl, out var value))
+
+        //check item already exists
+        var urlItem = urlMap.FirstOrDefault(x => x.Value == request.LongUrl);
+        if (urlItem.Value == request.LongUrl)
         {
-            request.ShortUrl = Url.Action(nameof(UrlShortenerController.Index), nameof(UrlShortenerController).Replace("Controller", ""), values: new { shortUrl = value }, protocol: Request.Scheme);   
+            // return existing short url.
+            request.ShortUrl = GenerateShortUrl(urlItem.Key);
             return View(request);
         }
         else
         {
+            // check if alias already exist
+            if (!string.IsNullOrEmpty(request.Alias))
+            {
+                if (urlMap.ContainsKey(request.Alias))
+                {
+                    return View(request);
+                }
+                // Add the mapping to the dictionary
+                urlMap.TryAdd(request.Alias, request.LongUrl);
 
+                // Return the new short url
+                request.ShortUrl = GenerateShortUrl(request.Alias);
+                return View(request);
+            }
+             
+            
             int maxTry = urlMap.Count;
             int counter = 0;
 
             // Generate a new short url
-            string shortUrl = GenerateRandomString(7);
+            string shortUrl = GenerateRandomString(MAX_LENGTH);
 
             // Check if the short url is already in the dictionary
-            while (urlMap.FirstOrDefault(p => p.Value == shortUrl).Value == shortUrl && counter < maxTry)
+            while (urlMap.ContainsKey(shortUrl) && counter < maxTry)
             {
                 Interlocked.Increment(ref counter);
                 // Generate another short url
-                shortUrl = GenerateRandomString(7);
+                shortUrl = GenerateRandomString(MAX_LENGTH);
             }
 
             // Add the mapping to the dictionary
-            urlMap.TryAdd(request.LongUrl, shortUrl);
+            urlMap.TryAdd(shortUrl, request.LongUrl);
 
             // Return the new short url
-            request.ShortUrl = Url.Action(nameof(UrlShortenerController.Index), nameof(UrlShortenerController).Replace("Controller", ""), new { shortUrl = shortUrl }, protocol: Request.Scheme);
+            request.ShortUrl = GenerateShortUrl(shortUrl);
             return View(request);
 
         }
     }
 
+
+    private string GenerateShortUrl(string key)
+    {
+        return Url.Action(nameof(UrlShortenerController.Index), nameof(UrlShortenerController).Replace("Controller", ""), new { key = key }, protocol: Request.Scheme);
+    }
     private static string GenerateRandomString(int length)
     {
         // Create a byte array to store the random bytes

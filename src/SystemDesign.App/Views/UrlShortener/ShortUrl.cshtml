@@ -3,8 +3,13 @@
 <form asp-action="ShortUrl" asp-controller="UrlShortener" method="post">
     <div class="form-group">
         <label for="LongUrl">Long URL</label>
-        <input asp-for="LongUrl" class="form-control" id="LongUrl" />
+        <input asp-for="LongUrl" class="form-control" placeholder="https://urlshortener.com" id="LongUrl" />
         <span asp-validation-for="LongUrl" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="LongUrl">Alias (optional)</label>
+        <input asp-for="Alias" class="form-control" placeholder="alias" id="Alias" />
+        <span asp-validation-for="Alias"  class="text-danger"></span>
     </div>
     <br />
     <button type="submit" class="btn btn-primary">Submit</button>
