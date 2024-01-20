@@ -5,7 +5,9 @@ VisualStudioVersion = 17.8.34309.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SystemDesign", "SystemDesign\SystemDesign.csproj", "{B3A3202F-2CF2-4990-B2F6-0540F49D803D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemDesign.App", "SystemDesign.App\SystemDesign.App.csproj", "{9B96D979-F99B-4C41-B3A5-49B7A9EDCFBF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SystemDesign.App", "SystemDesign.App\SystemDesign.App.csproj", "{9B96D979-F99B-4C41-B3A5-49B7A9EDCFBF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemDesign.Core", "SystemDesign.Core\SystemDesign.Core.csproj", "{686D0848-37D6-43C4-8796-E7C2159CDC2F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{9B96D979-F99B-4C41-B3A5-49B7A9EDCFBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B96D979-F99B-4C41-B3A5-49B7A9EDCFBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B96D979-F99B-4C41-B3A5-49B7A9EDCFBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{686D0848-37D6-43C4-8796-E7C2159CDC2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{686D0848-37D6-43C4-8796-E7C2159CDC2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{686D0848-37D6-43C4-8796-E7C2159CDC2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{686D0848-37D6-43C4-8796-E7C2159CDC2F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

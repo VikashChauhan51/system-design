@@ -1,27 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Concurrent;
-using System.Security.Cryptography;
 using SystemDesign.App.Models;
+using SystemDesign.Core;
 
 namespace SystemDesign.App.Controllers;
 
 
 public class UrlShortenerController : Controller
 {
-    /// <summary>
-    ///  Random string generator.
-    /// </summary>
-    private static readonly RandomNumberGenerator rng = RandomNumberGenerator.Create();
+   
 
     /// <summary>
     ///  COllection to hold all unique urls.
     /// </summary>
     private static readonly ConcurrentDictionary<string, string> urlMap = new ConcurrentDictionary<string, string>();
-
-    /// <summary>
-    /// A constant string of possible characters for the short url
-    /// </summary>
-    private const string UrlCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
     /// <summary>
     /// 62^8 = 218,340,105,584,896 
@@ -86,14 +78,14 @@ public class UrlShortenerController : Controller
             int counter = 0;
 
             // Generate a new short url
-            string shortUrl = GenerateRandomString(MAX_LENGTH);
+            string shortUrl = RandomGenerator.GenerateRandomString(MAX_LENGTH);
 
             // Check if the short url is already in the dictionary
             while (urlMap.ContainsKey(shortUrl) && counter < maxTry)
             {
                 Interlocked.Increment(ref counter);
                 // Generate another short url
-                shortUrl = GenerateRandomString(MAX_LENGTH);
+                shortUrl = RandomGenerator.GenerateRandomString(MAX_LENGTH);
             }
 
             // Add the mapping to the dictionary
@@ -111,23 +103,5 @@ public class UrlShortenerController : Controller
     {
         return Url.Action(nameof(UrlShortenerController.Index), nameof(UrlShortenerController).Replace("Controller", ""), new { key = key }, protocol: Request.Scheme);
     }
-    private static string GenerateRandomString(int length)
-    {
-        // Create a byte array to store the random bytes
-        byte[] bytes = new byte[length];
-
-        rng.GetBytes(bytes);
-
-
-        // Convert the byte array to a character array
-        char[] chars = new char[length];
-        for (int i = 0; i < length; i++)
-        {
-            // Use the byte value as an index to the UrlCharacters string
-            chars[i] = UrlCharacters[bytes[i] % UrlCharacters.Length];
-        }
-
-        // Return the character array as a string
-        return new string(chars);
-    }
+   
 }
