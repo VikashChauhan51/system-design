@@ -8,10 +8,25 @@ namespace SystemDesign.App.Controllers;
 
 public class UrlShortenerController : Controller
 {
+    /// <summary>
+    ///  Random string generator.
+    /// </summary>
     private static readonly RandomNumberGenerator rng = RandomNumberGenerator.Create();
+
+    /// <summary>
+    ///  COllection to hold all unique urls.
+    /// </summary>
     private static readonly ConcurrentDictionary<string, string> urlMap = new ConcurrentDictionary<string, string>();
-    // A constant string of possible characters for the short url
+
+    /// <summary>
+    /// A constant string of possible characters for the short url
+    /// </summary>
     private const string UrlCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+    /// <summary>
+    /// 62^8 = 218,340,105,584,896 
+    /// Over 218 trillion possible unique 8-character strings.
+    /// </summary>
     const int MAX_LENGTH = 8;
 
 
