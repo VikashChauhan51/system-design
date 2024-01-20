@@ -7,7 +7,8 @@ namespace SystemDesign.App.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
+        public static int CurrentVisitors = 0;
+        public static int UniqueVisitors = 0;
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -15,7 +16,7 @@ namespace SystemDesign.App.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return View(new { CurrentVisitors, UniqueVisitors });
         }
 
         public IActionResult Privacy()
