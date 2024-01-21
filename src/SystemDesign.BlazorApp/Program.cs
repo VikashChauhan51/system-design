@@ -1,3 +1,4 @@
+using SystemDesign.BlazorApp;
 using SystemDesign.BlazorApp.Components;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -5,6 +6,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+// Add SignalR services
+builder.Services.AddSignalR();
 
 var app = builder.Build();
 
@@ -21,6 +25,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseAntiforgery();
 
+// Map your SignalR hub
+app.MapHub<CodeHub>("/codeHub");
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
 
