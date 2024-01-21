@@ -1,0 +1,33 @@
+﻿@model IEnumerable<TextSnippet>
+
+
+    <div>
+    <a class="nav-link text-dark" asp-area="" asp-controller="TextSharing" asp-action="Add">Add</a>
+    </div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.FileName)</th>
+            <th>@Html.DisplayNameFor(model => model.Description)</th>
+            <th>@Html.DisplayNameFor(model => model.Tags)</th>
+            <th>@Html.DisplayNameFor(model => model.Snippet)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.FileName)</td>
+                <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                <td>@Html.DisplayFor(modelItem => item.Tags)</td>
+                <td>@Html.DisplayFor(modelItem => item.Snippet)</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

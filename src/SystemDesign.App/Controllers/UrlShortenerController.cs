@@ -5,7 +5,13 @@ using SystemDesign.Core;
 
 namespace SystemDesign.App.Controllers;
 
+/*
+ 
+Cache: We can use Aside cache with LRU (Least Recent Used) policy with 1 day TTL (Time To Alive).
+Database: We can use NonSql database with short url key base partitioning.
+Storage: No storage bucket needed for it.
 
+ */
 public class UrlShortenerController : Controller
 {
    
@@ -101,7 +107,7 @@ public class UrlShortenerController : Controller
 
     private string GenerateShortUrl(string key)
     {
-        return Url.Action(nameof(UrlShortenerController.Index), nameof(UrlShortenerController).Replace("Controller", ""), new { key = key }, protocol: Request.Scheme);
+        return Url.Action(nameof(UrlShortenerController.Index), nameof(UrlShortenerController).Replace("Controller", ""), new { key }, protocol: Request.Scheme);
     }
    
 }
