@@ -1,0 +1,22 @@
+﻿
+namespace SystemDesign.Core.LoggingSystem;
+
+// Logging Console facade implementation
+public class ConsoleLogger : ILogger
+{
+    public void LogInfo(string message)
+    {
+        Console.WriteLine($"[Info] {message}");
+    }
+
+    public void LogWarning(string message)
+    {
+        Console.WriteLine($"[Warning] {message}");
+    }
+
+    public void LogError(string message)
+    {
+        Console.WriteLine($"[Error] {message}");
+    }
+}
+
