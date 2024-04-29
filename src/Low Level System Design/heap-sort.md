@@ -1,5 +1,9 @@
 # Heap Sort
 
+Heap sort is a sorting algorithm that works by first organizing the data to be sorted into a special type of binary tree called a heap. The heap itself has the property that every node in the heap is either greater than or equal to (in a max heap) or less than or equal to (in a min heap) its two children. The heap sort algorithm then repeatedly removes the largest/smallest element from the heap, thus building the sorted list from back to front. Heap sort provides a good compromise of efficiency and simplicity. It has an average and worst-case time complexity of `O(n log n)`.
+
+First transforms the input array into a max heap. Then, it repeatedly swaps the first element (the maximum) with the last element of the heap, reduces the size of the heap by one, and heapifies the root element. This process continues until the heap is empty, resulting in a sorted array in ascending order.
+
 ```C#
 public class HeapSort
 {

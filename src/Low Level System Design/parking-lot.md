@@ -1,5 +1,7 @@
 # ParkingLot
 
+Parking lot system, each floor has parking slots and ramps to move on to the next floor, and each floor has two sensors, one for detech check-in and another for checkout.  One more important point: there is an entry gate and one exit gate on the ground floor, and there is one direct movement of vichels, like within the same floor, moving from left to right, not right to left. one direct way to move, and the user needs to complete a cycle to move on next floor as well. This is one of the important points, and each floor has a number of slots. We also need to track available slots. Design an algorithm to get the available slots. 
+
 ```C#
 public class ParkingLot
 {
@@ -84,6 +86,145 @@ public class Floor
     public int GetFloorNumber()
     {
         return floorNumber;
+    }
+}
+
+```
+
+## Parking Lot
+
+Please design a parking lot system. There are three types of slots: small, compact, and large. A bike can park in any type of slot, and a car can park in a compact or large spot, but a bus can only park in a large spot. 
+
+```C#
+public enum VehicleSize
+{
+    Small,
+    Compact,
+    Large
+}
+
+public abstract class Vehicle
+{
+    public abstract string Number { get; }
+    public abstract VehicleSize Size { get; }
+}
+
+public class Bike : Vehicle
+{
+    private string number;
+    public Bike(string number){
+        this.number=number;
+    }
+    public override sring Number => number;
+    public override VehicleSize Size => VehicleSize.Small;
+    
+}
+
+public class Car : Vehicle
+{
+     private string number;
+    public Car(string number){
+        this.number=number;
+    }
+    public override sring Number => number;
+    public override VehicleSize Size => VehicleSize.Compact;
+}
+
+public class Bus : Vehicle
+{
+     private string number;
+    public Bus(string number){
+        this.number=number;
+    }
+    public override sring Number => number;
+    public override VehicleSize Size => VehicleSize.Large;
+}
+
+public class ParkingSpot
+{
+    public VehicleSize Size { get; private set; }
+    public Vehicle CurrentVehicle { get; private set; }
+
+    public ParkingSpot(VehicleSize size)
+    {
+        Size = size;
+    }
+
+    public bool IsAvailable
+    {
+        get { return CurrentVehicle == null; }
+    }
+
+    public bool CanFitVehicle(Vehicle vehicle)
+    {
+        return IsAvailable && (int)vehicle.Size <= (int)Size;
+    }
+
+    public bool ParkVehicle(Vehicle vehicle)
+    {
+        if (!CanFitVehicle(vehicle))
+        {
+            return false;
+        }
+
+        CurrentVehicle = vehicle;
+        return true;
+    }
+
+    public void RemoveVehicle()
+    {
+        CurrentVehicle = null;
+    }
+}
+
+public class ParkingFloor
+{
+    private List<ParkingSpot> spots;
+
+    public ParkingFloor(int numSpots)
+    {
+        spots = new List<ParkingSpot>(numSpots);
+    }
+
+    public bool ParkVehicle(Vehicle vehicle)
+    {
+        foreach (var spot in spots)
+        {
+            if (spot.CanFitVehicle(vehicle))
+            {
+                return spot.ParkVehicle(vehicle);
+            }
+        }
+
+        return false;
+    }
+}
+
+public class ParkingLot
+{
+    private List<ParkingFloor> floors;
+
+    public ParkingLot(int numFloors, int numSpotsPerFloor)
+    {
+        floors = new List<ParkingFloor>(numFloors);
+
+        for (int i = 0; i < numFloors; i++)
+        {
+            floors.Add(new ParkingFloor(numSpotsPerFloor));
+        }
+    }
+
+    public bool ParkVehicle(Vehicle vehicle)
+    {
+        foreach (var floor in floors)
+        {
+            if (floor.ParkVehicle(vehicle))
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
 

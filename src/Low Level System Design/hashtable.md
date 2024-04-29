@@ -154,3 +154,5 @@ public class HashTable<TKey, TValue>
 
 
 ```
+
+The reason we use a linked list array (an array of linked lists) in a hashtable is to handle collisions. A collision occurs when two different keys produce the same hash value. By using a linked list at each index of the array, we can store multiple keys (and their associated values) that hash to the same index.

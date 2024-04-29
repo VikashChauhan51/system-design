@@ -44,3 +44,5 @@ public class LeakyBucketRateLimiter
 }
 
 ```
+
+It calculates the time passed since the last refill, determines how many tokens to add based on this elapsed time and a set interval, and adds these tokens up to a maximum capacity. The time of the last refill is then updated. This ensures tokens are added at a fixed rate and the total number doesn’t exceed the capacity.

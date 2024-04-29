@@ -247,437 +247,169 @@ To illustrate these principles, let’s look at some examples in C#.
 
 **Liskov substitution principle:**
 
-```
+```C#
 // Violates LSP: The Rectangle class is a subclass of the Square class, but it changes the behavior of the SetWidth and SetHeight methods, which breaks the functionality of the AreaCalculator class
-```
 
-
-```
 class Square {
-```
 
-
-```
   protected double width;
-```
 
-
-```
   protected double height;
-```
 
-
-```
   public Square(double side) {
-```
 
-
-```
     width = height = side;
-```
-
-
-```
   }
-```
 
-
-```
   public virtual void SetWidth(double width) {
-```
 
-
-```
     this.width = width;
-```
 
-
-```
     height = width;
-```
 
-
-```
   }
-```
 
-
-```
   public virtual void SetHeight(double height) {
-```
 
-
-```
     this.height = height;
-```
 
-
-```
     width = height;
-```
 
-
-```
   }
-```
 
-
-```
   public double Area() {
-```
 
-
-```
     return width * height;
-```
 
-
-```
   }
-```
 
-
-```
 }
-```
 
-
-```
- 
-```
-
-
-```
 class Rectangle : Square {
-```
 
-
-```
   public Rectangle(double width, double height) : base(width) {
-```
 
-
-```
     this.width = width;
-```
 
-
-```
     this.height = height;
-```
 
-
-```
   }
-```
 
-
-```
   public override void SetWidth(double width) {
-```
 
-
-```
     this.width = width;
-```
 
-
-```
   }
-```
 
-
-```
   public override void SetHeight(double height) {
-```
 
-
-```
     this.height = height;
-```
 
-
-```
   }
-```
 
-
-```
 }
-```
 
-
-```
- 
-```
-
-
-```
 class AreaCalculator {
-```
 
-
-```
   protected Square[] shapes;
-```
 
-
-```
   public AreaCalculator(Square[] shapes) {
-```
 
-
-```
     this.shapes = shapes;
-```
 
-
-```
   }
-```
 
-
-```
   public double Sum() {
-```
 
-
-```
     double area = 0;
-```
 
-
-```
     foreach (Square shape in shapes) {
-```
 
-
-```
       area += shape.Area();
-```
 
-
-```
     }
-```
 
-
-```
     return area;
-```
 
-
-```
   }
-```
 
-
-```
 }
-```
 
 
 ```
- 
-```
 
-
-```
+```C#
 // Follows LSP: The Rectangle class and the Square class are both subclasses of the Shape class, which defines the contract for the Area method, and they do not change the behavior of the superclass
-```
-
-
-```
 abstract class Shape {
-```
 
-
-```
   public abstract double Area();
-```
 
-
-```
 }
-```
 
 
-```
- 
-```
-
-
-```
 class Square : Shape {
-```
 
-
-```
   protected double side;
-```
 
-
-```
   public Square(double side) {
-```
 
-
-```
     this.side = side;
-```
 
-
-```
   }
-```
 
-
-```
   public override double Area() {
-```
 
-
-```
     return Math.Pow(side, 2);
-```
 
-
-```
   }
-```
 
-
-```
 }
-```
 
-
-```
- 
-```
-
-
-```
 class Rectangle : Shape {
-```
 
-
-```
   protected double width;
-```
 
-
-```
   protected double height;
-```
 
-
-```
   public Rectangle(double width, double height) {
-```
 
-
-```
     this.width = width;
-```
-
-
-```
     this.height = height;
-```
 
-
-```
   }
-```
 
-
-```
   public override double Area() {
-```
 
-
-```
     return width * height;
-```
 
-
-```
   }
-```
 
-
-```
 }
-```
 
 
-```
- 
-```
-
-
-```
 class AreaCalculator {
-```
 
-
-```
   protected Shape[] shapes;
-```
 
-
-```
   public AreaCalculator(Shape[] shapes) {
-```
 
-
-```
     this.shapes = shapes;
-```
 
-
-```
   }
-```
 
-
-```
   public double Sum() {
-```
 
-
-```
     double area = 0;
-```
 
-
-```
     foreach (Shape shape in shapes) {
-```
 
-
-```
       area += shape.Area();
-```
 
-
-```
     }
-```
-
-
-```
     return area;
-```
 
-
-```
   }
-```
 
-
-```
 }
 ```
 
@@ -1206,267 +938,93 @@ double area3 = AreaOfCircle(15); // area of a circle with radius 15
 
 **Using classes and inheritance:** When lines of code are spread across many classes and methods, they can be relocated to a base class or a shared class. For example, if you have a code that validates an email address, you should create a class that contains the validation logic and use it in different classes, rather than repeating the validation code in different places.
 
-```
+
+```C#
 // Violates DRY: The code for validating an email address is repeated in different classes
-```
-
-
-```
 class Customer {
-```
 
-
-```
   public string Email { get; set; }
-```
 
-
-```
   public bool IsValid() {
-```
 
-
-```
     // ...some code to validate other properties
-```
 
-
-```
     // validate email address
-```
 
-
-```
     if (string.IsNullOrEmpty(Email)) return false;
-```
 
-
-```
     if (!Email.Contains("@")) return false;
-```
 
-
-```
     // ...some more code to validate email address
-```
 
-
-```
     return true;
-```
 
-
-```
   }
-```
 
-
-```
 }
-```
 
-
-```
- 
-```
-
-
-```
 class Employee {
-```
 
-
-```
   public string Email { get; set; }
-```
 
-
-```
   public bool IsValid() {
-```
 
-
-```
     // ...some code to validate other properties
-```
 
-
-```
     // validate email address
-```
 
-
-```
     if (string.IsNullOrEmpty(Email)) return false;
-```
 
-
-```
     if (!Email.Contains("@")) return false;
-```
 
-
-```
     // ...some more code to validate email address
-```
 
-
-```
     return true;
-```
-
-
-```
   }
-```
 
-
-```
 }
-```
 
-
-```
- 
-```
-
-
-```
 // Follows DRY: The code for validating an email address is extracted into a class
-```
 
-
-```
 class EmailValidator {
-```
 
-
-```
   public static bool IsValid(string email) {
-```
 
-
-```
     // validate email address
-```
 
-
-```
     if (string.IsNullOrEmpty(email)) return false;
-```
-
-
-```
     if (!email.Contains("@")) return false;
-```
 
-
-```
     // ...some more code to validate email address
-```
 
-
-```
     return true;
-```
-
-
-```
   }
-```
 
-
-```
 }
-```
 
-
-```
- 
-```
-
-
-```
 class Customer {
-```
 
-
-```
   public string Email { get; set; }
-```
 
-
-```
   public bool IsValid() {
-```
-
-
-```
     // ...some code to validate other properties
-```
-
-
-```
     // use the email validator class
-```
-
-
-```
     return EmailValidator.IsValid(Email);
-```
 
-
-```
   }
-```
 
-
-```
 }
-```
 
-
-```
- 
-```
-
-
-```
 class Employee {
-```
 
-
-```
   public string Email { get; set; }
-```
 
-
-```
   public bool IsValid() {
-```
-
-
-```
     // ...some code to validate other properties
-```
-
-
-```
     // use the email validator class
-```
-
-
-```
     return EmailValidator.IsValid(Email);
-```
-
-
-```
   }
-```
 
-
-```
 }
 ```
 
@@ -1630,43 +1188,14 @@ Logging, configuration, thread pool.
 
 **C# Example:**
 
-```
+```C#
 public sealed class Logger
-```
-
-
-```
 {
-```
-
-
-```
     private static Logger instance = new Logger();
-```
-
-
-```
     private Logger() {}
-```
-
-
-```
     public static Logger Instance { get { return instance; } }
-```
-
-
-```
-    public void LogMessage(string message) { ... }
-```
-
-
-```
+    public void LogMessage(string message) {  }
 }
-```
-
-
-```
- 
 ```
 
 
@@ -1677,15 +1206,12 @@ Problem:
 *   The private static Logger instance = new Logger(); line creates the instance during class loading, which is thread-safe.
 *   However, the public static Logger Instance { get { return instance; } } property doesn't guarantee thread safety when multiple threads access it simultaneously.
 
-```
- 
-```
 
 
 **Key Methods for Thread Safety:**
 
 **Locking:** Use the lock keyword to create a critical section, ensuring only one thread can access a shared resource at a time.
-
+```C#
 public static Logger Instance
 
 {
@@ -1713,40 +1239,21 @@ public static Logger Instance
     }
 
 }
+```
 
 **Readonly:** The `Logger` instance is created as a `static readonly` field. This means it is initialized when the class is first loaded, which is guaranteed to be thread-safe by the .NET runtime. This is often referred to as “eager initialization” and it ensures that the Singleton instance is created before any thread can access the `Instance` property.
 
-```
+```C#
 public sealed class Logger
-```
-
-
-```
 {
-```
 
-
-```
     private static readonly Logger instance = new Logger();
-```
 
-
-```
     private Logger() {}
-```
 
-
-```
     public static Logger Instance { get { return instance; } }
-```
 
-
-```
-    public void LogMessage(string message) { ... }
-```
-
-
-```
+    public void LogMessage(string message) {  }
 }
 ```
 
@@ -1767,9 +1274,6 @@ public sealed class Logger
 
 **private static readonly Lazy<Logger> instance = new Lazy<Logger>(() => new Logger());**
 
-```
- 
-```
 
 
 Factory Method
@@ -1787,62 +1291,20 @@ Creating different product types based on configuration.
 
 **C# Example:**
 
-```
+```C#
 public interface IProductFactory
-```
-
-
-```
 {
-```
 
-
-```
     Product CreateProduct();
-```
-
-
-```
 }
-```
 
-
-```
- 
-```
-
-
-```
 public class ConcreteProductFactory : IProductFactory
-```
-
-
-```
 {
-```
-
-
-```
     public Product CreateProduct()
-```
-
-
-```
     {
-```
 
-
-```
         return new ConcreteProduct();
-```
-
-
-```
     }
-```
-
-
-```
 }
 ```
 
@@ -1861,7 +1323,7 @@ Create objects without knowing their concrete classes.
 Creating UI elements for different platforms.
 
 **C# Example:**
-
+```C#
 public interface IGUIFactory
 
 {
@@ -1871,7 +1333,7 @@ public interface IGUIFactory
     TextBox CreateTextBox();
 
 }
-
+```
 Prototype
 ---------
 
@@ -1887,6 +1349,7 @@ Cloning complex objects, object pooling.
 
 **C# Example:**
 
+```C#
 public interface IPrototype
 
 {
@@ -1910,9 +1373,10 @@ public class ConcretePrototype : IPrototype
     }
 
 }
-
+```
 Deep cloning in the Prototype pattern refers to creating a completely independent copy of an object, including all its nested objects and references. This contrasts with shallow cloning, which only copies top-level members, often resulting in shared references to the same nested objects.
 
+```C#
 public class ConcretePrototype : IPrototype
 
 {
@@ -1944,6 +1408,7 @@ public class ConcretePrototype : IPrototype
     }
 
 }
+```
 
 **Key Points:**
 
@@ -1975,6 +1440,7 @@ Building complex objects with many options, XML parsing.
 
 **C# Example:**
 
+```C#
 public class CarBuilder
 
 {
@@ -1988,7 +1454,7 @@ public class CarBuilder
     public Car Build() { return car; }
 
 }
-
+```
 Structural Patterns
 -------------------
 
@@ -2007,53 +1473,16 @@ Integrating third-party libraries with different APIs.
 
 **C# Example:**
 
-```
+```C#
 public class Adapter : ITarget
-```
-
-
-```
 {
-```
-
-
-```
     private Adaptee adaptee = new Adaptee();
-```
 
-
-```
     public void Request()
-```
-
-
-```
     {
-```
-
-
-```
         adaptee.SpecificRequest();
-```
-
-
-```
     }
-```
-
-
-```
 }
-```
-
-
-```
- 
-```
-
-
-```
- 
 ```
 
 
@@ -2072,48 +1501,15 @@ Adding logging or caching to existing objects.
 
 **C# Example:**
 
-```
+```C#
 public abstract class DecoratorStream : Stream
-```
-
-
-```
 {
-```
-
-
-```
     protected Stream stream;
-```
-
-
-```
     public DecoratorStream(Stream stream)
-```
-
-
-```
     {
-```
-
-
-```
         this.stream = stream;
-```
-
-
-```
     }
-```
-
-
-```
 }
-```
-
-
-```
- 
 ```
 
 
@@ -2132,6 +1528,7 @@ Simplifying interactions with external systems or libraries.
 
 **C# Example:**
 
+```C#
 public class CarFacade
 
 {
@@ -2151,7 +1548,7 @@ public class CarFacade
     }
 
 }
-
+```
 Proxy
 -----
 
@@ -2167,6 +1564,7 @@ Provides a surrogate or placeholder for another object, controlling access to it
 
 **C# Example:**
 
+```C#
 public class ExpensiveObjectProxy : IExpensiveObject
 
 {
@@ -2186,6 +1584,7 @@ public class ExpensiveObjectProxy : IExpensiveObject
     }
 
 }
+```
 
 Behavioral Patterns
 -------------------
@@ -2205,62 +1604,19 @@ Event notification systems, stock market updates.
 
 **C# Example:**
 
-```
+```C#
 public interface IObserver
-```
-
-
-```
 {
-```
-
-
-```
     void Update(object sender, EventArgs e);
-```
-
-
-```
 }
-```
 
-
-```
- 
-```
-
-
-```
 public class Subject
-```
-
-
-```
 {
-```
-
-
-```
     private List<IObserver> observers = new List<IObserver>();
-```
+    public void Attach(IObserver observer) {  }
 
-
-```
-    public void Attach(IObserver observer) { ... }
-```
-
-
-```
-    public void Detach(IObserver observer) { ... }
-```
-
-
-```
-    public void Notify() { ... }
-```
-
-
-```
+    public void Detach(IObserver observer) {  }
+    public void Notify() {  }
 }
 ```
 
@@ -2280,47 +1636,22 @@ Sorting algorithms, compression techniques.
 
 **C# Example:**
 
-```
+```C#
 public interface ISortingStrategy
-```
-
-
-```
 {
-```
-
-
-```
     void Sort(int[] numbers);
-```
-
-
-```
 }
-```
 
-
-```
- 
-```
-
-
-```
 public class BubbleSortStrategy : ISortingStrategy
-```
-
-
-```
 {
-```
 
-
-```
     public void Sort(int[] numbers) { ... }
-```
+}
 
+public class MergeSortStrategy : ISortingStrategy
+{
 
-```
+    public void Sort(int[] numbers) { ... }
 }
 ```
 
@@ -2340,6 +1671,7 @@ Logging systems, multi-level authentication.
 
 **C# Example:**
 
+```C#
 public abstract class Handler
 
 {
@@ -2351,6 +1683,7 @@ public abstract class Handler
     public abstract void HandleRequest(Request request);
 
 }
+```
 
 Mediator
 --------
@@ -2367,6 +1700,7 @@ Chat rooms, air traffic control systems.
 
 **C# Example:**
 
+```C#
 public class ChatRoomMediator
 
 {
@@ -2390,6 +1724,7 @@ public class ChatRoomMediator
     }
 
 }
+```
 
 Visitor
 -------
@@ -2406,6 +1741,7 @@ Adding new operations to composite structures, AST traversal.
 
 **C# Example:**
 
+```C#
 public interface ICarElementVisitor
 
 {
@@ -2461,4 +1797,4 @@ public class Wheel: Part
     }
 
 }
-Uses heroku, turndown, Readability and jsdom. Source on github.
+```

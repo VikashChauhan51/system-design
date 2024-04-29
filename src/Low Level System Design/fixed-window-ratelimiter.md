@@ -1,5 +1,8 @@
 # Fixed Window RateLimiter
 
+It will restrict the number of requests a client can make within a certain time window. It uses a dictionary to track the number of requests each client has made and when their window started. When a request comes in, it checks if the client’s window has expired. If it has, it starts a new window. If it hasn’t, it increments the client’s request count. If the count exceeds the limit, the request is denied. Otherwise, it’s allowed. This helps prevent any single client from overusing resources.
+
+
 ```C#
 
 public class FixedWindowRateLimiter

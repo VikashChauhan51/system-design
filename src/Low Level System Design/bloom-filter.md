@@ -1,5 +1,9 @@
 # BloomFilter
 
+A Bloom filter is a data structure designed to tell you, rapidly and memory-efficiently, whether an element is present in a set. The price paid for this efficiency is that a Bloom filter is a probabilistic data structure: it tells us that the element either definitely is not in the set or may be in the set.
+
+The BitArray is the backbone of the Bloom filter. It’s a compact array of bits used to represent a set of n elements (where n is the size of the array). Each bit represents whether an element is in the set.
+
 ```C#
 
 public class BloomFilter<T>
