@@ -96,6 +96,7 @@ public class Floor
 Please design a parking lot system. There are three types of slots: small, compact, and large. A bike can park in any type of slot, and a car can park in a compact or large spot, but a bus can only park in a large spot. 
 
 ```C#
+
 public enum VehicleSize
 {
     Small,
@@ -105,38 +106,37 @@ public enum VehicleSize
 
 public abstract class Vehicle
 {
-    public abstract string Number { get; }
+    protected Vehicle(string number)
+    {
+        this.Number = number;
+    }
+    public string Number { get; }
     public abstract VehicleSize Size { get; }
+
 }
 
 public class Bike : Vehicle
-{
-    private string number;
-    public Bike(string number){
-        this.number=number;
+{     
+    public Bike(string number):base(number)
+    {
     }
-    public override sring Number => number;
     public override VehicleSize Size => VehicleSize.Small;
-    
+
 }
 
 public class Car : Vehicle
 {
-     private string number;
-    public Car(string number){
-        this.number=number;
+    public Car(string number) : base(number)
+    {
     }
-    public override sring Number => number;
     public override VehicleSize Size => VehicleSize.Compact;
 }
 
 public class Bus : Vehicle
 {
-     private string number;
-    public Bus(string number){
-        this.number=number;
+    public Bus(string number) : base(number)
+    {
     }
-    public override sring Number => number;
     public override VehicleSize Size => VehicleSize.Large;
 }
 
@@ -150,10 +150,7 @@ public class ParkingSpot
         Size = size;
     }
 
-    public bool IsAvailable
-    {
-        get { return CurrentVehicle == null; }
-    }
+    public bool IsAvailable=> CurrentVehicle == null;
 
     public bool CanFitVehicle(Vehicle vehicle)
     {
