@@ -416,434 +416,160 @@ class AreaCalculator {
 
 **Interface segregation principle:**
 
-```
+```C#
 // Violates ISP: The Worker class depends on the IWorker interface, which contains methods that it does not use
-```
 
-
-```
 interface IWorker {
-```
 
-
-```
   void Work();
-```
 
-
-```
   void Eat();
-```
 
-
-```
 }
-```
 
-
-```
- 
-```
-
-
-```
 class Worker : IWorker {
-```
 
-
-```
   public void Work() {
-```
 
-
-```
     // ...working
-```
 
-
-```
   }
-```
 
-
-```
   public void Eat() {
-```
 
-
-```
     // ...eating
-```
 
-
-```
   }
-```
 
-
-```
 }
-```
 
-
-```
- 
-```
-
-
-```
 class Robot : IWorker {
-```
 
-
-```
   public void Work() {
-```
 
-
-```
     // ...working
-```
 
-
-```
   }
-```
 
-
-```
   public void Eat() {
-```
 
-
-```
     // ...not eating
-```
 
-
-```
   }
-```
 
-
-```
 }
 ```
 
-
-```
- 
-```
-
-
-```
+```C#
 // Follows ISP: The Worker class and the Robot class depend on separate interfaces that contain only the methods that they use
-```
 
-
-```
 interface IWorkable {
-```
 
-
-```
   void Work();
-```
 
-
-```
 }
-```
 
-
-```
- 
-```
-
-
-```
 interface IFeedable {
-```
 
-
-```
   void Eat();
-```
 
-
-```
 }
-```
 
-
-```
- 
-```
-
-
-```
 class Worker : IWorkable, IFeedable {
-```
 
-
-```
   public void Work() {
-```
 
-
-```
     // ...working
-```
 
-
-```
   }
-```
 
-
-```
   public void Eat() {
-```
 
-
-```
     // ...eating
-```
 
-
-```
   }
-```
 
-
-```
 }
-```
 
-
-```
- 
-```
-
-
-```
 class Robot : IWorkable {
-```
 
-
-```
   public void Work() {
-```
 
-
-```
     // ...working
-```
 
-
-```
   }
-```
 
-
-```
 }
 ```
 
 
 **Dependency inversion principle:**
 
-```
+```C#
 // Violates DIP: The PasswordReminder class depends on the MySQLConnection class, which is a concrete class
-```
 
-
-```
 class MySQLConnection {
-```
 
-
-```
   public void Connect() {
-```
 
-
-```
     // ...connect to MySQL database
-```
 
-
-```
   }
-```
 
-
-```
 }
-```
 
-
-```
- 
-```
-
-
-```
 class PasswordReminder {
-```
 
-
-```
   private MySQLConnection dbConnection;
-```
 
-
-```
   public PasswordReminder(MySQLConnection dbConnection) {
-```
 
-
-```
     this.dbConnection = dbConnection;
-```
 
-
-```
   }
-```
 
-
-```
   public void SendPasswordReminder() {
-```
 
-
-```
     dbConnection.Connect();
-```
 
-
-```
     // ...send password reminder
-```
 
-
-```
   }
-```
 
-
-```
 }
 ```
-
-
-```
- 
-```
-
-
-```
+```C#
 // Follows DIP: The PasswordReminder class depends on the IDatabaseConnection interface, which is an abstraction
-```
 
-
-```
 interface IDatabaseConnection {
-```
 
-
-```
   void Connect();
-```
 
-
-```
 }
-```
 
-
-```
- 
-```
-
-
-```
 class MySQLConnection : IDatabaseConnection {
-```
 
-
-```
   public void Connect() {
-```
 
-
-```
     // ...connect to MySQL database
-```
 
-
-```
   }
-```
 
-
-```
 }
-```
 
-
-```
- 
-```
-
-
-```
 class PasswordReminder {
-```
 
-
-```
   private IDatabaseConnection dbConnection;
-```
 
-
-```
   public PasswordReminder(IDatabaseConnection dbConnection) {
-```
 
-
-```
     this.dbConnection = dbConnection;
-```
-
-
-```
   }
-```
-
-
-```
   public void SendPasswordReminder() {
-```
 
-
-```
     dbConnection.Connect();
-```
-
-
-```
     // ...send password reminder
-```
-
-
-```
   }
-```
-
-
-```
 }
 ```
 
@@ -871,67 +597,42 @@ Similarly, if you have some common elements or components that are used in multi
 
 **Using methods:** Methods implement the DRY principle by allowing you to centralize code that will be used in multiple places. For example, if you have a code that calculates the area of a circle, you should create a method that takes the radius as a parameter and returns the area, rather than repeating the formula in different places.
 
-```
+```C#
 // Violates DRY: The formula for the area of a circle is repeated in different places
-```
-
-
-```
 double area1 = Math.PI * Math.Pow(5, 2); // area of a circle with radius 5
 ```
 
 
-```
+```C#
 double area2 = Math.PI * Math.Pow(10, 2); // area of a circle with radius 10
 ```
 
 
-```
+```C#
 double area3 = Math.PI * Math.Pow(15, 2); // area of a circle with radius 15
-```
-
 
 ```
- 
-```
 
-
-```
+```C#
 // Follows DRY: The formula for the area of a circle is extracted into a method
-```
 
-
-```
 double AreaOfCircle(double radius) {
-```
-
-
-```
   return Math.PI * Math.Pow(radius, 2);
-```
-
-
-```
 }
 ```
 
 
-```
- 
-```
-
-
-```
+```C#
 double area1 = AreaOfCircle(5); // area of a circle with radius 5
 ```
 
 
-```
+```C#
 double area2 = AreaOfCircle(10); // area of a circle with radius 10
 ```
 
 
-```
+```C#
 double area3 = AreaOfCircle(15); // area of a circle with radius 15
 ```
 
@@ -1106,15 +807,15 @@ Design Patterns are general, reusable solutions to common problems that arise du
 
 Design Patterns are categorized mainly into three categories:
 
-1.     **Creational Design Pattern:** Abstracts the instantiation process, making a system independent of how its objects are created, composed, and represented.
+1. **Creational Design Pattern:** Abstracts the instantiation process, making a system independent of how its objects are created, composed, and represented.
 
-2.     **Structural Design Pattern:** Concerned with how classes and objects are composed to form larger structures. Structural class patterns use inheritance to compose interfaces or implementations.
+2. **Structural Design Pattern:** Concerned with how classes and objects are composed to form larger structures. Structural class patterns use inheritance to compose interfaces or implementations.
 
-3.     **Behavioral Design Pattern:** Concerned with algorithms and the assignment of responsibilities between objects. Behavioral patterns describe not just patterns of objects or classes but also the patterns of communication between them.
+3. **Behavioral Design Pattern:** Concerned with algorithms and the assignment of responsibilities between objects. Behavioral patterns describe not just patterns of objects or classes but also the patterns of communication between them.
 
 **Definitions of all Design Patterns**
 
-1.     **Creational Design Patterns:**
+1. **Creational Design Patterns:**
 
 o   **Factory Method:** Allows us to create objects without specifying their concrete type.
 
@@ -1126,7 +827,7 @@ o   **Prototype:** Used to create a new object from an existing object.
 
 o   **Builder:** Used to construct a complex object step by step.
 
-2.     **Structural Design Patterns:**
+2. **Structural Design Patterns:**
 
 o   **Adapter:** Allows two incompatible classes to work together by wrapping an interface around one of the existing classes.
 
@@ -1144,7 +845,7 @@ o   **Proxy:** Reduces the cost, reduces complexity, and provides a placeholder 
 
 o    
 
-3.     **Behavioral Design Patterns:**
+3. **Behavioral Design Patterns:**
 
 o   **Chain Of Responsibility:** Passes the command to a chain of processing objects.
 
