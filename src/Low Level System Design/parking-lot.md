@@ -2,6 +2,16 @@
 
 Parking lot system, each floor has parking slots and ramps to move on to the next floor, and each floor has two sensors, one for detech check-in and another for checkout.  One more important point: there is an entry gate and one exit gate on the ground floor, and there is one direct movement of vichels, like within the same floor, moving from left to right, not right to left. one direct way to move, and the user needs to complete a cycle to move on next floor as well. This is one of the important points, and each floor has a number of slots. We also need to track available slots. Design an algorithm to get the available slots. 
 
+## Use case diagram
+Here are the main Actors in our system:
+* **Admin:** Mainly responsible for adding and modifying parking floors, parking slots,
+entrance and exit panels, adding/removing parking attendants, etc.
+* **Customer:** All customers can get a parking ticket and pay for it.
+* **Parking attendant:** Parking attendants can do all the activities on the customer’s
+behalf, and can take cash for ticket payment.
+* **System:** To show messages on to different info panels, as well as assigning and
+removing a vehicle from a parking slot.
+
 ```C#
 public class ParkingLot
 {
@@ -94,6 +104,16 @@ public class Floor
 ## Parking Lot
 
 Please design a parking lot system. There are three types of slots: small, compact, and large. A bike can park in any type of slot, and a car can park in a compact or large spot, but a bus can only park in a large spot. 
+
+## Use case diagram
+Here are the main Actors in our system:
+* **Admin:** Mainly responsible for adding and modifying parking floors, parking slots,
+entrance and exit panels, adding/removing parking attendants, etc.
+* **Customer:** All customers can get a parking ticket and pay for it.
+* **Parking attendant:** Parking attendants can do all the activities on the customer’s
+behalf, and can take cash for ticket payment.
+* **System:** To show messages on to different info panels, as well as assigning and
+removing a vehicle from a parking slot.
 
 ```C#
 
