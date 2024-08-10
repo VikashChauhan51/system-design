@@ -42,6 +42,34 @@ Let's begin with the high-level architecture.
 ### High-Level Architecture
 The email service will consist of several core components, each responsible for a specific aspect of the service. These components will be designed to scale horizontally to handle large volumes of emails, with a focus on reliability and fault tolerance.
 
+
+```
+                +--------------------+
+                |     API Gateway    |
+                +---------+----------+
+                          |
+           +--------------+----------------+--------------+
+           |              |                |              |
++----------v--+  +--------v-----+  +-------v--------+  +--v-----------+
+|  Auth Service|  | Template      |  | Email Service  |  | Tracking     |
+|              |  | Service       |  |                |  | Service      |
++--------------+  +---------------+  +----------------+  +--------------+
+           |               |                  |               |
+           |               |                  |               |
+           |               |        +---------v---------+     |
+           |               |        |      Queue       |     |
+           |               |        +---------+-------+     |
+           |               |                  |             |
+           |               |           +------v------+
+           |               |           |   Worker    |
+           |               |           +------^------+
+           |               |                  |
+     +-----v-----+     +---v---+        +-----v------+
+     |   CDN     |     |  DB   |        | Email      |
+     |           |     |       |        | Gateway    |
+     +-----------+     +-------+        +------------+
+
+```
 ![Architecture](https://github.com/VikashChauhan51/system-design/blob/main/docs/High%20Level%20System%20Design/Email%20Service/email%20service.png)
 ```plantuml
 @startuml

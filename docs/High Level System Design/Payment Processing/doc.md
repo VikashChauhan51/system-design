@@ -47,6 +47,31 @@ The architecture will consist of the following key components:
 6. **Database**: Stores processing results, logs, and metadata about the payments.
 7. **Notification Service**: Sends out notifications about the processing status (optional).
 
+
+```
+                +--------------------+
+                |    Blob Storage    |
+                +---------+----------+
+                          |
+           +--------------+----------------+--------------+
+           |              |                |              |
++----------v--+  +--------v-----+  +-------v--------+  +--v-----------+
+| Orchestrator |  | File Processor |  | Validation     |  | Payment      |
+|  Service     |  |   Service      |  |    Service     |  |  Service     |
++--------------+  +----------------+  +----------------+  +--------------+
+           |               |                  |               |
+           |               |                  |               |
+           |               |        +---------v---------+     |
+           |               |        |      Database     |     |
+           |               |        +---------+-------+     |
+           |               |                  |             |
+     +-----v-----+     +---v---+        +-----v------+
+     | Notification|     |  DB   |        |   Payment  |
+     |   Service   |     |       |        |  Gateway   |
+     +-------------+     +-------+        +------------+
+
+```
+
 ```plantuml
 @startuml
 actor User
