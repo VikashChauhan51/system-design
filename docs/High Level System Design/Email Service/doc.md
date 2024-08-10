@@ -42,6 +42,7 @@ Let's begin with the high-level architecture.
 ### High-Level Architecture
 The email service will consist of several core components, each responsible for a specific aspect of the service. These components will be designed to scale horizontally to handle large volumes of emails, with a focus on reliability and fault tolerance.
 
+![Architecture](https://github.com/VikashChauhan51/system-design/blob/main/docs/High%20Level%20System%20Design/Email%20Service/email%20service.png)
 ```plantuml
 @startuml
 skinparam componentStyle rectangle
@@ -61,6 +62,7 @@ TrackingService -> DB : Store Email Status
 WebApp -> TrackingService : Fetch Email Status
 @enduml
 ```
+
 
 ### Components Overview
 
@@ -93,6 +95,8 @@ WebApp -> TrackingService : Fetch Email Status
 
 #### 1. **Relational Database (SQL)**
    - **Purpose**: Used for storing structured data where relationships between entities are critical, such as user information, email templates, and tracking data. A relational database like PostgreSQL or MySQL is well-suited for this purpose.
+
+   ![Database](https://github.com/VikashChauhan51/system-design/blob/main/docs/High%20Level%20System%20Design/Email%20Service/database%20digram.png)
    
    - **Tables and Schemas**:
 
@@ -176,6 +180,7 @@ To design the **Email Sending Workflow**, we need to outline the process that oc
 
 ### Email Sending Workflow Diagram
 
+![Email Sending Workflow Diagram](https://github.com/VikashChauhan51/system-design/blob/main/docs/High%20Level%20System%20Design/Email%20Service/Email%20Sending%20Workflow.png)
 Here's a diagram using PlantUML that illustrates the email sending workflow:
 
 ```plantuml
@@ -255,6 +260,8 @@ The Template Management feature allows users to select from default email templa
 
 #### **Template Management Workflow Diagram**
 
+![Template Management Workflow Diagram](https://github.com/VikashChauhan51/system-design/blob/main/docs/High%20Level%20System%20Design/Email%20Service/Template%20Management%20Workflow%20Diagram.png)
+
 ```plantuml
 @startuml
 actor User
@@ -299,6 +306,7 @@ The Email Tracking Mechanism monitors the status of sent emails and captures eve
 
 #### **Email Tracking Mechanism Workflow Diagram**
 
+![Email Tracking Mechanism Workflow Diagram](https://github.com/VikashChauhan51/system-design/blob/main/docs/High%20Level%20System%20Design/Email%20Service/Email%20Tracking%20Mechanism%20Workflow%20Diagram.png)
 ```plantuml
 @startuml
 participant "Email Gateway" as EG
