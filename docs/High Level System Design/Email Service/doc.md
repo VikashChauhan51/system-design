@@ -41,7 +41,7 @@ Let's begin with the high-level architecture.
 ### High-Level Architecture
 The email service will consist of several core components, each responsible for a specific aspect of the service. These components will be designed to scale horizontally to handle large volumes of emails, with a focus on reliability and fault tolerance.
 
-![Architecture](https://github.com/VikashChauhan51/system-design/blob/main/docs/High%20Level%20System%20Design/Email%20Service/Email%20Service%20Architecture.png)
+![Architecture](./Email%20Service%20Architecture.png)
 ```plantuml
 @startuml
 skinparam componentStyle rectangle
@@ -98,7 +98,7 @@ WebApp -> EmailService : Fetch Email Status
 #### 1. **User Management Database (SQL)**
    - **Purpose**: Used for storing structured data where relationships between entities are critical, such as user information, email templates, and tracking data. A relational database like PostgreSQL or MySQL is well-suited for this purpose.
 
-   ![Database](https://github.com/VikashChauhan51/system-design/blob/main/docs/High%20Level%20System%20Design/Email%20Service/User%20Management%20Database%20(SQL).png)
+   ![Database](./User%20Management%20Database%20(SQL).png)
    
    - **User and Plan Database**:
 
@@ -223,7 +223,7 @@ Table Emails {
 
 ## Email Workflow
 
- ![Workflow](https://github.com/VikashChauhan51/system-design/blob/main/docs/High%20Level%20System%20Design/Email%20Service/email%20service.png)
+ ![Workflow](./email%20service.png)
 
  1. **Request Reception**
    - The Email Service receives a request to send an email via its API.
