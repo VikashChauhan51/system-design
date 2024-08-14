@@ -41,7 +41,7 @@ Let's begin with the high-level architecture.
 ### High-Level Architecture
 The email service will consist of several core components, each responsible for a specific aspect of the service. These components will be designed to scale horizontally to handle large volumes of emails, with a focus on reliability and fault tolerance.
 
-![Architecture](https://github.com/VikashChauhan51/system-design/blob/main/docs/High%20Level%20System%20Design/Email%20Service/email%20service.png)
+![Architecture](https://github.com/VikashChauhan51/system-design/blob/main/docs/High%20Level%20System%20Design/Email%20Service/Email%20Service%20Architecture.png)
 ```plantuml
 @startuml
 skinparam componentStyle rectangle
@@ -98,7 +98,7 @@ WebApp -> EmailService : Fetch Email Status
 #### 1. **User Management Database (SQL)**
    - **Purpose**: Used for storing structured data where relationships between entities are critical, such as user information, email templates, and tracking data. A relational database like PostgreSQL or MySQL is well-suited for this purpose.
 
-   ![Database](https://github.com/VikashChauhan51/system-design/blob/main/docs/High%20Level%20System%20Design/Email%20Service/database%20digram.png)
+   ![Database](https://github.com/VikashChauhan51/system-design/blob/main/docs/High%20Level%20System%20Design/Email%20Service/User%20Management%20Database%20(SQL).png)
    
    - **User and Plan Database**:
 
@@ -219,3 +219,60 @@ Table Emails {
 ```
 
 **Note:** we use CDN tp store send email content or and images/css etc.
+
+
+## Email Workflow
+
+ ![Workflow](https://github.com/VikashChauhan51/system-design/blob/main/docs/High%20Level%20System%20Design/Email%20Service/email%20service.png)
+
+ 1. **Request Reception**
+   - The Email Service receives a request to send an email via its API.
+   - The request includes details such as the recipient's email, subject, content, and optional template ID.
+
+2. **User and Plan Validation**
+   - The Email Service verifies the user's identity and checks their subscription plan to ensure they are allowed to send emails.
+   - If validation fails (e.g., plan limit exceeded), the service responds with an error.
+
+3. **Template Processing (Optional)**
+   - If a template ID is provided, the service fetches the template from the Template Management Database (NoSQL).
+   - Placeholder values in the template are replaced with actual data from the request.
+   - The final email content is generated.
+
+4. **Queue Email for Delivery**
+   - The email, along with its metadata (recipient, subject, content, etc.), is queued in RabbitMQ for processing.
+   - The email's initial status is set to "queued" and logged in the `Emails` table.
+
+5. **Email Worker Fetches Task**
+   - The worker service, which is part of the Email Service, fetches the email task from RabbitMQ.
+   - The email status is updated to "processing" in the `Emails` table.
+
+6. **Send Email via Email Gateway**
+   - The worker processes the email task, sending the email via the Email Gateway (SMTP server or third-party service).
+   - The worker handles retries in case of temporary failures, updating the retry count in the `EmailRetries` table.
+
+7. **Update Email Status**
+   - Based on the response from the Email Gateway:
+     - If the email is successfully sent, the status is updated to "sent."
+     - If the email fails to send, the status is updated to "failed," and retry logic is triggered if applicable.
+   - The event (e.g., sent, failed) is logged in the `EmailLogs` table.
+
+8. **Trigger Tracking Events**
+   - The worker triggers tracking events for the sent email (e.g., delivered, opened, clicked) by monitoring responses from the Email Gateway.
+   - These events are logged in the `EmailLogs` table and `EmailAnalytics` table for reporting purposes.
+
+9. **Email Status Monitoring**
+   - The Email Service continuously monitors the status of sent emails, updating the `Emails` and `EmailAnalytics` tables as events occur.
+   - This monitoring includes checking for delivery confirmations, open rates, and click-through rates.
+
+10. **API Response and Logging**
+    - The API responds to the initial request with the email's status (e.g., queued, sent).
+    - The Email Service ensures that all actions are logged for audit purposes.
+
+11. **Analytics and Reporting**
+    - The Email Service aggregates data from the `EmailAnalytics` and `EmailLogs` tables to generate reports.
+    - Users can fetch these reports via the API, gaining insights into email performance.
+
+12. **Error Handling**
+    - The Email Service includes error handling at each step, ensuring that any failures are logged, retried if possible, and reported back to the user.
+    - Critical errors trigger alerts for further investigation.
+
