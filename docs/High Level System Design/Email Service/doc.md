@@ -42,29 +42,7 @@ Let's begin with the high-level architecture.
 The email service will consist of several core components, each responsible for a specific aspect of the service. These components will be designed to scale horizontally to handle large volumes of emails, with a focus on reliability and fault tolerance.
 
 ![Architecture](./Email%20Service%20Architecture.png)
-```plantuml
-@startuml
-skinparam componentStyle rectangle
 
-User -> WebApp : Manage Templates, Track Emails
-User -> API : Send Emails
-
-API -> UserManagementService : Authenticate Request
-UserManagementService -> UserDB : Verify User and Plan
-
-API -> TemplateService : Fetch Template
-TemplateService -> TemplateDB : Retrieve Template Data
-
-API -> EmailService : Queue Email for Delivery
-EmailService -> RabbitMQ : Push Email Data
-
-EmailService -> EmailGateway : Process and Send Email
-EmailService -> EmailDB : Log Email Status and Events
-
-WebApp -> EmailService : Fetch Email Status
-
-@enduml
-```
 
 
 ### Components Overview
@@ -224,6 +202,30 @@ Table Emails {
 ## Email Workflow
 
  ![Workflow](./email%20service.png)
+
+ ```plantuml
+@startuml
+skinparam componentStyle rectangle
+
+User -> WebApp : Manage Templates, Track Emails
+User -> API : Send Emails
+
+API -> UserManagementService : Authenticate Request
+UserManagementService -> UserDB : Verify User and Plan
+
+API -> TemplateService : Fetch Template
+TemplateService -> TemplateDB : Retrieve Template Data
+
+API -> EmailService : Queue Email for Delivery
+EmailService -> RabbitMQ : Push Email Data
+
+EmailService -> EmailGateway : Process and Send Email
+EmailService -> EmailDB : Log Email Status and Events
+
+WebApp -> EmailService : Fetch Email Status
+
+@enduml
+```
 
  1. **Request Reception**
    - The Email Service receives a request to send an email via its API.
