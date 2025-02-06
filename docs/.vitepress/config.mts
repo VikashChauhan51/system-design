@@ -15,9 +15,10 @@ export default defineConfig({
       {
         text: 'Algorithms',
         items: [
-          { text: 'Reverse String', link: '/algorithms/reverse-string' },
-          { text: 'Reverse String II', link: '/algorithms/reverse-string-ii' },
-          { text: 'Reverse String III', link: '/algorithms/reverse-string-iii' }
+          { text: 'Reverse String', link: '/algorithms/string/reverse-string' },
+          { text: 'Reverse String II', link: '/algorithms/string/reverse-string-ii' },
+          { text: 'Reverse String III', link: '/algorithms/string/reverse-string-iii' },
+          { text: 'Anagram', link: '/algorithms/string/anagram' }
         ]
       }
     ],

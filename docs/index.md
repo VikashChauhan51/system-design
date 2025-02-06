@@ -12,7 +12,7 @@ hero:
       link: /markdown-examples
     - theme: alt
       text: Algorithms
-      link: /algorithms/reverse-string
+      link: /algorithms/index
 
 features:
   - title: Algorithms
