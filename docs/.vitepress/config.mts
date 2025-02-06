@@ -8,15 +8,16 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
+      { text: 'Algorithms', link: '/algorithms' }
     ],
 
     sidebar: [
       {
-        text: 'Examples',
+        text: 'Algorithms',
         items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
+          { text: 'Reverse String', link: '/algorithms/reverse-string' },
+          { text: 'Reverse String II', link: '/algorithms/reverse-string-ii' },
+          { text: 'Reverse String III', link: '/algorithms/reverse-string-iii' }
         ]
       }
     ],
