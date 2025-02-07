@@ -13,12 +13,17 @@ export default defineConfig({
 
     sidebar: [
       {
-        text: 'Algorithms',
+
+        text: 'String Algorithms',
         items: [
           { text: 'Reverse String', link: '/algorithms/string/reverse-string' },
           { text: 'Reverse String II', link: '/algorithms/string/reverse-string-ii' },
           { text: 'Reverse String III', link: '/algorithms/string/reverse-string-iii' },
-          { text: 'Anagram', link: '/algorithms/string/anagram' }
+          { text: 'Anagram', link: '/algorithms/string/anagram' },
+          { text: 'Palindrome', link: '/algorithms/string/palindrome' },
+          { text: 'Palindrome II', link: '/algorithms/string/palindrome-ii' },
+          { text: 'Remove Duplicates', link: '/algorithms/string/remove-duplicates' },
+          { text: 'Remove Duplicates II', link: '/algorithms/string/remove-duplicates-ii' }
         ]
       }
     ],
