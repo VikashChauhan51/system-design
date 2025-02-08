@@ -26,6 +26,14 @@ export default defineConfig({
           { text: 'Remove Duplicates', link: '/algorithms/string/remove-duplicates' },
           { text: 'Remove Duplicates II', link: '/algorithms/string/remove-duplicates-ii' }
         ]
+      },
+      {
+
+        text: 'Number Algorithms',
+        items: [
+          { text: 'Factorial', link: '/algorithms/number/factorial' },
+          { text: 'Factorial', link: '/algorithms/number/fibonacci' },
+        ]
       }
     ],
 
