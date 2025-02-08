@@ -55,3 +55,25 @@ public class Solution
 }
 ```
 
+```go
+import "math"
+func reverseStr(s string, k int) string {
+
+    charArray := []rune(s)
+    count := len(s) / (2 * k)
+    for i := 0; i <= count; i++ {
+        left := i * (2 * k)
+        right := int(math.Min(float64(left+k-1), float64(len(s)-1)))
+        for left < right {
+            temp := charArray[left]
+            charArray[left] = charArray[right]
+            charArray[right] = temp
+            left++
+            right--
+        }
+    }
+    return string(charArray)
+
+}
+```
+

@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  base:"/system-design/",
   title: "System Design",
   description: "System Design",
   themeConfig: {

@@ -49,3 +49,14 @@ public class Solution
 }
 ```
 
+```go
+func reverseString(s []byte) {
+	total := len(s)
+	for i := 0; i < total/2; i = i + 1 {
+		temp := s[i]
+		s[i] = s[total-i-1]
+		s[total-i-1] = temp
+	}
+}
+```
+

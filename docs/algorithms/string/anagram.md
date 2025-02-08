@@ -52,4 +52,26 @@ public class Solution
 }
 ```
 
+```go
+func isAnagram(s string, t string) bool {
+
+	if len(s) != len(t) {
+		return false
+	}
+	var arr [256]rune
+	for _, v := range s {
+		arr[v] = arr[v] + 1
+	}
+
+	for _, v := range t {
+		if arr[v] == 0 {
+			return false
+		}
+		arr[v] = arr[v] - 1
+	}
+
+	return true
+
+}
+```
 
