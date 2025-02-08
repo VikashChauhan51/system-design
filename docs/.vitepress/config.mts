@@ -24,7 +24,8 @@ export default defineConfig({
           { text: 'Palindrome', link: '/algorithms/string/palindrome' },
           { text: 'Palindrome II', link: '/algorithms/string/palindrome-ii' },
           { text: 'Remove Duplicates', link: '/algorithms/string/remove-duplicates' },
-          { text: 'Remove Duplicates II', link: '/algorithms/string/remove-duplicates-ii' }
+          { text: 'Remove Duplicates II', link: '/algorithms/string/remove-duplicates-ii' },
+          { text: 'Multiply Strings', link: '/algorithms/string/multiply-strings' }
         ]
       },
       {
