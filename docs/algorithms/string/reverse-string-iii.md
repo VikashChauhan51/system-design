@@ -65,7 +65,7 @@ public class Solution
 import "strings"
 func reverseWords(s string) string {
     words := strings.Split(s, " ")
-    outputArray := make([]rune, len(s))
+    outputArray := make([]byte, len(s))
     start := 0
     for i, word := range words {
         if i != 0 {
@@ -75,8 +75,8 @@ func reverseWords(s string) string {
 
         left, right := 0, len(word)-1
         for left <= right {
-            outputArray[start+left] = rune(word[right])
-            outputArray[start+right] = rune(word[left])
+            outputArray[start+left] = word[right]
+            outputArray[start+right] = word[left]
             left++
             right--
         }
