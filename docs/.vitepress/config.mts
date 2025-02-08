@@ -32,7 +32,10 @@ export default defineConfig({
         text: 'Number Algorithms',
         items: [
           { text: 'Factorial', link: '/algorithms/number/factorial' },
-          { text: 'Factorial', link: '/algorithms/number/fibonacci' },
+          { text: 'Fibonacci', link: '/algorithms/number/fibonacci' },
+          { text: 'Reverse', link: '/algorithms/number/reverse' },
+          { text: 'Sum Digits', link: '/algorithms/number/sum-digits' },
+          { text: 'Divide Number', link: '/algorithms/number/divide-number' },
         ]
       }
     ],
