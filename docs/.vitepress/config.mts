@@ -24,7 +24,6 @@ export default defineConfig({
           { text: 'Palindrome', link: '/algorithms/string/palindrome' },
           { text: 'Palindrome II', link: '/algorithms/string/palindrome-ii' },
           { text: 'Remove Duplicates', link: '/algorithms/string/remove-duplicates' },
-          { text: 'Remove Duplicates II', link: '/algorithms/string/remove-duplicates-ii' },
           { text: 'Multiply Strings', link: '/algorithms/string/multiply-strings' },
           { text: 'String Compress', link: '/algorithms/string/string-compress' },
           { text: 'Merge Strings Alternately', link: '/algorithms/string/merge-strings-alternately' }
@@ -35,25 +34,37 @@ export default defineConfig({
 
         text: 'Number Algorithms',
         items: [
-          { text: 'Factorial', link: '/algorithms/number/factorial' },
-          { text: 'Fibonacci', link: '/algorithms/number/fibonacci' },
           { text: 'Reverse', link: '/algorithms/number/reverse' },
           { text: 'Sum Digits', link: '/algorithms/number/sum-digits' },
-          { text: 'Divide Number', link: '/algorithms/number/divide-number' },
+          { text: 'Integer to Roman', link: '/algorithms/number/integer-to-roman' },
         ]
       },
       {
         text: 'Array Algorithms',
         items: [
           { text: 'Two Sum', link: '/algorithms/array/two-sum' },
+          { text: 'Two Sum II', link: '/algorithms/array/two-sum-ii' },
+          { text: 'Move Zeroes', link: '/algorithms/array/move-zeroes' },
+          { text: 'Trapping Rain Water', link: '/algorithms/array/trapping-rain-water' },
         ]
       },
       {
         text: 'Stack Algorithms',
         items: [
           { text: 'Valid Parentheses', link: '/algorithms/stack/valid-parentheses' },
+          { text: 'Remove Duplicates II', link: '/algorithms/stack/remove-duplicates-ii' },
         ]
-      }
+      },
+      {
+
+        text: 'Rcursion Algorithms',
+        items: [
+          { text: 'Factorial', link: '/algorithms/recursion/factorial' },
+          { text: 'Fibonacci', link: '/algorithms/recursion/fibonacci' },
+          { text: 'Divide Number', link: '/algorithms/recursion/divide-number' },
+          { text: 'Integer to English Words', link: '/algorithms/recursion/integer-to-english-words' },
+        ]
+      },
     ],
 
     socialLinks: [
