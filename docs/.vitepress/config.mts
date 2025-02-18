@@ -41,6 +41,18 @@ export default defineConfig({
           { text: 'Sum Digits', link: '/algorithms/number/sum-digits' },
           { text: 'Divide Number', link: '/algorithms/number/divide-number' },
         ]
+      },
+      {
+        text: 'Array Algorithms',
+        items: [
+          { text: 'Two Sum', link: '/algorithms/array/two-sum' },
+        ]
+      },
+      {
+        text: 'Stack Algorithms',
+        items: [
+          { text: 'Valid Parentheses', link: '/algorithms/stack/valid-parentheses' },
+        ]
       }
     ],
 

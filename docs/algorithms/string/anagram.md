@@ -74,3 +74,30 @@ func isAnagram(s string, t string) bool {
 }
 ```
 
+```rust
+pub struct Solution{}
+
+impl Solution {
+    pub fn is_anagram(s: String, t: String) -> bool {
+
+        if s.len() != t.len() {
+            return false;
+        }
+
+        let mut temp_arr = [0u32; 256];
+        for ch in s.chars() {
+            temp_arr[ch as usize] += 1;
+        }
+
+        for ch in t.chars() {
+            if temp_arr[ch as usize] == 0 {
+                return false;
+            }
+            temp_arr[ch as usize] -= 1;
+        }
+
+        true
+    }
+}
+```
+

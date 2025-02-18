@@ -65,3 +65,30 @@ public class Solution
     }
 }
 ```
+
+
+```rust
+pub struct Solution{}
+
+impl Solution {
+    pub fn merge_alternately(word1: String, word2: String) -> String {
+        let len1 = word1.len();
+        let len2 = word2.len();
+        let mut result = String::with_capacity(len1 + len2);
+        let mut iter1 = word1.chars();
+        let mut iter2 = word2.chars();
+
+        for _ in 0..len1.max(len2) {
+            if let Some(c1) = iter1.next() {
+                result.push(c1);
+            }
+            if let Some(c2) = iter2.next() {
+                result.push(c2);
+            }
+        }
+
+        result
+    }
+}
+
+```
