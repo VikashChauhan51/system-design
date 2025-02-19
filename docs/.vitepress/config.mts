@@ -26,7 +26,8 @@ export default defineConfig({
           { text: 'Remove Duplicates', link: '/algorithms/string/remove-duplicates' },
           { text: 'Multiply Strings', link: '/algorithms/string/multiply-strings' },
           { text: 'String Compress', link: '/algorithms/string/string-compress' },
-          { text: 'Merge Strings Alternately', link: '/algorithms/string/merge-strings-alternately' }
+          { text: 'Merge Strings Alternately', link: '/algorithms/string/merge-strings-alternately' },
+          { text: 'Minimum operations to convert given string into all 1s or 0s', link: '/algorithms/string/binary-string-into-all-1s-or-0s' },
 
         ]
       },
@@ -46,6 +47,7 @@ export default defineConfig({
           { text: 'Two Sum II', link: '/algorithms/array/two-sum-ii' },
           { text: 'Move Zeroes', link: '/algorithms/array/move-zeroes' },
           { text: 'Trapping Rain Water', link: '/algorithms/array/trapping-rain-water' },
+          { text: 'Subarray Sum Equals K', link: '/algorithms/array/subarray-sum-equals-k' },
         ]
       },
       {
