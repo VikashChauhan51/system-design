@@ -21,17 +21,9 @@ Table Brands {
 Table Categories {
   Id varchar [primary key]
   Name varchar
+  ParentCategoryId varchar
   Description varchar
- CreatedAt timestamp
-  UpdatedAt timestamp
-}
-
-Table SubCategories {
-  Id varchar [primary key]
-  Name varchar
-  Description varchar
-  CategoryId varchar
-    CreatedAt timestamp
+  CreatedAt timestamp
   UpdatedAt timestamp
 }
 
@@ -41,9 +33,17 @@ Table Products {
   Name varchar
   Description varchar
   Code varchar
-  SubCategoryId varchar
+  CategoryId varchar
   BrandId varchar
-    CreatedAt timestamp
+  CreatedAt timestamp
+  UpdatedAt timestamp
+}
+
+Table Options {
+  Id varchar [primary key]
+  ProductId varchar
+  Name varchar
+  CreatedAt timestamp
   UpdatedAt timestamp
 }
 
@@ -56,31 +56,35 @@ Table Variants {
   SalePrice decimal
   Sku varchar
   Barcode varchar
-  SupplierId varchar
-    CreatedAt timestamp
+  CreatedAt timestamp
   UpdatedAt timestamp
 }
 
 Table VariantOptions {
   Id varchar [primary key]
   VariantId varchar
-  Name varchar
+  OptionId varchar
   Value varchar
-    CreatedAt timestamp
+  CreatedAt timestamp
   UpdatedAt timestamp
 }
 
 
-Table VariantMedias {
+Table VariantMedia {
   Id varchar [primary key]
   VariantId varchar
-  MediaId varchar
+  MediaTypeId varchar
   Name varchar
   Alt varchar
   Description varchar
-   CreatedAt timestamp
+  CreatedAt timestamp
   UpdatedAt timestamp
 
+}
+
+Table VariantSuppliers{
+  VariantId varchar [primary key]
+  SupplierId varchar [primary key]
 }
 
 Table Suppliers {
@@ -99,14 +103,14 @@ Table Suppliers {
   BillingCity varchar
   BillingPinCode varchar
   BillingLandMark varchar
-    ShippingAddressLine1 varchar
+  ShippingAddressLine1 varchar
   ShippingAddressLine2 varchar
   ShippingCountry varchar
   ShippingState varchar
   ShippingCity varchar
   ShippingPinCode varchar
   ShippingLandMark varchar
-   CreatedAt timestamp
+  CreatedAt timestamp
   UpdatedAt timestamp
 
 }
@@ -116,10 +120,12 @@ Table Users {
   UserName varchar
   FullName varchar
   Email varchar
+  PasswordHash varchar
+  GenderId varchar
   AlterEmail varchar
   Phone varchar
   AlterPhone varchar
-   CreatedAt timestamp
+  CreatedAt timestamp
   UpdatedAt timestamp
 
 }
@@ -136,22 +142,30 @@ Table Addresses {
   Landmark varchar
   Email varchar
   Phone varchar
-   CreatedAt timestamp
+  CreatedAt timestamp
   UpdatedAt timestamp
 }
 
-Table Wishlist  {
+Table Wishlists  {
   Id varchar [primary key]
   UserId varchar
+  CreatedAt timestamp
+  UpdatedAt timestamp
+}
+
+Table WishlistItems  {
+  Id varchar [primary key]
+  WishlistId varchar
   VariantId varchar
-   CreatedAt timestamp
+  CreatedAt timestamp
+  UpdatedAt timestamp
 }
 
 Table Cart  {
   Id varchar [primary key]
   UserId varchar
   Total decimal
-   CreatedAt timestamp
+  CreatedAt timestamp
   UpdatedAt timestamp
 }
 
@@ -168,9 +182,11 @@ Table CartItems  {
 Table Orders  {
   Id varchar [primary key]
   UserId varchar
+  UserName varchar
   OrderNumber varchar
   Status varchar
   Total decimal
+  PaymentMode varchar
   ShippingAddressLine1 varchar
   ShippingAddressLine2 varchar
   ShippingCountry varchar
@@ -187,7 +203,7 @@ Table Status  {
   Name varchar
 }
 
-Table Medias  {
+Table MediaType  {
   Id varchar [primary key]
   Name varchar
 }
@@ -201,7 +217,7 @@ Table OrderItems  {
   Quantity integer
   Price decimal
   Status varchar
-   CreatedAt timestamp
+  CreatedAt timestamp
   UpdatedAt timestamp
 }
 
@@ -211,16 +227,53 @@ Table Reviews  {
   VariantId varchar
   Rating decimal
   Comment varchar
-   CreatedAt timestamp
+  CreatedAt timestamp
   UpdatedAt timestamp
 }
 
-Table ReviewMedias   {
+Table ReviewMedia   {
   Id varchar [primary key]
   ReviewId varchar
-  MediaId varchar
+  MediaTypeId varchar
   AttachmentId varchar
-   CreatedAt timestamp
+  CreatedAt timestamp
   UpdatedAt timestamp
 }
+
+Table Inventory   {
+  Id varchar [primary key]
+  VariantId varchar
+  Quantity integer
+  Price decimal
+  SalePrice decimal
+  CreatedAt timestamp
+  UpdatedAt timestamp
+}
+
+Table Promotions   {
+  Id varchar [primary key]
+  COde varchar,
+  Description varchar
+  ProductId varchar
+  DiscountPercentage decimal
+  DefaultDiscount decimal
+  StartDate timestamp
+  EndDate timestamp
+  CreatedAt timestamp
+  UpdatedAt timestamp
+}
+
+Table Payments   {
+  Id varchar [primary key]
+  OrderId varchar,
+  TransactionId varchar
+  PaymentMethod varchar
+  Status varchar
+  Date timestamp
+  Amount decimal
+  CurrencyCode varchar
+  CreatedAt timestamp
+  UpdatedAt timestamp
+}
+
 ```
