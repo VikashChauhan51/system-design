@@ -205,6 +205,82 @@ Return: 30 ✓ (9+8+7+6=30)
 - **Time Complexity :** `O(log n)`
 - **Space Complexity :** `O(1)`
 
+## Factorial of a number
+The number is a positive number and greater than zero.
+
+```C#
+public static int FactorialRecursive(int n)
+{
+    // Base case: 0! = 1
+    if (n == 0) return 1;
+
+    // Recursive case: n! = n × (n-1)!
+    return n * FactorialRecursive(n - 1);
+}
+```
+
+```text
+FactorialRecursive(5)
+  → 5 * FactorialRecursive(4)
+    → 4 * FactorialRecursive(3)
+      → 3 * FactorialRecursive(2)
+        → 2 * FactorialRecursive(1)
+          → 1 * FactorialRecursive(0)
+            → Base case: return 1
+          ← returns 1 * 1 = 1
+        ← returns 2 * 1 = 2
+      ← returns 3 * 2 = 6
+    ← returns 4 * 6 = 24
+  ← returns 5 * 24 = 120
+```
+- **Time Complexity :** `O(n)`
+- **Space Complexity :** `O(n)`
+
+## Fibonacci Series
+The number is a positive number and greater than zero.
+
+```C#
+public static int FibonacciRecursive(int n)
+{
+    // Base cases
+    if (n <= 0) return 0;
+    if (n == 1) return 1;
+
+    // Recursive case: F(n) = F(n-1) + F(n-2)
+    return FibonacciRecursive(n - 1) + FibonacciRecursive(n - 2);
+}
+```
+```text
+F(0) = 0
+F(1) = 1
+F(2) = F(1) + F(0) = 1 + 0 = 1
+F(3) = F(2) + F(1) = 1 + 1 = 2
+F(4) = F(3) + F(2) = 2 + 1 = 3
+F(5) = F(4) + F(3) = 3 + 2 = 5
+```
+
+```text
+               Fibonacci(5)
+               /          \
+      Fibonacci(4)      Fibonacci(3)
+       /       \          /       \
+  Fib(3)     Fib(2)    Fib(2)   Fib(1)
+   /   \      /   \     /   \      1
+Fib(2) Fib(1) Fib(1) Fib(0) Fib(1) Fib(0)
+ /   \    1     1      0      1      0
+Fib(1) Fib(0)
+   1      0
+
+Calculation:
+Fib(2) = Fib(1) + Fib(0) = 1 + 0 = 1
+Fib(3) = Fib(2) + Fib(1) = 1 + 1 = 2
+Fib(4) = Fib(3) + Fib(2) = 2 + 1 = 3
+Fib(5) = Fib(4) + Fib(3) = 3 + 2 = 5
+```
+- **Time Complexity :** `O(2ⁿ)`
+- **Space Complexity :** `O(n)`
+
+
 ## Multiply two strings
 Both strings are not null and contains only positive numbers.
 
