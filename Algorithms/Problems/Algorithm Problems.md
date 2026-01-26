@@ -54,6 +54,8 @@ Level 6: Array Operations (Collection Handling)
 ├── 40. Valid Palindrome
 ├── 41. Fizz Buzz
 └── 42. Longest Common Prefix
+
+## Level 7: Stack Operations
 ```
 
 ---
@@ -1638,6 +1640,55 @@ Result: 5 characters in last word
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(1)`
 
+### 43. Concatenate two Strings
+
+```
+str1 = "abc" st2="pqr" o/p - apbqcr
+str1 = "abcd" st2="pq" o/p - apbqcd
+str1 = "ab" st2="pqrs" o/p - apbqrs
+```
+
+```csharp
+public string ConcateStrings(string s1, string s2)
+{
+
+    int i = 0;
+    int j = 0;
+    var result = new StringBuilder(s1.Length + s2.Length);
+
+    while (i < s1.Length && j < s2.Length)
+    {
+        result.Append(s1[i]);
+        result.Append(s2[j]);
+        i++;
+        j++;
+    }
+
+    // Add remaning characters of s1 string if any
+    for (; i < s1.Length; i++)
+    {
+        result.Append(s1[i]);
+    }
+
+    // Add remaning characters of s2 string if any
+    for (; j < s2.Length; j++)
+    {
+        result.Append(s2[j]);
+    }
+
+    return result.ToString();
+}
+```
+
+```
+s1 = "ABC", s2 = "XYZ"
+Interleave: A X B Y C Z
+Remaining: none
+Result: "AXBYCZ"
+```
+- **Time Complexity :** `O(n + m)`
+- **Space Complexity :** `O(n + m)`
+
 ## Level 6: Array Operations (Collection Handling)
 ### 37. Move Zeroes To End
 
@@ -1890,4 +1941,477 @@ Position 2:  o   o   i  → Mismatch! 'o' ≠ 'i' ✗
 Common prefix: "fl"
 ```
 - **Time Complexity :** `O(n*m)`
+- **Space Complexity :** `O(1)`
+
+
+### 44. Merge two sorted arrays
+Given two sorted arrays arr1[] of size n and arr2[] of size m. Merge these two arrays.
+After the merge, the first n smallest elements of the combined sorted array should be stored in arr1[], and the remaining m largest elements should be stored in arr2[]. After the merging process, both arr1[] and arr2[] must remain sorted in non-decreasing order.
+
+```
+Examples:
+Input: arr1[] = [1, 3, 4, 5], arr2[] = [2, 4, 6, 8]
+Output: arr1[] = [1, 2, 3, 4], arr2[] = [4 5, 6, 8]
+Explanation: Combined sorted array = [1, 2, 3, 4, 4, 5, 6, 8], array arr1[] contains smallest 4 elements: 1, 2, 3, 4, and array arr2[] contains the remaining 4 elements: 4, 5, 6, 8.
+
+Input: arr1[] = [5, 8, 9], arr2[] = [4, 7, 8]
+Output: arr1[] = [4, 5, 7], arr2[] = [8, 8, 9]
+Explanation: Combined sorted array = [4, 5, 7, 8, 8, 9], array arr1[] contains smallest 3 elements: 4, 5, 7, and array arr2[] contains the remaining 3 elements: 8, 8, 9.
+
+```
+
+```csharp
+public int[] MergeSortedArrays(int[] num1, int[] num2)
+ {
+     int m = num1.Length;
+     int n = num2.Length;
+     int[] mergedArray = new int[m + n];
+     int i = 0, j = 0, k = 0;
+     while (i < m && j < n)
+     {
+         if (num1[i] <= num2[j])
+         {
+             mergedArray[k++] = num1[i++];
+         }
+         else
+         {
+             mergedArray[k++] = num2[j++];
+         }
+     }
+     // Copy remaining elements of num1, if any
+     while (i < m)
+     {
+         mergedArray[k++] = num1[i++];
+     }
+     // Copy remaining elements of num2, if any
+     while (j < n)
+     {
+         mergedArray[k++] = num2[j++];
+     }
+     return mergedArray;
+ }
+```
+```
+num1:  [1]   3   5   7
+         ↑ →   →   →   → end
+num2:  [2]   4   6   8   9
+         ↑ →   →   →   →   → end
+
+Comparison sequence:
+1 vs 2 → 1 ✓
+3 vs 2 → 2 ✓
+3 vs 4 → 3 ✓
+5 vs 4 → 4 ✓
+5 vs 6 → 5 ✓
+7 vs 6 → 6 ✓
+7 vs 8 → 7 ✓
+Remaining: 8, 9 ✓
+```
+- **Time Complexity :** `O(n + m)`
+- **Space Complexity :** `O(n + m)`
+
+## Level 7: Stack Operations
+
+### 45. Valid Parentheses
+
+The string is not null.
+
+```
+s = "({[]})"
+Result: true ✓
+```
+
+```csharp
+public static bool IsValid(string s)
+ {
+
+     if (s.Length % 2 != 0)
+     {
+         return false;
+     }
+
+     Stack<char> braces = new Stack<char>();
+     foreach (char ch in s)
+     {
+
+         if (braces.Count == 0)
+         {
+             braces.Push(ch);
+             continue;
+         }
+
+         if (ch == ')' && braces.Peek() == '(')
+         {
+             braces.Pop();
+         }
+         else if (ch == '}' && braces.Peek() == '{')
+         {
+             braces.Pop();
+         }
+         else if (ch == ']' && braces.Peek() == '[')
+         {
+             braces.Pop();
+         }
+         else
+         {
+             braces.Push(ch);
+         }
+
+     }
+
+     return braces.Count == 0;
+ } 
+
+```
+
+```
+String:  {  [  (  )  ]  }
+         1  2  3  4  5  6
+
+Step 1: Push { → Stack: {
+Step 2: Push [ → Stack: { [
+Step 3: Push ( → Stack: { [ (
+Step 4: ) matches ( → Pop ( → Stack: { [
+Step 5: ] matches [ → Pop [ → Stack: {
+Step 6: } matches { → Pop { → Stack: EMPTY
+
+All matched → Valid ✓
+```
+- **Time Complexity :** `O(n)`
+- **Space Complexity :** `O(n)`
+
+
+### 46. Evaluate Reverse Polish Notation
+You are given an array of strings tokens that represents an arithmetic expression in a Reverse Polish Notation.
+
+The string is not null.
+
+```
+Example 1:
+Input: tokens = ["2","1","+","3","*"]
+Output: 9
+Explanation: ((2 + 1) * 3) = 9
+Example 2:
+Input: tokens = ["4","13","5","/","+"]
+Output: 6
+Explanation: (4 + (13 / 5)) = 6
+Example 3:
+Input: tokens = ["10","6","9","3","+","-11","*","/","*","17","+","5","+"]
+Output: 22
+
+```
+
+```csharp
+public static int EvalRPN(string[] tokens)
+{
+    var stack = new Stack<int>();
+    foreach (var token in tokens)
+    {
+        // if token is a number, push it onto the stack
+        if (int.TryParse(token, out int number))
+        {
+            stack.Push(number);
+        }
+        else
+        {
+            // token is an operator, pop two numbers from the stack
+            int b = stack.Pop();
+            int a = stack.Pop();
+            int result = token switch
+            {
+                "+" => a + b,
+                "-" => a - b,
+                "*" => a * b,
+                "/" => a / b,
+                _ => throw new InvalidOperationException("Invalid operator")
+            };
+            // push the result back onto the stack
+            stack.Push(result);
+        }
+    }
+    // return the final result
+    return stack.Pop();
+
+}
+
+```
+tokens = ["4", "13", "5", "/", "+"]
+1. Push 4 → Stack: [4]
+2. Push 13 → Stack: [4, 13]
+3. Push 5 → Stack: [4, 13, 5]
+4. "/" → Pop 5, Pop 13 → 13 / 5 = 2 → Push 2 → Stack: [4, 2]
+5. "+" → Pop 2, Pop 4 → 4 + 2 = 6 → Push 6 → Stack: [6]
+
+Return: 6 ✓
+```
+```
+- **Time Complexity :** `O(n)`
+- **Space Complexity :** `O(n)`
+
+### 47. Remove All Adjacent Duplicates In String
+You are given a string s consisting of lowercase English letters. A duplicate removal consists of choosing two adjacent and equal letters and removing them.
+We repeatedly make duplicate removals on s until we no longer can.
+Return the final string after all such duplicate removals have been made. It can be proven that the answer is unique.
+
+```
+Example 1:
+Input: s = "abbaca"
+Output: "ca"
+Explanation:
+For example, in "abbaca" we could remove "bb" since the letters are adjacent and equal, and this is the only possible move.  The result of this move is that the string is "aaca", of which only "aa" is possible, so the final string is "ca".
+
+```
+
+```csharp
+public static string RemoveDuplicates(string s)
+{
+    // Use a StringBuilder as a stack-like structure
+    var sb = new StringBuilder(s.Length);
+
+    foreach (char ch in s)
+    {
+        int lastIndex = sb.Length - 1;
+
+        if (lastIndex >= 0 && sb[lastIndex] == ch)
+        {
+            sb.Length--;  // pop last character
+        }
+        else
+        {
+            sb.Append(ch); // push
+        }
+    }
+
+    return sb.ToString();
+}
+
+```
+- **Time Complexity :** `O(n)`
+- **Space Complexity :** `O(n)`
+
+### 48. Find First and Last Position of an Element in Sorted Array
+
+```csharp
+public static List<int> FindFirstAndLastPositionOfAnElement(int[] sortedArray, int target)
+{
+    var result = new List<int> { -1, -1 };
+    int left = 0;
+    int right = sortedArray.Length - 1;
+    // Find the first occurrence
+    while (left <= right)
+    {
+        int mid = left + (right - left) / 2;
+        if (sortedArray[mid] >= target)
+        {
+            right = mid - 1;
+        }
+        else
+        {
+            left = mid + 1;
+        }
+    }
+    // Check if the target is not found
+    if (left >= sortedArray.Length || sortedArray[left] != target)
+    {
+        return result;
+    }
+    result[0] = left; // First occurrence
+    // Find the last occurrence
+    right = sortedArray.Length - 1; // Reset right pointer
+    while (left <= right)
+    {
+        int mid = left + (right - left) / 2;
+        if (sortedArray[mid] <= target)
+        {
+            left = mid + 1;
+        }
+        else
+        {
+            right = mid - 1;
+        }
+    }
+    result[1] = right; // Last occurrence
+    return result;
+}
+```
+
+```
+Array: [5, 7, 7, 8, 8, 10]
+Index:  0  1  2  3  4  5
+Target: 8
+
+First occurrence search:
+  Binary search for "first 8"
+  Finds index 3
+  Check: arr[3] = 8 ✓
+
+Last occurrence search:
+  Binary search for "last 8"
+  Starts from index 3
+  Finds index 4
+  Check: arr[4] = 8 ✓
+
+Result: [3, 4]
+```
+- **Time Complexity :** `O(log n)`
+    - First binary search: O(log n)
+    - Second binary search: O(log n)
+    - Total: O(2 log n) = O(log n)
+- **Space Complexity :** `O(1)`
+
+### 49. Search in Rotated Sorted Array
+There is an integer array nums sorted in ascending order (with distinct values).
+Prior to being passed to your function, nums is possibly left rotated at an unknown index k (1 <= k < nums.length) such that the resulting array is [nums[k], nums[k+1], ..., nums[n-1], nums[0], nums[1], ..., nums[k-1]] (0-indexed). For example, [0,1,2,4,5,6,7] might be left rotated by 3 indices and become [4,5,6,7,0,1,2].
+Given the array nums after the possible rotation and an integer target, return the index of target if it is in nums, or -1 if it is not in nums.
+You must write an algorithm with O(log n) runtime complexity.
+
+```
+Example 1:
+Input: nums = [4,5,6,7,0,1,2], target = 0
+Output: 4
+Example 2:
+Input: nums = [4,5,6,7,0,1,2], target = 3
+Output: -1
+Example 3:
+Input: nums = [1], target = 0
+Output: -1
+
+```
+
+```csharp
+public static int Search(int[] nums, int target)
+{
+    // rotacted array binary search
+    int left = 0;
+    int right = nums.Length - 1;
+    while (left <= right)
+    {
+        int mid = left + (right - left) / 2;
+        if (nums[mid] == target)
+        {
+            return mid;
+        }
+        // Left half is sorted
+        if (nums[left] <= nums[mid])
+        {
+            if (target >= nums[left] && target < nums[mid])
+            {
+                right = mid - 1;
+            }
+            else
+            {
+                left = mid + 1;
+            }
+        }
+        else
+        { // Right half is sorted
+            if (target > nums[mid] && target <= nums[right])
+            {
+                left = mid + 1;
+            }
+            else
+            {
+                right = mid - 1;
+            }
+        }
+    }
+    return -1;
+}
+
+```
+```
+Array: [4, 5, 6, 7, 0, 1, 2]
+Index:  0  1  2  3  4  5  6
+        ---------  ---------
+        Sorted     Sorted
+        left half  right half
+        (4-7)      (0-2)
+
+Target: 0
+
+Step 1: mid=3 (value 7)
+  Left half [4,5,6,7] is sorted
+  Target 0 not in [4,7] range → search right half
+
+Step 2: New range [4,5,6] → indices 4-6
+  mid=5 (value 1)
+  Left half [0,1] (indices 4-5) is sorted
+  Target 0 in [0,1] range → search left half
+
+Step 3: New range [4,4] → index 4
+  Found target 0 at index 4
+```
+- **Time Complexity :** `O(log n)`
+- **Space Complexity :** `O(1)`
+
+### 50. Find Minimum Element in Sorted Rotated Array
+Suppose an array of length n sorted in ascending order is rotated between 1 and n times. For example, the array nums = [0,1,2,4,5,6,7] might become:
+•	[4,5,6,7,0,1,2] if it was rotated 4 times.
+•	[0,1,2,4,5,6,7] if it was rotated 7 times.
+Notice that rotating an array [a[0], a[1], a[2], ..., a[n-1]] 1 time results in the array [a[n-1], a[0], a[1], a[2], ..., a[n-2]].
+Given the sorted rotated array nums of unique elements, return the minimum element of this array.
+You must write an algorithm that runs in O(log n) time.
+
+```
+Example 1:
+Input: nums = [3,4,5,1,2]
+Output: 1
+Explanation: The original array was [1,2,3,4,5] rotated 3 times.
+Example 2:
+Input: nums = [4,5,6,7,0,1,2]
+Output: 0
+Explanation: The original array was [0,1,2,4,5,6,7] and it was rotated 4 times.
+Example 3:
+Input: nums = [11,13,15,17]
+Output: 11
+Explanation: The original array was [11,13,15,17] and it was rotated 4 times.
+
+```
+
+```csharp
+public static int FindMin(int[] nums)
+{
+    int start = 0;
+    int end = nums.Length - 1;
+
+    while (start < end)
+    {
+        int mid = start + (end - start) / 2;
+
+        // Minimum is in the right half
+        if (nums[mid] > nums[end])
+        {
+            start = mid + 1;
+        }
+        // Minimum is in the left half (including mid)
+        else
+        {
+            end = mid;
+        }
+    }
+
+    return nums[start];
+}
+
+```
+
+```
+Array: [4, 5, 6, 7, 0, 1, 2]
+        ↑                 ↑
+       start=0           end=6
+       mid=3 → nums[3]=7 > nums[6]=2 → min in right → start=4
+
+New range: [4, 5, 6, 7, 0, 1, 2]
+                      ↑     ↑
+                    start=4 end=6
+                    mid=5 → nums[5]=1 ≤ nums[6]=2 → min in left → end=5
+
+New range: [4, 5, 6, 7, 0, 1, 2]
+                      ↑  ↑
+                    start=4 end=5
+                    mid=4 → nums[4]=0 ≤ nums[5]=1 → min in left → end=4
+
+Found: nums[4] = 0
+```
+- **Time Complexity :** `O(log n)`
 - **Space Complexity :** `O(1)`
