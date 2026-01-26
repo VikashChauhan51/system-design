@@ -7,7 +7,7 @@ Level 1: Number & Basic Operations (Foundation)
 ├── 3. Square root of a number
 └── 4. Sum of digits
 
-Level 2: Recursion (Optimization Strategy)
+Level 1: Recursion (Optimization Strategy)
 ├── 5. Factorial of a number
 ├── 6. Fibonacci Series
 ├── 7. Power of two numbers
@@ -17,14 +17,14 @@ Level 2: Recursion (Optimization Strategy)
 ├── 11. Geometric Sum
 └── 12. String to Integer
 
-Level 3: Backtracking (Explore & Constraint Satisfaction)
+Level 1: Backtracking (Explore & Constraint Satisfaction)
 ├── 13. Print all subsequence
 ├── 14. Print All Permutation of String
 ├── 15. Staircase
 ├── 16. Tower of Hanoi
 └── 17. Print Tower of Hanoi
 
-Level 4: Bit Manipulation (Advanced Optimization)
+Level 1: Bit Manipulation (Advanced Optimization)
 ├── 18. Count Number of 1 Bits
 ├── 19. Swap Two Numbers Without Temp
 ├── 20. Single Number (All appear twice except one)
@@ -34,13 +34,13 @@ Level 4: Bit Manipulation (Advanced Optimization)
 ├── 24. Minimum Bit Flips to Convert Number
 └── 25. Generate All Subsets
 
-Level 5: String Manipulation (Pattern Matching & Transformation)
+Level 1: String Manipulation (Pattern Matching & Transformation)
 ├── 26. Multiply two strings
 ├── 27. Reverse String
 ├── 28. Check for Anagrams
 └── 29. Length of Last Word
 
-Level 6: Array Operations (Collection Handling)
+Level 1: Array Operations (Collection Handling)
 ├── 30. Move Zeroes To End
 ├── 31. Duplicate Characters
 ├── 32. Contains Duplicate
@@ -215,7 +215,104 @@ Return: 30 ✓ (9+8+7+6=30)
 - **Time Complexity :** `O(log n)`
 - **Space Complexity :** `O(1)`
 
-## Level 2: Recursion (Optimization Strategy)
+### 5. String to Integer
+
+The input stringis not null or empty.
+```csharp
+public int StringToInt(string s)
+{
+    int result = 0;
+    for (int i = 0; i < s.Length; i++)
+    {
+        result = result * 10 + (s[i] - '0');
+    }
+    return result;
+}
+```
+
+```text
+"d₀d₁d₂...dₙ₋₁" = (((...((d₀×10 + d₁)×10 + d₂)×10 + ...)×10 + dₙ₋₂)×10 + dₙ₋₁
+
+input = "123"
+
+0×10 + 1 = 1
+1×10 + 2 = 12
+12×10 + 3 = 123
+```
+- **Time Complexity :** `O(n)`
+- **Space Complexity :** `O(1)`
+
+### 6. Geometric Sum
+
+```
+The algorithm computes: ∑_{k=0}^{n} (1/2ᵏ) = 1 + 1/2 + 1/4 + 1/8 + ... + 1/2ⁿ
+```
+
+```csharp
+public static double GeometricSum(int n)
+{
+    double sum = 1.0;  // 1/2⁰ = 1
+    double term = 1.0;
+
+    for (int i = 1; i <= n; i++)
+    {
+        term /= 2.0;  // Each term is half of previous
+        sum += term;
+    }
+    return sum;
+}
+```
+
+```text
+Initial:
+term = 1.0 = 1/2⁰
+sum = 1.0 = 1/2⁰
+
+i=1:
+term = 1.0/2 = 0.5 = 1/2¹
+sum = 1.0 + 0.5 = 1.5 = 1 + 1/2
+
+i=2:
+term = 0.5/2 = 0.25 = 1/2²
+sum = 1.5 + 0.25 = 1.75 = 1 + 1/2 + 1/4
+
+i=3:
+term = 0.25/2 = 0.125 = 1/2³
+sum = 1.75 + 0.125 = 1.875 = 1 + 1/2 + 1/4 + 1/8
+
+i=4:
+term = 0.125/2 = 0.0625 = 1/2⁴
+sum = 1.875 + 0.0625 = 1.9375 = 1 + 1/2 + 1/4 + 1/8 + 1/16
+```
+- **Time Complexity :** `O(n)`
+- **Space Complexity :** `O(1)`
+
+### 7. Count Zeroes
+
+```csharp
+public static int CountZeroes(int n)
+{
+    if (n <= 0) return 0;
+    int count = 0;
+    while (n > 0)
+    {
+        if (n % 10 == 0) count++;
+        n /= 10;
+    }
+    return count;
+}
+```
+
+```text
+n=101010, count=0
+Process digits: 0,1,0,1,0,1
+Zeros at positions: 1st, 3rd, 5th from right
+Result: 3 ✓
+```
+- **Time Complexity :** `O(log n)`
+- **Space Complexity :** `O(1)`
+
+## Level 1: Recursion (Optimization Strategy)
 ### 5. Factorial of a number
 
 The number is a positive number and greater than zero.
@@ -524,7 +621,7 @@ returns 12*10 + 3 = 123
     - Call stack depth: `d` (when going down one branch)
     - String operations create new strings: `O(d²)` total space
 
-## Level 3: Backtracking (Explore & Constraint Satisfaction)
+## Level 1: Backtracking (Explore & Constraint Satisfaction)
 
 ### 13. Print all subsequence
 
@@ -816,7 +913,180 @@ PrintTowerOfHanoiMoves(3, A, C, B)
 - **Space Complexity :** `O(n)`
     - Call stack depth: `n` (when going down one branch)
 
-## Level 4: Bit Manipulation (Advanced Optimization)
+
+### 36. Number to Text
+
+```csharp
+public class NumberToText
+{
+    private static string[] unitsMap = { "Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen" };
+    private static string[] tensMap = { "Zero", "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety" };
+
+    public static string ConvertNumberToText(int number)
+    {
+        if (number == 0)
+            return unitsMap[0];
+
+        if (number < 20)
+            return unitsMap[number];
+
+        if (number < 100)
+            return tensMap[number / 10] + ((number % 10 > 0) ? " " + ConvertNumberToText(number % 10) : "");
+
+        if (number < 1000)
+            return unitsMap[number / 100] + " Hundred" + ((number % 100 > 0) ? " " + ConvertNumberToText(number % 100) : "");
+
+        if (number < 100000)
+            return ConvertNumberToText(number / 1000) + " Thousand" + ((number % 1000 > 0) ? " " + ConvertNumberToText(number % 1000) : "");
+
+        return ConvertNumberToText(number / 100000) + " Lac" + ((number % 100000 > 0) ? " " + ConvertNumberToText(number % 100000) : "");
+    }
+}
+```
+
+```text
+ConvertNumberToText(123456)
+│
+├─ ConvertNumberToText(1) → "One"
+│
+└─ ConvertNumberToText(23456)
+   │
+   ├─ ConvertNumberToText(23)
+   │  │
+   │  ├─ tensMap[2] → "Twenty"
+   │  │
+   │  └─ ConvertNumberToText(3) → "Three"
+   │     Result: "Twenty Three"
+   │
+   └─ ConvertNumberToText(456)
+      │
+      ├─ ConvertNumberToText(4) → "Four"
+      │
+      └─ ConvertNumberToText(56)
+         │
+         ├─ tensMap[5] → "Fifty"
+         │
+         └─ ConvertNumberToText(6) → "Six"
+            Result: "Fifty Six"
+         Result: "Four Hundred Fifty Six"
+      Result: "Twenty Three Thousand Four Hundred Fifty Six"
+   Result: "One Lac Twenty Three Thousand Four Hundred Fifty Six"
+```
+- **Time Complexity :** `O(log n)`
+    - Each recursive call reduces the number by a factor (÷100000, ÷1000, ÷100, ÷10)
+    - Number of digits = d = ⌊log₁₀(n)⌋ + 1
+    - Maximum recursion depth ≈ number of digit groups = O(log n)
+- **Space Complexity :** `O(log n)`
+    - Call stack depth = O(log n) (number of digit groups)
+    - String concatenation creates new strings, but total length = O(log n)
+    - Arrays unitsMap and tensMap are constant size O(1)
+
+
+### 37. Flatten
+
+```csharp
+public static List<object> FlattenList(IEnumerable<object> nestedList)
+{
+    List<object> result = new List<object>();
+
+    foreach (var item in nestedList)
+    {
+        if (item is Array && !(item is string))
+        {
+            result.AddRange(FlattenList((IEnumerable<object>)item));
+        }
+        else
+        {
+            result.Add(item);
+        }
+    }
+
+    return result;
+}
+```
+
+```text
+FlattenList([1, [2,3], [4,[5,6]], 7]) (Level 0)
+│
+├─ item=1 → Add 1 → result=[1]
+│
+├─ item=[2,3] (Array)
+│  │
+│  └─ FlattenList([2,3]) (Level 1)
+│     │
+│     ├─ item=2 → Add 2 → result=[2]
+│     │
+│     └─ item=3 → Add 3 → result=[2,3]
+│        Return [2,3]
+│  AddRange([2,3]) → result=[1,2,3]
+│
+├─ item=[4,[5,6]] (Array)
+│  │
+│  └─ FlattenList([4,[5,6]]) (Level 1)
+│     │
+│     ├─ item=4 → Add 4 → result=[4]
+│     │
+│     └─ item=[5,6] (Array)
+│        │
+│        └─ FlattenList([5,6]) (Level 2)
+│           │
+│           ├─ item=5 → Add 5 → result=[5]
+│           │
+│           └─ item=6 → Add 6 → result=[5,6]
+│              Return [5,6]
+│        AddRange([5,6]) → result=[4,5,6]
+│     Return [4,5,6]
+│  AddRange([4,5,6]) → result=[1,2,3,4,5,6]
+│
+└─ item=7 → Add 7 → result=[1,2,3,4,5,6,7]
+   Return [1,2,3,4,5,6,7]
+```
+- **Time Complexity :** `O(n)`
+    - `n` = total number of elements across all levels
+- **Space Complexity :** `O(d)`
+    - Call stack depth = O(d) (number of digit groups)
+    - Additional `O(n)` space for result list
+
+### 38. House Robber
+You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security systems connected and it will automatically contact the police if two adjacent houses were broken into on the same night.
+
+Given an integer array nums representing the amount of money of each house, return the maximum amount of money you can rob tonight without alerting the police.
+
+```
+Example 1:
+Input: nums = [1,2,3,1]
+Output: 4
+Explanation: Rob house 1 (money = 1) and then rob house 3 (money = 3).
+Total amount you can rob = 1 + 3 = 4.
+Example 2:
+Input: nums = [2,7,9,3,1]
+Output: 12
+Explanation: Rob house 1 (money = 2), rob house 3 (money = 9) and rob house 5 (money = 1).
+Total amount you can rob = 2 + 9 + 1 = 12.
+
+```
+
+```csharp
+public static int Rob(int[] nums, int n)
+{
+    if (n < 0)
+    {
+        return 0;
+    }
+    int includeCurrent = nums[n] + Rob(nums, n - 2);
+    int excludeCurrent = Rob(nums, n - 1);
+    return Math.Max(includeCurrent, excludeCurrent);
+}
+
+```
+- **Time Complexity :** `O(2ⁿ)`
+    - Each call makes 2 recursive calls (n-1 and n-2)
+    - Forms binary tree with ≈ 2ⁿ nodes
+- **Space Complexity :** `O(d)`
+    - Call stack depth = O(d) (number of digit groups)
+
+
+## Level 1: Bit Manipulation (Advanced Optimization)
 ### 18. Count Number of 1 Bits
 
 The number is a positive number and greater than zero.
@@ -1099,7 +1369,7 @@ public static List<List<int>> GenerateSubsets(int[] nums)
 - **Time Complexity :** `O(n × 2ⁿ)`
 - **Space Complexity :** `O(n × 2ⁿ)`
 
-## Level 5: String Manipulation (Pattern Matching & Transformation)
+## Level 1: String Manipulation (Pattern Matching & Transformation)
 ### 26. Multiply two strings
 
 Both strings are not null and contains only positive numbers.
@@ -1321,7 +1591,7 @@ Result: 5 characters in last word
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(1)`
 
-## Level 6: Array Operations (Collection Handling)
+## Level 1: Array Operations (Collection Handling)
 ### 30. Move Zeroes To End
 
 The numbers are positive numbers.
