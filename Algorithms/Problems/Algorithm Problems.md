@@ -10,27 +10,43 @@ Level 1: Number & Basic Operations (Foundation)
 Level 2: Recursion (Optimization Strategy)
 ├── 5. Factorial of a number
 ├── 6. Fibonacci Series
-└── 7. Power of two numbers
+├── 7. Power of two numbers
+├── 8. Count digits recursively
+├── 9. Sum of digits recursively
+├── 10. Count Zeroes Recursively
+├── 11. Geometric Sum
+└── 12. String to Integer
 
-Level 3: Bit Manipulation (Advanced Optimization)
-├── 8. Count Number of 1 Bits
-├── 9. Swap Two Numbers Without Temp
-├── 10. Single Number (All appear twice except one)
-├── 11. Find Missing Number in Array
-├── 12. Add Two Numbers Without Arithmetic Operators
-├── 13. Power (Optimized with Bitwise)
-├── 14. Minimum Bit Flips to Convert Number
-└── 15. Generate All Subsets
+Level 3: Backtracking (Explore & Constraint Satisfaction)
+├── 13. Print all subsequence
+├── 14. Print All Permutation of String
+├── 15. Staircase
+├── 16. Tower of Hanoi
+└── 17. Print Tower of Hanoi
 
-Level 4: String Manipulation (Pattern Matching & Transformation)
-├── 16. Multiply two strings
-├── 17. Reverse String
-├── 18. Check for Anagrams
-└── 19. Length of Last Word
+Level 4: Bit Manipulation (Advanced Optimization)
+├── 18. Count Number of 1 Bits
+├── 19. Swap Two Numbers Without Temp
+├── 20. Single Number (All appear twice except one)
+├── 21. Find Missing Number in Array
+├── 22. Add Two Numbers Without Arithmetic Operators
+├── 23. Power (Optimized with Bitwise)
+├── 24. Minimum Bit Flips to Convert Number
+└── 25. Generate All Subsets
 
-Level 5: Array Operations (Collection Handling)
-├── 20. Move Zeroes To End
-└── Additional Problems (21-26)
+Level 5: String Manipulation (Pattern Matching & Transformation)
+├── 26. Multiply two strings
+├── 27. Reverse String
+├── 28. Check for Anagrams
+└── 29. Length of Last Word
+
+Level 6: Array Operations (Collection Handling)
+├── 30. Move Zeroes To End
+├── 31. Duplicate Characters
+├── 32. Contains Duplicate
+├── 33. Valid Palindrome
+├── 34. Fizz Buzz
+└── 35. Longest Common Prefix
 ```
 
 ---
@@ -321,8 +337,7 @@ Power(3, 4)
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(n)`
 
-
-### 26. Count digits recursively
+### 8. Count digits recursively
 
 ```csharp
 public static int CountDigits(int n)
@@ -361,7 +376,7 @@ CountDigits(1234) = 1 + CountDigits(123)
 - **Time Complexity :** `O(log n)`
 - **Space Complexity :** `O(log n)`
 
-### 27. Sum of digits recursively
+### 9. Sum of digits recursively
 
 ```csharp
 public static int SumOfDigits(int n)
@@ -396,7 +411,7 @@ returns 6 + 4 = 10
 - **Time Complexity :** `O(log n)`
 - **Space Complexity :** `O(log d)`
 
-### 28. Count Zeroes Recursively
+### 10. Count Zeroes Recursively
 
 ```csharp
 public static int CountZeroes(int n)
@@ -435,7 +450,7 @@ returns 3
 - **Time Complexity :** `O(log n)`
 - **Space Complexity :** `O(log d)`
 
-### 29. Geometric Sum
+### 11. Geometric Sum
 Given an integer n, we need to find the geometric sum of the following series using recursion.
 
 1 + 1/2 + 1/4 + 1/8 + ... + 1/(2n)
@@ -470,7 +485,48 @@ returns 1.75 + 0.125 = 1.875
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(d)`
 
-### 30. Print all subsequence
+### 12. String to Integer
+
+```csharp
+public int StringToInt(string s)
+{
+    // Base case
+    if (s.Length == 0)
+    {
+        return 0;
+    }
+
+    // Inductive Hypothesis
+    char lastChar = s[s.Length - 1];
+    string restOfString = s.Substring(0, s.Length - 1);
+    int smallResult = StringToInt(restOfString);
+
+    // Inductive Step
+    int lastDigit = lastChar - '0';
+    return smallResult * 10 + lastDigit;
+}
+
+```
+```text
+Call Stack (growing down):
+StringToInt("123") waiting, lastDigit=3
+  StringToInt("12") waiting, lastDigit=2
+    StringToInt("1") waiting, lastDigit=1
+      StringToInt("") → returns 0
+    returns 0*10 + 1 = 1
+  returns 1*10 + 2 = 12
+returns 12*10 + 3 = 123
+```
+- **Time Complexity :** `O(n²)`
+    - Recursive calls: `n+1` calls for string of length `n`
+    - Each call: `Substring(0, s.Length-1)` is `O(n)` operation
+- **Space Complexity :** `O(d²)`
+    - Call stack depth: `d` (when going down one branch)
+    - String operations create new strings: `O(d²)` total space
+
+## Level 3: Backtracking (Explore & Constraint Satisfaction)
+
+### 13. Print all subsequence
 
 ```csharp
 public void PrintAllSubsequence(string input, string output)
@@ -526,48 +582,7 @@ output:
     - Call stack depth: `d` (when going down one branch)
     - String operations create new strings: `O(d²)` total space
 
-###
-
-### 31. String to Integer
-
-```csharp
-public int StringToInt(string s)
-{
-    // Base case
-    if (s.Length == 0)
-    {
-        return 0;
-    }
-
-    // Inductive Hypothesis
-    char lastChar = s[s.Length - 1];
-    string restOfString = s.Substring(0, s.Length - 1);
-    int smallResult = StringToInt(restOfString);
-
-    // Inductive Step
-    int lastDigit = lastChar - '0';
-    return smallResult * 10 + lastDigit;
-}
-
-```
-```text
-Call Stack (growing down):
-StringToInt("123") waiting, lastDigit=3
-  StringToInt("12") waiting, lastDigit=2
-    StringToInt("1") waiting, lastDigit=1
-      StringToInt("") → returns 0
-    returns 0*10 + 1 = 1
-  returns 1*10 + 2 = 12
-returns 12*10 + 3 = 123
-```
-- **Time Complexity :** `O(n²)`
-    - Recursive calls: `n+1` calls for string of length `n`
-    - Each call: `Substring(0, s.Length-1)` is `O(n)` operation
-- **Space Complexity :** `O(d²)`
-    - Call stack depth: `d` (when going down one branch)
-    - String operations create new strings: `O(d²)` total space
-
-### 32. Print All Permutation of String
+### 14. Print All Permutation of String
 
 Given a string s, the task is to return all permutations of a given string in lexicographically sorted order.
 Note: A permutation is the rearrangement of all the elements of a string. Duplicate arrangement can exist.
@@ -637,7 +652,7 @@ Initial: ABC (index=0)
     - Call stack depth: `n` (when going down one branch)
     - Character array: `O(n)` modified in-place
 
-### 33. Staircase
+### 15. Staircase
 There are n stairs, and a person standing at the bottom wants to climb stairs to reach the top. The person can climb either 1 stair or 2 stairs at a time, the task is to count the number of ways that a person can reach at the top.
 
 ```
@@ -695,7 +710,7 @@ ClimbStairs(6)
     - Call stack depth: `n` (when going down one branch)
 
 
-### 34. Tower of Hanoi
+### 16. Tower of Hanoi
 
 Recursively calculates the minimum moves to solve Tower of Hanoi with n disks using the recurrence relation: `T(n) = 2×T(n-1) + 1`.
 
@@ -730,7 +745,7 @@ returns 2×3+1 = 7
     - Call stack depth: `n` (when going down one branch)
 
 
-### 35. Print  Tower of Hanoi
+### 17. Print  Tower of Hanoi
 
 Tower of Hanoi is a mathematical puzzle where we have three rods (A, B, and C) and N disks. Initially, all the disks are stacked in decreasing value of diameter i.e., the smallest disk is placed on the top and they are on rod A. The objective of the puzzle is to move the entire stack to another rod (here considered C), obeying the following simple rules:
 - Only one disk can be moved at a time.
@@ -801,8 +816,8 @@ PrintTowerOfHanoiMoves(3, A, C, B)
 - **Space Complexity :** `O(n)`
     - Call stack depth: `n` (when going down one branch)
 
-## Level 3: Bit Manipulation (Advanced Optimization)
-### 8. Count Number of 1 Bits
+## Level 4: Bit Manipulation (Advanced Optimization)
+### 18. Count Number of 1 Bits
 
 The number is a positive number and greater than zero.
 
@@ -831,7 +846,7 @@ Return: 3
 - **Time Complexity :** `O(log n)`
 - **Space Complexity :** `O(1)`
 
-### 9. Swap Two Numbers Without Temp
+### 19. Swap Two Numbers Without Temp
 
 Both numbers are positive number and greater than zero.
 
@@ -857,7 +872,7 @@ Final:   a = 3, b = 5  ✓ Swapped!
 - **Time Complexity :** `O(1)`
 - **Space Complexity :** `O(1)`
 
-### 10. Single Number (All appear twice except one)
+### 20. Single Number (All appear twice except one)
 
 The numbers are positive numbers.
 
@@ -884,7 +899,7 @@ public static int SingleNumber(int[] nums)
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(1)`
 
-### 11. Find Missing Number in Array
+### 21. Find Missing Number in Array
 
 Array of size `n` containing numbers from `0` to `n`, one missing.
 
@@ -925,7 +940,7 @@ What remains? 2 (only in range, not in array)
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(1)`
 
-### 12. Add Two Numbers Without Arithmetic Operators
+### 22. Add Two Numbers Without Arithmetic Operators
 
 Both numbers are positive number and greater than zero.
 
@@ -963,7 +978,7 @@ Final    | 1000 (8)   | 0000 (0)   |       |       |
 - **Time Complexity :** `O(log n)`
 - **Space Complexity :** `O(1)`
 
-### 13. Power (Optimized with Bitwise)
+### 23. Power (Optimized with Bitwise)
 
 Both numbers are positive number and greater than zero.
 
@@ -1003,7 +1018,7 @@ public static int PowerOptimized(int x, int n)
 - **Time Complexity :** `O(log n)`
 - **Space Complexity :** `O(1)`
 
-### 14. Minimum Bit Flips to Convert Number
+### 24. Minimum Bit Flips to Convert Number
 
 The number is a positive number and greater than zero.
 
@@ -1041,7 +1056,7 @@ Result: 3 bit flips needed
 - **Time Complexity :** `O(log n)`
 - **Space Complexity :** `O(1)`
 
-### 15. Generate All Subsets
+### 25. Generate All Subsets
 
 ```csharp
 public static List<List<int>> GenerateSubsets(int[] nums)
@@ -1084,8 +1099,8 @@ public static List<List<int>> GenerateSubsets(int[] nums)
 - **Time Complexity :** `O(n × 2ⁿ)`
 - **Space Complexity :** `O(n × 2ⁿ)`
 
-## Level 4: String Manipulation (Pattern Matching & Transformation)
-### 16. Multiply two strings
+## Level 5: String Manipulation (Pattern Matching & Transformation)
+### 26. Multiply two strings
 
 Both strings are not null and contains only positive numbers.
 
@@ -1173,7 +1188,7 @@ ITERATION MAP:
 - **Time Complexity :** `O(m*n)`
 - **Space Complexity :** `O(m+n)`
 
-### 17. Reverse String
+### 27. Reverse String
 
 The string is not null.
 
@@ -1213,7 +1228,7 @@ Final:   o  l  l  e  h
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(n)`
 
-### 18. Check for Anagrams
+### 28. Check for Anagrams
 
 An anagram of a string is another string that contains the same characters, only the order of characters can be different.
 
@@ -1259,7 +1274,7 @@ Check:    n✓ a✓ g✓ a✓ r✓ a✓ m✓ → All good!
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(1)`
 
-### 19. Length of Last Word
+### 29. Length of Last Word
 
 The string is not null.
 
@@ -1306,8 +1321,8 @@ Result: 5 characters in last word
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(1)`
 
-## Level 5: Array Operations (Collection Handling)
-### 20. Move Zeroes To End
+## Level 6: Array Operations (Collection Handling)
+### 30. Move Zeroes To End
 
 The numbers are positive numbers.
 
@@ -1352,7 +1367,7 @@ Final: [4, 2, 1, 3, 0, 0, 0]
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(1)`
 
-### 21. Duplicate Characters
+### 31. Duplicate Characters
 
 The string is not null.
 
@@ -1394,7 +1409,7 @@ Step 3: Collect in original order
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(1)`
 
-### 22. Contains Duplicate
+### 32. Contains Duplicate
 
 The array is not null. Please complete with `O(1)` space complexity.
 
@@ -1432,7 +1447,7 @@ Comparisons made:
 - **Time Complexity :** `O(n²)`
 - **Space Complexity :** `O(1)`
 
-### 23. Valid Palindrome
+### 33. Valid Palindrome
 
 The string is not null.
 
@@ -1474,7 +1489,7 @@ String:  r a c e c a r
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(1)`
 
-### 24. Fizz Buzz
+### 34. Fizz Buzz
 
 Given an integer `n`, return a string array answer (1-indexed) where:
 - answer[i] == "FizzBuzz" if i is divisible by 3 and 5.
@@ -1517,7 +1532,7 @@ n = 15
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(n)`
 
-### 25. Longest Common Prefix
+### 35. Longest Common Prefix
 
 The string is not null.
 
