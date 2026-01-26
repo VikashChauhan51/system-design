@@ -1,14 +1,51 @@
 # Algorithm Problems
 
+```
+Level 1: Number & Basic Operations (Foundation)
+├── 1. Mod a number without `%` operator
+├── 2. Divide numbers without `/` operator
+├── 3. Square root of a number
+└── 4. Sum of digits
+
+Level 2: Recursion (Optimization Strategy)
+├── 5. Factorial of a number
+├── 6. Fibonacci Series
+└── 7. Power of two numbers
+
+Level 3: Bit Manipulation (Advanced Optimization)
+├── 8. Count Number of 1 Bits
+├── 9. Swap Two Numbers Without Temp
+├── 10. Single Number (All appear twice except one)
+├── 11. Find Missing Number in Array
+├── 12. Add Two Numbers Without Arithmetic Operators
+├── 13. Power (Optimized with Bitwise)
+├── 14. Minimum Bit Flips to Convert Number
+└── 15. Generate All Subsets
+
+Level 4: String Manipulation (Pattern Matching & Transformation)
+├── 16. Multiply two strings
+├── 17. Reverse String
+├── 18. Check for Anagrams
+└── 19. Length of Last Word
+
+Level 5: Array Operations (Collection Handling)
+├── 20. Move Zeroes To End
+└── Additional Problems (21-26)
+```
+
+---
+
+## Level 1: Number & Basic Operations (Foundation)
+
 > `Brute force technique`
-## 1. Mod a number without `%` operator
+
+### 1. Mod a number without `%` operator
 
 Both numbers are positive number and greater than zero.
 Also number within the integer range so there is no overflow.
 
 ```csharp
-
-public static int Mod( int a, int b)
+public static int Mod(int a, int b)
 {
     // Both numbers are positive number and greater than zero.
     // Example: a = 5, b = 3
@@ -51,12 +88,13 @@ public static int Mod( int a, int b)
 - **Time Complexity :** `O(1)`
 - **Space Complexity :** `O(1)`
 
-## 2. Divide numbers without `/` operator
+### 2. Divide numbers without `/` operator
+
 Both numbers are positive number and greater than zero.
 Also number within the integer range so there is no overflow.
 
 ```csharp
-public static int Divide( int a, int b)
+public static int Divide(int a, int b)
 {
     // Both numbers are positive number and greater than zero.
     // Example: a = 5, b = 3
@@ -88,58 +126,14 @@ Divide(10, 3)
 - **Time Complexity :** `O(a/b)`
 - **Space Complexity :** `O(1)`
 
-## 3. Power of two numbers
-Both numbers are positive number and greater than zero.
-Also number within the integer range so there is no overflow/ stack overflow.
+### 3. Square root of a number
+
+The number is a positive number and greater than zero.
 
 ```csharp
-
-public static int Power(int a, int n)
+public static int Sqrt(int n)
 {
-    // Both numbers are positive number and greater than zero.
-    // Handle edge cases
-    if (n < 0)
-    {
-        // Exponent must be non-negative
-        return -1;
-    }
-
-    // Base case
-    if (n == 0)
-    {
-        return 1;
-    }
-
-    // Recursive case
-    int remainingProblem = Power(a, n - 1);
-
-    // Combine solutions
-    return a * remainingProblem;
-}
-```
-```text
-Power(3, 4)
-  → Power(3, 3)
-    → Power(3, 2)
-      → Power(3, 1)
-        → Power(3, 0)  // Base case
-        ← returns 1
-      ← returns 3 * 1 = 3
-    ← returns 3 * 3 = 9
-  ← returns 3 * 9 = 27
-← returns 3 * 27 = 81
-```
-- **Time Complexity :** `O(n)`
-- **Space Complexity :** `O(n)`
-
-## 4. Square root of a number
-
-The number is a  positive number and greater than zero.
-
-```csharp
-public static int Sqrt( int n)
-{
-    // The number is a  positive number and greater than zero.
+    // The number is a positive number and greater than zero.
     if (n == 0)
     {
         return 0;
@@ -152,7 +146,6 @@ public static int Sqrt( int n)
     }
 
     return i - 1;  // Floor sqrt
-
 }
 ```
 
@@ -175,7 +168,8 @@ return i-1 = 6-1 = 5 ✅
 - **Time Complexity :** `O(√n)`
 - **Space Complexity :** `O(1)`
 
-## 5. Sum of digits
+### 4. Sum of digits
+
 The number is a positive number and greater than zero.
 
 ```csharp
@@ -183,11 +177,11 @@ public static int SumOfDigits(int num)
 {
     // The number is a positive number and greater than zero.
     int sum = 0;
-    while( num > 0)
+    while(num > 0)
     {
-        int reminder = num %10;
+        int reminder = num % 10;
         sum += reminder;
-        num = num/10;
+        num = num / 10;
     }
 
     return sum;
@@ -205,7 +199,9 @@ Return: 30 ✓ (9+8+7+6=30)
 - **Time Complexity :** `O(log n)`
 - **Space Complexity :** `O(1)`
 
-## 6. Factorial of a number
+## Level 2: Recursion (Optimization Strategy)
+### 5. Factorial of a number
+
 The number is a positive number and greater than zero.
 
 ```csharp
@@ -236,7 +232,8 @@ FactorialRecursive(5)
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(n)`
 
-## 7. Fibonacci Series
+### 6. Fibonacci Series
+
 The number is a positive number and greater than zero.
 
 ```csharp
@@ -280,12 +277,819 @@ Fib(5) = Fib(4) + Fib(3) = 3 + 2 = 5
 - **Time Complexity :** `O(2ⁿ)`
 - **Space Complexity :** `O(n)`
 
+### 7. Power of two numbers
 
-## 8. Multiply two strings
-Both strings are not null and contains only positive numbers.
+Both numbers are positive number and greater than zero.
+Also number within the integer range so there is no overflow/ stack overflow.
+
+```csharp
+public static int Power(int a, int n)
+{
+    // Both numbers are positive number and greater than zero.
+    // Handle edge cases
+    if (n < 0)
+    {
+        // Exponent must be non-negative
+        return -1;
+    }
+
+    // Base case
+    if (n == 0)
+    {
+        return 1;
+    }
+
+    // Recursive case
+    int remainingProblem = Power(a, n - 1);
+
+    // Combine solutions
+    return a * remainingProblem;
+}
+```
+```text
+Power(3, 4)
+  → Power(3, 3)
+    → Power(3, 2)
+      → Power(3, 1)
+        → Power(3, 0)  // Base case
+        ← returns 1
+      ← returns 3 * 1 = 3
+    ← returns 3 * 3 = 9
+  ← returns 3 * 9 = 27
+← returns 3 * 27 = 81
+```
+- **Time Complexity :** `O(n)`
+- **Space Complexity :** `O(n)`
+
+
+### 26. Count digits recursively
+
+```csharp
+public static int CountDigits(int n)
+{
+    if (n <= 0)
+    {
+        return 0;
+    }
+
+    return 1 + CountDigits(n / 10);
+}
+```
+
+```text
+Call Stack (growing down):
+CountDigits(1234)      → waiting for result
+  CountDigits(123)     → waiting for result
+    CountDigits(12)    → waiting for result
+      CountDigits(1)   → waiting for result
+        CountDigits(0) → returns 0
+      returns 1 + 0 = 1
+    returns 1 + 1 = 2
+  returns 1 + 2 = 3
+returns 1 + 3 = 4
+
+CountDigits(1234) = 1 + CountDigits(123)
+                  = 1 + (1 + CountDigits(12))
+                  = 1 + (1 + (1 + CountDigits(1)))
+                  = 1 + (1 + (1 + (1 + CountDigits(0))))
+                  = 1 + (1 + (1 + (1 + 0)))
+                  = 1 + (1 + (1 + 1))
+                  = 1 + (1 + 2)
+                  = 1 + 3
+                  = 4
+```
+- **Time Complexity :** `O(log n)`
+- **Space Complexity :** `O(log n)`
+
+### 27. Sum of digits recursively
+
+```csharp
+public static int SumOfDigits(int n)
+{
+    // Base cases
+    if (n <= 0)
+    {
+        return 0;
+    }
+
+    // Inductive Hypothesis
+    int smallResult = SumOfDigits(n / 10);
+
+    // Inductive Step
+    int lastDigit = n % 10;
+    return smallResult + lastDigit;
+}
+```
+
+```text
+Call Stack (growing down):
+SumOfDigits(1234) waiting, lastDigit=4
+  SumOfDigits(123) waiting, lastDigit=3
+    SumOfDigits(12) waiting, lastDigit=2
+      SumOfDigits(1) waiting, lastDigit=1
+        SumOfDigits(0) → returns 0
+      returns 0 + 1 = 1
+    returns 1 + 2 = 3
+  returns 3 + 3 = 6
+returns 6 + 4 = 10
+```
+- **Time Complexity :** `O(log n)`
+- **Space Complexity :** `O(log d)`
+
+### 28. Count Zeroes Recursively
+
+```csharp
+public static int CountZeroes(int n)
+{
+    if (n <= 0)
+    {
+        return 0;
+    }
+
+    int smallResult = CountZeroes(n / 10);
+    int lastDigit = n % 10;
+    if (lastDigit == 0)
+    {
+        return smallResult + 1;
+    }
+    return smallResult;
+}
+```
+
+```text
+Call Stack (growing down):
+CountZeroes(100304) waiting, lastDigit=4≠0
+  CountZeroes(10030) waiting, lastDigit=0=0
+    CountZeroes(1003) waiting, lastDigit=3≠0
+      CountZeroes(100) waiting, lastDigit=0=0
+        CountZeroes(10) waiting, lastDigit=0=0
+          CountZeroes(1) waiting, lastDigit=1≠0
+            CountZeroes(0) → returns 0
+          returns 0
+        returns 0 + 1 = 1
+      returns 1 + 1 = 2
+    returns 2
+  returns 2 + 1 = 3
+returns 3
+```
+- **Time Complexity :** `O(log n)`
+- **Space Complexity :** `O(log d)`
+
+### 29. Geometric Sum
+Given an integer n, we need to find the geometric sum of the following series using recursion.
+
+1 + 1/2 + 1/4 + 1/8 + ... + 1/(2n)
+
+```csharp
+public static double GeometricSum(int n)
+{
+    // Base case
+    if (n == 0)
+    {
+        return 1;
+    }
+
+    // Inductive Hypothesis
+    double smallResult = GeometricSum(n -1);
+
+    //Inductive Step
+    return smallResult + (1.0 / Math.Pow(2, n));
+}
+```
+
+```text
+Call Stack (growing down):
+GeometricSum(3) waiting, will add 1/2³
+  GeometricSum(2) waiting, will add 1/2²
+    GeometricSum(1) waiting, will add 1/2¹
+      GeometricSum(0) → returns 1.0
+    returns 1.0 + 0.5 = 1.5
+  returns 1.5 + 0.25 = 1.75
+returns 1.75 + 0.125 = 1.875
+```
+- **Time Complexity :** `O(n)`
+- **Space Complexity :** `O(d)`
+
+### 30. Print all subsequence
+
+```csharp
+public void PrintAllSubsequence(string input, string output)
+{
+    // Base case
+    if (input.Length == 0)
+    {
+        Console.WriteLine(output);
+        return;
+    }
+
+    // Inductive Hypothesis
+    char firstChar = input[0];
+    string restOfString = input.Substring(1);
+    // Inductive Step
+    // Include the first character
+    PrintAllSubsequence(restOfString, output + firstChar);
+    // Exclude the first character
+    PrintAllSubsequence(restOfString, output);
+}
+```
+
+```text
+
+                      Print("abc", "")
+                           /        \
+                          /          \
+              Include 'a'            Exclude 'a'
+            Print("bc", "a")        Print("bc", "")
+                /    \                  /    \
+               /      \                /      \
+       Include 'b'  Exclude 'b'  Include 'b'  Exclude 'b'
+   Print("c","ab") Print("c","a") Print("c","b") Print("c","")
+        /    \         /    \         /    \         /    \
+       /      \       /      \       /      \       /      \
+   Inc 'c'  Exc 'c' Inc 'c' Exc 'c' Inc 'c' Exc 'c' Inc 'c' Exc 'c'
+   "abc"    "ab"    "ac"    "a"     "bc"    "b"     "c"     ""
+
+output:
+"abc"
+"ab"
+"ac"
+"a"
+"bc"
+"b"
+"c"
+""
+```
+- **Time Complexity :** `O(n × 2ⁿ)`
+    - Total recursive calls: `2ⁿ⁺¹ - 1`
+    - Each call: `O(n)` for Substring(1) operation
+- **Space Complexity :** `O(d²)`
+    - Call stack depth: `d` (when going down one branch)
+    - String operations create new strings: `O(d²)` total space
+
+###
+
+### 31. String to Integer
+
+```csharp
+public int StringToInt(string s)
+{
+    // Base case
+    if (s.Length == 0)
+    {
+        return 0;
+    }
+
+    // Inductive Hypothesis
+    char lastChar = s[s.Length - 1];
+    string restOfString = s.Substring(0, s.Length - 1);
+    int smallResult = StringToInt(restOfString);
+
+    // Inductive Step
+    int lastDigit = lastChar - '0';
+    return smallResult * 10 + lastDigit;
+}
+
+```
+```text
+Call Stack (growing down):
+StringToInt("123") waiting, lastDigit=3
+  StringToInt("12") waiting, lastDigit=2
+    StringToInt("1") waiting, lastDigit=1
+      StringToInt("") → returns 0
+    returns 0*10 + 1 = 1
+  returns 1*10 + 2 = 12
+returns 12*10 + 3 = 123
+```
+- **Time Complexity :** `O(n²)`
+    - Recursive calls: `n+1` calls for string of length `n`
+    - Each call: `Substring(0, s.Length-1)` is `O(n)` operation
+- **Space Complexity :** `O(d²)`
+    - Call stack depth: `d` (when going down one branch)
+    - String operations create new strings: `O(d²)` total space
+
+### 32. Print All Permutation of String
+
+Given a string s, the task is to return all permutations of a given string in lexicographically sorted order.
+Note: A permutation is the rearrangement of all the elements of a string. Duplicate arrangement can exist.
+
+```
+Examples:
+Input: s = "ABC"
+Output: "ABC", "ACB", "BAC", "BCA", "CAB", "CBA"
+Input: s = "XY"
+Output: "XY", "YX"
+Input: s = "AAA"
+Output: "AAA", "AAA", "AAA", "AAA", "AAA", "AAA"
+```
+```csharp
+public static void PrintAllPermutationOfString(char[] str, int index)
+{
+    // Base case
+    if (index >= str.Length - 1 || str.Length == 0)
+    {
+        Console.WriteLine(new string(str));
+        return;
+    }
+
+    // Inductive Hypothesis and Inductive Step
+    for(int i = index; i < str.Length; i++)
+    {
+        // Swap the current index with the loop index
+        char temp = str[index];
+        str[index] = str[i];
+        str[i] = temp;
+        // Recurse for the next index
+        PrintAllPermutationOfString(str, index + 1);
+        // Backtrack: Swap back to the original configuration
+        temp = str[index];
+        str[index] = str[i];
+        str[i] = temp;
+    }
+}
+
+```
+```text
+Initial: ABC (index=0)
+    │
+    ├─ i=0: ABC → ABC (index=1)
+    │        │
+    │        ├─ i=1: ABC → ABC (index=2) → Print ABC
+    │        │
+    │        └─ i=2: ABC → ACB (index=2) → Print ACB
+    │
+    ├─ i=1: ABC → BAC (index=1)
+    │        │
+    │        ├─ i=1: BAC → BAC (index=2) → Print BAC
+    │        │
+    │        └─ i=2: BAC → BCA (index=2) → Print BCA
+    │
+    └─ i=2: ABC → CBA (index=1)
+             │
+             ├─ i=1: CBA → CBA (index=2) → Print CBA
+             │
+             └─ i=2: CBA → CAB (index=2) → Print CAB
+```
+- **Time Complexity :** `O(n × n!)`
+    - Total permutations: `n!`
+    - Each permutation: `O(n)` to print/construct string
+    - Each permutation also requires `O(n)` swaps along the path
+- **Space Complexity :** `O(n)`
+    - Call stack depth: `n` (when going down one branch)
+    - Character array: `O(n)` modified in-place
+
+### 33. Staircase
+There are n stairs, and a person standing at the bottom wants to climb stairs to reach the top. The person can climb either 1 stair or 2 stairs at a time, the task is to count the number of ways that a person can reach at the top.
+
+```
+Examples:
+Input: n = 1
+Output: 1
+Explanation: There is only one way to climb 1 stair.
+Input: n = 2
+Output: 2
+Explanation: There are two ways to reach 2th stair: {1, 1} and {2}.
+Input: n = 4
+Output: 5
+Explanation: There are five ways to reach 4th stair: {1, 1, 1, 1}, {1, 1, 2}, {2, 1, 1}, {1, 2, 1} and {2, 2}.
+
+```
 
 ```csharp
 
+public int ClimbStairs(int n)
+{
+    // Base case
+    if (n == 0 || n == 1)
+    {
+        return 1;
+    }
+
+    if (n == 2)
+    {
+        return 2;
+    }
+
+    //Inductive Hypothesis
+    int waysFromNMinus1 = ClimbStairs(n - 1);
+    int waysFromNMinus2 = ClimbStairs(n - 2);
+    //Inductive Step
+    return waysFromNMinus1 + waysFromNMinus2;
+}
+
+```
+
+```text
+ClimbStairs(6)
+├─ ClimbStairs(5)  // Calculates ClimbStairs(4), ClimbStairs(3), etc.
+│  ├─ ClimbStairs(4)  // Calculates ClimbStairs(3), ClimbStairs(2)
+│  └─ ClimbStairs(3)  // Calculates ClimbStairs(2), ClimbStairs(1)
+└─ ClimbStairs(4)  // **DUPLICATE!** Calculates same as above
+   ├─ ClimbStairs(3)  // **DUPLICATE!**
+   └─ ClimbStairs(2)  // **DUPLICATE!**
+```
+- **Time Complexity :** `O(2ⁿ)`
+    - Each call makes 2 recursive calls (n-1 and n-2)
+    - Forms a binary tree of depth ≈ n
+    - Total nodes ≈ 2ⁿ (exponential growth)
+- **Space Complexity :** `O(n)`
+    - Call stack depth: `n` (when going down one branch)
+
+
+### 34. Tower of Hanoi
+
+Recursively calculates the minimum moves to solve Tower of Hanoi with n disks using the recurrence relation: `T(n) = 2×T(n-1) + 1`.
+
+```csharp
+public static int TowerOfHanoi(int n)
+{
+    // Base case
+    if (n == 0)
+    {
+        return 0;
+    }
+    //Inductive Hypothesis
+    int smallResult = TowerOfHanoi(n - 1);
+    //Inductive Step
+    return 2 * smallResult + 1;
+}
+```
+
+```text
+Call Stack (growing down):
+TowerOfHanoi(3) waiting, will compute 2×?+1
+  TowerOfHanoi(2) waiting, will compute 2×?+1
+    TowerOfHanoi(1) waiting, will compute 2×?+1
+      TowerOfHanoi(0) → returns 0
+    returns 2×0+1 = 1
+  returns 2×1+1 = 3
+returns 2×3+1 = 7
+```
+- **Time Complexity :** `O(n)`
+    - `n` recursive calls
+- **Space Complexity :** `O(n)`
+    - Call stack depth: `n` (when going down one branch)
+
+
+### 35. Print  Tower of Hanoi
+
+Tower of Hanoi is a mathematical puzzle where we have three rods (A, B, and C) and N disks. Initially, all the disks are stacked in decreasing value of diameter i.e., the smallest disk is placed on the top and they are on rod A. The objective of the puzzle is to move the entire stack to another rod (here considered C), obeying the following simple rules:
+- Only one disk can be moved at a time.
+- Each move consists of taking the upper disk from one of the stacks and placing it on top of another stack i.e. a disk can only be moved if it is the uppermost disk on a stack.
+- No disk may be placed on top of a smaller disk.
+
+```
+Examples:
+Input: 2
+Output: Disk 1 moved from A to B
+Disk 2 moved from A to C
+Disk 1 moved from B to C
+Input: 3
+Output: Disk 1 moved from A to C
+Disk 2 moved from A to B
+Disk 1 moved from C to B
+Disk 3 moved from A to C
+Disk 1 moved from B to A
+Disk 2 moved from B to C
+Disk 1 moved from A to C
+
+```
+```csharp
+public void PrintTowerOfHanoiMoves(int n, char source, char destination, char auxiliary)
+{
+    // Base case
+    if (n == 0)
+    {
+        return;
+    }
+    //Inductive Hypothesis and Inductive Step
+    // Move n-1 disks from source to auxiliary
+    PrintTowerOfHanoiMoves(n - 1, source, auxiliary, destination);
+    // Move the nth disk from source to destination
+    Console.WriteLine($"Move disk {n} from {source} to {destination}");
+    // Move n-1 disks from auxiliary to destination
+    PrintTowerOfHanoiMoves(n - 1, auxiliary, destination, source);
+}
+```
+
+```text
+PrintTowerOfHanoiMoves(3, A, C, B)
+│
+├─ PrintTowerOfHanoiMoves(2, A, B, C)
+│  │
+│  ├─ PrintTowerOfHanoiMoves(1, A, C, B)
+│  │  └─ Print: "Move disk 1 from A to C" (1)
+│  │
+│  ├─ Print: "Move disk 2 from A to B" (2)
+│  │
+│  └─ PrintTowerOfHanoiMoves(1, C, B, A)
+│     └─ Print: "Move disk 1 from C to B" (3)
+│
+├─ Print: "Move disk 3 from A to C" (4)
+│
+└─ PrintTowerOfHanoiMoves(2, B, C, A)
+   │
+   ├─ PrintTowerOfHanoiMoves(1, B, A, C)
+   │  └─ Print: "Move disk 1 from B to A" (5)
+   │
+   ├─ Print: "Move disk 2 from B to C" (6)
+   │
+   └─ PrintTowerOfHanoiMoves(1, A, C, B)
+      └─ Print: "Move disk 1 from A to C" (7)
+```
+- **Time Complexity :** `O(2ⁿ)`
+    - Recurrence: `T(n) = 2×T(n-1) + 1`
+- **Space Complexity :** `O(n)`
+    - Call stack depth: `n` (when going down one branch)
+
+## Level 3: Bit Manipulation (Advanced Optimization)
+### 8. Count Number of 1 Bits
+
+The number is a positive number and greater than zero.
+
+```csharp
+public static int CountBits(int n)
+{
+    int count = 0;
+    while(n > 0)
+    {
+        count += n & 1;
+        n = n >> 1;
+    }
+    return count;
+}
+```
+```text
+n = 13 (1101)
+     ↓
+Iteration 1: Check 1✓ → count=1, n=6(110)
+Iteration 2: Check 0✗ → count=1, n=3(11)
+Iteration 3: Check 1✓ → count=2, n=1(1)
+Iteration 4: Check 1✓ → count=3, n=0
+
+Return: 3
+```
+- **Time Complexity :** `O(log n)`
+- **Space Complexity :** `O(1)`
+
+### 9. Swap Two Numbers Without Temp
+
+Both numbers are positive number and greater than zero.
+
+```csharp
+public static void Swap(ref int a, ref int b)
+{
+    a = a ^ b;  // a now holds a XOR b
+    b = a ^ b;  // b becomes original a
+    a = a ^ b;  // a becomes original b
+}
+```
+```text
+Initial:   a = 5, b = 3
+        ↓
+Step 1: a = 5⊕3 = 6, b = 3
+        ↓
+Step 2: a = 6, b = 6⊕3 = 5
+        ↓
+Step 3: a = 6⊕5 = 3, b = 5
+        ↓
+Final:   a = 3, b = 5  ✓ Swapped!
+```
+- **Time Complexity :** `O(1)`
+- **Space Complexity :** `O(1)`
+
+### 10. Single Number (All appear twice except one)
+
+The numbers are positive numbers.
+
+```csharp
+public static int SingleNumber(int[] nums)
+{
+    int result = 0;
+    for (int num : nums)
+    {
+        result ^= num;
+    }
+    return result;
+}
+```
+```text
+[4, 1, 2, 1, 2]
+ │  │  │  │  │
+ ├──┼──┼──┼──┘
+ │  │  │  └── Pair cancels (1⊕1=0)
+ │  │  └───── Pair cancels (2⊕2=0)
+ │  └──────── Single remains: 4
+ └───────────
+```
+- **Time Complexity :** `O(n)`
+- **Space Complexity :** `O(1)`
+
+### 11. Find Missing Number in Array
+
+Array of size `n` containing numbers from `0` to `n`, one missing.
+
+```csharp
+public static int MissingNumber(int[] nums)
+{
+    int n = nums.Length;
+    int xor = 0;
+     // XOR all array elements
+    for (int i = 0; i < nums.Length; i++)
+    {
+        xor ^= nums[i];
+    }
+
+    // XOR all numbers from 0 to n
+    for (int i = 0; i <= nums.Length; i++)
+    {
+        xor ^= i;
+    }
+
+    return xor;  // Missing number
+}
+```
+```text
+input: [3, 0, 1]
+Array XOR:   3 ⊕ 0 ⊕ 1 = ?
+Range XOR:   0 ⊕ 1 ⊕ 2 ⊕ 3 = ?
+
+Combine: (3 ⊕ 0 ⊕ 1) ⊕ (0 ⊕ 1 ⊕ 2 ⊕ 3)
+
+Cancel pairs:
+   3's cancel: (3 from array) ⊕ (3 from range) = 0
+   0's cancel: (0 from array) ⊕ (0 from range) = 0
+   1's cancel: (1 from array) ⊕ (1 from range) = 0
+
+What remains? 2 (only in range, not in array)
+```
+- **Time Complexity :** `O(n)`
+- **Space Complexity :** `O(1)`
+
+### 12. Add Two Numbers Without Arithmetic Operators
+
+Both numbers are positive number and greater than zero.
+
+```csharp
+public static int Add(int a, int b)
+{
+    while (b != 0)
+    {
+        int carry = a & b;
+        a = a ^ b;
+        b = carry << 1;
+    }
+    return a;
+}
+```
+
+```text
+  0101 (5)
++ 0011 (3)
+  ----
+  1000 (8)
+
+Iteration | a (binary) | b (binary) | carry | a ^ b | carry << 1
+----------|------------|------------|-------|-------|-----------
+Initial  | 0101 (5)   | 0011 (3)   |       |       |
+1        | 0101 (5)   | 0011 (3)   | 0001  | 0110  | 0010
+After 1  | 0110 (6)   | 0010 (2)   |       |       |
+2        | 0110 (6)   | 0010 (2)   | 0010  | 0100  | 0100
+After 2  | 0100 (4)   | 0100 (4)   |       |       |
+3        | 0100 (4)   | 0100 (4)   | 0100  | 0000  | 1000
+After 3  | 0000 (0)   | 1000 (8)   |       |       |
+4        | 0000 (0)   | 1000 (8)   | 0000  | 1000  | 0000
+Final    | 1000 (8)   | 0000 (0)   |       |       |
+```
+- **Time Complexity :** `O(log n)`
+- **Space Complexity :** `O(1)`
+
+### 13. Power (Optimized with Bitwise)
+
+Both numbers are positive number and greater than zero.
+
+```csharp
+public static int PowerOptimized(int x, int n)
+{
+    if (n < 0) return 0;  // Handle negative
+    if (n == 0) return 1;
+
+    int result = 1;
+
+    while (n > 0)
+    {
+        // If n is odd, multiply result by x
+        if ((n & 1) == 1)
+        {
+            result *= x;
+        }
+
+        // Square x and halve n
+        x *= x;
+        n >>= 1;  // n = n / 2
+    }
+
+    return result;
+}
+```
+
+```text
+// 3^5 = 3^(101)₂
+// 5=101, result=1
+// n=101(odd) → result=3, x=9, n=10
+// n=10(even)→ result=3, x=81, n=1
+// n=1(odd) → result=243, x=6561, n=0
+// Result=243 ✓
+```
+- **Time Complexity :** `O(log n)`
+- **Space Complexity :** `O(1)`
+
+### 14. Minimum Bit Flips to Convert Number
+
+The number is a positive number and greater than zero.
+
+```csharp
+public static int MinBitFlips(int start, int goal)
+{
+    // Count differing bits
+    int xor = start ^ goal;
+
+    int count = 0;
+    while (xor > 0)
+    {
+        count += xor & 1;
+        xor >>= 1;
+    }
+
+    return count;
+}
+```
+```text
+start: 3 = 0011
+goal:  4 = 0100
+xor:   3 ^ 4 = 0011 ^ 0100 = 0111 (7)
+
+Count 1s in 0111:
+  0 1 1 1
+  │ │ │ │
+  │ │ │ └─ 1 (count=1)
+  │ │ └─── 1 (count=2)
+  │ └───── 1 (count=3)
+  └─────── 0 (done)
+
+Result: 3 bit flips needed
+```
+- **Time Complexity :** `O(log n)`
+- **Space Complexity :** `O(1)`
+
+### 15. Generate All Subsets
+
+```csharp
+public static List<List<int>> GenerateSubsets(int[] nums)
+{
+    List<List<int>> subsets = new List<List<int>>();
+    int n = nums.Length;
+
+    // 2^n possible subsets
+    for (int mask = 0; mask < (1 << n); mask++)
+    {
+        List<int> subset = new List<int>();
+
+        for (int i = 0; i < n; i++)
+        {
+            // Check if i-th bit is set in mask
+            if ((mask & (1 << i)) != 0)
+            {
+                subset.Add(nums[i]);
+            }
+        }
+
+        subsets.Add(subset);
+    }
+
+    return subsets;
+}
+```
+```text
+// Example: nums=[1,2,3]
+// mask=0(000): []
+// mask=1(001): [1]
+// mask=2(010): [2]
+// mask=3(011): [1,2]
+// mask=4(100): [3]
+// mask=5(101): [1,3]
+// mask=6(110): [2,3]
+// mask=7(111): [1,2,3]
+```
+
+- **Time Complexity :** `O(n × 2ⁿ)`
+- **Space Complexity :** `O(n × 2ⁿ)`
+
+## Level 4: String Manipulation (Pattern Matching & Transformation)
+### 16. Multiply two strings
+
+Both strings are not null and contains only positive numbers.
+
+```csharp
 public static string Multiply(string num1, string num2)
 {
     // Both strings are not null and contains only positive numbers.
@@ -369,329 +1173,8 @@ ITERATION MAP:
 - **Time Complexity :** `O(m*n)`
 - **Space Complexity :** `O(m+n)`
 
+### 17. Reverse String
 
-## 9. Count Number of 1 Bits
-The number is a positive number and greater than zero.
-
-```csharp
-public static int CountBits(int n)
-{
-    int count = 0;
-    while(n > 0)
-    {
-        count += n & 1;
-        n = n >> 1;
-    }
-    return count;
-}
-```
-```text
-n = 13 (1101)
-     ↓
-Iteration 1: Check 1✓ → count=1, n=6(110)
-Iteration 2: Check 0✗ → count=1, n=3(11)
-Iteration 3: Check 1✓ → count=2, n=1(1)
-Iteration 4: Check 1✓ → count=3, n=0
-
-Return: 3
-```
-- **Time Complexity :** `O(log n)`
-- **Space Complexity :** `O(1)`
-
-## 10. Swap Two Numbers Without Temp
-Both numbers are positive number and greater than zero.
-
-```csharp
-public static void Swap(ref int a, ref int b)
-{
-    a = a ^ b;  // a now holds a XOR b
-    b = a ^ b;  // b becomes original a
-    a = a ^ b;  // a becomes original b
-}
-```
-```text
-Initial:   a = 5, b = 3
-        ↓
-Step 1: a = 5⊕3 = 6, b = 3
-        ↓
-Step 2: a = 6, b = 6⊕3 = 5
-        ↓
-Step 3: a = 6⊕5 = 3, b = 5
-        ↓
-Final:   a = 3, b = 5  ✓ Swapped!
-```
-- **Time Complexity :** `O(1)`
-- **Space Complexity :** `O(1)`
-
-## 11. Single Number (All appear twice except one)
-The numbers are positive numbers.
-
-```csharp
-public static int SingleNumber(int[] nums)
-{
-    int result = 0;
-    for (int num : nums)
-    {
-        result ^= num;
-    }
-    return result;
-}
-```
-```text
-[4, 1, 2, 1, 2]
- │  │  │  │  │
- ├──┼──┼──┼──┘
- │  │  │  └── Pair cancels (1⊕1=0)
- │  │  └───── Pair cancels (2⊕2=0)
- │  └──────── Single remains: 4
- └───────────
-```
-- **Time Complexity :** `O(n)`
-- **Space Complexity :** `O(1)`
-
-## 12. Find Missing Number in Array
-Array of size `n` containing numbers from `0` to `n`, one missing.
-
-```csharp
-public static int MissingNumber(int[] nums)
-{
-    int n = nums.Length;
-    int xor = 0;
-     // XOR all array elements
-    for (int i = 0; i < nums.Length; i++)
-    {
-        xor ^= nums[i];
-    }
-
-    // XOR all numbers from 0 to n
-    for (int i = 0; i <= nums.Length; i++)
-    {
-        xor ^= i;
-    }
-
-    return xor;  // Missing number
-}
-```
-```text
-input: [3, 0, 1]
-Array XOR:   3 ⊕ 0 ⊕ 1 = ?
-Range XOR:   0 ⊕ 1 ⊕ 2 ⊕ 3 = ?
-
-Combine: (3 ⊕ 0 ⊕ 1) ⊕ (0 ⊕ 1 ⊕ 2 ⊕ 3)
-
-Cancel pairs:
-   3's cancel: (3 from array) ⊕ (3 from range) = 0
-   0's cancel: (0 from array) ⊕ (0 from range) = 0
-   1's cancel: (1 from array) ⊕ (1 from range) = 0
-
-What remains? 2 (only in range, not in array)
-```
-- **Time Complexity :** `O(n)`
-- **Space Complexity :** `O(1)`
-
-## 13. Add Two Numbers Without Arithmetic Operators
-Both numbers are positive number and greater than zero.
-
-```csharp
-public static int Add(int a, int b)
-{
-    while (b != 0)
-    {
-        int carry = a & b;
-        a = a ^ b;
-        b = carry << 1;
-    }
-    return a;
-}
-```
-
-```text
-  0101 (5)
-+ 0011 (3)
-  ----
-  1000 (8)
-
-Iteration | a (binary) | b (binary) | carry | a ^ b | carry << 1
-----------|------------|------------|-------|-------|-----------
-Initial  | 0101 (5)   | 0011 (3)   |       |       |
-1        | 0101 (5)   | 0011 (3)   | 0001  | 0110  | 0010
-After 1  | 0110 (6)   | 0010 (2)   |       |       |
-2        | 0110 (6)   | 0010 (2)   | 0010  | 0100  | 0100
-After 2  | 0100 (4)   | 0100 (4)   |       |       |
-3        | 0100 (4)   | 0100 (4)   | 0100  | 0000  | 1000
-After 3  | 0000 (0)   | 1000 (8)   |       |       |
-4        | 0000 (0)   | 1000 (8)   | 0000  | 1000  | 0000
-Final    | 1000 (8)   | 0000 (0)   |       |       |
-```
-- **Time Complexity :** `O(log n)`
-- **Space Complexity :** `O(1)`
-
-## 14. Power (Optimized with Bitwise)
-Both numbers are positive number and greater than zero.
-
-```csharp
-public static int Power(int x, int n)
-{
-    if (n < 0) return 0;  // Handle negative
-    if (n == 0) return 1;
-
-    int result = 1;
-
-    while (n > 0)
-    {
-        // If n is odd, multiply result by x
-        if ((n & 1) == 1)
-        {
-            result *= x;
-        }
-
-        // Square x and halve n
-        x *= x;
-        n >>= 1;  // n = n / 2
-    }
-
-    return result;
-}
-```
-
-```text
-// 3^5 = 3^(101)₂
-// 5=101, result=1
-// n=101(odd) → result=3, x=9, n=10
-// n=10(even)→ result=3, x=81, n=1
-// n=1(odd) → result=243, x=6561, n=0
-// Result=243 ✓
-```
-- **Time Complexity :** `O(log n)`
-- **Space Complexity :** `O(1)`
-
-## 15. Minimum Bit Flips to Convert Number
-The number is a  positive number and greater than zero.
-
-```csharp
-public static int MinBitFlips(int start, int goal)
-{
-    // Count differing bits
-    int xor = start ^ goal;
-
-   int count = 0;
-    while (xor > 0)
-    {
-        count += xor & 1;
-        xor >>= 1;
-    }
-
-    return count;
-}
-```
-```text
-start: 3 = 0011
-goal:  4 = 0100
-xor:   3 ^ 4 = 0011 ^ 0100 = 0111 (7)
-
-Count 1s in 0111:
-  0 1 1 1
-  │ │ │ │
-  │ │ │ └─ 1 (count=1)
-  │ │ └─── 1 (count=2)
-  │ └───── 1 (count=3)
-  └─────── 0 (done)
-
-Result: 3 bit flips needed
-```
-- **Time Complexity :** `O(log n)`
-- **Space Complexity :** `O(1)`
-
-## 16. Generate All Subsets
-
-```csharp
-public static List<List<int>> GenerateSubsets(int[] nums)
-{
-    List<List<int>> subsets = new List<List<int>>();
-    int n = nums.Length;
-
-    // 2^n possible subsets
-    for (int mask = 0; mask < (1 << n); mask++)
-    {
-        List<int> subset = new List<int>();
-
-        for (int i = 0; i < n; i++)
-        {
-            // Check if i-th bit is set in mask
-            if ((mask & (1 << i)) != 0)
-            {
-                subset.Add(nums[i]);
-            }
-        }
-
-        subsets.Add(subset);
-    }
-
-    return subsets;
-}
-```
-```text
-// Example: nums=[1,2,3]
-// mask=0(000): []
-// mask=1(001): [1]
-// mask=2(010): [2]
-// mask=3(011): [1,2]
-// mask=4(100): [3]
-// mask=5(101): [1,3]
-// mask=6(110): [2,3]
-// mask=7(111): [1,2,3]
-```
-
-- **Time Complexity :** `O(n × 2ⁿ)`
-- **Space Complexity :** `O(n × 2ⁿ)`
-
-## 17. Move Zeroes To End
-The numbers are positive numbers.
-
-```csharp
-public static void MoveZeroes(int[] nums)
-{
-    int lastNonZeroIndex = 0;
-    for (int i = 0; i < nums.Length; i++)
-    {
-        if (nums[i] != 0)
-        {
-            nums[lastNonZeroIndex++] = nums[i];
-
-        }
-    }
-
-    for (int i = lastNonZeroIndex; i < nums.Length; i++)
-    {
-        nums[i] = 0;
-
-    }
-}
-```
-
-```text
-Initial: [4, 2, 0, 1, 0, 3, 0]
-
-Pass 1:
-  i=0: 4 → pos 0, L=1: [4, 2, 0, 1, 0, 3, 0]
-  i=1: 2 → pos 1, L=2: [4, 2, 0, 1, 0, 3, 0]
-  i=2: 0 → skip
-  i=3: 1 → pos 2, L=3: [4, 2, 1, 1, 0, 3, 0]
-  i=4: 0 → skip
-  i=5: 3 → pos 3, L=4: [4, 2, 1, 3, 0, 3, 0]
-  i=6: 0 → skip
-
-After pass 1: [4, 2, 1, 3, 0, 3, 0], L=4
-
-Pass 2 (fill zeros from index 4):
-  [4, 2, 1, 3, 0, 3, 0] → [4, 2, 1, 3, 0, 0, 0]
-
-Final: [4, 2, 1, 3, 0, 0, 0]
-```
-- **Time Complexity :** `O(n)`
-- **Space Complexity :** `O(1)`
-
-## 18. Reverse String
 The string is not null.
 
 ```csharp
@@ -730,14 +1213,13 @@ Final:   o  l  l  e  h
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(n)`
 
-## 19. Check for Anagrams
+### 18. Check for Anagrams
 
 An anagram of a string is another string that contains the same characters, only the order of characters can be different.
 
-### Constrants
+#### Constraints
 
 Both strings are not null.
-
 
 ```csharp
 public static bool IsAnagram(string s, string t)
@@ -777,8 +1259,9 @@ Check:    n✓ a✓ g✓ a✓ r✓ a✓ m✓ → All good!
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(1)`
 
-## 20. Length of Last Word
-The string is not null
+### 19. Length of Last Word
+
+The string is not null.
 
 ```csharp
 public static int LengthOfLastWord(string s)
@@ -823,7 +1306,54 @@ Result: 5 characters in last word
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(1)`
 
-## 21. Duplicate Characters
+## Level 5: Array Operations (Collection Handling)
+### 20. Move Zeroes To End
+
+The numbers are positive numbers.
+
+```csharp
+public static void MoveZeroes(int[] nums)
+{
+    int lastNonZeroIndex = 0;
+    for (int i = 0; i < nums.Length; i++)
+    {
+        if (nums[i] != 0)
+        {
+            nums[lastNonZeroIndex++] = nums[i];
+        }
+    }
+
+    for (int i = lastNonZeroIndex; i < nums.Length; i++)
+    {
+        nums[i] = 0;
+    }
+}
+```
+
+```text
+Initial: [4, 2, 0, 1, 0, 3, 0]
+
+Pass 1:
+  i=0: 4 → pos 0, L=1: [4, 2, 0, 1, 0, 3, 0]
+  i=1: 2 → pos 1, L=2: [4, 2, 0, 1, 0, 3, 0]
+  i=2: 0 → skip
+  i=3: 1 → pos 2, L=3: [4, 2, 1, 1, 0, 3, 0]
+  i=4: 0 → skip
+  i=5: 3 → pos 3, L=4: [4, 2, 1, 3, 0, 3, 0]
+  i=6: 0 → skip
+
+After pass 1: [4, 2, 1, 3, 0, 3, 0], L=4
+
+Pass 2 (fill zeros from index 4):
+  [4, 2, 1, 3, 0, 3, 0] → [4, 2, 1, 3, 0, 0, 0]
+
+Final: [4, 2, 1, 3, 0, 0, 0]
+```
+- **Time Complexity :** `O(n)`
+- **Space Complexity :** `O(1)`
+
+### 21. Duplicate Characters
+
 The string is not null.
 
 ```csharp
@@ -845,7 +1375,6 @@ public static string DuplicateCharacters(string s)
     }
 
     return result.ToString();
-
 }
 ```
 ```text
@@ -865,9 +1394,9 @@ Step 3: Collect in original order
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(1)`
 
-## 22. Contains Duplicate
-The array is not null. Please complete with `o(1)` space complexity.
+### 22. Contains Duplicate
 
+The array is not null. Please complete with `O(1)` space complexity.
 
 ```csharp
 public static bool ContainsDuplicate(int[] nums)
@@ -880,7 +1409,6 @@ public static bool ContainsDuplicate(int[] nums)
             {
                 return true;
             }
-
         }
     }
     return false;
@@ -904,7 +1432,8 @@ Comparisons made:
 - **Time Complexity :** `O(n²)`
 - **Space Complexity :** `O(1)`
 
-## 23. Valid Palindrome
+### 23. Valid Palindrome
+
 The string is not null.
 
 ```csharp
@@ -945,7 +1474,8 @@ String:  r a c e c a r
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(1)`
 
-## 24. Fizz Buzz
+### 24. Fizz Buzz
+
 Given an integer `n`, return a string array answer (1-indexed) where:
 - answer[i] == "FizzBuzz" if i is divisible by 3 and 5.
 - answer[i] == "Fizz" if i is divisible by 3.
@@ -978,7 +1508,6 @@ public static IList<string> FizzBuzz(int n)
     }
     return result;
 }
-
 ```
 ```text
 n = 15
@@ -988,7 +1517,8 @@ n = 15
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(n)`
 
-## 25. Longest Common Prefix
+### 25. Longest Common Prefix
+
 The string is not null.
 
 ```csharp
@@ -1014,7 +1544,6 @@ public static string LongestCommonPrefix(string[] strs)
 
     return smallStr;
 }
-
 ```
 
 ```text
@@ -1030,43 +1559,3 @@ Common prefix: "fl"
 ```
 - **Time Complexity :** `O(n*m)`
 - **Space Complexity :** `O(1)`
-
-## 26. Count digits recursively
-
-```csharp
-public static int CountDigits(int n)
-{
-    if (n <= 0)
-    {
-        return 0;
-    }
-
-    return 1 + CountDigits(n / 10);
-}
-
-```
-
-```text
-Call Stack (growing down):
-CountDigits(1234)      → waiting for result
-  CountDigits(123)     → waiting for result
-    CountDigits(12)    → waiting for result
-      CountDigits(1)   → waiting for result
-        CountDigits(0) → returns 0
-      returns 1 + 0 = 1
-    returns 1 + 1 = 2
-  returns 1 + 2 = 3
-returns 1 + 3 = 4
-
-CountDigits(1234) = 1 + CountDigits(123)
-                  = 1 + (1 + CountDigits(12))
-                  = 1 + (1 + (1 + CountDigits(1)))
-                  = 1 + (1 + (1 + (1 + CountDigits(0))))
-                  = 1 + (1 + (1 + (1 + 0)))
-                  = 1 + (1 + (1 + 1))
-                  = 1 + (1 + 2)
-                  = 1 + 3
-                  = 4
-```
-- **Time Complexity :** `O(log n)`
-- **Space Complexity :** `O(log n)`
