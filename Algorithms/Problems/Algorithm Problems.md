@@ -45,17 +45,27 @@ Level 5: String Manipulation (Pattern Matching & Transformation)
 ├── 33. Multiply two strings
 ├── 34. Reverse String
 ├── 35. Check for Anagrams
-└── 36. Length of Last Word
+├── 36. Length of Last Word
+└── 37. Concatenate two Strings
 
 Level 6: Array Operations (Collection Handling)
-├── 37. Move Zeroes To End
-├── 38. Duplicate Characters
-├── 39. Contains Duplicate
-├── 40. Valid Palindrome
-├── 41. Fizz Buzz
-└── 42. Longest Common Prefix
+├── 38. Move Zeroes To End
+├── 39. Duplicate Characters
+├── 40. Contains Duplicate
+├── 41. Valid Palindrome
+├── 42. Fizz Buzz
+├── 43. Longest Common Prefix
+└── 44. Merge two sorted arrays
 
-## Level 7: Stack Operations
+Level 7: Stack Operations (LIFO Data Structure)
+├── 45. Valid Parentheses
+├── 46. Evaluate Reverse Polish Notation
+└── 47. Remove All Adjacent Duplicates In String
+
+Level 8: Binary Search & Searching (Divide & Conquer Search)
+├── 48. Find First and Last Position of an Element in Sorted Array
+├── 49. Search in Rotated Sorted Array
+└── 50. Find Minimum Element in Sorted Rotated Array
 ```
 
 ---
@@ -1640,7 +1650,7 @@ Result: 5 characters in last word
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(1)`
 
-### 43. Concatenate two Strings
+### 37. Concatenate two Strings
 
 ```
 str1 = "abc" st2="pqr" o/p - apbqcr
@@ -1690,7 +1700,7 @@ Result: "AXBYCZ"
 - **Space Complexity :** `O(n + m)`
 
 ## Level 6: Array Operations (Collection Handling)
-### 37. Move Zeroes To End
+### 38. Move Zeroes To End
 
 The numbers are positive numbers.
 
@@ -1735,7 +1745,7 @@ Final: [4, 2, 1, 3, 0, 0, 0]
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(1)`
 
-### 38. Duplicate Characters
+### 39. Duplicate Characters
 
 The string is not null.
 
@@ -1777,7 +1787,7 @@ Step 3: Collect in original order
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(1)`
 
-### 39. Contains Duplicate
+### 40. Contains Duplicate
 
 The array is not null. Please complete with `O(1)` space complexity.
 
@@ -1815,7 +1825,7 @@ Comparisons made:
 - **Time Complexity :** `O(n²)`
 - **Space Complexity :** `O(1)`
 
-### 40. Valid Palindrome
+### 41. Valid Palindrome
 
 The string is not null.
 
@@ -1857,7 +1867,7 @@ String:  r a c e c a r
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(1)`
 
-### 41. Fizz Buzz
+### 42. Fizz Buzz
 
 Given an integer `n`, return a string array answer (1-indexed) where:
 - answer[i] == "FizzBuzz" if i is divisible by 3 and 5.
@@ -1900,7 +1910,7 @@ n = 15
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(n)`
 
-### 42. Longest Common Prefix
+### 43. Longest Common Prefix
 
 The string is not null.
 
@@ -2188,6 +2198,8 @@ public static string RemoveDuplicates(string s)
 ```
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(n)`
+
+## Level 8: Binary Search & Searching (Divide & Conquer Search)
 
 ### 48. Find First and Last Position of an Element in Sorted Array
 
