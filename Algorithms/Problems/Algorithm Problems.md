@@ -5,48 +5,55 @@ Level 1: Number & Basic Operations (Foundation)
 ├── 1. Mod a number without `%` operator
 ├── 2. Divide numbers without `/` operator
 ├── 3. Square root of a number
-└── 4. Sum of digits
+├── 4. Sum of digits
+├── 5. String to Integer
+├── 6. Geometric Sum
+├── 7. Count Zeroes
+└── 8. Excel Sheet Column Number
 
-Level 1: Recursion (Optimization Strategy)
-├── 5. Factorial of a number
-├── 6. Fibonacci Series
-├── 7. Power of two numbers
-├── 8. Count digits recursively
-├── 9. Sum of digits recursively
-├── 10. Count Zeroes Recursively
-├── 11. Geometric Sum
-└── 12. String to Integer
+Level 2: Recursion (Optimization Strategy)
+├── 9. Factorial of a number
+├── 10. Fibonacci Series
+├── 11. Power of two numbers
+├── 12. Count digits recursively
+├── 13. Sum of digits recursively
+├── 14. Count Zeroes Recursively
+├── 15. Geometric Sum
+├── 16. String to Integer
+├── 17. Number to Text
+├── 18. Flatten
+└── 19. House Robber
 
-Level 1: Backtracking (Explore & Constraint Satisfaction)
-├── 13. Print all subsequence
-├── 14. Print All Permutation of String
-├── 15. Staircase
-├── 16. Tower of Hanoi
-└── 17. Print Tower of Hanoi
+Level 3: Backtracking (Explore & Constraint Satisfaction)
+├── 20. Print all subsequence
+├── 21. Print All Permutation of String
+├── 22. Staircase
+├── 23. Tower of Hanoi
+└── 24. Print Tower of Hanoi
 
-Level 1: Bit Manipulation (Advanced Optimization)
-├── 18. Count Number of 1 Bits
-├── 19. Swap Two Numbers Without Temp
-├── 20. Single Number (All appear twice except one)
-├── 21. Find Missing Number in Array
-├── 22. Add Two Numbers Without Arithmetic Operators
-├── 23. Power (Optimized with Bitwise)
-├── 24. Minimum Bit Flips to Convert Number
-└── 25. Generate All Subsets
+Level 4: Bit Manipulation (Advanced Optimization)
+├── 25. Count Number of 1 Bits
+├── 26. Swap Two Numbers Without Temp
+├── 27. Single Number (All appear twice except one)
+├── 28. Find Missing Number in Array
+├── 29. Add Two Numbers Without Arithmetic Operators
+├── 30. Power (Optimized with Bitwise)
+├── 31. Minimum Bit Flips to Convert Number
+└── 32. Generate All Subsets
 
-Level 1: String Manipulation (Pattern Matching & Transformation)
-├── 26. Multiply two strings
-├── 27. Reverse String
-├── 28. Check for Anagrams
-└── 29. Length of Last Word
+Level 5: String Manipulation (Pattern Matching & Transformation)
+├── 33. Multiply two strings
+├── 34. Reverse String
+├── 35. Check for Anagrams
+└── 36. Length of Last Word
 
-Level 1: Array Operations (Collection Handling)
-├── 30. Move Zeroes To End
-├── 31. Duplicate Characters
-├── 32. Contains Duplicate
-├── 33. Valid Palindrome
-├── 34. Fizz Buzz
-└── 35. Longest Common Prefix
+Level 6: Array Operations (Collection Handling)
+├── 37. Move Zeroes To End
+├── 38. Duplicate Characters
+├── 39. Contains Duplicate
+├── 40. Valid Palindrome
+├── 41. Fizz Buzz
+└── 42. Longest Common Prefix
 ```
 
 ---
@@ -312,8 +319,48 @@ Result: 3 ✓
 - **Time Complexity :** `O(log n)`
 - **Space Complexity :** `O(1)`
 
-## Level 1: Recursion (Optimization Strategy)
-### 5. Factorial of a number
+### 8. Excel Sheet Column Number
+Given a string columnTitle that represents the column title as appears in an Excel sheet, return its corresponding column number.
+
+```
+For example:
+•	A -> 1
+•	B -> 2
+•	C -> 3
+•	...
+•	Z -> 26
+•	AA -> 27
+•	AB -> 28
+•	...
+
+```
+```csharp
+public static int TitleToNumber(string columnTitle)
+{
+    int result = 0;
+    long power = 1;
+    if (string.IsNullOrEmpty(columnTitle))
+    {
+        return result;
+    }
+    for (int i = columnTitle.Length - 1; i >= 0; i--)
+    {
+        // the ASCII value of 'A' is 65
+        int charValue = columnTitle[i] - 64; // 'A' -> 1, 'B' -> 2, ..., 'Z' -> 26
+        result = (int)(result + charValue * power);
+        // increase the power of 26 for the next character as 26 alphabets in English
+        power = power * 26;
+    }
+    return result;
+}
+
+```
+- **Time Complexity :** `O(n)`
+- **Space Complexity :** `O(1)`
+
+
+## Level 2: Recursion (Optimization Strategy)
+### 9. Factorial of a number
 
 The number is a positive number and greater than zero.
 
@@ -345,7 +392,7 @@ FactorialRecursive(5)
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(n)`
 
-### 6. Fibonacci Series
+### 10. Fibonacci Series
 
 The number is a positive number and greater than zero.
 
@@ -390,7 +437,7 @@ Fib(5) = Fib(4) + Fib(3) = 3 + 2 = 5
 - **Time Complexity :** `O(2ⁿ)`
 - **Space Complexity :** `O(n)`
 
-### 7. Power of two numbers
+### 11. Power of two numbers
 
 Both numbers are positive number and greater than zero.
 Also number within the integer range so there is no overflow/ stack overflow.
@@ -434,7 +481,7 @@ Power(3, 4)
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(n)`
 
-### 8. Count digits recursively
+### 12. Count digits recursively
 
 ```csharp
 public static int CountDigits(int n)
@@ -473,7 +520,7 @@ CountDigits(1234) = 1 + CountDigits(123)
 - **Time Complexity :** `O(log n)`
 - **Space Complexity :** `O(log n)`
 
-### 9. Sum of digits recursively
+### 13. Sum of digits recursively
 
 ```csharp
 public static int SumOfDigits(int n)
@@ -508,7 +555,7 @@ returns 6 + 4 = 10
 - **Time Complexity :** `O(log n)`
 - **Space Complexity :** `O(log d)`
 
-### 10. Count Zeroes Recursively
+### 14. Count Zeroes Recursively
 
 ```csharp
 public static int CountZeroes(int n)
@@ -547,7 +594,7 @@ returns 3
 - **Time Complexity :** `O(log n)`
 - **Space Complexity :** `O(log d)`
 
-### 11. Geometric Sum
+### 15. Geometric Sum
 Given an integer n, we need to find the geometric sum of the following series using recursion.
 
 1 + 1/2 + 1/4 + 1/8 + ... + 1/(2n)
@@ -582,7 +629,7 @@ returns 1.75 + 0.125 = 1.875
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(d)`
 
-### 12. String to Integer
+### 16. String to Integer
 
 ```csharp
 public int StringToInt(string s)
@@ -621,9 +668,181 @@ returns 12*10 + 3 = 123
     - Call stack depth: `d` (when going down one branch)
     - String operations create new strings: `O(d²)` total space
 
-## Level 1: Backtracking (Explore & Constraint Satisfaction)
+### 17. Number to Text
 
-### 13. Print all subsequence
+```csharp
+public class NumberToText
+{
+    private static string[] unitsMap = { "Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen" };
+    private static string[] tensMap = { "Zero", "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety" };
+
+    public static string ConvertNumberToText(int number)
+    {
+        if (number == 0)
+            return unitsMap[0];
+
+        if (number < 20)
+            return unitsMap[number];
+
+        if (number < 100)
+            return tensMap[number / 10] + ((number % 10 > 0) ? " " + ConvertNumberToText(number % 10) : "");
+
+        if (number < 1000)
+            return unitsMap[number / 100] + " Hundred" + ((number % 100 > 0) ? " " + ConvertNumberToText(number % 100) : "");
+
+        if (number < 100000)
+            return ConvertNumberToText(number / 1000) + " Thousand" + ((number % 1000 > 0) ? " " + ConvertNumberToText(number % 1000) : "");
+
+        return ConvertNumberToText(number / 100000) + " Lac" + ((number % 100000 > 0) ? " " + ConvertNumberToText(number % 100000) : "");
+    }
+}
+```
+
+```text
+ConvertNumberToText(123456)
+│
+├─ ConvertNumberToText(1) → "One"
+│
+└─ ConvertNumberToText(23456)
+   │
+   ├─ ConvertNumberToText(23)
+   │  │
+   │  ├─ tensMap[2] → "Twenty"
+   │  │
+   │  └─ ConvertNumberToText(3) → "Three"
+   │     Result: "Twenty Three"
+   │
+   └─ ConvertNumberToText(456)
+      │
+      ├─ ConvertNumberToText(4) → "Four"
+      │
+      └─ ConvertNumberToText(56)
+         │
+         ├─ tensMap[5] → "Fifty"
+         │
+         └─ ConvertNumberToText(6) → "Six"
+            Result: "Fifty Six"
+         Result: "Four Hundred Fifty Six"
+      Result: "Twenty Three Thousand Four Hundred Fifty Six"
+   Result: "One Lac Twenty Three Thousand Four Hundred Fifty Six"
+```
+- **Time Complexity :** `O(log n)`
+    - Each recursive call reduces the number by a factor (÷100000, ÷1000, ÷100, ÷10)
+    - Number of digits = d = ⌊log₁₀(n)⌋ + 1
+    - Maximum recursion depth ≈ number of digit groups = O(log n)
+- **Space Complexity :** `O(log n)`
+    - Call stack depth = O(log n) (number of digit groups)
+    - String concatenation creates new strings, but total length = O(log n)
+    - Arrays unitsMap and tensMap are constant size O(1)
+
+
+### 18. Flatten
+
+```csharp
+public static List<object> FlattenList(IEnumerable<object> nestedList)
+{
+    List<object> result = new List<object>();
+
+    foreach (var item in nestedList)
+    {
+        if (item is Array && !(item is string))
+        {
+            result.AddRange(FlattenList((IEnumerable<object>)item));
+        }
+        else
+        {
+            result.Add(item);
+        }
+    }
+
+    return result;
+}
+```
+
+```text
+FlattenList([1, [2,3], [4,[5,6]], 7]) (Level 0)
+│
+├─ item=1 → Add 1 → result=[1]
+│
+├─ item=[2,3] (Array)
+│  │
+│  └─ FlattenList([2,3]) (Level 1)
+│     │
+│     ├─ item=2 → Add 2 → result=[2]
+│     │
+│     └─ item=3 → Add 3 → result=[2,3]
+│        Return [2,3]
+│  AddRange([2,3]) → result=[1,2,3]
+│
+├─ item=[4,[5,6]] (Array)
+│  │
+│  └─ FlattenList([4,[5,6]]) (Level 1)
+│     │
+│     ├─ item=4 → Add 4 → result=[4]
+│     │
+│     └─ item=[5,6] (Array)
+│        │
+│        └─ FlattenList([5,6]) (Level 2)
+│           │
+│           ├─ item=5 → Add 5 → result=[5]
+│           │
+│           └─ item=6 → Add 6 → result=[5,6]
+│              Return [5,6]
+│        AddRange([5,6]) → result=[4,5,6]
+│     Return [4,5,6]
+│  AddRange([4,5,6]) → result=[1,2,3,4,5,6]
+│
+└─ item=7 → Add 7 → result=[1,2,3,4,5,6,7]
+   Return [1,2,3,4,5,6,7]
+```
+- **Time Complexity :** `O(n)`
+    - `n` = total number of elements across all levels
+- **Space Complexity :** `O(d)`
+    - Call stack depth = O(d) (number of digit groups)
+    - Additional `O(n)` space for result list
+
+### 19. House Robber
+You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security systems connected and it will automatically contact the police if two adjacent houses were broken into on the same night.
+
+Given an integer array nums representing the amount of money of each house, return the maximum amount of money you can rob tonight without alerting the police.
+
+```
+Example 1:
+Input: nums = [1,2,3,1]
+Output: 4
+Explanation: Rob house 1 (money = 1) and then rob house 3 (money = 3).
+Total amount you can rob = 1 + 3 = 4.
+Example 2:
+Input: nums = [2,7,9,3,1]
+Output: 12
+Explanation: Rob house 1 (money = 2), rob house 3 (money = 9) and rob house 5 (money = 1).
+Total amount you can rob = 2 + 9 + 1 = 12.
+
+```
+
+```csharp
+public static int Rob(int[] nums, int n)
+{
+    if (n < 0)
+    {
+        return 0;
+    }
+    int includeCurrent = nums[n] + Rob(nums, n - 2);
+    int excludeCurrent = Rob(nums, n - 1);
+    return Math.Max(includeCurrent, excludeCurrent);
+}
+
+```
+- **Time Complexity :** `O(2ⁿ)`
+    - Each call makes 2 recursive calls (n-1 and n-2)
+    - Forms binary tree with ≈ 2ⁿ nodes
+- **Space Complexity :** `O(d)`
+    - Call stack depth = O(d) (number of digit groups)
+
+
+## Level 3: Backtracking (Explore & Constraint Satisfaction)
+
+### 20. Print all subsequence
 
 ```csharp
 public void PrintAllSubsequence(string input, string output)
@@ -679,7 +898,7 @@ output:
     - Call stack depth: `d` (when going down one branch)
     - String operations create new strings: `O(d²)` total space
 
-### 14. Print All Permutation of String
+### 21. Print All Permutation of String
 
 Given a string s, the task is to return all permutations of a given string in lexicographically sorted order.
 Note: A permutation is the rearrangement of all the elements of a string. Duplicate arrangement can exist.
@@ -749,7 +968,7 @@ Initial: ABC (index=0)
     - Call stack depth: `n` (when going down one branch)
     - Character array: `O(n)` modified in-place
 
-### 15. Staircase
+### 22. Staircase
 There are n stairs, and a person standing at the bottom wants to climb stairs to reach the top. The person can climb either 1 stair or 2 stairs at a time, the task is to count the number of ways that a person can reach at the top.
 
 ```
@@ -807,7 +1026,7 @@ ClimbStairs(6)
     - Call stack depth: `n` (when going down one branch)
 
 
-### 16. Tower of Hanoi
+### 23. Tower of Hanoi
 
 Recursively calculates the minimum moves to solve Tower of Hanoi with n disks using the recurrence relation: `T(n) = 2×T(n-1) + 1`.
 
@@ -842,7 +1061,7 @@ returns 2×3+1 = 7
     - Call stack depth: `n` (when going down one branch)
 
 
-### 17. Print  Tower of Hanoi
+### 24. Print  Tower of Hanoi
 
 Tower of Hanoi is a mathematical puzzle where we have three rods (A, B, and C) and N disks. Initially, all the disks are stacked in decreasing value of diameter i.e., the smallest disk is placed on the top and they are on rod A. The objective of the puzzle is to move the entire stack to another rod (here considered C), obeying the following simple rules:
 - Only one disk can be moved at a time.
@@ -914,180 +1133,8 @@ PrintTowerOfHanoiMoves(3, A, C, B)
     - Call stack depth: `n` (when going down one branch)
 
 
-### 36. Number to Text
-
-```csharp
-public class NumberToText
-{
-    private static string[] unitsMap = { "Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen" };
-    private static string[] tensMap = { "Zero", "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety" };
-
-    public static string ConvertNumberToText(int number)
-    {
-        if (number == 0)
-            return unitsMap[0];
-
-        if (number < 20)
-            return unitsMap[number];
-
-        if (number < 100)
-            return tensMap[number / 10] + ((number % 10 > 0) ? " " + ConvertNumberToText(number % 10) : "");
-
-        if (number < 1000)
-            return unitsMap[number / 100] + " Hundred" + ((number % 100 > 0) ? " " + ConvertNumberToText(number % 100) : "");
-
-        if (number < 100000)
-            return ConvertNumberToText(number / 1000) + " Thousand" + ((number % 1000 > 0) ? " " + ConvertNumberToText(number % 1000) : "");
-
-        return ConvertNumberToText(number / 100000) + " Lac" + ((number % 100000 > 0) ? " " + ConvertNumberToText(number % 100000) : "");
-    }
-}
-```
-
-```text
-ConvertNumberToText(123456)
-│
-├─ ConvertNumberToText(1) → "One"
-│
-└─ ConvertNumberToText(23456)
-   │
-   ├─ ConvertNumberToText(23)
-   │  │
-   │  ├─ tensMap[2] → "Twenty"
-   │  │
-   │  └─ ConvertNumberToText(3) → "Three"
-   │     Result: "Twenty Three"
-   │
-   └─ ConvertNumberToText(456)
-      │
-      ├─ ConvertNumberToText(4) → "Four"
-      │
-      └─ ConvertNumberToText(56)
-         │
-         ├─ tensMap[5] → "Fifty"
-         │
-         └─ ConvertNumberToText(6) → "Six"
-            Result: "Fifty Six"
-         Result: "Four Hundred Fifty Six"
-      Result: "Twenty Three Thousand Four Hundred Fifty Six"
-   Result: "One Lac Twenty Three Thousand Four Hundred Fifty Six"
-```
-- **Time Complexity :** `O(log n)`
-    - Each recursive call reduces the number by a factor (÷100000, ÷1000, ÷100, ÷10)
-    - Number of digits = d = ⌊log₁₀(n)⌋ + 1
-    - Maximum recursion depth ≈ number of digit groups = O(log n)
-- **Space Complexity :** `O(log n)`
-    - Call stack depth = O(log n) (number of digit groups)
-    - String concatenation creates new strings, but total length = O(log n)
-    - Arrays unitsMap and tensMap are constant size O(1)
-
-
-### 37. Flatten
-
-```csharp
-public static List<object> FlattenList(IEnumerable<object> nestedList)
-{
-    List<object> result = new List<object>();
-
-    foreach (var item in nestedList)
-    {
-        if (item is Array && !(item is string))
-        {
-            result.AddRange(FlattenList((IEnumerable<object>)item));
-        }
-        else
-        {
-            result.Add(item);
-        }
-    }
-
-    return result;
-}
-```
-
-```text
-FlattenList([1, [2,3], [4,[5,6]], 7]) (Level 0)
-│
-├─ item=1 → Add 1 → result=[1]
-│
-├─ item=[2,3] (Array)
-│  │
-│  └─ FlattenList([2,3]) (Level 1)
-│     │
-│     ├─ item=2 → Add 2 → result=[2]
-│     │
-│     └─ item=3 → Add 3 → result=[2,3]
-│        Return [2,3]
-│  AddRange([2,3]) → result=[1,2,3]
-│
-├─ item=[4,[5,6]] (Array)
-│  │
-│  └─ FlattenList([4,[5,6]]) (Level 1)
-│     │
-│     ├─ item=4 → Add 4 → result=[4]
-│     │
-│     └─ item=[5,6] (Array)
-│        │
-│        └─ FlattenList([5,6]) (Level 2)
-│           │
-│           ├─ item=5 → Add 5 → result=[5]
-│           │
-│           └─ item=6 → Add 6 → result=[5,6]
-│              Return [5,6]
-│        AddRange([5,6]) → result=[4,5,6]
-│     Return [4,5,6]
-│  AddRange([4,5,6]) → result=[1,2,3,4,5,6]
-│
-└─ item=7 → Add 7 → result=[1,2,3,4,5,6,7]
-   Return [1,2,3,4,5,6,7]
-```
-- **Time Complexity :** `O(n)`
-    - `n` = total number of elements across all levels
-- **Space Complexity :** `O(d)`
-    - Call stack depth = O(d) (number of digit groups)
-    - Additional `O(n)` space for result list
-
-### 38. House Robber
-You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security systems connected and it will automatically contact the police if two adjacent houses were broken into on the same night.
-
-Given an integer array nums representing the amount of money of each house, return the maximum amount of money you can rob tonight without alerting the police.
-
-```
-Example 1:
-Input: nums = [1,2,3,1]
-Output: 4
-Explanation: Rob house 1 (money = 1) and then rob house 3 (money = 3).
-Total amount you can rob = 1 + 3 = 4.
-Example 2:
-Input: nums = [2,7,9,3,1]
-Output: 12
-Explanation: Rob house 1 (money = 2), rob house 3 (money = 9) and rob house 5 (money = 1).
-Total amount you can rob = 2 + 9 + 1 = 12.
-
-```
-
-```csharp
-public static int Rob(int[] nums, int n)
-{
-    if (n < 0)
-    {
-        return 0;
-    }
-    int includeCurrent = nums[n] + Rob(nums, n - 2);
-    int excludeCurrent = Rob(nums, n - 1);
-    return Math.Max(includeCurrent, excludeCurrent);
-}
-
-```
-- **Time Complexity :** `O(2ⁿ)`
-    - Each call makes 2 recursive calls (n-1 and n-2)
-    - Forms binary tree with ≈ 2ⁿ nodes
-- **Space Complexity :** `O(d)`
-    - Call stack depth = O(d) (number of digit groups)
-
-
-## Level 1: Bit Manipulation (Advanced Optimization)
-### 18. Count Number of 1 Bits
+## Level 4: Bit Manipulation (Advanced Optimization)
+### 25. Count Number of 1 Bits
 
 The number is a positive number and greater than zero.
 
@@ -1116,7 +1163,7 @@ Return: 3
 - **Time Complexity :** `O(log n)`
 - **Space Complexity :** `O(1)`
 
-### 19. Swap Two Numbers Without Temp
+### 26. Swap Two Numbers Without Temp
 
 Both numbers are positive number and greater than zero.
 
@@ -1142,7 +1189,7 @@ Final:   a = 3, b = 5  ✓ Swapped!
 - **Time Complexity :** `O(1)`
 - **Space Complexity :** `O(1)`
 
-### 20. Single Number (All appear twice except one)
+### 27. Single Number (All appear twice except one)
 
 The numbers are positive numbers.
 
@@ -1169,7 +1216,7 @@ public static int SingleNumber(int[] nums)
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(1)`
 
-### 21. Find Missing Number in Array
+### 28. Find Missing Number in Array
 
 Array of size `n` containing numbers from `0` to `n`, one missing.
 
@@ -1210,7 +1257,7 @@ What remains? 2 (only in range, not in array)
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(1)`
 
-### 22. Add Two Numbers Without Arithmetic Operators
+### 29. Add Two Numbers Without Arithmetic Operators
 
 Both numbers are positive number and greater than zero.
 
@@ -1248,7 +1295,7 @@ Final    | 1000 (8)   | 0000 (0)   |       |       |
 - **Time Complexity :** `O(log n)`
 - **Space Complexity :** `O(1)`
 
-### 23. Power (Optimized with Bitwise)
+### 30. Power (Optimized with Bitwise)
 
 Both numbers are positive number and greater than zero.
 
@@ -1288,7 +1335,7 @@ public static int PowerOptimized(int x, int n)
 - **Time Complexity :** `O(log n)`
 - **Space Complexity :** `O(1)`
 
-### 24. Minimum Bit Flips to Convert Number
+### 31. Minimum Bit Flips to Convert Number
 
 The number is a positive number and greater than zero.
 
@@ -1326,7 +1373,7 @@ Result: 3 bit flips needed
 - **Time Complexity :** `O(log n)`
 - **Space Complexity :** `O(1)`
 
-### 25. Generate All Subsets
+### 32. Generate All Subsets
 
 ```csharp
 public static List<List<int>> GenerateSubsets(int[] nums)
@@ -1369,8 +1416,8 @@ public static List<List<int>> GenerateSubsets(int[] nums)
 - **Time Complexity :** `O(n × 2ⁿ)`
 - **Space Complexity :** `O(n × 2ⁿ)`
 
-## Level 1: String Manipulation (Pattern Matching & Transformation)
-### 26. Multiply two strings
+## Level 5: String Manipulation (Pattern Matching & Transformation)
+### 33. Multiply two strings
 
 Both strings are not null and contains only positive numbers.
 
@@ -1458,7 +1505,7 @@ ITERATION MAP:
 - **Time Complexity :** `O(m*n)`
 - **Space Complexity :** `O(m+n)`
 
-### 27. Reverse String
+### 34. Reverse String
 
 The string is not null.
 
@@ -1498,7 +1545,7 @@ Final:   o  l  l  e  h
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(n)`
 
-### 28. Check for Anagrams
+### 35. Check for Anagrams
 
 An anagram of a string is another string that contains the same characters, only the order of characters can be different.
 
@@ -1544,7 +1591,7 @@ Check:    n✓ a✓ g✓ a✓ r✓ a✓ m✓ → All good!
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(1)`
 
-### 29. Length of Last Word
+### 36. Length of Last Word
 
 The string is not null.
 
@@ -1591,8 +1638,8 @@ Result: 5 characters in last word
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(1)`
 
-## Level 1: Array Operations (Collection Handling)
-### 30. Move Zeroes To End
+## Level 6: Array Operations (Collection Handling)
+### 37. Move Zeroes To End
 
 The numbers are positive numbers.
 
@@ -1637,7 +1684,7 @@ Final: [4, 2, 1, 3, 0, 0, 0]
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(1)`
 
-### 31. Duplicate Characters
+### 38. Duplicate Characters
 
 The string is not null.
 
@@ -1679,7 +1726,7 @@ Step 3: Collect in original order
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(1)`
 
-### 32. Contains Duplicate
+### 39. Contains Duplicate
 
 The array is not null. Please complete with `O(1)` space complexity.
 
@@ -1717,7 +1764,7 @@ Comparisons made:
 - **Time Complexity :** `O(n²)`
 - **Space Complexity :** `O(1)`
 
-### 33. Valid Palindrome
+### 40. Valid Palindrome
 
 The string is not null.
 
@@ -1759,7 +1806,7 @@ String:  r a c e c a r
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(1)`
 
-### 34. Fizz Buzz
+### 41. Fizz Buzz
 
 Given an integer `n`, return a string array answer (1-indexed) where:
 - answer[i] == "FizzBuzz" if i is divisible by 3 and 5.
@@ -1802,7 +1849,7 @@ n = 15
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(n)`
 
-### 35. Longest Common Prefix
+### 42. Longest Common Prefix
 
 The string is not null.
 
