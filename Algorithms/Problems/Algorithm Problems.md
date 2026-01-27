@@ -845,13 +845,137 @@ public static int Rob(int[] nums, int n)
 }
 
 ```
+```
+                       Rob(4)
+                      /      \
+                     /        \
+          1+Rob(2)            Rob(3)
+           /   \              /    \
+          /     \            /      \
+   9+Rob(0)   Rob(1)    3+Rob(1)  Rob(2)
+     /   \    /   \       |        /   \
+    /     \  /     \      |       /     \
+2+Rob(-2) 0 7+0   Rob(0) 7+0  9+Rob(0) Rob(1)
+   |       |   |    |     |      |        |
+   2       0   7    2     7      11       7
+```
 - **Time Complexity :** `O(2ⁿ)`
     - Each call makes 2 recursive calls (n-1 and n-2)
     - Forms binary tree with ≈ 2ⁿ nodes
 - **Space Complexity :** `O(d)`
     - Call stack depth = O(d) (number of digit groups)
 
+### 20. Fibonacci (Memoization)
 
+```csharp
+public static int FibonacciMemoization(int n, Dictionary<int, int> memo)
+{
+    if (memo == null) memo = new Dictionary<int, int>();
+    // Base cases
+    if (n <= 0) return 0;
+    if (n == 1) return 1;
+
+    if (memo.ContainsKey(n))
+    {
+        return memo[n];
+    }
+
+    // Recursive case
+    int result = FibonacciMemoization(n - 1, memo) + FibonacciMemoization(n - 2, memo);
+
+    // Store the result in the memo dictionary
+    memo[n] = result;
+    return result;
+}
+
+```
+
+```
+                         Fib(5) → computes Fib(4) + Fib(3)
+                         /                     \
+                        /                       \
+               needs Fib(4)                 Fib(3) FROM MEMO!
+               /           \                    (already computed)
+              /             \
+      needs Fib(3)     Fib(2) FROM MEMO!
+     /           \       (already computed)
+    /             \
+needs Fib(2)   Fib(1) FROM MEMO!
+   /     \      (already computed)
+  /       \
+Fib(1)  Fib(0) FROM MEMO!
+(base)   (base)
+```
+- **Time Complexity :** `O(n)`
+    - Each Fibonacci number computed once
+- **Space Complexity :** `O(n)`
+    - For memo dictionary + call stack
+
+### 21. House Robber (Memoization)
+
+```csharp
+public static int RobMemo(int[] nums, int n, Dictionary<int, int> memo = null)
+{
+    if (memo == null) memo = new Dictionary<int, int>();
+
+    if (n < 0) return 0;
+
+    if (memo.ContainsKey(n)) return memo[n];
+
+    int include = nums[n] + RobMemo(nums, n - 2, memo);
+    int exclude = RobMemo(nums, n - 1, memo);
+    int result = Math.Max(include, exclude);
+
+    memo[n] = result;
+    return result;
+}
+```
+```
+                     RobMemo(4)
+                     /        \
+                    /          \
+         1+RobMemo(2)         RobMemo(3) FROM MEMO!
+          /       \            (already computed)
+         /         \
+9+RobMemo(0)   RobMemo(1) FROM MEMO!
+   /     \      (already computed)
+  /       \
+2+Rob(-2) Rob(-1) FROM MEMO!
+```
+- **Time Complexity :** `O(n)`
+    - Each Rob number computed once
+- **Space Complexity :** `O(n)`
+    - For memo dictionary + call stack
+
+### 22. String to Integer (Memoization)
+
+Imput string is not null or a valid positive numbers string.
+```csharp
+public static int StringToInt(string s, int index)
+{
+    if (index < 0)
+        return 0;
+
+    int digit = s[index] - '0';
+
+    int remainingValue = StringToInt(s, index - 1);
+    return remainingValue * 10 + digit;
+}
+```
+```text
+Call Stack (growing down):
+StringToInt("123") waiting, lastDigit=3
+  StringToInt("12") waiting, lastDigit=2
+    StringToInt("1") waiting, lastDigit=1
+      StringToInt("") → returns 0
+    returns 0*10 + 1 = 1
+  returns 1*10 + 2 = 12
+returns 12*10 + 3 = 123
+```
+- **Time Complexity :** `O(n)`
+    - Each number computed once
+- **Space Complexity :** `O(n)`
+    - For call stack
 ## Level 3: Backtracking (Explore & Constraint Satisfaction)
 
 ### 20. Print all subsequence
