@@ -957,8 +957,10 @@ LinkedList<int> linked = new LinkedList<int>();
 
 ### 1. Mod a number without `%` operator
 
-Both numbers are positive number and greater than zero.
-Also number within the integer range so there is no overflow.
+#### Constraints
+- Both numbers are positive and greater than zero
+- Numbers within integer range (no overflow)
+- Cannot use `%` operator
 
 **Pseudocode:**
 ```
@@ -1022,8 +1024,10 @@ public static int Mod(int a, int b)
 
 ### 2. Divide numbers without `/` operator
 
-Both numbers are positive number and greater than zero.
-Also number within the integer range so there is no overflow.
+#### Constraints
+- Both numbers are positive and greater than zero
+- Numbers within integer range (no overflow)
+- Cannot use `/` operator
 
 **Pseudocode:**
 ```
@@ -1079,7 +1083,10 @@ Divide(10, 3)
 
 ### 3. Square root of a number
 
-The number is a positive number and greater than zero.
+#### Constraints
+- Input is a non-negative integer
+- Return the floor of the square root
+- Assume no floating point arithmetic needed
 
 **Pseudocode:**
 ```
@@ -1140,7 +1147,10 @@ return i-1 = 6-1 = 5 ✅
 
 ### 4. Sum of digits
 
-The number is a positive number and greater than zero.
+#### Constraints
+- Input is a positive integer greater than zero
+- Sum all individual digits
+- No negative numbers
 
 **Pseudocode:**
 ```
@@ -1192,7 +1202,12 @@ Return: 30 ✓ (9+8+7+6=30)
 
 ### 5. String to Integer
 
-The input stringis not null or empty.
+#### Constraints
+- Input string is not null or empty
+- String contains only digit characters
+- Result fits within integer range
+- No need to handle sign (positive only)
+
 ```csharp
 public int StringToInt(string s)
 {
@@ -1218,6 +1233,11 @@ input = "123"
 - **Space Complexity :** `O(1)`
 
 ### 6. Geometric Sum
+
+#### Constraints
+- Input n is non-negative integer
+- Computes sum from 2^0 to 2^n terms
+- Result is a floating-point double
 
 ```
 The algorithm computes: ∑_{k=0}^{n} (1/2ᵏ) = 1 + 1/2 + 1/4 + 1/8 + ... + 1/2ⁿ
@@ -1263,6 +1283,11 @@ sum = 1.875 + 0.0625 = 1.9375 = 1 + 1/2 + 1/4 + 1/8 + 1/16
 - **Space Complexity :** `O(1)`
 
 ### 7. Count Zeroes
+
+#### Constraints
+- Input is a positive integer
+- Count total number of zero digits
+- No negative numbers
 
 ```csharp
 public static int CountZeroes(int n)
@@ -1327,6 +1352,12 @@ public static int TitleToNumber(string columnTitle)
 - **Space Complexity :** `O(1)`
 
 ### 9. Convert Roman to Integer
+
+#### Constraints
+- Input string contains valid Roman numerals
+- Roman string is not null or empty
+- Range: I(1) to MMMCMXCIX(3999)
+- Subtractive notation: IV(4), IX(9), XL(40), XC(90), CD(400), CM(900)
 
 Given a Roman numeral, convert it to an integer. Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
 
@@ -1433,6 +1464,11 @@ public static int RomanToInt_Optimized(string s)
 
 ### 10. Integer to Roman
 
+#### Constraints
+- Input is integer in range [1, 3999]
+- Output is valid Roman numeral string
+- Must use subtractive notation for 4,9,40,90,400,900
+
 Convert an integer to its Roman numeral representation.
 
 ```
@@ -1529,7 +1565,13 @@ public static string IntToRoman_Optimized(int num)
 
 
 ## Level 2: Recursion (Optimization Strategy)
-### 12. Factorial of a number
+
+### 11. Factorial of a number
+
+#### Constraints
+- Input is a positive number greater than zero
+- Numbers within integer range (no overflow)
+- No negative numbers
 
 The number is a positive number and greater than zero.
 
@@ -1561,7 +1603,12 @@ FactorialRecursive(5)
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(n)`
 
-### 13. Fibonacci Series
+### 12. Fibonacci Series
+
+#### Constraints
+- Input is a non-negative integer
+- Generate Fibonacci sequence starting from F(0)=0, F(1)=1
+- Numbers within reasonable range (no overflow for typical use cases)
 
 The number is a positive number and greater than zero.
 
@@ -1803,7 +1850,12 @@ No array needed, only two variables!
     - **Tabulation:** `O(n)` (stores all Fibonacci numbers 0 to n)
     - **Space-Optimized:** `O(1)` (only stores two variables)
 
-### 14. Power of two numbers
+### 13. Power of two numbers
+
+#### Constraints
+- Both numbers are positive integers greater than zero
+- Numbers within integer range (no overflow/stack overflow)
+- Base and exponent are non-negative
 
 Both numbers are positive number and greater than zero.
 Also number within the integer range so there is no overflow/ stack overflow.
@@ -1940,7 +1992,12 @@ Power(2, 1000):
 - **Space Complexity :** `O(log n)`
     - Call stack depth: `O(log n)` (depth of recursion tree)
 
-### 15. Count digits recursively
+### 14. Count digits recursively
+
+#### Constraints
+- Input is a positive integer
+- Count total number of digits in the number
+- No negative numbers
 
 ```csharp
 public static int CountDigits(int n)
@@ -1981,6 +2038,11 @@ CountDigits(1234) = 1 + CountDigits(123)
 
 ### 16. Sum of digits recursively
 
+#### Constraints
+- Input is a positive integer
+- Sum all individual digits recursively
+- No negative numbers
+
 ```csharp
 public static int SumOfDigits(int n)
 {
@@ -2015,6 +2077,11 @@ returns 6 + 4 = 10
 - **Space Complexity :** `O(log d)`
 
 ### 17. Count Zeroes Recursively
+
+#### Constraints
+- Input is a positive integer
+- Count total zero digits using recursion
+- No negative numbers
 
 ```csharp
 public static int CountZeroes(int n)
@@ -2090,6 +2157,12 @@ returns 1.75 + 0.125 = 1.875
 
 ### 19. String to Integer
 
+#### Constraints
+- Input string is not null or empty
+- String contains only digit characters
+- Recursive approach required
+- Result fits within integer range
+
 ```csharp
 public int StringToInt(string s)
 {
@@ -2128,6 +2201,12 @@ returns 12*10 + 3 = 123
     - String operations create new strings: `O(d²)` total space
 
 ### 20. Number to Text
+
+#### Constraints
+- Input is a positive integer
+- Convert digits to their English word equivalents
+- Recursive implementation
+- No negative numbers
 
 ```csharp
 public class NumberToText
@@ -2196,6 +2275,11 @@ ConvertNumberToText(123456)
 
 
 ### 21. Flatten
+
+#### Constraints
+- Input is a nested list structure
+- Flatten all levels recursively
+- Preserve order of elements
 
 ```csharp
 public static List<object> FlattenList(IEnumerable<object> nestedList)
@@ -2425,7 +2509,12 @@ returns 12*10 + 3 = 123
     - For call stack
 ## Level 3: Backtracking (Explore & Constraint Satisfaction)
 
-### 23. Print all subsequence
+### 21. Print all subsequence
+
+#### Constraints
+- Input string is not null or empty
+- Generate all possible subsequences
+- Output order follows natural recursion tree
 
 ```csharp
 public void PrintAllSubsequence(string input, string output)
@@ -2481,7 +2570,12 @@ output:
     - Call stack depth: `d` (when going down one branch)
     - String operations create new strings: `O(d²)` total space
 
-### 24. Print All Permutation of String
+### 22. Print All Permutation of String
+
+#### Constraints
+- Input string is not null or empty
+- Characters can repeat in output permutations
+- Generate all unique permutations
 
 Given a string s, the task is to return all permutations of a given string in lexicographically sorted order.
 Note: A permutation is the rearrangement of all the elements of a string. Duplicate arrangement can exist.
@@ -2708,6 +2802,12 @@ Total calls for n=5: 5 function calls
 
 ### 26. Tower of Hanoi
 
+#### Constraints
+- Input n is positive integer (number of disks)
+- All disks start on rod A, must move to rod C
+- Can only move one disk at a time
+- Larger disk cannot be placed on smaller disk
+
 Recursively calculates the minimum moves to solve Tower of Hanoi with n disks using the recurrence relation: `T(n) = 2×T(n-1) + 1`.
 
 ```csharp
@@ -2742,6 +2842,12 @@ returns 2×3+1 = 7
 
 
 ### 27. Print  Tower of Hanoi
+
+#### Constraints
+- Input n is positive integer (number of disks)
+- Three rods: A (source), B (auxiliary), C (destination)
+- Print all moves required to solve the puzzle
+- Each move is from one rod to another
 
 Tower of Hanoi is a mathematical puzzle where we have three rods (A, B, and C) and N disks. Initially, all the disks are stacked in decreasing value of diameter i.e., the smallest disk is placed on the top and they are on rod A. The objective of the puzzle is to move the entire stack to another rod (here considered C), obeying the following simple rules:
 - Only one disk can be moved at a time.
@@ -2814,6 +2920,13 @@ PrintTowerOfHanoiMoves(3, A, C, B)
 
 
 ### 28. Knight's Tour Problem
+
+#### Constraints
+- Input is board size n (n × n chessboard)
+- Knight starts at position (0, 0)
+- Knight must visit all squares exactly once
+- Knight moves in L-shape: 2 squares one direction, 1 square perpendicular
+- Find if complete tour exists
 
 The Knight's Tour is a sequence of moves of a knight on a chessboard such that the knight visits every square exactly once. Given an `n × n` chessboard and a starting position, find if a complete knight's tour exists. A knight moves in an "L" shape: 2 squares in one direction and 1 square perpendicular (or vice versa).
 
@@ -3137,7 +3250,13 @@ Warnsdorff's heuristic is so effective that it finds a solution (when one exists
 
 
 ## Level 4: Bit Manipulation (Advanced Optimization)
-### 29. Count Number of 1 Bits
+
+### 27. Count Number of 1 Bits
+
+#### Constraints
+- Input is a positive number greater than zero
+- Count total number of 1 bits in binary representation
+- Use efficient bit manipulation techniques
 
 The number is a positive number and greater than zero.
 
@@ -3166,7 +3285,12 @@ Return: 3
 - **Time Complexity :** `O(log n)`
 - **Space Complexity :** `O(1)`
 
-### 30. Swap Two Numbers Without Temp
+### 28. Swap Two Numbers Without Temp
+
+#### Constraints
+- Both numbers are positive and greater than zero
+- Must not use temporary variable
+- Use bitwise XOR operations
 
 Both numbers are positive number and greater than zero.
 
@@ -3194,6 +3318,12 @@ Final:   a = 3, b = 5  ✓ Swapped!
 
 ### 31. Single Number (All appear twice except one)
 
+#### Constraints
+- Array contains positive integers
+- All numbers appear exactly twice except one
+- One number appears exactly once
+- Cannot use extra space (O(1) space required)
+
 The numbers are positive numbers.
 
 ```csharp
@@ -3220,6 +3350,13 @@ public static int SingleNumber(int[] nums)
 - **Space Complexity :** `O(1)`
 
 ### 32. Find Missing Number in Array
+
+#### Constraints
+- Array contains n elements
+- Numbers range from 0 to n (inclusive)
+- Exactly one number is missing
+- Array is unsorted
+- O(1) space solution preferred
 
 Array of size `n` containing numbers from `0` to `n`, one missing.
 
@@ -3262,6 +3399,12 @@ What remains? 2 (only in range, not in array)
 
 ### 33. Add Two Numbers Without Arithmetic Operators
 
+#### Constraints
+- Both inputs are positive integers greater than zero
+- Cannot use +, -, *, / operators
+- Must use bitwise operations (XOR, AND, shift)
+- Result fits within integer range
+
 Both numbers are positive number and greater than zero.
 
 ```csharp
@@ -3299,6 +3442,12 @@ Final    | 1000 (8)   | 0000 (0)   |       |       |
 - **Space Complexity :** `O(1)`
 
 ### 34. Power (Optimized with Bitwise)
+
+#### Constraints
+- Both numbers are positive integers greater than zero
+- Use bitwise operations for optimization
+- O(log n) time complexity required
+- No built-in power function allowed
 
 Both numbers are positive number and greater than zero.
 
@@ -3340,6 +3489,12 @@ public static int PowerOptimized(int x, int n)
 
 ### 35. Minimum Bit Flips to Convert Number
 
+#### Constraints
+- Input is a positive integer greater than zero
+- Find minimum bit flips needed to convert a to b
+- XOR operation gives differing bits
+- Count number of 1s in XOR result
+
 The number is a positive number and greater than zero.
 
 ```csharp
@@ -3377,6 +3532,12 @@ Result: 3 bit flips needed
 - **Space Complexity :** `O(1)`
 
 ### 36. Generate All Subsets
+
+#### Constraints
+- Input array may contain duplicate elements
+- Generate all possible subsets (power set)
+- Subsets should be unique if duplicates exist
+- Return List of Lists
 
 ```csharp
 public static List<List<int>> GenerateSubsets(int[] nums)
@@ -3420,7 +3581,21 @@ public static List<List<int>> GenerateSubsets(int[] nums)
 - **Space Complexity :** `O(n × 2ⁿ)`
 
 ## Level 5: String Manipulation (Pattern Matching & Transformation)
-### 37. Multiply two strings
+
+### 33. Multiply two strings
+
+#### Constraints
+- Input strings represent non-negative integers
+- No leading zeros in output (except "0" itself)
+- Strings may be very large (cannot convert to int)
+- Return result as string
+
+Multiply two number strings without converting to integers
+
+#### Constraints
+- Both strings are not null and contain only positive numbers
+- Strings can be very large (no overflow concerns)
+- Result should be returned as string
 
 Both strings are not null and contains only positive numbers.
 
@@ -3508,7 +3683,12 @@ ITERATION MAP:
 - **Time Complexity :** `O(m*n)`
 - **Space Complexity :** `O(m+n)`
 
-### 38. Reverse String
+### 34. Reverse String
+
+#### Constraints
+- Input string is not null
+- Reverse in-place or return new reversed string
+- Only ASCII characters
 
 The string is not null.
 
@@ -3550,11 +3730,13 @@ Final:   o  l  l  e  h
 
 ### 39. Check for Anagrams
 
-An anagram of a string is another string that contains the same characters, only the order of characters can be different.
-
 #### Constraints
+- Both strings are not null
+- Strings contain only lowercase English letters
+- Two strings are anagrams if they have same characters
+- Order doesn't matter, frequency matters
 
-Both strings are not null.
+An anagram of a string is another string that contains the same characters, only the order of characters can be different.
 
 ```csharp
 public static bool IsAnagram(string s, string t)
@@ -3596,7 +3778,10 @@ Check:    n✓ a✓ g✓ a✓ r✓ a✓ m✓ → All good!
 
 ### 40. Length of Last Word
 
-The string is not null.
+#### Constraints
+- Input string is not null
+- String may contain multiple spaces
+- Last word contains only letters
 
 ```csharp
 public static int LengthOfLastWord(string s)
@@ -3642,6 +3827,12 @@ Result: 5 characters in last word
 - **Space Complexity :** `O(1)`
 
 ### 41. Concatenate two Strings
+
+#### Constraints
+- Both strings are not null or empty
+- Interleave characters from both strings
+- Include remaining characters from longer string
+- Return concatenated result
 
 ```
 str1 = "abc" st2="pqr" o/p - apbqcr
@@ -4018,6 +4209,12 @@ Result: 0
 
 ### 45. Longest Substring Without Repeating Characters
 
+#### Constraints
+- Input string is not null or empty
+- Find substring with no repeating characters
+- String contains lowercase English letters
+- Return length of longest substring
+
 Given a string s, find the length of the longest substring without repeating characters.
 
 ```
@@ -4117,6 +4314,12 @@ Result: 3
 ---
 
 ### 46. Reverse Words in a String
+
+#### Constraints
+- Input string is not null or empty
+- Reverse order of words (maintain word order internally)
+- Handle multiple spaces between words
+- Trim leading/trailing spaces
 
 Given an input string s, reverse the order of the words. A word is defined as a sequence of non-space characters.
 
@@ -4218,6 +4421,13 @@ private static string CleanSpaces(char[] chars, int n)
 ---
 
 ### 47. Word Break
+
+#### Constraints
+- Input string s is not null or empty
+- wordDict contains valid dictionary words
+- Each word in dict is unique
+- Must use all characters in s
+- Word can be reused multiple times
 
 Given a string s and a dictionary of strings wordDict, return true if s can be segmented into a space-separated sequence of dictionary words.
 
@@ -4351,7 +4561,14 @@ Result: dp[8] = true ✓
 ---
 
 ## Level 6: Array Operations (Collection Handling)
-### 48. Move Zeroes To End
+
+### 44. Move Zeroes To End
+
+#### Constraints
+- Array contains positive numbers only
+- Must modify array in-place
+- Preserve relative order of non-zero elements
+- O(1) extra space required
 
 The numbers are positive numbers.
 
@@ -4490,7 +4707,12 @@ Scenario 2: Array heavily with zeros [0, 0, 0, 1]
 | Current | Two-pass: collect non-zeros, fill zeros | Always n writes | Balanced |
 | Two-Pointer | Single-pass with conditional swap | Fewer when few zeros | Few/no zeros |
 
-### 43. Duplicate Characters
+### 45. Duplicate Characters
+
+#### Constraints
+- Input string is not null
+- Return characters that appear more than once
+- Return in original order from string
 
 The string is not null.
 
@@ -4532,7 +4754,12 @@ Step 3: Collect in original order
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(1)`
 
-### 44. Contains Duplicate
+### 46. Contains Duplicate
+
+#### Constraints
+- Array is not null
+- Find if any duplicate element exists
+- No specific range constraint
 
 The array is not null. Please complete with `O(1)` space complexity.
 
@@ -4651,7 +4878,12 @@ Hash Set [1, 2, 3, 1]:
     - Hash set stores up to n elements in worst case (no duplicates)
     - But early termination on finding duplicate reduces practical space needed
 
-### 51. Valid Palindrome
+### 47. Valid Palindrome
+
+#### Constraints
+- Input string is not null
+- Compare characters case-insensitively
+- Only check alphanumeric characters
 
 The string is not null.
 
@@ -4695,6 +4927,14 @@ String:  r a c e c a r
 
 ### 52. Fizz Buzz
 
+#### Constraints
+- Input n is positive integer
+- For each i from 1 to n:
+  - If divisible by 3: "Fizz"
+  - If divisible by 5: "Buzz"
+  - If divisible by both 15: "FizzBuzz"
+  - Otherwise: string representation of number
+
 Given an integer `n`, return a string array answer (1-indexed) where:
 - answer[i] == "FizzBuzz" if i is divisible by 3 and 5.
 - answer[i] == "Fizz" if i is divisible by 3.
@@ -4737,6 +4977,12 @@ n = 15
 - **Space Complexity :** `O(n)`
 
 ### 53. Longest Common Prefix
+
+#### Constraints
+- Input string array is not null or empty
+- Strings are not null individually
+- Find longest common prefix of all strings
+- Return empty string if no common prefix
 
 The string is not null.
 
@@ -4849,6 +5095,13 @@ Remaining: 8, 9 ✓
 ## Level 7: Stack Operations
 
 ### 49. Valid Parentheses
+
+#### Constraints
+- Input string is not null
+- Contains three types: (), {}, []
+- Every opening bracket has matching closing bracket
+- Brackets must be closed in correct order
+- Assume input contains only bracket characters
 
 The string is not null.
 
@@ -5150,6 +5403,12 @@ public static string RemoveDuplicates(string s)
 
 ### 58. Min Stack
 
+#### Constraints
+- Design stack with push, pop, top, and getMin operations
+- All operations must be O(1) time complexity
+- Stack is not null
+- Values are integers
+
 Design a stack that supports push, pop, top, and retrieving the minimum element in constant time O(1).
 
 ```
@@ -5265,6 +5524,12 @@ public class MinStackOptimized
 
 ### 59. Next Greater Element
 
+#### Constraints
+- Array contains positive integers
+- Find next greater element to the right
+- Return -1 if no greater element exists
+- Use stack for O(n) solution
+
 Given an array, for each element find the next greater element to its right. If not found, return -1.
 
 ```
@@ -5363,6 +5628,12 @@ Result: [3, 4, -1, -1] ✓
 ---
 
 ### 60. Daily Temperatures
+
+#### Constraints
+- Input array contains daily temperatures
+- Find days until warmer temperature
+- Return 0 if no warmer day exists
+- O(n) time using stack preferred
 
 Given an array of temperatures, return for each day how many days you have to wait until a warmer temperature.
 
@@ -5475,6 +5746,12 @@ Result: [1, 1, 4, 2, 1, 1, 0, 0] ✓
 
 ### 61. Largest Rectangle in Histogram
 
+#### Constraints
+- Heights array is not empty
+- All values are non-negative integers
+- Find largest rectangle area in histogram
+- O(n) solution using stack preferred
+
 Given an array of heights representing a histogram, find the largest rectangle area.
 
 ```
@@ -5560,6 +5837,12 @@ public static int LargestRectangleArea_MonotonicStack(int[] heights)
 ---
 
 ### 62. Decode String
+
+#### Constraints
+- Input string contains valid encoded format: `k[encoded_string]`
+- k is a positive integer
+- Brackets may be nested
+- String contains only lowercase letters and numbers
 
 Given an encoded string, decode it. The encoding rule is: `k[encoded_string]`, where k is a number and represents repeating the `encoded_string` k times.
 
@@ -5687,6 +5970,12 @@ public static string DecodeString_Iterative(string s)
 ## Level 8: Binary Search & Searching (Divide & Conquer Search)
 
 ### 63. Find First and Last Position of an Element in Sorted Array
+
+#### Constraints
+- Input array is sorted in ascending order
+- Find first and last position of target
+- Return [-1, -1] if target not found
+- O(log n) time complexity required
 
 ```csharp
 public static List<int> FindFirstAndLastPositionOfAnElement(int[] sortedArray, int target)
@@ -5917,6 +6206,12 @@ Found: nums[4] = 0
 
 ### 66. Two Sum
 
+#### Constraints
+- Array contains positive integers
+- Exactly one solution exists (two different indices)
+- Cannot use same element twice
+- Return array of [index1, index2] where index1 < index2
+
 Given an array of integers `nums` and an integer `target`, return the indices of the two numbers that add up to the target. You may assume each input has exactly one solution, and you cannot use the same element twice.
 
 **Constraints:**
@@ -6051,6 +6346,13 @@ public static int[] TwoSumOnePass(int[] nums, int target)
 
 ### 67. Search in 2D Sorted Matrix
 
+#### Constraints
+- Matrix is m × n size
+- Rows are sorted in ascending order (left to right)
+- Columns are sorted in ascending order (top to bottom)
+- Target value may not exist in matrix
+- O(m + n) or O(log m + log n) time preferred
+
 Given an `m × n` matrix where rows and columns are sorted in ascending order, search for a target value. Return true if found, false otherwise.
 
 **Constraints:**
@@ -6161,6 +6463,12 @@ Start: [0, 4] = 15 > 13 → col--
 ---
 
 ### 68. Spiral Matrix Traversal
+
+#### Constraints
+- Matrix is m × n size
+- Traverse clockwise from outside to inside
+- Visit all elements exactly once
+- Return result as single array
 
 Given an `m × n` matrix, return all elements of the matrix in spiral order (clockwise from outside to inside).
 
@@ -6486,6 +6794,12 @@ public static bool DetectCycleFloyd(ListNode head)
 
 ### 56. Merge Two Sorted Linked Lists
 
+#### Constraints
+- Both lists are sorted in ascending order
+- Lists may be of different lengths
+- Return merged sorted list
+- Use O(1) space (pointer manipulation only)
+
 **Pseudocode:**
 ```
 FUNCTION MergeSorted(list1, list2)
@@ -6542,6 +6856,12 @@ public static ListNode MergeSorted(ListNode list1, ListNode list2)
 
 ### 57. Find Middle of Linked List
 
+#### Constraints
+- Linked list node is not null
+- Return middle node (if even length, return second middle)
+- Use slow-fast pointer technique
+- O(n) time, O(1) space
+
 **Pseudocode:**
 ```
 FUNCTION FindMiddle(head)
@@ -6580,6 +6900,12 @@ public static ListNode FindMiddle(ListNode head)
 ---
 
 ### 58. Remove Nth Node From End of List
+
+#### Constraints
+- List contains at least one node
+- Remove nth node from end of list
+- Use two-pointer (dummy node) approach
+- Return head of modified list
 
 **Pseudocode:**
 ```
@@ -6636,6 +6962,12 @@ public static ListNode RemoveNthFromEnd(ListNode head, int n)
 ---
 
 ### 59. Linked List Palindrome Check
+
+#### Constraints
+- Linked list node is not null
+- Check if list forms a palindrome
+- Use fast-slow pointer to find middle
+- Reverse second half and compare
 
 **Pseudocode:**
 ```
@@ -7138,6 +7470,12 @@ public static TreeNode FindLCA_SinglePass(TreeNode node, TreeNode p, TreeNode q)
 
 ### 64. Maximum Path Sum in Binary Tree
 
+#### Constraints
+- Tree root may be null
+- Path may include any nodes (not necessarily root to leaf)
+- Return maximum sum of any path
+- Nodes can have negative values
+
 **Pseudocode:**
 ```
 FUNCTION MaxPathSum(node, maxSum_ref)
@@ -7184,6 +7522,12 @@ private static int MaxPathSumHelper(TreeNode node, int[] maxSum)
 ---
 
 ### 65. Serialize and Deserialize Tree
+
+#### Constraints
+- Tree can be null (leaf position)
+- Serialize to string format
+- Deserialize back to identical tree
+- Use pre-order or BFS traversal
 
 **Pseudocode (DFS approach):**
 ```
@@ -7268,6 +7612,12 @@ public class Codec
 ---
 
 ### 66. Balanced Binary Tree Check
+
+#### Constraints
+- Tree root may be null
+- Balanced: height difference of left/right <= 1
+- Check balance recursively for all nodes
+- Return true if balanced, false otherwise
 
 **Pseudocode:**
 ```
@@ -7998,6 +8348,13 @@ public static List<(int, int)> Prim(List<List<(int, int)>> graph, int n)
 
 ### 72. Word Ladder / Connected Components
 
+#### Constraints
+- Both strings and list are not null
+- Words have same length
+- Transformation changes one letter at a time
+- All intermediate words must be in word list
+- BFS approach for shortest path
+
 **Pseudocode (Connected Components):**
 ```
 FUNCTION CountConnectedComponents(graph, n)
@@ -8072,6 +8429,12 @@ private static void DFS(int node, HashSet<int> visited, List<int>[] graph)
 ---
 
 ### 73. Rotting Oranges (2D Matrix BFS)
+
+#### Constraints
+- Grid contains three values: 0 (empty), 1 (fresh), 2 (rotten)
+- Rotten orange spreads to adjacent fresh oranges each minute
+- Find minutes until all oranges rot or return -1 if impossible
+- Adjacent means up/down/left/right (not diagonal)
 
 In a given grid, each cell can have one of three values:
 - 0: empty cell
@@ -8425,6 +8788,12 @@ public static int LCS_Tabulation(string s1, string s2)
 
 ### 75. Matrix Chain Multiplication
 
+#### Constraints
+- Multiple matrices to multiply in sequence
+- Find optimal order to minimize operations
+- Use dynamic programming
+- Return minimum scalar multiplications
+
 **Placeholder for implementation**
 
 - **Time Complexity :** `O(n³)`
@@ -8433,6 +8802,12 @@ public static int LCS_Tabulation(string s1, string s2)
 ---
 
 ### 76. Unique Paths in Grid
+
+#### Constraints
+- m x n grid (start top-left, end bottom-right)
+- Move only right or down
+- Count total unique paths
+- Use dynamic programming or combinatorics
 
 **Placeholder for implementation**
 
@@ -8443,6 +8818,12 @@ public static int LCS_Tabulation(string s1, string s2)
 
 ### 77. Maximum Subarray (Kadane's Algorithm)
 
+#### Constraints
+- Array contains both positive and negative integers
+- Find maximum sum of contiguous subarray
+- Use Kadane's algorithm: O(n) time
+- Return maximum sum value
+
 **Placeholder for implementation**
 
 - **Time Complexity :** `O(n)`
@@ -8451,6 +8832,12 @@ public static int LCS_Tabulation(string s1, string s2)
 ---
 
 ### 78. Best Time to Buy and Sell Stock
+
+#### Constraints
+- Array contains daily stock prices
+- Buy on one day, sell on a later day
+- Maximize profit (or return 0 if no profit possible)
+- O(n) time, O(1) space required
 
 You are given an array `prices` where `prices[i]` is the price of a given stock on the ith day. You want to maximize your profit by choosing a single day to buy one stock and a different day in the future to sell that stock. Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
 
@@ -8676,6 +9063,12 @@ Return: 5
 
 ### 83. Trapping Rain Water (Max Water Container)
 
+#### Constraints
+- Array contains elevation heights (non-negative)
+- Calculate water trapped after rain
+- Water level: MIN(max_left, max_right) - height[i]
+- Use two-pointer or pre-computed arrays
+
 Given an elevation map represented by an array of heights, compute how much water can be trapped after raining. Water trapped is determined by the minimum of the maximum heights to the left and right, minus the current height.
 
 ```
@@ -8851,6 +9244,12 @@ public static int TrappingRainWaterDP(int[] height)
 
 ### 84. Activity Selection Problem
 
+#### Constraints
+- Each activity has start and finish time
+- Select maximum non-overlapping activities
+- Sort by finish time ascending
+- Greedy approach: O(n log n) time
+
 Select the maximum number of activities that don't overlap, where each activity has a start and finish time.
 
 #### 84.1 [Brute Force - All Combinations]
@@ -8981,6 +9380,12 @@ public static List<Activity> SelectActivitiesGreedy(Activity[] activities)
 ---
 
 ### 85. Huffman Coding
+
+#### Constraints
+- Input: frequency of each character
+- Build binary tree with minimum total encoding length
+- Assign variable-length codes (frequent = shorter)
+- Use min-heap for tree construction
 
 Create a binary tree for data compression by assigning variable-length codes based on character frequencies.
 
@@ -9152,6 +9557,13 @@ private static void GenerateCodesHelper(HuffmanNode node, string code, Dictionar
 
 ### 86. Fractional Knapsack Problem
 
+#### Constraints
+- Each item has weight and value
+- Capacity constraint: total weight <= W
+- Can take fractions of items (unlike 0/1 knapsack)
+- Maximize total value
+- Greedy: sort by value/weight ratio
+
 Select items (or fractions of items) to maximize value while staying within weight capacity.
 
 #### 86.1 [Brute Force - All Permutations]
@@ -9309,6 +9721,12 @@ public static double FractionalKnapsackGreedy(Item[] items, double capacity)
 
 ### 87. Jump Game / Reach End of Array
 
+#### Constraints
+- Each element = maximum jump length from that position
+- Determine if last index is reachable
+- Start from index 0
+- Greedy: track maximum reachable index
+
 Determine if you can reach the last index of an array, where each element indicates the maximum jump length.
 
 #### 87.1 [Brute Force - BFS/DFS]
@@ -9436,6 +9854,12 @@ public static bool CanJumpGreedy(int[] nums)
 
 ### 88. Interval Scheduling Maximization
 
+#### Constraints
+- List of intervals (start, end)
+- Maximize number of non-overlapping intervals
+- Sort by end time ascending
+- Greedy selection
+
 Given a list of intervals, find the maximum number of non-overlapping intervals.
 
 **Pseudocode:**
@@ -9499,6 +9923,12 @@ public static int MaximizeIntervals(Interval[] intervals)
 ---
 
 ### 89. Gas Station / Circuit
+
+#### Constraints
+- Each station has gas amount and cost to next station
+- Circular route: visit all stations and return
+- Single tank, refuel at each station
+- Find starting station or return -1 if impossible
 
 Start at a gas station and visit all stations in a circular route. Each station has gas to consume and distance to next station.
 
@@ -9585,6 +10015,12 @@ Return: 3 ✓
 ---
 
 ### 90. Candy Distribution Problem
+
+#### Constraints
+- Each child gets minimum 1 candy
+- Higher rating than neighbor => more candy than neighbor
+- Minimize total candy distributed
+- Two-pass algorithm: left-to-right, then right-to-left
 
 Distribute candy to children where each child must get at least 1 candy, and children with higher ratings than neighbors must get more candy than those neighbors.
 
