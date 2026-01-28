@@ -957,6 +957,23 @@ LinkedList<int> linked = new LinkedList<int>();
 
 ### 1. Mod a number without `%` operator
 
+**Description:** Find the remainder when dividing `a` by `b` without using the modulo operator.
+
+**Examples:**
+```
+Input: a = 5, b = 3
+Output: 2
+Explanation: 5 % 3 = 2 (5 = 1*3 + 2)
+
+Input: a = 10, b = 3
+Output: 1
+Explanation: 10 % 3 = 1 (10 = 3*3 + 1)
+
+Input: a = 7, b = 7
+Output: 0
+Explanation: 7 % 7 = 0 (7 = 1*7 + 0)
+```
+
 #### Constraints
 - Both numbers are positive and greater than zero
 - Numbers within integer range (no overflow)
@@ -1024,6 +1041,23 @@ public static int Mod(int a, int b)
 
 ### 2. Divide numbers without `/` operator
 
+**Description:** Find the quotient when dividing `a` by `b` without using the division operator.
+
+**Examples:**
+```
+Input: a = 10, b = 3
+Output: 3
+Explanation: 10 / 3 = 3 (quotient only)
+
+Input: a = 5, b = 2
+Output: 2
+Explanation: 5 / 2 = 2 (quotient only)
+
+Input: a = 10, b = 1
+Output: 10
+Explanation: 10 / 1 = 10
+```
+
 #### Constraints
 - Both numbers are positive and greater than zero
 - Numbers within integer range (no overflow)
@@ -1082,6 +1116,23 @@ Divide(10, 3)
 - **Space Complexity :** `O(1)`
 
 ### 3. Square root of a number
+
+**Description:** Find the integer square root (floor) of a non-negative number `n`.
+
+**Examples:**
+```
+Input: n = 9
+Output: 3
+Explanation: √9 = 3.0, floor = 3
+
+Input: n = 25
+Output: 5
+Explanation: √25 = 5.0, floor = 5
+
+Input: n = 8
+Output: 2
+Explanation: √8 ≈ 2.82, floor = 2
+```
 
 #### Constraints
 - Input is a non-negative integer
@@ -1147,6 +1198,23 @@ return i-1 = 6-1 = 5 ✅
 
 ### 4. Sum of digits
 
+**Description:** Calculate the sum of all digits in a positive integer.
+
+**Examples:**
+```
+Input: num = 123
+Output: 6
+Explanation: 1 + 2 + 3 = 6
+
+Input: num = 9876
+Output: 30
+Explanation: 9 + 8 + 7 + 6 = 30
+
+Input: num = 1000
+Output: 1
+Explanation: 1 + 0 + 0 + 0 = 1
+```
+
 #### Constraints
 - Input is a positive integer greater than zero
 - Sum all individual digits
@@ -1202,6 +1270,23 @@ Return: 30 ✓ (9+8+7+6=30)
 
 ### 5. String to Integer
 
+**Description:** Convert a numeric string to its integer representation.
+
+**Examples:**
+```
+Input: s = "123"
+Output: 123
+Explanation: String "123" converts to integer 123
+
+Input: s = "5678"
+Output: 5678
+Explanation: String "5678" converts to integer 5678
+
+Input: s = "0"
+Output: 0
+Explanation: String "0" converts to integer 0
+```
+
 #### Constraints
 - Input string is not null or empty
 - String contains only digit characters
@@ -1233,6 +1318,23 @@ input = "123"
 - **Space Complexity :** `O(1)`
 
 ### 6. Geometric Sum
+
+**Description:** Calculate the geometric sum: 1 + 1/2 + 1/4 + 1/8 + ... + 1/2ⁿ
+
+**Examples:**
+```
+Input: n = 0
+Output: 1.0
+Explanation: Sum = 1 (only first term)
+
+Input: n = 1
+Output: 1.5
+Explanation: Sum = 1 + 0.5 = 1.5
+
+Input: n = 3
+Output: 1.875
+Explanation: Sum = 1 + 0.5 + 0.25 + 0.125 = 1.875
+```
 
 #### Constraints
 - Input n is non-negative integer
@@ -1284,6 +1386,23 @@ sum = 1.875 + 0.0625 = 1.9375 = 1 + 1/2 + 1/4 + 1/8 + 1/16
 
 ### 7. Count Zeroes
 
+**Description:** Count the total number of zero digits in a positive integer.
+
+**Examples:**
+```
+Input: n = 101010
+Output: 3
+Explanation: Digits are 1,0,1,0,1,0. Three zeros present.
+
+Input: n = 1000
+Output: 3
+Explanation: Digits are 1,0,0,0. Three zeros present.
+
+Input: n = 12345
+Output: 0
+Explanation: No zeros in the number.
+```
+
 #### Constraints
 - Input is a positive integer
 - Count total number of zero digits
@@ -1313,20 +1432,34 @@ Result: 3 ✓
 - **Space Complexity :** `O(1)`
 
 ### 8. Excel Sheet Column Number
-Given a string columnTitle that represents the column title as appears in an Excel sheet, return its corresponding column number.
 
-```
-For example:
-•	A -> 1
-•	B -> 2
-•	C -> 3
-•	...
-•	Z -> 26
-•	AA -> 27
-•	AB -> 28
-•	...
+**Description:** Given a string columnTitle that represents the column title as appears in an Excel sheet, return its corresponding column number.
 
+**Examples:**
 ```
+Input: columnTitle = "A"
+Output: 1
+Explanation: A is the 1st column
+
+Input: columnTitle = "Z"
+Output: 26
+Explanation: Z is the 26th column
+
+Input: columnTitle = "AB"
+Output: 28
+Explanation: A=1, B=2 → AB = 1*26 + 2 = 28
+
+Input: columnTitle = "ZY"
+Output: 701
+Explanation: Z=26, Y=25 → ZY = 26*26 + 25 = 701
+```
+
+#### Constraints
+- Column title contains uppercase English letters
+- Title is not empty
+- Result is within integer range
+- Excel columns: A (1), B (2), ..., Z (26), AA (27), ...
+
 ```csharp
 public static int TitleToNumber(string columnTitle)
 {
@@ -1352,6 +1485,23 @@ public static int TitleToNumber(string columnTitle)
 - **Space Complexity :** `O(1)`
 
 ### 9. Convert Roman to Integer
+
+**Description:** Convert a Roman numeral string to its integer equivalent.
+
+**Examples:**
+```
+Input: s = "III"
+Output: 3
+Explanation: I + I + I = 1 + 1 + 1 = 3
+
+Input: s = "IV"
+Output: 4
+Explanation: V - I = 5 - 1 = 4 (subtractive case)
+
+Input: s = "MCMXCIV"
+Output: 1994
+Explanation: M + (M-C) + (C-X) + (V-I) = 1000 + 900 + 90 + 4 = 1994
+```
 
 #### Constraints
 - Input string contains valid Roman numerals
@@ -1464,6 +1614,27 @@ public static int RomanToInt_Optimized(string s)
 
 ### 10. Integer to Roman
 
+**Description:** Convert an integer to its Roman numeral representation (1-3999).
+
+**Examples:**
+```
+Input: num = 3
+Output: "III"
+Explanation: I + I + I = 1 + 1 + 1 = 3
+
+Input: num = 58
+Output: "LVIII"
+Explanation: L=50, V=5, III=3 → 50+5+3=58
+
+Input: num = 1994
+Output: "MCMXCIV"
+Explanation: M=1000, CM=900, XC=90, IV=4 → 1000+900+90+4=1994
+
+Input: num = 3749
+Output: "MMMDCCXLIX"
+Explanation: MMM=3000, DCC=700, XL=40, IX=9 → 3749
+```
+
 #### Constraints
 - Input is integer in range [1, 3999]
 - Output is valid Roman numeral string
@@ -1568,6 +1739,23 @@ public static string IntToRoman_Optimized(int num)
 
 ### 11. Factorial of a number
 
+**Description:** Calculate the factorial of a positive integer n (n! = n × (n-1) × ... × 1).
+
+**Examples:**
+```
+Input: n = 5
+Output: 120
+Explanation: 5! = 5 × 4 × 3 × 2 × 1 = 120
+
+Input: n = 0
+Output: 1
+Explanation: 0! = 1 (by definition)
+
+Input: n = 3
+Output: 6
+Explanation: 3! = 3 × 2 × 1 = 6
+```
+
 #### Constraints
 - Input is a positive number greater than zero
 - Numbers within integer range (no overflow)
@@ -1604,6 +1792,23 @@ FactorialRecursive(5)
 - **Space Complexity :** `O(n)`
 
 ### 12. Fibonacci Series
+
+**Description:** Generate the Fibonacci number at position n (F(n) = F(n-1) + F(n-2), F(0)=0, F(1)=1).
+
+**Examples:**
+```
+Input: n = 0
+Output: 0
+Explanation: F(0) = 0
+
+Input: n = 5
+Output: 5
+Explanation: Sequence: 0,1,1,2,3,5... F(5) = 5
+
+Input: n = 6
+Output: 8
+Explanation: Sequence: 0,1,1,2,3,5,8... F(6) = 8
+```
 
 #### Constraints
 - Input is a non-negative integer
@@ -1852,6 +2057,23 @@ No array needed, only two variables!
 
 ### 13. Power of two numbers
 
+**Description:** Calculate the power: a^b (a raised to power b).
+
+**Examples:**
+```
+Input: a = 2, b = 3
+Output: 8
+Explanation: 2^3 = 2 × 2 × 2 = 8
+
+Input: a = 3, b = 2
+Output: 9
+Explanation: 3^2 = 3 × 3 = 9
+
+Input: a = 2, b = 0
+Output: 1
+Explanation: Any number^0 = 1
+```
+
 #### Constraints
 - Both numbers are positive integers greater than zero
 - Numbers within integer range (no overflow/stack overflow)
@@ -1994,6 +2216,23 @@ Power(2, 1000):
 
 ### 14. Count digits recursively
 
+**Description:** Count the number of digits in a positive integer using recursion.
+
+**Examples:**
+```
+Input: n = 123
+Output: 3
+Explanation: 123 has 3 digits
+
+Input: n = 9
+Output: 1
+Explanation: Single digit number
+
+Input: n = 1000
+Output: 4
+Explanation: 1000 has 4 digits
+```
+
 #### Constraints
 - Input is a positive integer
 - Count total number of digits in the number
@@ -2038,6 +2277,23 @@ CountDigits(1234) = 1 + CountDigits(123)
 
 ### 16. Sum of digits recursively
 
+**Description:** Calculate sum of all digits in a number using recursion.
+
+**Examples:**
+```
+Input: n = 123
+Output: 6
+Explanation: 1 + 2 + 3 = 6 (recursive calls)
+
+Input: n = 456
+Output: 15
+Explanation: 4 + 5 + 6 = 15
+
+Input: n = 9
+Output: 9
+Explanation: Single digit
+```
+
 #### Constraints
 - Input is a positive integer
 - Sum all individual digits recursively
@@ -2077,6 +2333,23 @@ returns 6 + 4 = 10
 - **Space Complexity :** `O(log d)`
 
 ### 17. Count Zeroes Recursively
+
+**Description:** Count zero digits in a number using recursion.
+
+**Examples:**
+```
+Input: n = 101010
+Output: 3
+Explanation: Three zeros (recursively count each digit)
+
+Input: n = 1000
+Output: 3
+Explanation: Three zeros at end
+
+Input: n = 123
+Output: 0
+Explanation: No zeros
+```
 
 #### Constraints
 - Input is a positive integer
@@ -2157,6 +2430,23 @@ returns 1.75 + 0.125 = 1.875
 
 ### 19. String to Integer
 
+**Description:** Convert numeric string to integer using recursion.
+
+**Examples:**
+```
+Input: s = "123"
+Output: 123
+Explanation: Recursive digit extraction
+
+Input: s = "5678"
+Output: 5678
+Explanation: Build number recursively
+
+Input: s = "0"
+Output: 0
+Explanation: Single digit
+```
+
 #### Constraints
 - Input string is not null or empty
 - String contains only digit characters
@@ -2201,6 +2491,23 @@ returns 12*10 + 3 = 123
     - String operations create new strings: `O(d²)` total space
 
 ### 20. Number to Text
+
+**Description:** Convert a number to its English word representation using recursion.
+
+**Examples:**
+```
+Input: n = 0
+Output: "Zero"
+Explanation: Special case for zero
+
+Input: n = 123
+Output: "One Hundred Twenty Three"
+Explanation: Full English representation
+
+Input: n = 1000
+Output: "One Thousand"
+Explanation: Thousands place
+```
 
 #### Constraints
 - Input is a positive integer
@@ -2275,6 +2582,23 @@ ConvertNumberToText(123456)
 
 
 ### 21. Flatten
+
+**Description:** Flatten a nested list structure recursively into a single-level list.
+
+**Examples:**
+```
+Input: [[1,1],2,[1,1]]
+Output: [1,1,2,1,1]
+Explanation: Flatten all nested levels
+
+Input: [1,[4,[6]]]
+Output: [1,4,6]
+Explanation: Multiple levels of nesting
+
+Input: [1,2,3]
+Output: [1,2,3]
+Explanation: Already flat
+```
 
 #### Constraints
 - Input is a nested list structure
@@ -2511,6 +2835,23 @@ returns 12*10 + 3 = 123
 
 ### 21. Print all subsequence
 
+**Description:** Generate all possible subsequences of a string using backtracking.
+
+**Examples:**
+```
+Input: "ABC"
+Output: ["", "A", "B", "C", "AB", "AC", "BC", "ABC"]
+Explanation: All 2^n subsequences
+
+Input: "AB"
+Output: ["", "A", "B", "AB"]
+Explanation: 4 subsequences
+
+Input: "A"
+Output: ["", "A"]
+Explanation: 2 subsequences
+```
+
 #### Constraints
 - Input string is not null or empty
 - Generate all possible subsequences
@@ -2571,6 +2912,23 @@ output:
     - String operations create new strings: `O(d²)` total space
 
 ### 22. Print All Permutation of String
+
+**Description:** Generate all permutations of a string using backtracking.
+
+**Examples:**
+```
+Input: "ABC"
+Output: ["ABC", "ACB", "BAC", "BCA", "CAB", "CBA"]
+Explanation: All n! permutations
+
+Input: "AB"
+Output: ["AB", "BA"]
+Explanation: 2 permutations
+
+Input: "A"
+Output: ["A"]
+Explanation: 1 permutation
+```
 
 #### Constraints
 - Input string is not null or empty
@@ -3253,6 +3611,23 @@ Warnsdorff's heuristic is so effective that it finds a solution (when one exists
 
 ### 27. Count Number of 1 Bits
 
+**Description:** Count the number of 1s in the binary representation of an integer.
+
+**Examples:**
+```
+Input: n = 11 (binary: 1011)
+Output: 3
+Explanation: Three 1 bits in binary 1011
+
+Input: n = 128 (binary: 10000000)
+Output: 1
+Explanation: Single 1 bit
+
+Input: n = 7 (binary: 111)
+Output: 3
+Explanation: Three 1 bits
+```
+
 #### Constraints
 - Input is a positive number greater than zero
 - Count total number of 1 bits in binary representation
@@ -3286,6 +3661,23 @@ Return: 3
 - **Space Complexity :** `O(1)`
 
 ### 28. Swap Two Numbers Without Temp
+
+**Description:** Swap two numbers using XOR without a temporary variable.
+
+**Examples:**
+```
+Input: a = 5 (binary: 101), b = 7 (binary: 111)
+Output: a = 7, b = 5
+Explanation: XOR swap: a^=b; b^=a; a^=b;
+
+Input: a = 10, b = 20
+Output: a = 20, b = 10
+Explanation: Swap using XOR operations
+
+Input: a = 1, b = 1
+Output: a = 1, b = 1
+Explanation: Same numbers remain same
+```
 
 #### Constraints
 - Both numbers are positive and greater than zero
@@ -3730,6 +4122,23 @@ Final:   o  l  l  e  h
 
 ### 39. Check for Anagrams
 
+**Description:** Determine if two strings are anagrams (contain same characters with same frequencies).
+
+**Examples:**
+```
+Input: s = "listen", t = "silent"
+Output: true
+Explanation: Both strings contain: l,i,s,t,e,n
+
+Input: s = "hello", t = "world"
+Output: false
+Explanation: Different characters: hello has 2 l's, world has 0 l's
+
+Input: s = "abc", t = "cba"
+Output: true
+Explanation: Same characters, different order
+```
+
 #### Constraints
 - Both strings are not null
 - Strings contain only lowercase English letters
@@ -3777,6 +4186,23 @@ Check:    n✓ a✓ g✓ a✓ r✓ a✓ m✓ → All good!
 - **Space Complexity :** `O(1)`
 
 ### 40. Length of Last Word
+
+**Description:** Find the length of the last word in a string (ignoring trailing spaces).
+
+**Examples:**
+```
+Input: s = "Hello World"
+Output: 5
+Explanation: "World" has 5 characters
+
+Input: s = "   fly me   "
+Output: 2
+Explanation: "me" has 2 characters
+
+Input: s = "luffy is still joyboy"
+Output: 6
+Explanation: "joyboy" has 6 characters
+```
 
 #### Constraints
 - Input string is not null
@@ -5970,6 +6396,23 @@ public static string DecodeString_Iterative(string s)
 ## Level 8: Binary Search & Searching (Divide & Conquer Search)
 
 ### 63. Find First and Last Position of an Element in Sorted Array
+
+**Description:** Find first and last positions of target in sorted array, return [-1,-1] if not found.
+
+**Examples:**
+```
+Input: nums = [5,7,7,8,8,10], target = 8
+Output: [3,4]
+Explanation: First 8 at index 3, last 8 at index 4
+
+Input: nums = [5,7,7,8,8,10], target = 6
+Output: [-1,-1]
+Explanation: Target 6 not found
+
+Input: nums = [8], target = 8
+Output: [0,0]
+Explanation: Single element
+```
 
 #### Constraints
 - Input array is sorted in ascending order
