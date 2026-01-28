@@ -81,105 +81,117 @@ Level 7: Stack Operations (LIFO Data Structure)
 Level 8: Binary Search & Searching (Divide & Conquer Search)
 ├── 48. Find First and Last Position of an Element in Sorted Array
 ├── 49. Search in Rotated Sorted Array
-└── 50. Find Minimum Element in Sorted Rotated Array
+├── 50. Find Minimum Element in Sorted Rotated Array
+├── 51. Two Sum
+│   ├── 51.1 [Brute Force - Nested Loop]
+│   └── 51.2 [Hash Map - Two Pass]
+├── 52. Search in 2D Sorted Matrix
+│   ├── 52.1 [Brute Force - Linear Search]
+│   └── 52.2 [Binary Search - Staircase Search]
+└── 53. Spiral Matrix Traversal
+    ├── 53.1 [Brute Force - Layer by Layer]
+    └── 53.2 [Optimized - Boundary Tracking]
 
 Level 9: Linked List (Linear Data Structure with Pointers)
-├── 51. Reverse a Linked List
-│   ├── 51.1 [Brute Force - Iterative]
-│   └── 51.2 [Recursive]
-├── 52. Detect Cycle in Linked List
-│   ├── 52.1 [Brute Force - Hash Set]
-│   └── 52.2 [Two-Pointer (Floyd's Cycle Detection)]
-├── 53. Merge Two Sorted Linked Lists
-├── 54. Find Middle of Linked List
-├── 55. Remove Nth Node From End of List
-└── 56. Linked List Palindrome Check
+├── 54. Reverse a Linked List
+│   ├── 54.1 [Brute Force - Iterative]
+│   └── 54.2 [Recursive]
+├── 55. Detect Cycle in Linked List
+│   ├── 55.1 [Brute Force - Hash Set]
+│   └── 55.2 [Two-Pointer (Floyd's Cycle Detection)]
+├── 56. Merge Two Sorted Linked Lists
+├── 57. Find Middle of Linked List
+├── 58. Remove Nth Node From End of List
+└── 59. Linked List Palindrome Check
 
 Level 10: Tree (Hierarchical Data Structure)
-├── 57. Tree Traversals (Inorder, Preorder, Postorder)
-│   ├── 57.1 [Brute Force - Recursive]
-│   └── 57.2 [Iterative - Stack]
-├── 58. Level Order Traversal (BFS)
-│   ├── 58.1 [Brute Force - Recursive]
-│   └── 58.2 [Iterative - Queue]
-├── 59. Binary Search Tree Validation
-│   ├── 59.1 [Brute Force - Min/Max Range]
-│   └── 59.2 [Optimized - Recursive Range Check]
-├── 60. Lowest Common Ancestor (LCA)
-│   ├── 60.1 [Brute Force - Store Path]
-│   └── 60.2 [Optimized - Single Pass]
-├── 61. Maximum Path Sum in Binary Tree
-├── 62. Serialize and Deserialize Tree
-└── 63. Balanced Binary Tree Check
+├── 60. Tree Traversals (Inorder, Preorder, Postorder)
+│   ├── 60.1 [Brute Force - Recursive]
+│   └── 60.2 [Iterative - Stack]
+├── 61. Level Order Traversal (BFS)
+│   ├── 61.1 [Brute Force - Recursive]
+│   └── 61.2 [Iterative - Queue]
+├── 62. Binary Search Tree Validation
+│   ├── 62.1 [Brute Force - Min/Max Range]
+│   └── 62.2 [Optimized - Recursive Range Check]
+├── 63. Lowest Common Ancestor (LCA)
+│   ├── 63.1 [Brute Force - Store Path]
+│   └── 63.2 [Optimized - Single Pass]
+├── 64. Maximum Path Sum in Binary Tree
+├── 65. Serialize and Deserialize Tree
+└── 66. Balanced Binary Tree Check
 
 Level 11: Graph (Network & Relationship Modeling)
-├── 64. Graph Traversals (DFS, BFS)
-│   ├── 64.1 [Brute Force - DFS Recursive]
-│   ├── 64.2 [DFS Iterative - Stack]
-│   └── 64.3 [BFS - Queue]
-├── 65. Detect Cycle in Graph
-│   ├── 65.1 [Brute Force - DFS]
-│   └── 65.2 [Union-Find (Disjoint Set)]
-├── 66. Topological Sort
-│   ├── 66.1 [Brute Force - DFS]
-│   └── 66.2 [Kahn's Algorithm - BFS]
-├── 67. Shortest Path (Dijkstra)
-│   ├── 67.1 [Brute Force - Bellman-Ford]
-│   └── 67.2 [Optimized - Dijkstra with Priority Queue]
-├── 68. Minimum Spanning Tree
-│   ├── 68.1 [Kruskal's Algorithm]
-│   └── 68.2 [Prim's Algorithm]
-└── 69. Word Ladder / Connected Components
+├── 67. Graph Traversals (DFS, BFS)
+│   ├── 67.1 [Brute Force - DFS Recursive]
+│   ├── 67.2 [DFS Iterative - Stack]
+│   └── 67.3 [BFS - Queue]
+├── 68. Detect Cycle in Graph
+│   ├── 68.1 [Brute Force - DFS]
+│   └── 68.2 [Union-Find (Disjoint Set)]
+├── 69. Topological Sort
+│   ├── 69.1 [Brute Force - DFS]
+│   └── 69.2 [Kahn's Algorithm - BFS]
+├── 70. Shortest Path (Dijkstra)
+│   ├── 70.1 [Brute Force - Bellman-Ford]
+│   └── 70.2 [Optimized - Dijkstra with Priority Queue]
+├── 71. Minimum Spanning Tree
+│   ├── 71.1 [Kruskal's Algorithm]
+│   └── 71.2 [Prim's Algorithm]
+├── 72. Word Ladder / Connected Components
+└── 73. Rotting Oranges (2D Matrix BFS)
 
 Level 12: Dynamic Programming (Optimization Strategy)
-├── 70. Longest Common Subsequence (LCS)
-│   ├── 70.1 [Brute Force - Recursive]
-│   ├── 70.2 [Memoization]
-│   └── 70.3 [Tabulation - DP Table]
-├── 71. Longest Increasing Subsequence (LIS)
-│   ├── 71.1 [Brute Force - O(2ⁿ)]
-│   ├── 71.2 [DP - O(n²)]
-│   └── 71.3 [Binary Search Optimized - O(n log n)]
-├── 72. 0/1 Knapsack Problem
-│   ├── 72.1 [Brute Force - Exponential]
-│   └── 72.2 [DP Tabulation - O(n*w)]
-├── 73. Coin Change Problem
-│   ├── 73.1 [Brute Force - Recursive]
-│   └── 73.2 [DP - Minimum Coins]
-├── 74. Edit Distance (Levenshtein)
+├── 74. Longest Common Subsequence (LCS)
 │   ├── 74.1 [Brute Force - Recursive]
-│   └── 74.2 [DP Tabulation]
-├── 75. Matrix Chain Multiplication
-├── 76. Unique Paths in Grid
-├── 77. Maximum Subarray (Kadane's Algorithm)
-└── 78. Best Time to Buy and Sell Stock
-    ├── 78.1 [Brute Force - All Pairs]
-    ├── 78.2 [Dynamic Programming - Max Profit]
-    └── 78.3 [Greedy - Single Pass]
+│   ├── 74.2 [Memoization]
+│   └── 74.3 [Tabulation - DP Table]
+├── 75. Longest Increasing Subsequence (LIS)
+│   ├── 75.1 [Brute Force - O(2ⁿ)]
+│   ├── 75.2 [DP - O(n²)]
+│   └── 75.3 [Binary Search Optimized - O(n log n)]
+├── 76. 0/1 Knapsack Problem
+│   ├── 76.1 [Brute Force - Exponential]
+│   └── 76.2 [DP Tabulation - O(n*w)]
+├── 77. Coin Change Problem
+│   ├── 77.1 [Brute Force - Recursive]
+│   └── 77.2 [DP - Minimum Coins]
+├── 78. Edit Distance (Levenshtein)
+│   ├── 78.1 [Brute Force - Recursive]
+│   └── 78.2 [DP Tabulation]
+├── 79. Matrix Chain Multiplication
+├── 80. Unique Paths in Grid
+├── 81. Maximum Subarray (Kadane's Algorithm)
+├── 82. Best Time to Buy and Sell Stock
+│   ├── 82.1 [Brute Force - All Pairs]
+│   ├── 82.2 [Dynamic Programming - Max Profit]
+│   └── 82.3 [Greedy - Single Pass]
+└── 83. Trapping Rain Water (Max Water Container)
+    ├── 83.1 [Brute Force - Height Pairs]
+    ├── 83.2 [Two-Pointer Approach]
+    └── 83.3 [Dynamic Programming]
 
 Level 13: Greedy Techniques (Local Optimal Choice)
-├── 79. Activity Selection Problem
-│   ├── 79.1 [Brute Force - All Combinations]
-│   └── 79.2 [Greedy - Earliest Finish Time]
-├── 80. Huffman Coding
-│   ├── 80.1 [Brute Force - All Frequencies]
-│   └── 80.2 [Greedy - Min Heap]
-├── 81. Fractional Knapsack Problem
-│   ├── 80.1 [Brute Force - All Permutations]
-│   └── 80.2 [Greedy - Value/Weight Ratio]
-├── 81. Jump Game / Reach End of Array
-│   ├── 81.1 [Brute Force - BFS/DFS]
-│   └── 81.2 [Greedy - Maximum Reach]
-├── 82. Interval Scheduling Maximization
-├── 83. Gas Station / Circuit
-└── 84. Candy Distribution Problem
+├── 84. Activity Selection Problem
+│   ├── 84.1 [Brute Force - All Combinations]
+│   └── 84.2 [Greedy - Earliest Finish Time]
+├── 85. Huffman Coding
+│   ├── 85.1 [Brute Force - All Frequencies]
+│   └── 85.2 [Greedy - Min Heap]
+├── 86. Fractional Knapsack Problem
+│   ├── 86.1 [Brute Force - All Permutations]
+│   └── 86.2 [Greedy - Value/Weight Ratio]
+├── 87. Jump Game / Reach End of Array
+│   ├── 87.1 [Brute Force - BFS/DFS]
+│   └── 87.2 [Greedy - Maximum Reach]
+├── 88. Interval Scheduling Maximization
+├── 89. Gas Station / Circuit
+└── 90. Candy Distribution Problem
 ```
 
 ---
 
 ## Level 1: Number & Basic Operations (Foundation)
-
-> `Brute force technique`
 
 ### 1. Mod a number without `%` operator
 
@@ -3666,22 +3678,414 @@ Found: nums[4] = 0
 ```
 - **Time Complexity :** `O(log n)`
 - **Space Complexity :** `O(1)`
+
+---
+
+### 51. Two Sum
+
+Given an array of integers `nums` and an integer `target`, return the indices of the two numbers that add up to the target. You may assume each input has exactly one solution, and you cannot use the same element twice.
+
+**Constraints:**
+- You must return the indices (not values)
+- Cannot use same element twice
+- Return in any order
+
+```
+Examples:
+Input: nums = [2, 7, 11, 15], target = 9
+Output: [0, 1] (because nums[0] + nums[1] = 2 + 7 = 9)
+
+Input: nums = [3, 3], target = 6
+Output: [0, 1] (because nums[0] + nums[1] = 3 + 3 = 6)
+```
+
+#### 51.1 [Brute Force - Nested Loop]
+
+Check all pairs of numbers to find the two that sum to target.
+
+```csharp
+public static int[] TwoSumBruteForce(int[] nums, int target)
+{
+    // Check every pair
+    for (int i = 0; i < nums.Length; i++)
+    {
+        for (int j = i + 1; j < nums.Length; j++)
+        {
+            if (nums[i] + nums[j] == target)
+            {
+                return new int[] { i, j };
+            }
+        }
+    }
+
+    return new int[] { -1, -1 }; // No solution found
+}
+```
+
+```
+nums = [2, 7, 11, 15], target = 9
+
+i=0, j=1: 2+7=9 ✓ → Return [0, 1]
+
+Without early exit (showing all comparisons):
+i=0: j=1 (2+7=9✓), j=2 (2+11=13✗), j=3 (2+15=17✗)
+i=1: j=2 (7+11=18✗), j=3 (7+15=22✗)
+i=2: j=3 (11+15=26✗)
+```
+
+- **Time Complexity :** `O(n²)`
+    - Nested loops checking all pairs
+- **Space Complexity :** `O(1)`
+    - Only using constant space
+
+#### 51.2 [Hash Map - Two Pass]
+
+Use a hash map to store seen numbers and their indices. For each number, check if `target - number` exists in the map.
+
+```csharp
+public static int[] TwoSumHashMap(int[] nums, int target)
+{
+    // Dictionary to store value → index mapping
+    var numMap = new Dictionary<int, int>();
+
+    // Store all numbers and their indices
+    for (int i = 0; i < nums.Length; i++)
+    {
+        numMap[nums[i]] = i;
+    }
+
+    // Check each number to find its complement
+    for (int i = 0; i < nums.Length; i++)
+    {
+        int complement = target - nums[i];
+
+        // Check if complement exists and is not the same element
+        if (numMap.ContainsKey(complement) && numMap[complement] != i)
+        {
+            return new int[] { i, numMap[complement] };
+        }
+    }
+
+    return new int[] { -1, -1 };
+}
+```
+
+```
+nums = [2, 7, 11, 15], target = 9
+
+Step 1: Build HashMap
+numMap = { 2→0, 7→1, 11→2, 15→3 }
+
+Step 2: Find complement for each number
+i=0: nums[0]=2, complement=9-2=7
+     7 exists in map at index 1 ✓
+     Return [0, 1]
+```
+
+- **Time Complexity :** `O(n)`
+    - First pass: O(n) to build hash map
+    - Second pass: O(n) to find complement
+    - Total: O(n) + O(n) = O(n)
+- **Space Complexity :** `O(n)`
+    - Hash map stores up to n elements
+
+**Alternative: One-Pass Hash Map (Even Better)**
+```csharp
+public static int[] TwoSumOnePass(int[] nums, int target)
+{
+    var numMap = new Dictionary<int, int>();
+
+    for (int i = 0; i < nums.Length; i++)
+    {
+        int complement = target - nums[i];
+
+        // Check if complement was already seen
+        if (numMap.ContainsKey(complement))
+        {
+            return new int[] { numMap[complement], i };
+        }
+
+        // Store current number for future checks
+        numMap[nums[i]] = i;
+    }
+
+    return new int[] { -1, -1 };
+}
+```
+
+---
+
+### 52. Search in 2D Sorted Matrix
+
+Given an `m × n` matrix where rows and columns are sorted in ascending order, search for a target value. Return true if found, false otherwise.
+
+**Constraints:**
+- Rows sorted left to right
+- Columns sorted top to bottom
+- Matrix is not necessarily sorted overall
+
+```
+Example:
+Matrix:
+[1,  4,  7, 11, 15]
+[2,  5,  8, 12, 19]
+[3,  6,  9, 16, 22]
+[10, 13, 14, 17, 24]
+[18, 21, 23, 26, 30]
+
+Search for 13: Found at [3, 1]
+Search for 20: Not found
+```
+
+#### 52.1 [Brute Force - Linear Search]
+
+Check every element in the matrix sequentially.
+
+```csharp
+public static bool SearchMatrixBruteForce(int[][] matrix, int target)
+{
+    // Check every element
+    foreach (int[] row in matrix)
+    {
+        foreach (int num in row)
+        {
+            if (num == target)
+                return true;
+        }
+    }
+
+    return false;
+}
+```
+
+- **Time Complexity :** `O(m × n)`
+    - Check all m rows and n columns
+- **Space Complexity :** `O(1)`
+
+#### 52.2 [Binary Search - Staircase Search]
+
+Start from top-right corner (or bottom-left). If current element is less than target, move down; if greater, move left. This eliminates one row or column per step.
+
+```csharp
+public static bool SearchMatrixStaircase(int[][] matrix, int target)
+{
+    int m = matrix.Length;        // rows
+    int n = matrix[0].Length;      // columns
+
+    // Start from top-right corner
+    int row = 0;
+    int col = n - 1;
+
+    while (row < m && col >= 0)
+    {
+        if (matrix[row][col] == target)
+        {
+            return true;
+        }
+
+        if (matrix[row][col] < target)
+        {
+            // Current element too small, move down
+            row++;
+        }
+        else
+        {
+            // Current element too large, move left
+            col--;
+        }
+    }
+
+    return false;
+}
+```
+
+```
+Matrix:
+[1,  4,  7, 11, 15]    row 0
+[2,  5,  8, 12, 19]    row 1
+[3,  6,  9, 16, 22]    row 2
+[10, 13, 14, 17, 24]   row 3
+[18, 21, 23, 26, 30]   row 4
+     ↑                   ↑
+   col 1               col 4 (start)
+
+Search for 13:
+Start: [0, 4] = 15 > 13 → col--
+       [0, 3] = 11 < 13 → row++
+       [1, 3] = 12 < 13 → row++
+       [2, 3] = 16 > 13 → col--
+       [2, 2] = 9 < 13 → row++
+       [3, 2] = 14 > 13 → col--
+       [3, 1] = 13 = 13 → Found! ✓
+```
+
+- **Time Complexity :** `O(m + n)`
+    - At most m down moves + n left moves
+- **Space Complexity :** `O(1)`
+    - Only using constant space
+
+---
+
+### 53. Spiral Matrix Traversal
+
+Given an `m × n` matrix, return all elements of the matrix in spiral order (clockwise from outside to inside).
+
+```
+Example:
+[1,  2,  3]
+[4,  5,  6]
+[7,  8,  9]
+
+Spiral: [1, 2, 3, 6, 9, 8, 7, 4, 5]
+```
+
+#### 53.1 [Brute Force - Layer by Layer]
+
+Process the matrix layer by layer, moving right → down → left → up, then shrink boundaries.
+
+```csharp
+public static List<int> SpiralMatrixLayerByLayer(int[][] matrix)
+{
+    var result = new List<int>();
+
+    int top = 0, bottom = matrix.Length - 1;
+    int left = 0, right = matrix[0].Length - 1;
+
+    while (top <= bottom && left <= right)
+    {
+        // Move right along top row
+        for (int col = left; col <= right; col++)
+        {
+            result.Add(matrix[top][col]);
+        }
+        top++;
+
+        // Move down along right column
+        for (int row = top; row <= bottom; row++)
+        {
+            result.Add(matrix[row][right]);
+        }
+        right--;
+
+        // Move left along bottom row (if exists)
+        if (top <= bottom)
+        {
+            for (int col = right; col >= left; col--)
+            {
+                result.Add(matrix[bottom][col]);
+            }
+            bottom--;
+        }
+
+        // Move up along left column (if exists)
+        if (left <= right)
+        {
+            for (int row = bottom; row >= top; row--)
+            {
+                result.Add(matrix[row][left]);
+            }
+            left++;
+        }
+    }
+
+    return result;
+}
+```
+
+```
+Matrix:
+[1,  2,  3]
+[4,  5,  6]
+[7,  8,  9]
+
+Layer 1:
+→ Right: 1, 2, 3
+↓ Down: 6, 9
+← Left: 8, 7
+↑ Up: 4
+
+Layer 2:
+  5 (center)
+
+Result: [1, 2, 3, 6, 9, 8, 7, 4, 5]
+```
+
+- **Time Complexity :** `O(m × n)`
+    - Visit each element exactly once
+- **Space Complexity :** `O(1)` (excluding output list)
+
+#### 53.2 [Optimized - Boundary Tracking]
+
+Same approach but cleaner implementation with early termination checks.
+
+```csharp
+public static List<int> SpiralMatrixOptimized(int[][] matrix)
+{
+    var result = new List<int>();
+
+    int top = 0, bottom = matrix.Length - 1;
+    int left = 0, right = matrix[0].Length - 1;
+
+    while (top <= bottom && left <= right)
+    {
+        // Traverse right
+        for (int col = left; col <= right; col++)
+        {
+            result.Add(matrix[top][col]);
+        }
+        top++;
+
+        // Traverse down
+        for (int row = top; row <= bottom; row++)
+        {
+            result.Add(matrix[row][right]);
+        }
+        right--;
+
+        // Traverse left (only if row exists)
+        if (top <= bottom)
+        {
+            for (int col = right; col >= left; col--)
+            {
+                result.Add(matrix[bottom][col]);
+            }
+            bottom--;
+        }
+
+        // Traverse up (only if column exists)
+        if (left <= right)
+        {
+            for (int row = bottom; row >= top; row--)
+            {
+                result.Add(matrix[row][left]);
+            }
+            left++;
+        }
+    }
+
+    return result;
+}
+```
+
+- **Time Complexity :** `O(m × n)`
+- **Space Complexity :** `O(1)`
+
 ---
 
 ## Level 9: Linked List (Linear Data Structure with Pointers)
 
 > `Iterative & Recursive techniques`
 
-### 51. Reverse a Linked List
+### 54. Reverse a Linked List
 
-#### 51.1 [Brute Force - Iterative]
+#### 54.1 [Brute Force - Iterative]
 
 **Placeholder for implementation**
 
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(1)`
 
-#### 51.2 [Recursive]
+#### 54.2 [Recursive]
 
 **Placeholder for implementation**
 
@@ -3690,16 +4094,16 @@ Found: nums[4] = 0
 
 ---
 
-### 52. Detect Cycle in Linked List
+### 55. Detect Cycle in Linked List
 
-#### 52.1 [Brute Force - Hash Set]
+#### 55.1 [Brute Force - Hash Set]
 
 **Placeholder for implementation**
 
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(n)`
 
-#### 52.2 [Two-Pointer (Floyd's Cycle Detection)]
+#### 55.2 [Two-Pointer (Floyd's Cycle Detection)]
 
 **Placeholder for implementation**
 
@@ -3708,7 +4112,7 @@ Found: nums[4] = 0
 
 ---
 
-### 53. Merge Two Sorted Linked Lists
+### 56. Merge Two Sorted Linked Lists
 
 **Placeholder for implementation**
 
@@ -3717,7 +4121,7 @@ Found: nums[4] = 0
 
 ---
 
-### 54. Find Middle of Linked List
+### 57. Find Middle of Linked List
 
 **Placeholder for implementation**
 
@@ -3726,7 +4130,7 @@ Found: nums[4] = 0
 
 ---
 
-### 55. Remove Nth Node From End of List
+### 58. Remove Nth Node From End of List
 
 **Placeholder for implementation**
 
@@ -3735,7 +4139,7 @@ Found: nums[4] = 0
 
 ---
 
-### 56. Linked List Palindrome Check
+### 59. Linked List Palindrome Check
 
 **Placeholder for implementation**
 
@@ -3748,16 +4152,16 @@ Found: nums[4] = 0
 
 > `Traversal & Search techniques`
 
-### 57. Tree Traversals (Inorder, Preorder, Postorder)
+### 60. Tree Traversals (Inorder, Preorder, Postorder)
 
-#### 57.1 [Brute Force - Recursive]
+#### 60.1 [Brute Force - Recursive]
 
 **Placeholder for implementation**
 
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(h)` (h = height)
 
-#### 57.2 [Iterative - Stack]
+#### 60.2 [Iterative - Stack]
 
 **Placeholder for implementation**
 
@@ -3766,16 +4170,16 @@ Found: nums[4] = 0
 
 ---
 
-### 58. Level Order Traversal (BFS)
+### 61. Level Order Traversal (BFS)
 
-#### 58.1 [Brute Force - Recursive]
+#### 61.1 [Brute Force - Recursive]
 
 **Placeholder for implementation**
 
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(n)`
 
-#### 58.2 [Iterative - Queue]
+#### 61.2 [Iterative - Queue]
 
 **Placeholder for implementation**
 
@@ -3784,34 +4188,16 @@ Found: nums[4] = 0
 
 ---
 
-### 59. Binary Search Tree Validation
+### 62. Binary Search Tree Validation
 
-#### 59.1 [Brute Force - Min/Max Range]
-
-**Placeholder for implementation**
-
-- **Time Complexity :** `O(n)`
-- **Space Complexity :** `O(h)`
-
-#### 59.2 [Optimized - Recursive Range Check]
+#### 62.1 [Brute Force - Min/Max Range]
 
 **Placeholder for implementation**
 
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(h)`
 
----
-
-### 60. Lowest Common Ancestor (LCA)
-
-#### 60.1 [Brute Force - Store Path]
-
-**Placeholder for implementation**
-
-- **Time Complexity :** `O(n)`
-- **Space Complexity :** `O(h)`
-
-#### 60.2 [Optimized - Single Pass]
+#### 62.2 [Optimized - Recursive Range Check]
 
 **Placeholder for implementation**
 
@@ -3820,7 +4206,16 @@ Found: nums[4] = 0
 
 ---
 
-### 61. Maximum Path Sum in Binary Tree
+### 63. Lowest Common Ancestor (LCA)
+
+#### 63.1 [Brute Force - Store Path]
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(n)`
+- **Space Complexity :** `O(h)`
+
+#### 63.2 [Optimized - Single Pass]
 
 **Placeholder for implementation**
 
@@ -3829,7 +4224,16 @@ Found: nums[4] = 0
 
 ---
 
-### 62. Serialize and Deserialize Tree
+### 64. Maximum Path Sum in Binary Tree
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(n)`
+- **Space Complexity :** `O(h)`
+
+---
+
+### 65. Serialize and Deserialize Tree
 
 **Placeholder for implementation**
 
@@ -3838,7 +4242,7 @@ Found: nums[4] = 0
 
 ---
 
-### 63. Balanced Binary Tree Check
+### 66. Balanced Binary Tree Check
 
 **Placeholder for implementation**
 
@@ -3851,23 +4255,23 @@ Found: nums[4] = 0
 
 > `Traversal & Path Finding techniques`
 
-### 64. Graph Traversals (DFS, BFS)
+### 67. Graph Traversals (DFS, BFS)
 
-#### 64.1 [Brute Force - DFS Recursive]
+#### 67.1 [Brute Force - DFS Recursive]
 
 **Placeholder for implementation**
 
 - **Time Complexity :** `O(V + E)`
 - **Space Complexity :** `O(V)` (Visited set + Call stack)
 
-#### 64.2 [DFS Iterative - Stack]
+#### 67.2 [DFS Iterative - Stack]
 
 **Placeholder for implementation**
 
 - **Time Complexity :** `O(V + E)`
 - **Space Complexity :** `O(V)`
 
-#### 64.3 [BFS - Queue]
+#### 67.3 [BFS - Queue]
 
 **Placeholder for implementation**
 
@@ -3876,16 +4280,16 @@ Found: nums[4] = 0
 
 ---
 
-### 65. Detect Cycle in Graph
+### 68. Detect Cycle in Graph
 
-#### 65.1 [Brute Force - DFS]
+#### 68.1 [Brute Force - DFS]
 
 **Placeholder for implementation**
 
 - **Time Complexity :** `O(V + E)`
 - **Space Complexity :** `O(V)`
 
-#### 65.2 [Union-Find (Disjoint Set)]
+#### 68.2 [Union-Find (Disjoint Set)]
 
 **Placeholder for implementation**
 
@@ -3894,16 +4298,16 @@ Found: nums[4] = 0
 
 ---
 
-### 66. Topological Sort
+### 69. Topological Sort
 
-#### 66.1 [Brute Force - DFS]
+#### 69.1 [Brute Force - DFS]
 
 **Placeholder for implementation**
 
 - **Time Complexity :** `O(V + E)`
 - **Space Complexity :** `O(V)`
 
-#### 66.2 [Kahn's Algorithm - BFS]
+#### 69.2 [Kahn's Algorithm - BFS]
 
 **Placeholder for implementation**
 
@@ -3912,16 +4316,16 @@ Found: nums[4] = 0
 
 ---
 
-### 67. Shortest Path (Dijkstra)
+### 70. Shortest Path (Dijkstra)
 
-#### 67.1 [Brute Force - Bellman-Ford]
+#### 70.1 [Brute Force - Bellman-Ford]
 
 **Placeholder for implementation**
 
 - **Time Complexity :** `O(V * E)`
 - **Space Complexity :** `O(V)`
 
-#### 67.2 [Optimized - Dijkstra with Priority Queue]
+#### 70.2 [Optimized - Dijkstra with Priority Queue]
 
 **Placeholder for implementation**
 
@@ -3930,16 +4334,16 @@ Found: nums[4] = 0
 
 ---
 
-### 68. Minimum Spanning Tree
+### 71. Minimum Spanning Tree
 
-#### 68.1 [Kruskal's Algorithm]
+#### 71.1 [Kruskal's Algorithm]
 
 **Placeholder for implementation**
 
 - **Time Complexity :** `O(E log E)`
 - **Space Complexity :** `O(V)`
 
-#### 68.2 [Prim's Algorithm]
+#### 71.2 [Prim's Algorithm]
 
 **Placeholder for implementation**
 
@@ -3948,12 +4352,137 @@ Found: nums[4] = 0
 
 ---
 
-### 69. Word Ladder / Connected Components
+### 72. Word Ladder / Connected Components
 
 **Placeholder for implementation**
 
 - **Time Complexity :** `O(V + E)`
 - **Space Complexity :** `O(V)`
+
+---
+
+### 73. Rotting Oranges (2D Matrix BFS)
+
+In a given grid, each cell can have one of three values:
+- 0: empty cell
+- 1: fresh orange
+- 2: rotten orange
+
+Every minute, any fresh orange that is 4-directionally adjacent to a rotten orange becomes rotten. Return the minimum number of minutes until no fresh oranges remain (or -1 if impossible).
+
+**Constraints:**
+- Oranges rot in 4 directions: up, down, left, right
+- All rotten oranges rot simultaneously each minute
+- Cannot rot diagonally
+
+```
+Example:
+[2, 1, 1]
+[1, 1, 0]
+[0, 1, 1]
+
+Minute 0: Rotten at [0,0]
+Minute 1: [0,1], [1,0] become rotten
+Minute 2: [1,1] becomes rotten
+Minute 3: [1,2], [2,1] become rotten
+Minute 4: [2,2] becomes rotten
+
+Answer: 4 minutes
+```
+
+```csharp
+public static int OrangesRotting(int[][] grid)
+{
+    int rows = grid.Length;
+    int cols = grid[0].Length;
+
+    var queue = new Queue<(int, int, int)>(); // (row, col, time)
+    int freshCount = 0;
+
+    // Find all rotten oranges and count fresh ones
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < cols; j++)
+        {
+            if (grid[i][j] == 2)
+            {
+                queue.Enqueue((i, j, 0));
+            }
+            else if (grid[i][j] == 1)
+            {
+                freshCount++;
+            }
+        }
+    }
+
+    // If no fresh oranges, return 0
+    if (freshCount == 0) return 0;
+
+    // BFS to rot adjacent oranges
+    int[][] directions = { new[] { -1, 0 }, new[] { 1, 0 },
+                          new[] { 0, -1 }, new[] { 0, 1 } };
+    int maxTime = 0;
+
+    while (queue.Count > 0)
+    {
+        var (row, col, time) = queue.Dequeue();
+        maxTime = Math.Max(maxTime, time);
+
+        // Check all 4 directions
+        foreach (var dir in directions)
+        {
+            int newRow = row + dir[0];
+            int newCol = col + dir[1];
+
+            // If within bounds and fresh, rot it
+            if (newRow >= 0 && newRow < rows &&
+                newCol >= 0 && newCol < cols &&
+                grid[newRow][newCol] == 1)
+            {
+                grid[newRow][newCol] = 2;
+                queue.Enqueue((newRow, newCol, time + 1));
+                freshCount--;
+            }
+        }
+    }
+
+    // If fresh oranges remain, return -1
+    return freshCount == 0 ? maxTime : -1;
+}
+```
+
+```
+Grid:
+[2, 1, 1]
+[1, 1, 0]
+[0, 1, 1]
+
+BFS Timeline:
+T=0: Queue = [(0,0)]
+     Rot neighbors: (0,1), (1,0)
+
+T=1: Queue = [(0,1), (1,0)]
+     From (0,1): Rot (0,2), (1,1)
+     From (1,0): Rot (1,1) [already rotting]
+
+T=2: Queue = [(0,2), (1,1)]
+     From (0,2): No fresh neighbors
+     From (1,1): Rot (1,2), (2,1)
+
+T=3: Queue = [(1,2), (2,1)]
+     From (1,2): No fresh neighbors
+     From (2,1): Rot (2,2)
+
+T=4: Queue = [(2,2)]
+     From (2,2): No fresh neighbors
+
+freshCount = 0 → Return 4
+```
+
+- **Time Complexity :** `O(m × n)`
+    - Each cell visited once during BFS
+- **Space Complexity :** `O(m × n)`
+    - Queue can contain up to all cells
 
 ---
 
@@ -4316,20 +4845,191 @@ Return: 5
 
 ---
 
+### 83. Trapping Rain Water (Max Water Container)
+
+Given an elevation map represented by an array of heights, compute how much water can be trapped after raining. Water trapped is determined by the minimum of the maximum heights to the left and right, minus the current height.
+
+```
+Example:
+Heights: [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]
+
+Visualization:
+       |
+       █
+    |  █  |
+    █  █  |  █
+    █  █  █  █  █
+    █  █  █  █  █
+
+Water trapped: 6 units
+```
+
+#### 83.1 [Brute Force - Height Pairs]
+
+For each position, find max height to the left and right, then calculate water trapped.
+
+```csharp
+public static int TrappingRainWaterBruteForce(int[] height)
+{
+    int water = 0;
+
+    for (int i = 0; i < height.Length; i++)
+    {
+        // Find max height to the left
+        int leftMax = 0;
+        for (int j = 0; j <= i; j++)
+        {
+            leftMax = Math.Max(leftMax, height[j]);
+        }
+
+        // Find max height to the right
+        int rightMax = 0;
+        for (int j = i; j < height.Length; j++)
+        {
+            rightMax = Math.Max(rightMax, height[j]);
+        }
+
+        // Water trapped at current position
+        int waterLevel = Math.Min(leftMax, rightMax) - height[i];
+        water += Math.Max(0, waterLevel);
+    }
+
+    return water;
+}
+```
+
+- **Time Complexity :** `O(n³)`
+    - For each element: O(n) to find left max + O(n) to find right max
+- **Space Complexity :** `O(1)`
+
+#### 83.2 [Two-Pointer Approach]
+
+Use two pointers moving from outside-in. Track left and right maximum as we go.
+
+```csharp
+public static int TrappingRainWaterTwoPointer(int[] height)
+{
+    int water = 0;
+    int left = 0, right = height.Length - 1;
+    int leftMax = 0, rightMax = 0;
+
+    while (left < right)
+    {
+        if (height[left] < height[right])
+        {
+            if (height[left] >= leftMax)
+            {
+                leftMax = height[left];
+            }
+            else
+            {
+                water += leftMax - height[left];
+            }
+            left++;
+        }
+        else
+        {
+            if (height[right] >= rightMax)
+            {
+                rightMax = height[right];
+            }
+            else
+            {
+                water += rightMax - height[right];
+            }
+            right--;
+        }
+    }
+
+    return water;
+}
+```
+
+```
+Heights: [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]
+
+Left ptr → | Right ptr ←
+0: height[0]=0, leftMax=0 → water=0
+1: height[1]=1 → leftMax=1 → water=0
+2: height[2]=0 → water+=1-0=1 ✓
+3: height[3]=2 → leftMax=2 → water=1
+4: height[4]=1 → water+=2-1=1 ✓ (water=2)
+...continues...
+```
+
+- **Time Complexity :** `O(n)`
+    - Single pass with two pointers
+- **Space Complexity :** `O(1)`
+
+#### 83.3 [Dynamic Programming]
+
+Pre-compute maximum heights to left and right for all positions.
+
+```csharp
+public static int TrappingRainWaterDP(int[] height)
+{
+    if (height.Length == 0) return 0;
+
+    int n = height.Length;
+    int[] leftMax = new int[n];
+    int[] rightMax = new int[n];
+
+    // Fill leftMax array
+    leftMax[0] = height[0];
+    for (int i = 1; i < n; i++)
+    {
+        leftMax[i] = Math.Max(leftMax[i - 1], height[i]);
+    }
+
+    // Fill rightMax array
+    rightMax[n - 1] = height[n - 1];
+    for (int i = n - 2; i >= 0; i--)
+    {
+        rightMax[i] = Math.Max(rightMax[i + 1], height[i]);
+    }
+
+    // Calculate trapped water
+    int water = 0;
+    for (int i = 0; i < n; i++)
+    {
+        water += Math.Min(leftMax[i], rightMax[i]) - height[i];
+    }
+
+    return water;
+}
+```
+
+- **Time Complexity :** `O(n)`
+    - Three passes: left max, right max, calculate
+- **Space Complexity :** `O(n)`
+    - Two arrays of size n
+
+**Comparison Table:**
+
+| Approach | Time | Space | Method |
+|----------|------|-------|--------|
+| **Brute Force** | O(n³) | O(1) | Find left/right max for each |
+| **Two-Pointer** | O(n) | O(1) | Track maxes while moving pointers |
+| **Dynamic Programming** | O(n) | O(n) | Pre-compute left/right maxes |
+
+**Key Insight:** DP approach trades space for time, making it optimal when we need to calculate once. Two-Pointer is best for space-constrained environments.
+
+---
+
 ## Level 13: Greedy Techniques (Local Optimal Choice)
 
 > `Greedy & Optimization techniques`
 
-### 79. Activity Selection Problem
+### 84. Activity Selection Problem
 
-#### 79.1 [Brute Force - All Combinations]
+#### 84.1 [Brute Force - All Combinations]
 
 **Placeholder for implementation**
 
 - **Time Complexity :** `O(2ⁿ)`
 - **Space Complexity :** `O(n)`
 
-#### 79.2 [Greedy - Earliest Finish Time]
+#### 84.2 [Greedy - Earliest Finish Time]
 
 **Placeholder for implementation**
 
@@ -4338,16 +5038,16 @@ Return: 5
 
 ---
 
-### 80. Huffman Coding
+### 85. Huffman Coding
 
-#### 80.1 [Brute Force - All Frequencies]
+#### 85.1 [Brute Force - All Frequencies]
 
 **Placeholder for implementation**
 
 - **Time Complexity :** `O(2ⁿ)`
 - **Space Complexity :** `O(n)`
 
-#### 80.2 [Greedy - Min Heap]
+#### 85.2 [Greedy - Min Heap]
 
 **Placeholder for implementation**
 
@@ -4356,16 +5056,16 @@ Return: 5
 
 ---
 
-### 81. Fractional Knapsack Problem
+### 86. Fractional Knapsack Problem
 
-#### 81.1 [Brute Force - All Permutations]
+#### 86.1 [Brute Force - All Permutations]
 
 **Placeholder for implementation**
 
 - **Time Complexity :** `O(n!)`
 - **Space Complexity :** `O(n)`
 
-#### 81.2 [Greedy - Value/Weight Ratio]
+#### 86.2 [Greedy - Value/Weight Ratio]
 
 **Placeholder for implementation**
 
@@ -4374,16 +5074,16 @@ Return: 5
 
 ---
 
-### 82. Jump Game / Reach End of Array
+### 87. Jump Game / Reach End of Array
 
-#### 82.1 [Brute Force - BFS/DFS]
+#### 87.1 [Brute Force - BFS/DFS]
 
 **Placeholder for implementation**
 
 - **Time Complexity :** `O(2ⁿ)` or `O(n²)` with optimization
 - **Space Complexity :** `O(n)`
 
-#### 82.2 [Greedy - Maximum Reach]
+#### 87.2 [Greedy - Maximum Reach]
 
 **Placeholder for implementation**
 
@@ -4392,7 +5092,7 @@ Return: 5
 
 ---
 
-### 83. Interval Scheduling Maximization
+### 88. Interval Scheduling Maximization
 
 **Placeholder for implementation**
 
@@ -4401,7 +5101,7 @@ Return: 5
 
 ---
 
-### 84. Gas Station / Circuit
+### 89. Gas Station / Circuit
 
 **Placeholder for implementation**
 
@@ -4410,7 +5110,7 @@ Return: 5
 
 ---
 
-### 85. Candy Distribution Problem
+### 90. Candy Distribution Problem
 
 **Placeholder for implementation**
 
