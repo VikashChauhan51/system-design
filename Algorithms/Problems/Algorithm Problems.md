@@ -6314,14 +6314,79 @@ public static List<int> SpiralMatrixOptimized(int[][] matrix)
 
 #### 54.1 [Brute Force - Iterative]
 
-**Placeholder for implementation**
+**Pseudocode:**
+```
+FUNCTION ReverseIterative(head)
+  prev ← NULL
+  current ← head
+  WHILE current != NULL DO
+    nextTemp ← current.next    // Save next node
+    current.next ← prev        // Reverse the link
+    prev ← current             // Move prev forward
+    current ← nextTemp         // Move current forward
+  END WHILE
+  RETURN prev  // New head
+END FUNCTION
+```
+
+**Code Implementation:**
+```csharp
+public class ListNode {
+    public int val;
+    public ListNode next;
+}
+
+public static ListNode ReverseIterative(ListNode head)
+{
+    ListNode prev = null;
+    ListNode current = head;
+
+    while (current != null)
+    {
+        ListNode nextTemp = current.next;
+        current.next = prev;
+        prev = current;
+        current = nextTemp;
+    }
+
+    return prev;
+}
+```
 
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(1)`
 
 #### 54.2 [Recursive]
 
-**Placeholder for implementation**
+**Pseudocode:**
+```
+FUNCTION ReverseRecursive(head)
+  IF head == NULL OR head.next == NULL THEN
+    RETURN head
+  END IF
+
+  newHead ← ReverseRecursive(head.next)
+  head.next.next ← head     // Reverse the link
+  head.next ← NULL          // Remove forward link
+  RETURN newHead
+END FUNCTION
+```
+
+**Code Implementation:**
+```csharp
+public static ListNode ReverseRecursive(ListNode head)
+{
+    if (head == null || head.next == null)
+        return head;
+
+    ListNode newHead = ReverseRecursive(head.next);
+
+    head.next.next = head;
+    head.next = null;
+
+    return newHead;
+}
+```
 
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(n)` (Call stack)
@@ -6332,14 +6397,87 @@ public static List<int> SpiralMatrixOptimized(int[][] matrix)
 
 #### 55.1 [Brute Force - Hash Set]
 
-**Placeholder for implementation**
+**Pseudocode:**
+```
+FUNCTION DetectCycleHashSet(head)
+  visited ← EMPTY_SET
+  current ← head
+
+  WHILE current != NULL DO
+    IF current IN visited THEN
+      RETURN TRUE  // Cycle found
+    END IF
+    visited.ADD(current)
+    current ← current.next
+  END WHILE
+
+  RETURN FALSE  // No cycle
+END FUNCTION
+```
+
+**Code Implementation:**
+```csharp
+public static bool DetectCycleHashSet(ListNode head)
+{
+    var visited = new HashSet<ListNode>();
+    ListNode current = head;
+
+    while (current != null)
+    {
+        if (visited.Contains(current))
+            return true;
+
+        visited.Add(current);
+        current = current.next;
+    }
+
+    return false;
+}
+```
 
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(n)`
 
 #### 55.2 [Two-Pointer (Floyd's Cycle Detection)]
 
-**Placeholder for implementation**
+**Pseudocode:**
+```
+FUNCTION DetectCycleFloyd(head)
+  slow ← head
+  fast ← head
+
+  WHILE fast != NULL AND fast.next != NULL DO
+    slow ← slow.next         // Move 1 step
+    fast ← fast.next.next    // Move 2 steps
+
+    IF slow == fast THEN      // Cycle detected
+      RETURN TRUE
+    END IF
+  END WHILE
+
+  RETURN FALSE
+END FUNCTION
+```
+
+**Code Implementation:**
+```csharp
+public static bool DetectCycleFloyd(ListNode head)
+{
+    ListNode slow = head;
+    ListNode fast = head;
+
+    while (fast != null && fast.next != null)
+    {
+        slow = slow.next;
+        fast = fast.next.next;
+
+        if (slow == fast)
+            return true;
+    }
+
+    return false;
+}
+```
 
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(1)`
@@ -6348,7 +6486,54 @@ public static List<int> SpiralMatrixOptimized(int[][] matrix)
 
 ### 56. Merge Two Sorted Linked Lists
 
-**Placeholder for implementation**
+**Pseudocode:**
+```
+FUNCTION MergeSorted(list1, list2)
+  dummyNode ← NEW ListNode(0)
+  current ← dummyNode
+
+  WHILE list1 != NULL AND list2 != NULL DO
+    IF list1.val <= list2.val THEN
+      current.next ← list1
+      list1 ← list1.next
+    ELSE
+      current.next ← list2
+      list2 ← list2.next
+    END IF
+    current ← current.next
+  END WHILE
+
+  current.next ← list1 != NULL ? list1 : list2
+  RETURN dummyNode.next
+END FUNCTION
+```
+
+**Code Implementation:**
+```csharp
+public static ListNode MergeSorted(ListNode list1, ListNode list2)
+{
+    ListNode dummy = new ListNode(0);
+    ListNode current = dummy;
+
+    while (list1 != null && list2 != null)
+    {
+        if (list1.val <= list2.val)
+        {
+            current.next = list1;
+            list1 = list1.next;
+        }
+        else
+        {
+            current.next = list2;
+            list2 = list2.next;
+        }
+        current = current.next;
+    }
+
+    current.next = list1 ?? list2;
+    return dummy.next;
+}
+```
 
 - **Time Complexity :** `O(n + m)`
 - **Space Complexity :** `O(1)`
@@ -6357,7 +6542,37 @@ public static List<int> SpiralMatrixOptimized(int[][] matrix)
 
 ### 57. Find Middle of Linked List
 
-**Placeholder for implementation**
+**Pseudocode:**
+```
+FUNCTION FindMiddle(head)
+  slow ← head
+  fast ← head
+
+  WHILE fast != NULL AND fast.next != NULL DO
+    slow ← slow.next       // Move 1 step
+    fast ← fast.next.next  // Move 2 steps
+  END WHILE
+
+  RETURN slow  // slow is at middle
+END FUNCTION
+```
+
+**Code Implementation:**
+```csharp
+public static ListNode FindMiddle(ListNode head)
+{
+    ListNode slow = head;
+    ListNode fast = head;
+
+    while (fast != null && fast.next != null)
+    {
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+
+    return slow;
+}
+```
 
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(1)`
@@ -6366,7 +6581,54 @@ public static List<int> SpiralMatrixOptimized(int[][] matrix)
 
 ### 58. Remove Nth Node From End of List
 
-**Placeholder for implementation**
+**Pseudocode:**
+```
+FUNCTION RemoveNthFromEnd(head, n)
+  dummy ← NEW ListNode(0)
+  dummy.next ← head
+
+  first ← dummy
+  second ← dummy
+
+  FOR i = 0 TO n DO
+    first ← first.next
+  END FOR
+
+  WHILE first.next != NULL DO
+    first ← first.next
+    second ← second.next
+  END WHILE
+
+  second.next ← second.next.next
+  RETURN dummy.next
+END FUNCTION
+```
+
+**Code Implementation:**
+```csharp
+public static ListNode RemoveNthFromEnd(ListNode head, int n)
+{
+    ListNode dummy = new ListNode(0);
+    dummy.next = head;
+
+    ListNode first = dummy;
+    ListNode second = dummy;
+
+    for (int i = 0; i <= n; i++)
+    {
+        first = first.next;
+    }
+
+    while (first != null)
+    {
+        first = first.next;
+        second = second.next;
+    }
+
+    second.next = second.next.next;
+    return dummy.next;
+}
+```
 
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(1)`
@@ -6375,7 +6637,61 @@ public static List<int> SpiralMatrixOptimized(int[][] matrix)
 
 ### 59. Linked List Palindrome Check
 
-**Placeholder for implementation**
+**Pseudocode:**
+```
+FUNCTION IsPalindrome(head)
+  slow ← head
+  fast ← head
+
+  WHILE fast != NULL AND fast.next != NULL DO
+    slow ← slow.next
+    fast ← fast.next.next
+  END WHILE
+
+  secondHalf ← ReverseList(slow)
+
+  first ← head
+  second ← secondHalf
+
+  WHILE second != NULL DO
+    IF first.val != second.val THEN
+      RETURN FALSE
+    END IF
+    first ← first.next
+    second ← second.next
+  END WHILE
+
+  RETURN TRUE
+END FUNCTION
+```
+
+**Code Implementation:**
+```csharp
+public static bool IsPalindrome(ListNode head)
+{
+    ListNode slow = head, fast = head;
+    while (fast != null && fast.next != null)
+    {
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+
+    ListNode secondHalf = ReverseIterative(slow);
+
+    ListNode first = head;
+    ListNode second = secondHalf;
+
+    while (second != null)
+    {
+        if (first.val != second.val)
+            return false;
+        first = first.next;
+        second = second.next;
+    }
+
+    return true;
+}
+```
 
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(1)` or `O(n)`
@@ -6390,14 +6706,108 @@ public static List<int> SpiralMatrixOptimized(int[][] matrix)
 
 #### 60.1 [Brute Force - Recursive]
 
-**Placeholder for implementation**
+**Pseudocode (Inorder: Left → Node → Right):**
+```
+FUNCTION InorderTraversal(node)
+  IF node == NULL THEN
+    RETURN
+  END IF
+
+  InorderTraversal(node.left)      // Left
+  PRINT node.val                   // Node
+  InorderTraversal(node.right)     // Right
+END FUNCTION
+```
+
+**Code Implementation:**
+```csharp
+public class TreeNode {
+    public int val;
+    public TreeNode left;
+    public TreeNode right;
+}
+
+public static void InorderRecursive(TreeNode node)
+{
+    if (node == null) return;
+
+    InorderRecursive(node.left);
+    Console.WriteLine(node.val);
+    InorderRecursive(node.right);
+}
+
+public static void PreorderRecursive(TreeNode node)
+{
+    if (node == null) return;
+
+    Console.WriteLine(node.val);     // Node first
+    PreorderRecursive(node.left);
+    PreorderRecursive(node.right);
+}
+
+public static void PostorderRecursive(TreeNode node)
+{
+    if (node == null) return;
+
+    PostorderRecursive(node.left);
+    PostorderRecursive(node.right);
+    Console.WriteLine(node.val);     // Node last
+}
+```
 
 - **Time Complexity :** `O(n)`
-- **Space Complexity :** `O(h)` (h = height)
+- **Space Complexity :** `O(h)` (h = height, call stack)
 
 #### 60.2 [Iterative - Stack]
 
-**Placeholder for implementation**
+**Pseudocode (Inorder - Iterative):**
+```
+FUNCTION InorderIterative(root)
+  stack ← EMPTY_STACK
+  current ← root
+
+  WHILE current != NULL OR stack NOT EMPTY DO
+    // Go to leftmost node
+    WHILE current != NULL DO
+      stack.PUSH(current)
+      current ← current.left
+    END WHILE
+
+    // Current is NULL, pop from stack
+    current ← stack.POP()
+    PRINT current.val
+
+    // Visit right subtree
+    current ← current.right
+  END WHILE
+END FUNCTION
+```
+
+**Code Implementation:**
+```csharp
+public static void InorderIterative(TreeNode root)
+{
+    var stack = new Stack<TreeNode>();
+    TreeNode current = root;
+
+    while (current != null || stack.Count > 0)
+    {
+        // Go to leftmost node
+        while (current != null)
+        {
+            stack.Push(current);
+            current = current.left;
+        }
+
+        // Pop and process
+        current = stack.Pop();
+        Console.WriteLine(current.val);
+
+        // Visit right subtree
+        current = current.right;
+    }
+}
+```
 
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(h)`
@@ -6408,14 +6818,108 @@ public static List<int> SpiralMatrixOptimized(int[][] matrix)
 
 #### 61.1 [Brute Force - Recursive]
 
-**Placeholder for implementation**
+**Pseudocode:**
+```
+FUNCTION LevelOrderRecursive(node, level, result)
+  IF node == NULL THEN
+    RETURN
+  END IF
+
+  IF level == result.SIZE THEN
+    result.ADD(NEW List)
+  END IF
+
+  result[level].ADD(node.val)
+  LevelOrderRecursive(node.left, level + 1, result)
+  LevelOrderRecursive(node.right, level + 1, result)
+END FUNCTION
+```
+
+**Code Implementation:**
+```csharp
+public static void LevelOrderRecursive(TreeNode node, int level, List<List<int>> result)
+{
+    if (node == null) return;
+
+    if (level == result.Count)
+        result.Add(new List<int>());
+
+    result[level].Add(node.val);
+    LevelOrderRecursive(node.left, level + 1, result);
+    LevelOrderRecursive(node.right, level + 1, result);
+}
+```
 
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(n)`
 
 #### 61.2 [Iterative - Queue]
 
-**Placeholder for implementation**
+**Pseudocode:**
+```
+FUNCTION LevelOrderIterative(root)
+  IF root == NULL THEN
+    RETURN EMPTY_LIST
+  END IF
+
+  result ← EMPTY_LIST
+  queue ← EMPTY_QUEUE
+  queue.ENQUEUE(root)
+
+  WHILE queue NOT EMPTY DO
+    levelSize ← queue.SIZE
+    currentLevel ← EMPTY_LIST
+
+    FOR i = 0 TO levelSize - 1 DO
+      node ← queue.DEQUEUE()
+      currentLevel.ADD(node.val)
+
+      IF node.left != NULL THEN
+        queue.ENQUEUE(node.left)
+      END IF
+
+      IF node.right != NULL THEN
+        queue.ENQUEUE(node.right)
+      END IF
+    END FOR
+
+    result.ADD(currentLevel)
+  END WHILE
+
+  RETURN result
+END FUNCTION
+```
+
+**Code Implementation:**
+```csharp
+public static List<List<int>> LevelOrderIterative(TreeNode root)
+{
+    var result = new List<List<int>>();
+    if (root == null) return result;
+
+    var queue = new Queue<TreeNode>();
+    queue.Enqueue(root);
+
+    while (queue.Count > 0)
+    {
+        int levelSize = queue.Count;
+        var currentLevel = new List<int>();
+
+        for (int i = 0; i < levelSize; i++)
+        {
+            TreeNode node = queue.Dequeue();
+            currentLevel.Add(node.val);
+
+            if (node.left != null) queue.Enqueue(node.left);
+            if (node.right != null) queue.Enqueue(node.right);
+        }
+
+        result.Add(currentLevel);
+    }
+
+    return result;
+}
+```
 
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(w)` (w = max width)
@@ -6426,14 +6930,72 @@ public static List<int> SpiralMatrixOptimized(int[][] matrix)
 
 #### 62.1 [Brute Force - Min/Max Range]
 
-**Placeholder for implementation**
+**Pseudocode:**
+```
+FUNCTION IsValidBST(node, minVal, maxVal)
+  IF node == NULL THEN
+    RETURN TRUE
+  END IF
+
+  IF node.val <= minVal OR node.val >= maxVal THEN
+    RETURN FALSE
+  END IF
+
+  RETURN IsValidBST(node.left, minVal, node.val) AND
+         IsValidBST(node.right, node.val, maxVal)
+END FUNCTION
+```
+
+**Code Implementation:**
+```csharp
+public static bool IsValidBST(TreeNode node, long minVal = long.MinValue, long maxVal = long.MaxValue)
+{
+    if (node == null) return true;
+
+    if (node.val <= minVal || node.val >= maxVal)
+        return false;
+
+    return IsValidBST(node.left, minVal, node.val) &&
+           IsValidBST(node.right, node.val, maxVal);
+}
+```
 
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(h)`
 
 #### 62.2 [Optimized - Recursive Range Check]
 
-**Placeholder for implementation**
+**Pseudocode:**
+```
+FUNCTION IsValidBSTOptimized(node, minVal, maxVal)
+  IF node == NULL THEN
+    RETURN TRUE
+  END IF
+
+  IF (minVal != NULL AND node.val <= minVal) OR
+     (maxVal != NULL AND node.val >= maxVal) THEN
+    RETURN FALSE
+  END IF
+
+  RETURN IsValidBSTOptimized(node.left, minVal, node.val) AND
+         IsValidBSTOptimized(node.right, node.val, maxVal)
+END FUNCTION
+```
+
+**Code Implementation:**
+```csharp
+public static bool IsValidBSTOptimized(TreeNode node, long? minVal = null, long? maxVal = null)
+{
+    if (node == null) return true;
+
+    if ((minVal != null && node.val <= minVal) ||
+        (maxVal != null && node.val >= maxVal))
+        return false;
+
+    return IsValidBSTOptimized(node.left, minVal, node.val) &&
+           IsValidBSTOptimized(node.right, node.val, maxVal);
+}
+```
 
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(h)`
@@ -6444,14 +7006,130 @@ public static List<int> SpiralMatrixOptimized(int[][] matrix)
 
 #### 63.1 [Brute Force - Store Path]
 
-**Placeholder for implementation**
+**Pseudocode:**
+```
+FUNCTION FindLCA_StorePath(root, p, q)
+  pathP ← FindPath(root, p, EMPTY_LIST)
+  pathQ ← FindPath(root, q, EMPTY_LIST)
+
+  lca ← NULL
+  FOR i = 0 TO MIN(pathP.SIZE, pathQ.SIZE) - 1 DO
+    IF pathP[i] == pathQ[i] THEN
+      lca ← pathP[i]
+    ELSE
+      BREAK
+    END IF
+  END FOR
+
+  RETURN lca
+END FUNCTION
+
+FUNCTION FindPath(node, target, path)
+  IF node == NULL THEN
+    RETURN FALSE
+  END IF
+
+  path.ADD(node)
+
+  IF node.val == target.val THEN
+    RETURN TRUE
+  END IF
+
+  IF FindPath(node.left, target, path) OR
+     FindPath(node.right, target, path) THEN
+    RETURN TRUE
+  END IF
+
+  path.REMOVE_LAST()
+  RETURN FALSE
+END FUNCTION
+```
+
+**Code Implementation:**
+```csharp
+public static TreeNode FindLCA_StorePath(TreeNode root, TreeNode p, TreeNode q)
+{
+    var pathP = new List<TreeNode>();
+    var pathQ = new List<TreeNode>();
+
+    FindPath(root, p, pathP);
+    FindPath(root, q, pathQ);
+
+    TreeNode lca = null;
+    int minLen = Math.Min(pathP.Count, pathQ.Count);
+
+    for (int i = 0; i < minLen; i++)
+    {
+        if (pathP[i].val == pathQ[i].val)
+            lca = pathP[i];
+        else
+            break;
+    }
+
+    return lca;
+}
+
+private static bool FindPath(TreeNode node, TreeNode target, List<TreeNode> path)
+{
+    if (node == null) return false;
+
+    path.Add(node);
+
+    if (node.val == target.val) return true;
+
+    if (FindPath(node.left, target, path) || FindPath(node.right, target, path))
+        return true;
+
+    path.RemoveAt(path.Count - 1);
+    return false;
+}
+```
 
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(h)`
 
 #### 63.2 [Optimized - Single Pass]
 
-**Placeholder for implementation**
+**Pseudocode:**
+```
+FUNCTION FindLCA_SinglePass(node, p, q)
+  IF node == NULL THEN
+    RETURN NULL
+  END IF
+
+  IF node.val == p.val OR node.val == q.val THEN
+    RETURN node
+  END IF
+
+  leftLCA ← FindLCA_SinglePass(node.left, p, q)
+  rightLCA ← FindLCA_SinglePass(node.right, p, q)
+
+  IF leftLCA != NULL AND rightLCA != NULL THEN
+    RETURN node
+  END IF
+
+  RETURN leftLCA != NULL ? leftLCA : rightLCA
+END FUNCTION
+```
+
+**Code Implementation:**
+```csharp
+public static TreeNode FindLCA_SinglePass(TreeNode node, TreeNode p, TreeNode q)
+{
+    if (node == null) return null;
+
+    if (node.val == p.val || node.val == q.val)
+        return node;
+
+    TreeNode leftLCA = FindLCA_SinglePass(node.left, p, q);
+    TreeNode rightLCA = FindLCA_SinglePass(node.right, p, q);
+
+    if (leftLCA != null && rightLCA != null)
+        return node;
+
+    return leftLCA ?? rightLCA;
+}
+```
 
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(h)`
@@ -6460,7 +7138,45 @@ public static List<int> SpiralMatrixOptimized(int[][] matrix)
 
 ### 64. Maximum Path Sum in Binary Tree
 
-**Placeholder for implementation**
+**Pseudocode:**
+```
+FUNCTION MaxPathSum(node, maxSum_ref)
+  IF node == NULL THEN
+    RETURN 0
+  END IF
+
+  leftMax ← MAX(0, MaxPathSum(node.left, maxSum_ref))
+  rightMax ← MAX(0, MaxPathSum(node.right, maxSum_ref))
+
+  pathSum ← node.val + leftMax + rightMax
+  maxSum_ref.value ← MAX(maxSum_ref.value, pathSum)
+
+  RETURN node.val + MAX(leftMax, rightMax)
+END FUNCTION
+```
+
+**Code Implementation:**
+```csharp
+public static int MaxPathSum(TreeNode root)
+{
+    int[] maxSum = { int.MinValue };
+    MaxPathSumHelper(root, maxSum);
+    return maxSum[0];
+}
+
+private static int MaxPathSumHelper(TreeNode node, int[] maxSum)
+{
+    if (node == null) return 0;
+
+    int leftMax = Math.Max(0, MaxPathSumHelper(node.left, maxSum));
+    int rightMax = Math.Max(0, MaxPathSumHelper(node.right, maxSum));
+
+    int pathSum = node.val + leftMax + rightMax;
+    maxSum[0] = Math.Max(maxSum[0], pathSum);
+
+    return node.val + Math.Max(leftMax, rightMax);
+}
+```
 
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(h)`
@@ -6469,7 +7185,82 @@ public static List<int> SpiralMatrixOptimized(int[][] matrix)
 
 ### 65. Serialize and Deserialize Tree
 
-**Placeholder for implementation**
+**Pseudocode (DFS approach):**
+```
+FUNCTION Serialize(node, result)
+  IF node == NULL THEN
+    result.ADD("null")
+    RETURN
+  END IF
+
+  result.ADD(node.val)
+  Serialize(node.left, result)
+  Serialize(node.right, result)
+END FUNCTION
+
+FUNCTION Deserialize(data, index_ref)
+  val ← data[index_ref.value]
+  index_ref.value ← index_ref.value + 1
+
+  IF val == "null" THEN
+    RETURN NULL
+  END IF
+
+  node ← NEW TreeNode(INT(val))
+  node.left ← Deserialize(data, index_ref)
+  node.right ← Deserialize(data, index_ref)
+  RETURN node
+END FUNCTION
+```
+
+**Code Implementation:**
+```csharp
+public class Codec
+{
+    public string Serialize(TreeNode root)
+    {
+        var result = new List<string>();
+        SerializeHelper(root, result);
+        return string.Join(",", result);
+    }
+
+    private void SerializeHelper(TreeNode node, List<string> result)
+    {
+        if (node == null)
+        {
+            result.Add("null");
+            return;
+        }
+
+        result.Add(node.val.ToString());
+        SerializeHelper(node.left, result);
+        SerializeHelper(node.right, result);
+    }
+
+    public TreeNode Deserialize(string data)
+    {
+        var values = data.Split(',').ToList();
+        return DeserializeHelper(values, new int[] { 0 });
+    }
+
+    private TreeNode DeserializeHelper(List<string> values, int[] index)
+    {
+        if (index[0] >= values.Count || values[index[0]] == "null")
+        {
+            index[0]++;
+            return null;
+        }
+
+        TreeNode node = new TreeNode(int.Parse(values[index[0]]));
+        index[0]++;
+
+        node.left = DeserializeHelper(values, index);
+        node.right = DeserializeHelper(values, index);
+
+        return node;
+    }
+}
+```
 
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(n)`
@@ -6478,7 +7269,58 @@ public static List<int> SpiralMatrixOptimized(int[][] matrix)
 
 ### 66. Balanced Binary Tree Check
 
-**Placeholder for implementation**
+**Pseudocode:**
+```
+FUNCTION IsBalanced(node)
+  RETURN GetHeight(node) != -1
+END FUNCTION
+
+FUNCTION GetHeight(node)
+  IF node == NULL THEN
+    RETURN 0
+  END IF
+
+  leftHeight ← GetHeight(node.left)
+  IF leftHeight == -1 THEN
+    RETURN -1  // Left subtree not balanced
+  END IF
+
+  rightHeight ← GetHeight(node.right)
+  IF rightHeight == -1 THEN
+    RETURN -1  // Right subtree not balanced
+  END IF
+
+  IF ABS(leftHeight - rightHeight) > 1 THEN
+    RETURN -1  // Current node not balanced
+  END IF
+
+  RETURN MAX(leftHeight, rightHeight) + 1
+END FUNCTION
+```
+
+**Code Implementation:**
+```csharp
+public static bool IsBalanced(TreeNode root)
+{
+    return GetHeight(root) != -1;
+}
+
+private static int GetHeight(TreeNode node)
+{
+    if (node == null) return 0;
+
+    int leftHeight = GetHeight(node.left);
+    if (leftHeight == -1) return -1;
+
+    int rightHeight = GetHeight(node.right);
+    if (rightHeight == -1) return -1;
+
+    if (Math.Abs(leftHeight - rightHeight) > 1)
+        return -1;
+
+    return Math.Max(leftHeight, rightHeight) + 1;
+}
+```
 
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(h)`
@@ -6493,21 +7335,141 @@ public static List<int> SpiralMatrixOptimized(int[][] matrix)
 
 #### 67.1 [Brute Force - DFS Recursive]
 
-**Placeholder for implementation**
+**Pseudocode:**
+```
+FUNCTION DFSRecursive(node, visited)
+  visited.ADD(node)
+  PRINT node
+
+  FOR each neighbor IN node.neighbors DO
+    IF neighbor NOT IN visited THEN
+      DFSRecursive(neighbor, visited)
+    END IF
+  END FOR
+END FUNCTION
+```
+
+**Code Implementation:**
+```csharp
+public static void DFSRecursive(int node, List<List<int>> graph, HashSet<int> visited)
+{
+    visited.Add(node);
+    Console.WriteLine(node);
+
+    foreach (int neighbor in graph[node])
+    {
+        if (!visited.Contains(neighbor))
+            DFSRecursive(neighbor, graph, visited);
+    }
+}
+```
 
 - **Time Complexity :** `O(V + E)`
 - **Space Complexity :** `O(V)` (Visited set + Call stack)
 
 #### 67.2 [DFS Iterative - Stack]
 
-**Placeholder for implementation**
+**Pseudocode:**
+```
+FUNCTION DFSIterative(start, graph)
+  visited ← EMPTY_SET
+  stack ← EMPTY_STACK
+  stack.PUSH(start)
+
+  WHILE stack NOT EMPTY DO
+    node ← stack.POP()
+    IF node NOT IN visited THEN
+      visited.ADD(node)
+      PRINT node
+
+      FOR each neighbor IN node.neighbors DO
+        IF neighbor NOT IN visited THEN
+          stack.PUSH(neighbor)
+        END IF
+      END FOR
+    END IF
+  END WHILE
+END FUNCTION
+```
+
+**Code Implementation:**
+```csharp
+public static void DFSIterative(int start, List<List<int>> graph)
+{
+    var visited = new HashSet<int>();
+    var stack = new Stack<int>();
+    stack.Push(start);
+
+    while (stack.Count > 0)
+    {
+        int node = stack.Pop();
+        if (!visited.Contains(node))
+        {
+            visited.Add(node);
+            Console.WriteLine(node);
+
+            foreach (int neighbor in graph[node])
+            {
+                if (!visited.Contains(neighbor))
+                    stack.Push(neighbor);
+            }
+        }
+    }
+}
+```
 
 - **Time Complexity :** `O(V + E)`
 - **Space Complexity :** `O(V)`
 
 #### 67.3 [BFS - Queue]
 
-**Placeholder for implementation**
+**Pseudocode:**
+```
+FUNCTION BFS(start, graph)
+  visited ← EMPTY_SET
+  queue ← EMPTY_QUEUE
+  queue.ENQUEUE(start)
+  visited.ADD(start)
+
+  WHILE queue NOT EMPTY DO
+    node ← queue.DEQUEUE()
+    PRINT node
+
+    FOR each neighbor IN node.neighbors DO
+      IF neighbor NOT IN visited THEN
+        visited.ADD(neighbor)
+        queue.ENQUEUE(neighbor)
+      END IF
+    END FOR
+  END WHILE
+END FUNCTION
+```
+
+**Code Implementation:**
+```csharp
+public static void BFS(int start, List<List<int>> graph)
+{
+    var visited = new HashSet<int>();
+    var queue = new Queue<int>();
+    queue.Enqueue(start);
+    visited.Add(start);
+
+    while (queue.Count > 0)
+    {
+        int node = queue.Dequeue();
+        Console.WriteLine(node);
+
+        foreach (int neighbor in graph[node])
+        {
+            if (!visited.Contains(neighbor))
+            {
+                visited.Add(neighbor);
+                queue.Enqueue(neighbor);
+            }
+        }
+    }
+}
+```
 
 - **Time Complexity :** `O(V + E)`
 - **Space Complexity :** `O(V)`
@@ -6518,14 +7480,113 @@ public static List<int> SpiralMatrixOptimized(int[][] matrix)
 
 #### 68.1 [Brute Force - DFS]
 
-**Placeholder for implementation**
+**Pseudocode:**
+```
+FUNCTION HasCycleDFS(node, visited, recStack, graph)
+  visited.ADD(node)
+  recStack.ADD(node)
+
+  FOR each neighbor IN graph[node] DO
+    IF neighbor NOT IN visited THEN
+      IF HasCycleDFS(neighbor, visited, recStack, graph) THEN
+        RETURN TRUE
+      END IF
+    ELSE IF neighbor IN recStack THEN
+      RETURN TRUE  // Back edge = cycle
+    END IF
+  END FOR
+
+  recStack.REMOVE(node)
+  RETURN FALSE
+END FUNCTION
+```
+
+**Code Implementation:**
+```csharp
+public static bool HasCycleDFS(int node, HashSet<int> visited, HashSet<int> recStack, List<List<int>> graph)
+{
+    visited.Add(node);
+    recStack.Add(node);
+
+    foreach (int neighbor in graph[node])
+    {
+        if (!visited.Contains(neighbor))
+        {
+            if (HasCycleDFS(neighbor, visited, recStack, graph))
+                return true;
+        }
+        else if (recStack.Contains(neighbor))
+            return true;  // Back edge
+    }
+
+    recStack.Remove(node);
+    return false;
+}
+```
 
 - **Time Complexity :** `O(V + E)`
 - **Space Complexity :** `O(V)`
 
 #### 68.2 [Union-Find (Disjoint Set)]
 
-**Placeholder for implementation**
+**Pseudocode:**
+```
+FUNCTION HasCycleUnionFind(edges, n)
+  parent ← [0, 1, 2, ..., n-1]
+
+  FOR each edge (u, v) IN edges DO
+    rootU ← Find(u, parent)
+    rootV ← Find(v, parent)
+
+    IF rootU == rootV THEN
+      RETURN TRUE  // Cycle detected
+    END IF
+
+    Union(rootU, rootV, parent)
+  END FOR
+
+  RETURN FALSE
+END FUNCTION
+
+FUNCTION Find(x, parent)
+  IF parent[x] != x THEN
+    parent[x] ← Find(parent[x], parent)  // Path compression
+  END IF
+  RETURN parent[x]
+END FUNCTION
+
+FUNCTION Union(x, y, parent)
+  parent[y] ← x
+END FUNCTION
+```
+
+**Code Implementation:**
+```csharp
+public static bool HasCycleUnionFind(int[][] edges, int n)
+{
+    int[] parent = new int[n];
+    for (int i = 0; i < n; i++) parent[i] = i;
+
+    foreach (int[] edge in edges)
+    {
+        int rootU = Find(edge[0], parent);
+        int rootV = Find(edge[1], parent);
+
+        if (rootU == rootV) return true;
+
+        parent[rootV] = rootU;
+    }
+
+    return false;
+}
+
+private static int Find(int x, int[] parent)
+{
+    if (parent[x] != x)
+        parent[x] = Find(parent[x], parent);
+    return parent[x];
+}
+```
 
 - **Time Complexity :** `O((V + E) * α(V))` (α = inverse Ackermann)
 - **Space Complexity :** `O(V)`
@@ -6536,14 +7597,149 @@ public static List<int> SpiralMatrixOptimized(int[][] matrix)
 
 #### 69.1 [Brute Force - DFS]
 
-**Placeholder for implementation**
+**Pseudocode:**
+```
+FUNCTION TopologicalSortDFS(graph)
+  visited ← EMPTY_SET
+  stack ← EMPTY_STACK
+
+  FOR each node = 0 TO graph.length - 1 DO
+    IF node NOT IN visited THEN
+      TopologicalDFSUtil(node, visited, stack, graph)
+    END IF
+  END FOR
+
+  result ← EMPTY_LIST
+  WHILE stack NOT EMPTY DO
+    result.ADD(stack.POP())
+  END WHILE
+
+  RETURN result
+END FUNCTION
+
+FUNCTION TopologicalDFSUtil(node, visited, stack, graph)
+  visited.ADD(node)
+
+  FOR each neighbor IN graph[node] DO
+    IF neighbor NOT IN visited THEN
+      TopologicalDFSUtil(neighbor, visited, stack, graph)
+    END IF
+  END FOR
+
+  stack.PUSH(node)
+END FUNCTION
+```
+
+**Code Implementation:**
+```csharp
+public static List<int> TopologicalSortDFS(List<List<int>> graph)
+{
+    var visited = new HashSet<int>();
+    var stack = new Stack<int>();
+
+    for (int i = 0; i < graph.Count; i++)
+    {
+        if (!visited.Contains(i))
+            TopologicalDFSUtil(i, visited, stack, graph);
+    }
+
+    var result = new List<int>();
+    while (stack.Count > 0)
+        result.Add(stack.Pop());
+
+    return result;
+}
+
+private static void TopologicalDFSUtil(int node, HashSet<int> visited, Stack<int> stack, List<List<int>> graph)
+{
+    visited.Add(node);
+
+    foreach (int neighbor in graph[node])
+    {
+        if (!visited.Contains(neighbor))
+            TopologicalDFSUtil(neighbor, visited, stack, graph);
+    }
+
+    stack.Push(node);
+}
+```
 
 - **Time Complexity :** `O(V + E)`
 - **Space Complexity :** `O(V)`
 
 #### 69.2 [Kahn's Algorithm - BFS]
 
-**Placeholder for implementation**
+**Pseudocode:**
+```
+FUNCTION TopologicalSortKahn(graph, n)
+  inDegree ← [0, 0, ..., 0] (size n)
+
+  FOR each node = 0 TO n - 1 DO
+    FOR each neighbor IN graph[node] DO
+      inDegree[neighbor]++
+    END FOR
+  END FOR
+
+  queue ← EMPTY_QUEUE
+  FOR each node = 0 TO n - 1 DO
+    IF inDegree[node] == 0 THEN
+      queue.ENQUEUE(node)
+    END IF
+  END FOR
+
+  result ← EMPTY_LIST
+  WHILE queue NOT EMPTY DO
+    node ← queue.DEQUEUE()
+    result.ADD(node)
+
+    FOR each neighbor IN graph[node] DO
+      inDegree[neighbor]--
+      IF inDegree[neighbor] == 0 THEN
+        queue.ENQUEUE(neighbor)
+      END IF
+    END FOR
+  END WHILE
+
+  RETURN result
+END FUNCTION
+```
+
+**Code Implementation:**
+```csharp
+public static List<int> TopologicalSortKahn(List<List<int>> graph, int n)
+{
+    int[] inDegree = new int[n];
+
+    for (int i = 0; i < n; i++)
+    {
+        foreach (int neighbor in graph[i])
+            inDegree[neighbor]++;
+    }
+
+    var queue = new Queue<int>();
+    for (int i = 0; i < n; i++)
+    {
+        if (inDegree[i] == 0)
+            queue.Enqueue(i);
+    }
+
+    var result = new List<int>();
+    while (queue.Count > 0)
+    {
+        int node = queue.Dequeue();
+        result.Add(node);
+
+        foreach (int neighbor in graph[node])
+        {
+            inDegree[neighbor]--;
+            if (inDegree[neighbor] == 0)
+                queue.Enqueue(neighbor);
+        }
+    }
+
+    return result;
+}
+```
 
 - **Time Complexity :** `O(V + E)`
 - **Space Complexity :** `O(V)`
@@ -6554,14 +7750,116 @@ public static List<int> SpiralMatrixOptimized(int[][] matrix)
 
 #### 70.1 [Brute Force - Bellman-Ford]
 
-**Placeholder for implementation**
+**Pseudocode:**
+```
+FUNCTION BellmanFord(graph, src, n)
+  dist ← [INF, INF, ..., INF] (size n)
+  dist[src] ← 0
+
+  // Relax edges n-1 times
+  FOR i = 0 TO n - 2 DO
+    FOR each edge (u, v, w) IN graph DO
+      IF dist[u] + w < dist[v] THEN
+        dist[v] ← dist[u] + w
+      END IF
+    END FOR
+  END FOR
+
+  // Check for negative cycles
+  FOR each edge (u, v, w) IN graph DO
+    IF dist[u] + w < dist[v] THEN
+      RETURN "Negative cycle exists"
+    END IF
+  END FOR
+
+  RETURN dist
+END FUNCTION
+```
+
+**Code Implementation:**
+```csharp
+public static int[] BellmanFord(int n, int[][] edges, int src)
+{
+    int[] dist = new int[n];
+    for (int i = 0; i < n; i++) dist[i] = int.MaxValue;
+    dist[src] = 0;
+
+    for (int i = 0; i < n - 1; i++)
+    {
+        foreach (int[] edge in edges)
+        {
+            int u = edge[0], v = edge[1], w = edge[2];
+            if (dist[u] != int.MaxValue && dist[u] + w < dist[v])
+                dist[v] = dist[u] + w;
+        }
+    }
+
+    return dist;
+}
+```
 
 - **Time Complexity :** `O(V * E)`
 - **Space Complexity :** `O(V)`
 
 #### 70.2 [Optimized - Dijkstra with Priority Queue]
 
-**Placeholder for implementation**
+**Pseudocode:**
+```
+FUNCTION Dijkstra(graph, src, n)
+  dist ← [INF, INF, ..., INF] (size n)
+  dist[src] ← 0
+  pq ← PRIORITY_QUEUE()
+  pq.ADD((0, src))
+
+  WHILE pq NOT EMPTY DO
+    (d, u) ← pq.EXTRACT_MIN()
+
+    IF d > dist[u] THEN
+      CONTINUE  // Already processed
+    END IF
+
+    FOR each (v, w) IN graph[u] DO
+      IF dist[u] + w < dist[v] THEN
+        dist[v] ← dist[u] + w
+        pq.ADD((dist[v], v))
+      END IF
+    END FOR
+  END WHILE
+
+  RETURN dist
+END FUNCTION
+```
+
+**Code Implementation:**
+```csharp
+public static int[] Dijkstra(List<List<(int, int)>> graph, int src, int n)
+{
+    int[] dist = new int[n];
+    for (int i = 0; i < n; i++) dist[i] = int.MaxValue;
+    dist[src] = 0;
+
+    var pq = new PriorityQueue<(int, int), int>();
+    pq.Enqueue((src, 0), 0);
+
+    while (pq.Count > 0)
+    {
+        var (d, u) = pq.Dequeue();
+
+        if (d > dist[u]) continue;
+
+        foreach (var (v, w) in graph[u])
+        {
+            if (dist[u] + w < dist[v])
+            {
+                dist[v] = dist[u] + w;
+                pq.Enqueue((v, dist[v]), dist[v]);
+            }
+        }
+    }
+
+    return dist;
+}
+```
 
 - **Time Complexity :** `O((V + E) log V)`
 - **Space Complexity :** `O(V)`
@@ -6572,23 +7870,201 @@ public static List<int> SpiralMatrixOptimized(int[][] matrix)
 
 #### 71.1 [Kruskal's Algorithm]
 
-**Placeholder for implementation**
+**Pseudocode:**
+```
+FUNCTION Kruskal(edges, n)
+  // Sort edges by weight
+  Sort(edges by weight)
+
+  parent ← [0, 1, 2, ..., n-1]
+  mst ← EMPTY_LIST
+  totalWeight ← 0
+
+  FOR each edge (u, v, w) IN edges DO
+    rootU ← Find(u, parent)
+    rootV ← Find(v, parent)
+
+    IF rootU != rootV THEN
+      mst.ADD((u, v, w))
+      totalWeight ← totalWeight + w
+      Union(rootU, rootV, parent)
+    END IF
+  END FOR
+
+  RETURN mst
+END FUNCTION
+```
+
+**Code Implementation:**
+```csharp
+public static List<(int, int, int)> Kruskal(List<(int, int, int)> edges, int n)
+{
+    edges.Sort((a, b) => a.Item3.CompareTo(b.Item3));
+
+    int[] parent = new int[n];
+    for (int i = 0; i < n; i++) parent[i] = i;
+
+    var mst = new List<(int, int, int)>();
+
+    foreach (var (u, v, w) in edges)
+    {
+        int rootU = Find(u, parent);
+        int rootV = Find(v, parent);
+
+        if (rootU != rootV)
+        {
+            mst.Add((u, v, w));
+            parent[rootV] = rootU;
+        }
+    }
+
+    return mst;
+}
+```
 
 - **Time Complexity :** `O(E log E)`
 - **Space Complexity :** `O(V)`
 
 #### 71.2 [Prim's Algorithm]
 
-**Placeholder for implementation**
+**Pseudocode:**
+```
+FUNCTION Prim(graph, src, n)
+  inMST ← [FALSE, FALSE, ..., FALSE] (size n)
+  key ← [INF, INF, ..., INF] (size n)
+  key[src] ← 0
 
-- **Time Complexity :** `O(V² )` or `O((V + E) log V)` with priority queue
+  mst ← EMPTY_LIST
+
+  FOR count = 0 TO n - 1 DO
+    // Find minimum key vertex not in MST
+    u ← FindMinKey(key, inMST)
+    inMST[u] ← TRUE
+
+    // Update keys of adjacent vertices
+    FOR each neighbor IN graph[u] DO
+      weight ← EdgeWeight(u, neighbor)
+      IF NOT inMST[neighbor] AND weight < key[neighbor] THEN
+        key[neighbor] ← weight
+        mst.ADD((u, neighbor, weight))
+      END IF
+    END FOR
+  END FOR
+
+  RETURN mst
+END FUNCTION
+```
+
+**Code Implementation:**
+```csharp
+public static List<(int, int)> Prim(List<List<(int, int)>> graph, int n)
+{
+    bool[] inMST = new bool[n];
+    int[] key = new int[n];
+    for (int i = 0; i < n; i++) key[i] = int.MaxValue;
+    key[0] = 0;
+
+    var mst = new List<(int, int)>();
+
+    for (int count = 0; count < n; count++)
+    {
+        int u = -1;
+        for (int i = 0; i < n; i++)
+        {
+            if (!inMST[i] && (u == -1 || key[i] < key[u]))
+                u = i;
+        }
+
+        inMST[u] = true;
+
+        foreach (var (v, w) in graph[u])
+        {
+            if (!inMST[v] && w < key[v])
+            {
+                key[v] = w;
+                mst.Add((u, v));
+            }
+        }
+    }
+
+    return mst;
+}
+```
+
+- **Time Complexity :** `O(V²)` or `O((V + E) log V)` with priority queue
 - **Space Complexity :** `O(V)`
 
 ---
 
 ### 72. Word Ladder / Connected Components
 
-**Placeholder for implementation**
+**Pseudocode (Connected Components):**
+```
+FUNCTION CountConnectedComponents(graph, n)
+  visited ← EMPTY_SET
+  count ← 0
+
+  FOR node = 0 TO n - 1 DO
+    IF node NOT IN visited THEN
+      DFS(node, visited, graph)
+      count++
+    END IF
+  END FOR
+
+  RETURN count
+END FUNCTION
+
+FUNCTION DFS(node, visited, graph)
+  visited.ADD(node)
+
+  FOR each neighbor IN graph[node] DO
+    IF neighbor NOT IN visited THEN
+      DFS(neighbor, visited, graph)
+    END IF
+  END FOR
+END FUNCTION
+```
+
+**Code Implementation:**
+```csharp
+public static int CountConnectedComponents(int n, int[][] edges)
+{
+    var graph = new List<List<int>>[n];
+    for (int i = 0; i < n; i++)
+        graph[i] = new List<int>();
+
+    foreach (int[] edge in edges)
+    {
+        graph[edge[0]].Add(edge[1]);
+        graph[edge[1]].Add(edge[0]);
+    }
+
+    var visited = new HashSet<int>();
+    int count = 0;
+
+    for (int i = 0; i < n; i++)
+    {
+        if (!visited.Contains(i))
+        {
+            DFS(i, visited, graph);
+            count++;
+        }
+    }
+
+    return count;
+}
+
+private static void DFS(int node, HashSet<int> visited, List<int>[] graph)
+{
+    visited.Add(node);
+
+    foreach (int neighbor in graph[node])
+    {
+        if (!visited.Contains(neighbor))
+            DFS(neighbor, visited, graph);
+    }
+}
+```
 
 - **Time Complexity :** `O(V + E)`
 - **Space Complexity :** `O(V)`
@@ -6728,21 +8204,140 @@ freshCount = 0 → Return 4
 
 #### 70.1 [Brute Force - Recursive]
 
-**Placeholder for implementation**
+**Pseudocode:**
+```
+FUNCTION LCS_Recursive(s1, s2, i, j)
+  IF i == 0 OR j == 0 THEN
+    RETURN 0
+  END IF
+
+  IF s1[i-1] == s2[j-1] THEN
+    RETURN 1 + LCS_Recursive(s1, s2, i-1, j-1)
+  ELSE
+    RETURN MAX(
+      LCS_Recursive(s1, s2, i-1, j),
+      LCS_Recursive(s1, s2, i, j-1)
+    )
+  END IF
+END FUNCTION
+```
+
+**Code Implementation:**
+```csharp
+public static int LCS_Recursive(string s1, string s2, int i, int j)
+{
+    if (i == 0 || j == 0) return 0;
+
+    if (s1[i - 1] == s2[j - 1])
+        return 1 + LCS_Recursive(s1, s2, i - 1, j - 1);
+    else
+        return Math.Max(
+            LCS_Recursive(s1, s2, i - 1, j),
+            LCS_Recursive(s1, s2, i, j - 1)
+        );
+}
+```
 
 - **Time Complexity :** `O(2ⁿ⁺ᵐ)`
 - **Space Complexity :** `O(n + m)` (Call stack)
 
 #### 70.2 [Memoization]
 
-**Placeholder for implementation**
+**Pseudocode:**
+```
+FUNCTION LCS_Memo(s1, s2, i, j, memo)
+  IF i == 0 OR j == 0 THEN
+    RETURN 0
+  END IF
+
+  IF memo[i][j] FOUND THEN
+    RETURN memo[i][j]
+  END IF
+
+  IF s1[i-1] == s2[j-1] THEN
+    result ← 1 + LCS_Memo(s1, s2, i-1, j-1, memo)
+  ELSE
+    result ← MAX(
+      LCS_Memo(s1, s2, i-1, j, memo),
+      LCS_Memo(s1, s2, i, j-1, memo)
+    )
+  END IF
+
+  memo[i][j] ← result
+  RETURN result
+END FUNCTION
+```
+
+**Code Implementation:**
+```csharp
+public static int LCS_Memo(string s1, string s2, int i, int j, int[,] memo)
+{
+    if (i == 0 || j == 0) return 0;
+
+    if (memo[i, j] != -1) return memo[i, j];
+
+    int result;
+    if (s1[i - 1] == s2[j - 1])
+        result = 1 + LCS_Memo(s1, s2, i - 1, j - 1, memo);
+    else
+        result = Math.Max(
+            LCS_Memo(s1, s2, i - 1, j, memo),
+            LCS_Memo(s1, s2, i, j - 1, memo)
+        );
+
+    memo[i, j] = result;
+    return result;
+}
+```
 
 - **Time Complexity :** `O(n * m)`
 - **Space Complexity :** `O(n * m)` (Memo table + Call stack)
 
 #### 70.3 [Tabulation - DP Table]
 
-**Placeholder for implementation**
+**Pseudocode:**
+```
+FUNCTION LCS_Tabulation(s1, s2)
+  n ← s1.length
+  m ← s2.length
+  dp ← [n+1][m+1] initialized to 0
+
+  FOR i = 1 TO n DO
+    FOR j = 1 TO m DO
+      IF s1[i-1] == s2[j-1] THEN
+        dp[i][j] ← dp[i-1][j-1] + 1
+      ELSE
+        dp[i][j] ← MAX(dp[i-1][j], dp[i][j-1])
+      END IF
+    END FOR
+  END FOR
+
+  RETURN dp[n][m]
+END FUNCTION
+```
+
+**Code Implementation:**
+```csharp
+public static int LCS_Tabulation(string s1, string s2)
+{
+    int n = s1.Length;
+    int m = s2.Length;
+    int[,] dp = new int[n + 1, m + 1];
+
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 1; j <= m; j++)
+        {
+            if (s1[i - 1] == s2[j - 1])
+                dp[i, j] = dp[i - 1, j - 1] + 1;
+            else
+                dp[i, j] = Math.Max(dp[i - 1, j], dp[i, j - 1]);
+        }
+    }
+
+    return dp[n, m];
+}
+```
 
 - **Time Complexity :** `O(n * m)`
 - **Space Complexity :** `O(n * m)`
