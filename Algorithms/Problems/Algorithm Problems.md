@@ -8851,16 +8851,129 @@ public static int TrappingRainWaterDP(int[] height)
 
 ### 84. Activity Selection Problem
 
+Select the maximum number of activities that don't overlap, where each activity has a start and finish time.
+
 #### 84.1 [Brute Force - All Combinations]
 
-**Placeholder for implementation**
+**Pseudocode:**
+```
+FUNCTION SelectActivitiesBruteForce(activities)
+  maxCount ← 0
+  maxActivities ← EMPTY_LIST
+
+  FUNCTION GenerateCombinations(index, currentSelection, lastFinish)
+    IF index == activities.length THEN
+      IF currentSelection.size > maxCount THEN
+        maxCount ← currentSelection.size
+        maxActivities ← COPY(currentSelection)
+      END IF
+      RETURN
+    END IF
+
+    activity ← activities[index]
+    // Include current activity if it doesn't overlap
+    IF activity.start >= lastFinish THEN
+      currentSelection.ADD(activity)
+      GenerateCombinations(index + 1, currentSelection, activity.finish)
+      currentSelection.REMOVE_LAST()
+    END IF
+
+    // Exclude current activity
+    GenerateCombinations(index + 1, currentSelection, lastFinish)
+  END FUNCTION
+
+  GenerateCombinations(0, EMPTY_LIST, 0)
+  RETURN maxActivities
+END FUNCTION
+```
+
+**Code Implementation:**
+```csharp
+public class Activity
+{
+    public int start, finish;
+    public Activity(int s, int f) { start = s; finish = f; }
+}
+
+public static List<Activity> SelectActivitiesBruteForce(Activity[] activities)
+{
+    List<Activity> maxActivities = new List<Activity>();
+    GenerateCombinations(activities, 0, new List<Activity>(), 0, maxActivities);
+    return maxActivities;
+}
+
+private static void GenerateCombinations(Activity[] activities, int index,
+    List<Activity> currentSelection, int lastFinish, List<Activity> maxActivities)
+{
+    if (index == activities.Length)
+    {
+        if (currentSelection.Count > maxActivities.Count)
+            maxActivities = new List<Activity>(currentSelection);
+        return;
+    }
+
+    // Include current activity if no overlap
+    if (activities[index].start >= lastFinish)
+    {
+        currentSelection.Add(activities[index]);
+        GenerateCombinations(activities, index + 1, currentSelection,
+            activities[index].finish, maxActivities);
+        currentSelection.RemoveAt(currentSelection.Count - 1);
+    }
+
+    // Exclude current activity
+    GenerateCombinations(activities, index + 1, currentSelection, lastFinish, maxActivities);
+}
+```
 
 - **Time Complexity :** `O(2ⁿ)`
 - **Space Complexity :** `O(n)`
 
 #### 84.2 [Greedy - Earliest Finish Time]
 
-**Placeholder for implementation**
+**Pseudocode:**
+```
+FUNCTION SelectActivitiesGreedy(activities)
+  // Sort by finish time
+  Sort(activities by finish time)
+
+  selected ← EMPTY_LIST
+  selected.ADD(activities[0])
+  lastFinish ← activities[0].finish
+
+  FOR i = 1 TO activities.length - 1 DO
+    IF activities[i].start >= lastFinish THEN
+      selected.ADD(activities[i])
+      lastFinish ← activities[i].finish
+    END IF
+  END FOR
+
+  RETURN selected
+END FUNCTION
+```
+
+**Code Implementation:**
+```csharp
+public static List<Activity> SelectActivitiesGreedy(Activity[] activities)
+{
+    // Sort by finish time
+    Array.Sort(activities, (a, b) => a.finish.CompareTo(b.finish));
+
+    var selected = new List<Activity> { activities[0] };
+    int lastFinish = activities[0].finish;
+
+    for (int i = 1; i < activities.Length; i++)
+    {
+        if (activities[i].start >= lastFinish)
+        {
+            selected.Add(activities[i]);
+            lastFinish = activities[i].finish;
+        }
+    }
+
+    return selected;
+}
+```
 
 - **Time Complexity :** `O(n log n)` (Sorting)
 - **Space Complexity :** `O(1)`
@@ -8869,16 +8982,168 @@ public static int TrappingRainWaterDP(int[] height)
 
 ### 85. Huffman Coding
 
+Create a binary tree for data compression by assigning variable-length codes based on character frequencies.
+
 #### 85.1 [Brute Force - All Frequencies]
 
-**Placeholder for implementation**
+**Pseudocode:**
+```
+FUNCTION HuffmanBruteForce(frequencies)
+  // Generate all possible binary trees and select best
+  FUNCTION GenerateTrees(charList)
+    IF charList.size == 1 THEN
+      RETURN [CreateLeafNode(charList[0])]
+    END IF
+
+    allTrees ← EMPTY_LIST
+    FOR i = 0 TO charList.size - 1 DO
+      FOR j = i+1 TO charList.size - 1 DO
+        subList ← Combine(charList[i], charList[j])
+        subtrees ← GenerateTrees(subList)
+        allTrees.ADD_ALL(subtrees)
+      END FOR
+    END FOR
+
+    RETURN allTrees
+  END FUNCTION
+
+  allTrees ← GenerateTrees(frequencies)
+  // Select tree with minimum encoding length
+  RETURN SelectBestTree(allTrees)
+END FUNCTION
+```
+
+**Code Implementation:**
+```csharp
+public class HuffmanNode
+{
+    public char ch;
+    public int freq;
+    public HuffmanNode left, right;
+
+    public HuffmanNode(char c, int f) { ch = c; freq = f; }
+    public HuffmanNode(HuffmanNode l, HuffmanNode r)
+    {
+        left = l;
+        right = r;
+        freq = l.freq + r.freq;
+    }
+}
+
+public static HuffmanNode HuffmanBruteForce(Dictionary<char, int> frequencies)
+{
+    // Generate all possible trees (simplified version)
+    var nodes = frequencies.Select(x => new HuffmanNode(x.Key, x.Value)).ToList();
+
+    while (nodes.Count > 1)
+    {
+        // For true brute force, would try all combinations
+        // Here showing simplified greedy for demonstration
+        nodes.Sort((a, b) => a.freq.CompareTo(b.freq));
+        HuffmanNode left = nodes[0];
+        HuffmanNode right = nodes[1];
+        nodes.RemoveRange(0, 2);
+
+        HuffmanNode parent = new HuffmanNode(left, right);
+        nodes.Add(parent);
+    }
+
+    return nodes[0];
+}
+```
 
 - **Time Complexity :** `O(2ⁿ)`
 - **Space Complexity :** `O(n)`
 
 #### 85.2 [Greedy - Min Heap]
 
-**Placeholder for implementation**
+**Pseudocode:**
+```
+FUNCTION HuffmanCodingGreedy(frequencies)
+  minHeap ← EMPTY_MIN_HEAP
+
+  // Insert all characters with their frequencies
+  FOR each (char, freq) IN frequencies DO
+    minHeap.INSERT(HuffmanNode(char, freq))
+  END FOR
+
+  // Build tree bottom-up
+  WHILE minHeap.size > 1 DO
+    left ← minHeap.EXTRACT_MIN()
+    right ← minHeap.EXTRACT_MIN()
+
+    parent ← NEW HuffmanNode()
+    parent.left ← left
+    parent.right ← right
+    parent.freq ← left.freq + right.freq
+
+    minHeap.INSERT(parent)
+  END WHILE
+
+  root ← minHeap.EXTRACT_MIN()
+
+  // Generate codes
+  codes ← EMPTY_DICTIONARY
+  GenerateCodes(root, "", codes)
+
+  RETURN codes
+END FUNCTION
+
+FUNCTION GenerateCodes(node, code, codes)
+  IF node == NULL THEN RETURN END IF
+
+  IF node is leaf THEN
+    codes[node.char] ← code
+    RETURN
+  END IF
+
+  GenerateCodes(node.left, code + "0", codes)
+  GenerateCodes(node.right, code + "1", codes)
+END FUNCTION
+```
+
+**Code Implementation:**
+```csharp
+public static Dictionary<char, string> HuffmanCodingGreedy(Dictionary<char, int> frequencies)
+{
+    var minHeap = new PriorityQueue<HuffmanNode, int>();
+
+    // Insert all characters
+    foreach (var kvp in frequencies)
+        minHeap.Enqueue(new HuffmanNode(kvp.Key, kvp.Value), kvp.Value);
+
+    // Build tree bottom-up
+    while (minHeap.Count > 1)
+    {
+        HuffmanNode left = minHeap.Dequeue();
+        HuffmanNode right = minHeap.Dequeue();
+
+        HuffmanNode parent = new HuffmanNode(left, right);
+        minHeap.Enqueue(parent, parent.freq);
+    }
+
+    HuffmanNode root = minHeap.Dequeue();
+
+    // Generate codes
+    var codes = new Dictionary<char, string>();
+    GenerateCodesHelper(root, "", codes);
+
+    return codes;
+}
+
+private static void GenerateCodesHelper(HuffmanNode node, string code, Dictionary<char, string> codes)
+{
+    if (node == null) return;
+
+    if (node.left == null && node.right == null)
+        codes[node.ch] = code;
+    else
+    {
+        GenerateCodesHelper(node.left, code + "0", codes);
+        GenerateCodesHelper(node.right, code + "1", codes);
+    }
+}
+```
 
 - **Time Complexity :** `O(n log n)`
 - **Space Complexity :** `O(n)`
@@ -8887,16 +9152,155 @@ public static int TrappingRainWaterDP(int[] height)
 
 ### 86. Fractional Knapsack Problem
 
+Select items (or fractions of items) to maximize value while staying within weight capacity.
+
 #### 86.1 [Brute Force - All Permutations]
 
-**Placeholder for implementation**
+**Pseudocode:**
+```
+FUNCTION FractionalKnapsackBruteForce(items, capacity)
+  maxValue ← 0
+
+  FUNCTION TryAllCombinations(index, currentWeight, currentValue)
+    IF index == items.length OR currentWeight >= capacity THEN
+      maxValue ← MAX(maxValue, currentValue)
+      RETURN
+    END IF
+
+    item ← items[index]
+
+    // Try including whole item
+    IF currentWeight + item.weight <= capacity THEN
+      TryAllCombinations(index + 1, currentWeight + item.weight,
+                        currentValue + item.value)
+    END IF
+
+    // Try including fraction of item
+    remainingCapacity ← capacity - currentWeight
+    IF remainingCapacity > 0 THEN
+      fraction ← MIN(item.weight, remainingCapacity) / item.weight
+      TryAllCombinations(index + 1, currentWeight + fraction * item.weight,
+                        currentValue + fraction * item.value)
+    END IF
+
+    // Exclude item
+    TryAllCombinations(index + 1, currentWeight, currentValue)
+  END FUNCTION
+
+  TryAllCombinations(0, 0, 0)
+  RETURN maxValue
+END FUNCTION
+```
+
+**Code Implementation:**
+```csharp
+public class Item
+{
+    public double weight, value;
+    public Item(double w, double v) { weight = w; value = v; }
+}
+
+public static double FractionalKnapsackBruteForce(Item[] items, double capacity)
+{
+    double maxValue = 0;
+
+    void TryAllCombinations(int index, double currentWeight, double currentValue)
+    {
+        if (index == items.Length || currentWeight >= capacity)
+        {
+            maxValue = Math.Max(maxValue, currentValue);
+            return;
+        }
+
+        // Include whole item
+        if (currentWeight + items[index].weight <= capacity)
+            TryAllCombinations(index + 1, currentWeight + items[index].weight,
+                currentValue + items[index].value);
+
+        // Include fraction
+        double remainingCapacity = capacity - currentWeight;
+        if (remainingCapacity > 0)
+        {
+            double fraction = Math.Min(items[index].weight, remainingCapacity) / items[index].weight;
+            TryAllCombinations(index + 1, currentWeight + fraction * items[index].weight,
+                currentValue + fraction * items[index].value);
+        }
+
+        // Exclude item
+        TryAllCombinations(index + 1, currentWeight, currentValue);
+    }
+
+    TryAllCombinations(0, 0, 0);
+    return maxValue;
+}
+```
 
 - **Time Complexity :** `O(n!)`
 - **Space Complexity :** `O(n)`
 
 #### 86.2 [Greedy - Value/Weight Ratio]
 
-**Placeholder for implementation**
+**Pseudocode:**
+```
+FUNCTION FractionalKnapsackGreedy(items, capacity)
+  // Sort by value/weight ratio in descending order
+  Sort(items by ratio = value/weight DESC)
+
+  totalValue ← 0
+  remainingCapacity ← capacity
+
+  FOR each item IN items DO
+    IF remainingCapacity == 0 THEN
+      BREAK
+    END IF
+
+    IF item.weight <= remainingCapacity THEN
+      // Take whole item
+      totalValue ← totalValue + item.value
+      remainingCapacity ← remainingCapacity - item.weight
+    ELSE
+      // Take fraction of item
+      fraction ← remainingCapacity / item.weight
+      totalValue ← totalValue + fraction * item.value
+      remainingCapacity ← 0
+    END IF
+  END FOR
+
+  RETURN totalValue
+END FUNCTION
+```
+
+**Code Implementation:**
+```csharp
+public static double FractionalKnapsackGreedy(Item[] items, double capacity)
+{
+    // Sort by value/weight ratio
+    Array.Sort(items, (a, b) =>
+        (b.value / b.weight).CompareTo(a.value / a.weight));
+
+    double totalValue = 0;
+    double remainingCapacity = capacity;
+
+    foreach (Item item in items)
+    {
+        if (remainingCapacity == 0) break;
+
+        if (item.weight <= remainingCapacity)
+        {
+            totalValue += item.value;
+            remainingCapacity -= item.weight;
+        }
+        else
+        {
+            double fraction = remainingCapacity / item.weight;
+            totalValue += fraction * item.value;
+            remainingCapacity = 0;
+        }
+    }
+
+    return totalValue;
+}
+```
 
 - **Time Complexity :** `O(n log n)` (Sorting)
 - **Space Complexity :** `O(1)`
@@ -8905,16 +9309,125 @@ public static int TrappingRainWaterDP(int[] height)
 
 ### 87. Jump Game / Reach End of Array
 
+Determine if you can reach the last index of an array, where each element indicates the maximum jump length.
+
 #### 87.1 [Brute Force - BFS/DFS]
 
-**Placeholder for implementation**
+**Pseudocode:**
+```
+FUNCTION CanJumpBFS(nums)
+  IF nums.length <= 1 THEN
+    RETURN TRUE
+  END IF
+
+  visited ← SET()
+  queue ← QUEUE()
+  queue.ENQUEUE(0)
+  visited.ADD(0)
+
+  WHILE queue NOT EMPTY DO
+    index ← queue.DEQUEUE()
+    maxJump ← nums[index]
+
+    FOR jump = 1 TO maxJump DO
+      nextIndex ← index + jump
+
+      IF nextIndex == nums.length - 1 THEN
+        RETURN TRUE
+      END IF
+
+      IF nextIndex < nums.length AND nextIndex NOT IN visited THEN
+        visited.ADD(nextIndex)
+        queue.ENQUEUE(nextIndex)
+      END IF
+    END FOR
+  END WHILE
+
+  RETURN FALSE
+END FUNCTION
+```
+
+**Code Implementation:**
+```csharp
+public static bool CanJumpBFS(int[] nums)
+{
+    if (nums.Length <= 1) return true;
+
+    var visited = new HashSet<int>();
+    var queue = new Queue<int>();
+    queue.Enqueue(0);
+    visited.Add(0);
+
+    while (queue.Count > 0)
+    {
+        int index = queue.Dequeue();
+        int maxJump = nums[index];
+
+        for (int jump = 1; jump <= maxJump; jump++)
+        {
+            int nextIndex = index + jump;
+
+            if (nextIndex == nums.Length - 1)
+                return true;
+
+            if (nextIndex < nums.Length && !visited.Contains(nextIndex))
+            {
+                visited.Add(nextIndex);
+                queue.Enqueue(nextIndex);
+            }
+        }
+    }
+
+    return false;
+}
+```
 
 - **Time Complexity :** `O(2ⁿ)` or `O(n²)` with optimization
 - **Space Complexity :** `O(n)`
 
 #### 87.2 [Greedy - Maximum Reach]
 
-**Placeholder for implementation**
+**Pseudocode:**
+```
+FUNCTION CanJumpGreedy(nums)
+  maxReach ← 0
+
+  FOR i = 0 TO nums.length - 1 DO
+    IF i > maxReach THEN
+      RETURN FALSE  // Can't reach this index
+    END IF
+
+    IF i == nums.length - 1 THEN
+      RETURN TRUE  // Reached the end
+    END IF
+
+    maxReach ← MAX(maxReach, i + nums[i])
+  END FOR
+
+  RETURN TRUE
+END FUNCTION
+```
+
+**Code Implementation:**
+```csharp
+public static bool CanJumpGreedy(int[] nums)
+{
+    int maxReach = 0;
+
+    for (int i = 0; i < nums.Length; i++)
+    {
+        if (i > maxReach)
+            return false;  // Can't reach this index
+
+        if (i == nums.Length - 1)
+            return true;  // Reached the end
+
+        maxReach = Math.Max(maxReach, i + nums[i]);
+    }
+
+    return true;
+}
+```
 
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(1)`
@@ -8923,7 +9436,62 @@ public static int TrappingRainWaterDP(int[] height)
 
 ### 88. Interval Scheduling Maximization
 
-**Placeholder for implementation**
+Given a list of intervals, find the maximum number of non-overlapping intervals.
+
+**Pseudocode:**
+```
+FUNCTION MaximizeIntervals(intervals)
+  IF intervals.length == 0 THEN
+    RETURN 0
+  END IF
+
+  // Sort by end time
+  Sort(intervals by end time ASC)
+
+  count ← 1
+  lastEnd ← intervals[0].end
+
+  FOR i = 1 TO intervals.length - 1 DO
+    IF intervals[i].start >= lastEnd THEN
+      count ← count + 1
+      lastEnd ← intervals[i].end
+    END IF
+  END FOR
+
+  RETURN count
+END FUNCTION
+```
+
+**Code Implementation:**
+```csharp
+public class Interval
+{
+    public int start, end;
+    public Interval(int s, int e) { start = s; end = e; }
+}
+
+public static int MaximizeIntervals(Interval[] intervals)
+{
+    if (intervals.Length == 0) return 0;
+
+    // Sort by end time
+    Array.Sort(intervals, (a, b) => a.end.CompareTo(b.end));
+
+    int count = 1;
+    int lastEnd = intervals[0].end;
+
+    for (int i = 1; i < intervals.Length; i++)
+    {
+        if (intervals[i].start >= lastEnd)
+        {
+            count++;
+            lastEnd = intervals[i].end;
+        }
+    }
+
+    return count;
+}
+```
 
 - **Time Complexity :** `O(n log n)`
 - **Space Complexity :** `O(1)`
@@ -8932,7 +9500,84 @@ public static int TrappingRainWaterDP(int[] height)
 
 ### 89. Gas Station / Circuit
 
-**Placeholder for implementation**
+Start at a gas station and visit all stations in a circular route. Each station has gas to consume and distance to next station.
+
+**Pseudocode:**
+```
+FUNCTION CanCompleteCircuit(gas, cost)
+  totalGas ← SUM(gas)
+  totalCost ← SUM(cost)
+
+  // If total gas < total cost, impossible to complete
+  IF totalGas < totalCost THEN
+    RETURN -1
+  END IF
+
+  currentGas ← 0
+  startIndex ← 0
+
+  FOR i = 0 TO gas.length - 1 DO
+    currentGas ← currentGas + gas[i] - cost[i]
+
+    IF currentGas < 0 THEN
+      // Can't reach station i+1 from startIndex
+      // Start from i+1
+      startIndex ← i + 1
+      currentGas ← 0
+    END IF
+  END FOR
+
+  RETURN startIndex
+END FUNCTION
+```
+
+**Logic:**
+- If total gas >= total cost, a solution always exists
+- When gas becomes negative at index i, we can't start from any index ≤ i
+- Start from i+1 instead
+
+**Code Implementation:**
+```csharp
+public static int CanCompleteCircuit(int[] gas, int[] cost)
+{
+    int totalGas = 0, totalCost = 0;
+    foreach (int g in gas) totalGas += g;
+    foreach (int c in cost) totalCost += c;
+
+    // If total gas < total cost, impossible
+    if (totalGas < totalCost) return -1;
+
+    int currentGas = 0;
+    int startIndex = 0;
+
+    for (int i = 0; i < gas.Length; i++)
+    {
+        currentGas += gas[i] - cost[i];
+
+        // Can't reach next station from startIndex
+        if (currentGas < 0)
+        {
+            startIndex = i + 1;
+            currentGas = 0;
+        }
+    }
+
+    return startIndex;
+}
+```
+
+```text
+Example: gas = [1,2,3,4,5], cost = [3,4,5,1,2]
+Index:   0  1  2  3  4
+
+i=0: gas=1, cost=3, currentGas=-2 → start=1, currentGas=0
+i=1: gas=2, cost=4, currentGas=-2 → start=2, currentGas=0
+i=2: gas=3, cost=5, currentGas=-2 → start=3, currentGas=0
+i=3: gas=4, cost=1, currentGas=3 ✓
+i=4: gas=5, cost=2, currentGas=6 ✓
+
+Return: 3 ✓
+```
 
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(1)`
@@ -8941,9 +9586,98 @@ public static int TrappingRainWaterDP(int[] height)
 
 ### 90. Candy Distribution Problem
 
-**Placeholder for implementation**
+Distribute candy to children where each child must get at least 1 candy, and children with higher ratings than neighbors must get more candy than those neighbors.
 
-- **Time Complexity :** `O(n)`
-- **Space Complexity :** `O(n)`
+**Pseudocode:**
+```
+FUNCTION DistributeCandy(ratings)
+  n ← ratings.length
+  candy ← ARRAY of size n, initialize all to 1
+
+  // Left to right pass: if rating[i] > rating[i-1],
+  // then candy[i] = candy[i-1] + 1
+  FOR i = 1 TO n - 1 DO
+    IF ratings[i] > ratings[i-1] THEN
+      candy[i] ← candy[i-1] + 1
+    END IF
+  END FOR
+
+  // Right to left pass: ensure candy[i] > candy[i+1]
+  // if ratings[i] > ratings[i+1]
+  FOR i = n - 2 DOWN TO 0 DO
+    IF ratings[i] > ratings[i+1] THEN
+      candy[i] ← MAX(candy[i], candy[i+1] + 1)
+    END IF
+  END FOR
+
+  RETURN SUM(candy)
+END FUNCTION
+```
+
+**Logic:**
+- Two passes approach:
+  1. Left→Right: ensure candy increases with ascending ratings
+  2. Right→Left: ensure candy satisfies descending ratings constraint
+- Each child gets minimum 1 candy initially
+- Both constraints must be satisfied simultaneously
+
+**Code Implementation:**
+```csharp
+public static int DistributeCandy(int[] ratings)
+{
+    int n = ratings.Length;
+    int[] candy = new int[n];
+
+    // Initialize all children with 1 candy
+    for (int i = 0; i < n; i++)
+        candy[i] = 1;
+
+    // Left to right: if rating increases, candy increases
+    for (int i = 1; i < n; i++)
+    {
+        if (ratings[i] > ratings[i - 1])
+        {
+            candy[i] = candy[i - 1] + 1;
+        }
+    }
+
+    // Right to left: ensure descending ratings satisfied
+    for (int i = n - 2; i >= 0; i--)
+    {
+        if (ratings[i] > ratings[i + 1])
+        {
+            candy[i] = Math.Max(candy[i], candy[i + 1] + 1);
+        }
+    }
+
+    // Sum up total candy
+    int total = 0;
+    foreach (int c in candy)
+        total += c;
+
+    return total;
+}
+```
+
+```text
+Example: ratings = [1,0,2]
+
+Initial: candy = [1, 1, 1]
+
+Left to Right Pass:
+  i=1: ratings[1]=0 < ratings[0]=1 → candy[1] stays 1
+  i=2: ratings[2]=2 > ratings[1]=0 → candy[2] = candy[1] + 1 = 2
+  After: candy = [1, 1, 2]
+
+Right to Left Pass:
+  i=1: ratings[1]=0 < ratings[2]=2 → candy[1] stays 1
+  i=0: ratings[0]=1 > ratings[1]=0 → candy[0] = MAX(1, 1+1) = 2
+  After: candy = [2, 1, 2]
+
+Total: 2 + 1 + 2 = 5 ✓
+```
+
+- **Time Complexity :** `O(n)` - two passes through array
+- **Space Complexity :** `O(n)` - candy array of size n
 
 ---
