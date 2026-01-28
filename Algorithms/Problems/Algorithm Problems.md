@@ -36,7 +36,10 @@ Level 3: Backtracking (Explore & Constraint Satisfaction)
 │   ├── 22.1 [Brute Force - Recursive]
 │   └── 22.2 [Memoization]
 ├── 23. Tower of Hanoi
-└── 24. Print Tower of Hanoi
+├── 24. Print Tower of Hanoi
+└── 25. Knight's Tour Problem
+    ├── 25.1 [Backtracking - Brute Force]
+    └── 25.2 [Backtracking - Warnsdorff's Heuristic]
 
 Level 4: Bit Manipulation (Advanced Optimization)
 ├── 25. Count Number of 1 Bits
@@ -148,16 +151,20 @@ Level 12: Dynamic Programming (Optimization Strategy)
 │   └── 74.2 [DP Tabulation]
 ├── 75. Matrix Chain Multiplication
 ├── 76. Unique Paths in Grid
-└── 77. Maximum Subarray (Kadane's Algorithm)
+├── 77. Maximum Subarray (Kadane's Algorithm)
+└── 78. Best Time to Buy and Sell Stock
+    ├── 78.1 [Brute Force - All Pairs]
+    ├── 78.2 [Dynamic Programming - Max Profit]
+    └── 78.3 [Greedy - Single Pass]
 
 Level 13: Greedy Techniques (Local Optimal Choice)
-├── 78. Activity Selection Problem
-│   ├── 78.1 [Brute Force - All Combinations]
-│   └── 78.2 [Greedy - Earliest Finish Time]
-├── 79. Huffman Coding
-│   ├── 79.1 [Brute Force - All Frequencies]
-│   └── 79.2 [Greedy - Min Heap]
-├── 80. Fractional Knapsack Problem
+├── 79. Activity Selection Problem
+│   ├── 79.1 [Brute Force - All Combinations]
+│   └── 79.2 [Greedy - Earliest Finish Time]
+├── 80. Huffman Coding
+│   ├── 80.1 [Brute Force - All Frequencies]
+│   └── 80.2 [Greedy - Min Heap]
+├── 81. Fractional Knapsack Problem
 │   ├── 80.1 [Brute Force - All Permutations]
 │   └── 80.2 [Greedy - Value/Weight Ratio]
 ├── 81. Jump Game / Reach End of Array
@@ -1756,8 +1763,331 @@ PrintTowerOfHanoiMoves(3, A, C, B)
     - Call stack depth: `n` (when going down one branch)
 
 
+### 25. Knight's Tour Problem
+
+The Knight's Tour is a sequence of moves of a knight on a chessboard such that the knight visits every square exactly once. Given an `n × n` chessboard and a starting position, find if a complete knight's tour exists. A knight moves in an "L" shape: 2 squares in one direction and 1 square perpendicular (or vice versa).
+
+**Constraints:**
+- The knight must visit each square exactly once
+- The knight can start from any position
+- A complete tour exists only on certain board sizes
+
+```
+Examples:
+8x8 board - Knight's Tour exists (Famous Puzzle)
+4x4 board - Knight's Tour may/may not exist depending on starting position
+3x3 board - No Knight's Tour exists
+
+Sample 4x4 solution (starting at 0,0):
+ 0  1  2  3
+ 7  4  9  2
+ 6 11 10  1
+ 5 12 13  8
+```
+
+#### 25.1 [Backtracking - Brute Force]
+
+Try all possible knight moves from each position using backtracking. If a dead-end is reached, backtrack and try different moves.
+
+```csharp
+public class KnightTourBruteForce
+{
+    private int n;
+    private int[,] board;
+    private int[] moveX = { 2, 1, -1, -2, -2, -1, 1, 2 };
+    private int[] moveY = { 1, 2, 2, 1, -1, -2, -2, -1 };
+
+    public bool FindKnightTour(int n, int startX, int startY)
+    {
+        this.n = n;
+        this.board = new int[n, n];
+
+        // Initialize board with -1 (unvisited)
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                board[i, j] = -1;
+            }
+        }
+
+        // Mark starting position
+        board[startX, startY] = 0;
+
+        // Try to find tour starting from (startX, startY)
+        if (Backtrack(startX, startY, 1))
+        {
+            PrintBoard();
+            return true;
+        }
+
+        return false;
+    }
+
+    private bool Backtrack(int x, int y, int moveCount)
+    {
+        // If all squares are visited, tour is complete
+        if (moveCount == n * n)
+        {
+            return true;
+        }
+
+        // Try all 8 possible knight moves
+        for (int i = 0; i < 8; i++)
+        {
+            int nextX = x + moveX[i];
+            int nextY = y + moveY[i];
+
+            // Check if next position is valid and unvisited
+            if (IsValid(nextX, nextY) && board[nextX, nextY] == -1)
+            {
+                // Mark current square
+                board[nextX, nextY] = moveCount;
+
+                // Recursively try to complete the tour
+                if (Backtrack(nextX, nextY, moveCount + 1))
+                {
+                    return true;
+                }
+
+                // Backtrack: unmark the square
+                board[nextX, nextY] = -1;
+            }
+        }
+
+        return false;
+    }
+
+    private bool IsValid(int x, int y)
+    {
+        return x >= 0 && x < n && y >= 0 && y < n;
+    }
+
+    private void PrintBoard()
+    {
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                Console.Write(board[i, j].ToString().PadLeft(3));
+            }
+            Console.WriteLine();
+        }
+    }
+}
+```
+
+```text
+Knight's Tour on 5x5 board (Brute Force Backtracking):
+
+Starting at (0,0):
+Move 1: (0,0) → Try move to (1,2) ✓
+Move 2: (1,2) → Try moves... eventually reaches dead-end
+        Backtrack! Unmark (1,2)
+        Try next move...
+
+This process explores all possibilities:
+- Time: Extremely slow because explores ALL possible sequences
+- Worst case: All permutations of positions
+```
+
+**Knight Move Pattern:**
+```
+     (up-left)  (up-right)
+    ↗       ↖
+   (−2,1) (2,1)
+(−1,2)           (1,2)
+  ↗               ↖
+Knight            (x,y)
+  ↖               ↗
+(−1,−2)         (1,−2)
+   ↙               ↖
+    (−2,−1) (2,−1)
+    ↙       ↖
+   (down-left) (down-right)
+```
+
+- **Time Complexity :** `O(8^(n²))`
+    - Worst case: Try all 8 moves for each of n² squares
+    - Most moves lead to dead-ends
+- **Space Complexity :** `O(n²)`
+    - Board matrix: n²
+    - Recursion depth: up to n²
+
+#### 25.2 [Backtracking - Warnsdorff's Heuristic]
+
+Instead of trying all moves randomly, use **Warnsdorff's Rule**: Always move the knight to the square from which the knight will have the fewest onward moves. This dramatically reduces backtracking by avoiding dead-ends early.
+
+```csharp
+public class KnightTourWarnsdorff
+{
+    private int n;
+    private int[,] board;
+    private int[] moveX = { 2, 1, -1, -2, -2, -1, 1, 2 };
+    private int[] moveY = { 1, 2, 2, 1, -1, -2, -2, -1 };
+
+    public bool FindKnightTourOptimized(int n, int startX, int startY)
+    {
+        this.n = n;
+        this.board = new int[n, n];
+
+        // Initialize board
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                board[i, j] = -1;
+            }
+        }
+
+        board[startX, startY] = 0;
+
+        if (BacktrackWarnsdorff(startX, startY, 1))
+        {
+            PrintBoard();
+            return true;
+        }
+
+        return false;
+    }
+
+    private bool BacktrackWarnsdorff(int x, int y, int moveCount)
+    {
+        // If all squares visited, tour complete
+        if (moveCount == n * n)
+        {
+            return true;
+        }
+
+        // Get all valid next moves
+        var nextMoves = GetNextMovesByWarnsdorff(x, y);
+
+        // Try moves sorted by Warnsdorff's heuristic
+        foreach (var (nextX, nextY) in nextMoves)
+        {
+            board[nextX, nextY] = moveCount;
+
+            if (BacktrackWarnsdorff(nextX, nextY, moveCount + 1))
+            {
+                return true;
+            }
+
+            board[nextX, nextY] = -1;
+        }
+
+        return false;
+    }
+
+    private List<(int, int)> GetNextMovesByWarnsdorff(int x, int y)
+    {
+        var validMoves = new List<(int, int, int)>(); // (x, y, degree)
+
+        // Find all valid moves and count their accessibility
+        for (int i = 0; i < 8; i++)
+        {
+            int nextX = x + moveX[i];
+            int nextY = y + moveY[i];
+
+            if (IsValid(nextX, nextY) && board[nextX, nextY] == -1)
+            {
+                // Count how many moves are available from this position
+                int degree = CountAccessibility(nextX, nextY);
+                validMoves.Add((nextX, nextY, degree));
+            }
+        }
+
+        // Sort by degree (ascending) - prefer squares with fewer onward moves
+        validMoves.Sort((a, b) => a.Item3.CompareTo(b.Item3));
+
+        // Return moves sorted by Warnsdorff's heuristic
+        return validMoves.Select(m => (m.Item1, m.Item2)).ToList();
+    }
+
+    private int CountAccessibility(int x, int y)
+    {
+        int count = 0;
+
+        // Count valid unvisited squares reachable from (x, y)
+        for (int i = 0; i < 8; i++)
+        {
+            int nextX = x + moveX[i];
+            int nextY = y + moveY[i];
+
+            if (IsValid(nextX, nextY) && board[nextX, nextY] == -1)
+            {
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+    private bool IsValid(int x, int y)
+    {
+        return x >= 0 && x < n && y >= 0 && y < n;
+    }
+
+    private void PrintBoard()
+    {
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                Console.Write(board[i, j].ToString().PadLeft(3));
+            }
+            Console.WriteLine();
+        }
+    }
+}
+```
+
+```text
+Warnsdorff's Heuristic Example (5x5 board):
+
+At each step, choose move to square with fewest onward moves:
+
+Position (0,0), moveCount=0
+├─ Can move to: (1,2), (2,1)
+├─ Count moves from each:
+│  ├─ From (1,2): 5 onward moves
+│  └─ From (2,1): 4 onward moves ← Choose this (fewer moves)
+│
+At (2,1), moveCount=1
+├─ Can move to: (0,0)✓, (0,2), (1,3), (3,3), (4,0), (4,2)
+├─ Count accessibility for each unvisited
+│  ├─ (0,2): 3 onward moves
+│  ├─ (1,3): 4 onward moves ← Choose (0,2) (fewest)
+│  └─ ...
+
+This greedy choice avoids creating unreachable corners!
+```
+
+**Warnsdorff's Rule:**
+- Always move to the square with the **fewest onward moves**
+- This prevents the knight from being trapped in unreachable areas
+- Dramatically reduces backtracking by making smart early decisions
+
+- **Time Complexity :** `O(n²)` (Average case with Warnsdorff's heuristic)
+    - Most board sizes: Single linear pass finds solution
+    - Very few backtracks needed due to smart heuristic
+    - Without heuristic: `O(8^(n²))` worst case
+- **Space Complexity :** `O(n²)`
+    - Board matrix: n²
+    - Recursion depth: up to n² (but rarely backtracks deep)
+
+**Comparison Table:**
+
+| Approach | Time | Space | Strategy |
+|----------|------|-------|----------|
+| **Brute Force** | O(8^(n²)) | O(n²) | Try all moves blindly |
+| **Warnsdorff's** | O(n²) | O(n²) | Greedy heuristic - avoid dead-ends |
+
+**Why Warnsdorff's Works:**
+Warnsdorff's heuristic is so effective that it finds a solution (when one exists) in almost linear time! The key insight is that by prioritizing moves to squares with fewer onward options, we prevent the knight from painting itself into corners where no more moves are possible.
+
+
 ## Level 4: Bit Manipulation (Advanced Optimization)
-### 25. Count Number of 1 Bits
+### 26. Count Number of 1 Bits
 
 The number is a positive number and greater than zero.
 
@@ -3762,20 +4092,244 @@ Found: nums[4] = 0
 
 ---
 
+### 78. Best Time to Buy and Sell Stock
+
+You are given an array `prices` where `prices[i]` is the price of a given stock on the ith day. You want to maximize your profit by choosing a single day to buy one stock and a different day in the future to sell that stock. Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
+
+**Constraints:**
+- You may not engage in multiple transactions (buy-sell-buy-sell, etc.)
+- You cannot sell before you buy
+- You must select both buy and sell days
+
+```
+Examples:
+Input: prices = [7, 1, 5, 3, 6, 4]
+Output: 5
+Explanation: Buy on day 2 (price = 1), Sell on day 5 (price = 6). Profit = 6 - 1 = 5
+
+Input: prices = [7, 6, 4, 3, 1]
+Output: 0
+Explanation: No profit possible since prices are strictly decreasing
+```
+
+#### 78.1 [Brute Force - All Pairs]
+
+Compare all possible buy-sell pairs and track the maximum profit.
+
+```csharp
+public static int MaxProfitBruteForce(int[] prices)
+{
+    int maxProfit = 0;
+
+    // Try all possible pairs of (buy day, sell day)
+    for (int i = 0; i < prices.Length; i++)
+    {
+        for (int j = i + 1; j < prices.Length; j++)
+        {
+            int profit = prices[j] - prices[i];
+            maxProfit = Math.Max(maxProfit, profit);
+        }
+    }
+
+    return maxProfit;
+}
+```
+
+```text
+prices = [7, 1, 5, 3, 6, 4]
+Index:    0  1  2  3  4  5
+
+All pairs checked:
+(0,1): 1-7 = -6 ✗ (negative)
+(0,2): 5-7 = -2 ✗ (negative)
+(0,3): 3-7 = -4 ✗ (negative)
+(0,4): 6-7 = -1 ✗ (negative)
+(0,5): 4-7 = -3 ✗ (negative)
+(1,2): 5-1 = 4 ✓
+(1,3): 3-1 = 2 ✓
+(1,4): 6-1 = 5 ✓ ← Maximum
+(1,5): 4-1 = 3 ✓
+(2,3): 3-5 = -2 ✗
+(2,4): 6-5 = 1 ✓
+(2,5): 4-5 = -1 ✗
+(3,4): 6-3 = 3 ✓
+(3,5): 4-3 = 1 ✓
+(4,5): 4-6 = -2 ✗
+
+Maximum profit = 5 (buy at index 1, sell at index 4)
+```
+
+- **Time Complexity :** `O(n²)`
+    - Nested loops checking all pairs
+    - Each pair requires one comparison
+- **Space Complexity :** `O(1)`
+    - Only tracking maxProfit variable
+
+#### 78.2 [Dynamic Programming - Max Profit with State]
+
+Track the maximum profit at each position while maintaining the minimum price seen so far.
+
+```csharp
+public static int MaxProfitDP(int[] prices)
+{
+    if (prices.Length <= 1) return 0;
+
+    int maxProfit = 0;
+    int minPrice = prices[0];  // Minimum price seen so far
+
+    // For each price, calculate profit if we sell at this price
+    for (int i = 1; i < prices.Length; i++)
+    {
+        // Profit if we sell at current price (bought at minPrice)
+        int profit = prices[i] - minPrice;
+
+        // Update max profit
+        maxProfit = Math.Max(maxProfit, profit);
+
+        // Update minimum price if current price is lower
+        minPrice = Math.Min(minPrice, prices[i]);
+    }
+
+    return maxProfit;
+}
+```
+
+```text
+prices = [7, 1, 5, 3, 6, 4]
+
+Iteration 1: i=1, prices[1]=1
+  profit = 1 - 7 = -6
+  maxProfit = max(0, -6) = 0
+  minPrice = min(7, 1) = 1
+
+Iteration 2: i=2, prices[2]=5
+  profit = 5 - 1 = 4
+  maxProfit = max(0, 4) = 4
+  minPrice = min(1, 5) = 1
+
+Iteration 3: i=3, prices[3]=3
+  profit = 3 - 1 = 2
+  maxProfit = max(4, 2) = 4
+  minPrice = min(1, 3) = 1
+
+Iteration 4: i=4, prices[4]=6
+  profit = 6 - 1 = 5
+  maxProfit = max(4, 5) = 5 ✓
+  minPrice = min(1, 6) = 1
+
+Iteration 5: i=5, prices[5]=4
+  profit = 4 - 1 = 3
+  maxProfit = max(5, 3) = 5
+  minPrice = min(1, 4) = 1
+
+Return: maxProfit = 5
+```
+
+**Key Insight:** We don't need to store all previous states. We only need:
+1. The minimum price seen up to current position
+2. The maximum profit found so far
+
+Then at each position, profit = current_price - min_price_so_far
+
+- **Time Complexity :** `O(n)`
+    - Single pass through prices array
+    - Each iteration does constant work
+- **Space Complexity :** `O(1)`
+    - Only tracking minPrice and maxProfit
+
+#### 78.3 [Greedy - Single Pass Optimal]
+
+A greedy approach that tracks the minimum price and always calculates potential profit. Since we can only do one transaction, we greedily maximize profit at each step.
+
+```csharp
+public static int MaxProfitGreedy(int[] prices)
+{
+    if (prices.Length <= 1) return 0;
+
+    int minPrice = int.MaxValue;
+    int maxProfit = 0;
+
+    foreach (int price in prices)
+    {
+        // Calculate potential profit if we sell at this price
+        maxProfit = Math.Max(maxProfit, price - minPrice);
+
+        // Update minimum price for future transactions
+        minPrice = Math.Min(minPrice, price);
+    }
+
+    return maxProfit;
+}
+```
+
+```text
+prices = [7, 1, 5, 3, 6, 4]
+
+Greedy Strategy: Always keep track of lowest price, always calculate best profit
+
+Step 1: price=7
+  maxProfit = max(0, 7 - INF) = 0
+  minPrice = min(INF, 7) = 7
+
+Step 2: price=1 (new low found!)
+  maxProfit = max(0, 1 - 7) = 0
+  minPrice = min(7, 1) = 1
+
+Step 3: price=5
+  maxProfit = max(0, 5 - 1) = 4 (profit with current low)
+  minPrice = min(1, 5) = 1
+
+Step 4: price=3
+  maxProfit = max(4, 3 - 1) = 4
+  minPrice = min(1, 3) = 1
+
+Step 5: price=6
+  maxProfit = max(4, 6 - 1) = 5 ✓ (best profit found)
+  minPrice = min(1, 6) = 1
+
+Step 6: price=4
+  maxProfit = max(5, 4 - 1) = 5
+  minPrice = min(1, 4) = 1
+
+Return: 5
+```
+
+**Greedy Choice:** At each price point, we greedily:
+1. Calculate profit if we sell now (at lowest price seen)
+2. Update the "sell at current" profit if it's better
+3. Move forward, which naturally handles the "buy before sell" constraint
+
+- **Time Complexity :** `O(n)`
+    - Single pass with constant operations per element
+- **Space Complexity :** `O(1)`
+    - Only two variables tracking state
+
+**Comparison Table:**
+
+| Approach | Time | Space | Method |
+|----------|------|-------|--------|
+| **Brute Force** | O(n²) | O(1) | Check all pairs |
+| **Dynamic Programming** | O(n) | O(1) | Track min price + max profit |
+| **Greedy** | O(n) | O(1) | Single pass with min tracking |
+
+**Why Greedy Works:** Since we can only do one transaction (buy-sell), and we want maximum profit, the optimal choice is always to sell at the first day we can make a profit (given we bought at the lowest price before it). This greedy choice leads to the global optimum.
+
+---
+
 ## Level 13: Greedy Techniques (Local Optimal Choice)
 
 > `Greedy & Optimization techniques`
 
-### 78. Activity Selection Problem
+### 79. Activity Selection Problem
 
-#### 78.1 [Brute Force - All Combinations]
+#### 79.1 [Brute Force - All Combinations]
 
 **Placeholder for implementation**
 
 - **Time Complexity :** `O(2ⁿ)`
 - **Space Complexity :** `O(n)`
 
-#### 78.2 [Greedy - Earliest Finish Time]
+#### 79.2 [Greedy - Earliest Finish Time]
 
 **Placeholder for implementation**
 
@@ -3784,16 +4338,16 @@ Found: nums[4] = 0
 
 ---
 
-### 79. Huffman Coding
+### 80. Huffman Coding
 
-#### 79.1 [Brute Force - All Frequencies]
+#### 80.1 [Brute Force - All Frequencies]
 
 **Placeholder for implementation**
 
 - **Time Complexity :** `O(2ⁿ)`
 - **Space Complexity :** `O(n)`
 
-#### 79.2 [Greedy - Min Heap]
+#### 80.2 [Greedy - Min Heap]
 
 **Placeholder for implementation**
 
@@ -3802,16 +4356,16 @@ Found: nums[4] = 0
 
 ---
 
-### 80. Fractional Knapsack Problem
+### 81. Fractional Knapsack Problem
 
-#### 80.1 [Brute Force - All Permutations]
+#### 81.1 [Brute Force - All Permutations]
 
 **Placeholder for implementation**
 
 - **Time Complexity :** `O(n!)`
 - **Space Complexity :** `O(n)`
 
-#### 80.2 [Greedy - Value/Weight Ratio]
+#### 81.2 [Greedy - Value/Weight Ratio]
 
 **Placeholder for implementation**
 
@@ -3820,16 +4374,16 @@ Found: nums[4] = 0
 
 ---
 
-### 81. Jump Game / Reach End of Array
+### 82. Jump Game / Reach End of Array
 
-#### 81.1 [Brute Force - BFS/DFS]
+#### 82.1 [Brute Force - BFS/DFS]
 
 **Placeholder for implementation**
 
 - **Time Complexity :** `O(2ⁿ)` or `O(n²)` with optimization
 - **Space Complexity :** `O(n)`
 
-#### 81.2 [Greedy - Maximum Reach]
+#### 82.2 [Greedy - Maximum Reach]
 
 **Placeholder for implementation**
 
@@ -3838,7 +4392,7 @@ Found: nums[4] = 0
 
 ---
 
-### 82. Interval Scheduling Maximization
+### 83. Interval Scheduling Maximization
 
 **Placeholder for implementation**
 
@@ -3847,7 +4401,7 @@ Found: nums[4] = 0
 
 ---
 
-### 83. Gas Station / Circuit
+### 84. Gas Station / Circuit
 
 **Placeholder for implementation**
 
@@ -3856,7 +4410,7 @@ Found: nums[4] = 0
 
 ---
 
-### 84. Candy Distribution Problem
+### 85. Candy Distribution Problem
 
 **Placeholder for implementation**
 
