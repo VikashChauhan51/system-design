@@ -2394,6 +2394,29 @@ returns 3
 - **Space Complexity :** `O(log d)`
 
 ### 18. Geometric Sum
+
+**Description:** Calculate the sum of geometric series: 1 + 1/2 + 1/4 + 1/8 + ... + 1/(2^n) using recursion.
+
+**Examples:**
+```
+Input: n = 0
+Output: 1.0
+Explanation: Just the first term
+
+Input: n = 2
+Output: 1.75
+Explanation: 1 + 1/2 + 1/4 = 1.75
+
+Input: n = 3
+Output: 1.875
+Explanation: 1 + 1/2 + 1/4 + 1/8 = 1.875
+```
+
+#### Constraints
+- Input n is a non-negative integer
+- Calculate sum up to n terms
+- Recursive implementation required
+
 Given an integer n, we need to find the geometric sum of the following series using recursion.
 
 1 + 1/2 + 1/4 + 1/8 + ... + 1/(2n)
@@ -3160,6 +3183,23 @@ Total calls for n=5: 5 function calls
 
 ### 26. Tower of Hanoi
 
+**Description:** Solve the Tower of Hanoi problem: Move n disks from rod A to rod C using rod B as auxiliary, with rules that only one disk can be moved at a time and a larger disk cannot be placed on a smaller one.
+
+**Examples:**
+```
+Input: n = 1
+Output: 1
+Explanation: Move disk from A to C directly (1 move)
+
+Input: n = 2
+Output: 3
+Explanation: A→B, A→C, B→C (3 moves)
+
+Input: n = 3
+Output: 7
+Explanation: 7 moves to transfer all disks
+```
+
 #### Constraints
 - Input n is positive integer (number of disks)
 - All disks start on rod A, must move to rod C
@@ -3710,6 +3750,23 @@ Final:   a = 3, b = 5  ✓ Swapped!
 
 ### 31. Single Number (All appear twice except one)
 
+**Description:** Find the single number that appears once while all other numbers appear exactly twice in the array.
+
+**Examples:**
+```
+Input: nums = [2,2,1]
+Output: 1
+Explanation: 2 appears twice, 1 appears once
+
+Input: nums = [4,1,2,1,2]
+Output: 4
+Explanation: 4 appears once, 1 and 2 appear twice
+
+Input: nums = [5]
+Output: 5
+Explanation: Only one element
+```
+
 #### Constraints
 - Array contains positive integers
 - All numbers appear exactly twice except one
@@ -3742,6 +3799,23 @@ public static int SingleNumber(int[] nums)
 - **Space Complexity :** `O(1)`
 
 ### 32. Find Missing Number in Array
+
+**Description:** Find the single missing number in an array containing n distinct numbers from range [0, n].
+
+**Examples:**
+```
+Input: nums = [3,0,1]
+Output: 2
+Explanation: Array has 0,1,3 but missing 2 from range [0-3]
+
+Input: nums = [0,1]
+Output: 2
+Explanation: Array has 0,1 but missing 2 from range [0-2]
+
+Input: nums = [9,6,4,2,3,5,7,0,1]
+Output: 8
+Explanation: Array missing 8 from range [0-9]
+```
 
 #### Constraints
 - Array contains n elements
@@ -3791,6 +3865,23 @@ What remains? 2 (only in range, not in array)
 
 ### 33. Add Two Numbers Without Arithmetic Operators
 
+**Description:** Add two integers without using arithmetic operators (+, -), using only bitwise operations.
+
+**Examples:**
+```
+Input: a = 1, b = 2
+Output: 3
+Explanation: 1 + 2 = 3 using XOR and AND operations
+
+Input: a = 5, b = 3
+Output: 8
+Explanation: 5 + 3 = 8 (0101 + 0011 = 1000)
+
+Input: a = 10, b = 20
+Output: 30
+Explanation: 10 + 20 = 30 using bitwise operations
+```
+
 #### Constraints
 - Both inputs are positive integers greater than zero
 - Cannot use +, -, *, / operators
@@ -3834,6 +3925,23 @@ Final    | 1000 (8)   | 0000 (0)   |       |       |
 - **Space Complexity :** `O(1)`
 
 ### 34. Power (Optimized with Bitwise)
+
+**Description:** Calculate x^n (x raised to power n) using binary exponentiation with bitwise operations for O(log n) time.
+
+**Examples:**
+```
+Input: x = 2, n = 10
+Output: 1024
+Explanation: 2^10 = 1024 using binary method
+
+Input: x = 3, n = 5
+Output: 243
+Explanation: 3^5 = 243
+
+Input: x = 2, n = 0
+Output: 1
+Explanation: Any number^0 = 1
+```
 
 #### Constraints
 - Both numbers are positive integers greater than zero
@@ -3881,6 +3989,23 @@ public static int PowerOptimized(int x, int n)
 
 ### 35. Minimum Bit Flips to Convert Number
 
+**Description:** Find minimum number of bit flips needed to convert integer a to integer b.
+
+**Examples:**
+```
+Input: start = 8, goal = 3
+Output: 2
+Explanation: 8 = 1000, 3 = 0011 → flip 2 bits: 1000→0011
+
+Input: start = 1, goal = 4
+Output: 2
+Explanation: 1 = 0001, 4 = 0100 → flip 2 bits
+
+Input: start = 5, goal = 5
+Output: 0
+Explanation: Numbers are same, no flips needed
+```
+
 #### Constraints
 - Input is a positive integer greater than zero
 - Find minimum bit flips needed to convert a to b
@@ -3924,6 +4049,23 @@ Result: 3 bit flips needed
 - **Space Complexity :** `O(1)`
 
 ### 36. Generate All Subsets
+
+**Description:** Generate all possible subsets (power set) of a given array using bitwise iteration.
+
+**Examples:**
+```
+Input: nums = [1,2]
+Output: [[], [1], [2], [1,2]]
+Explanation: All subsets of {1,2}
+
+Input: nums = [0]
+Output: [[], [0]]
+Explanation: Power set has 2^1 = 2 subsets
+
+Input: nums = [1,2,3]
+Output: [[], [1], [2], [1,2], [3], [1,3], [2,3], [1,2,3]]
+Explanation: 2^3 = 8 subsets total
+```
 
 #### Constraints
 - Input array may contain duplicate elements
@@ -3975,6 +4117,23 @@ public static List<List<int>> GenerateSubsets(int[] nums)
 ## Level 5: String Manipulation (Pattern Matching & Transformation)
 
 ### 33. Multiply two strings
+
+**Description:** Multiply two number strings without converting to integers. Handles very large numbers represented as strings.
+
+**Examples:**
+```
+Input: num1 = "123", num2 = "456"
+Output: "56088"
+Explanation: 123 × 456 = 56088
+
+Input: num1 = "0", num2 = "123"
+Output: "0"
+Explanation: 0 × any number = 0
+
+Input: num1 = "999", num2 = "999"
+Output: "998001"
+Explanation: 999 × 999 = 998001
+```
 
 #### Constraints
 - Input strings represent non-negative integers
@@ -4076,6 +4235,23 @@ ITERATION MAP:
 - **Space Complexity :** `O(m+n)`
 
 ### 34. Reverse String
+
+**Description:** Reverse a string in-place using character swapping from both ends.
+
+**Examples:**
+```
+Input: s = "hello"
+Output: "olleh"
+Explanation: Reversed string
+
+Input: s = "racecar"
+Output: "racecar"
+Explanation: Palindrome, same when reversed
+
+Input: s = "a"
+Output: "a"
+Explanation: Single character
+```
 
 #### Constraints
 - Input string is not null
@@ -4253,6 +4429,23 @@ Result: 5 characters in last word
 - **Space Complexity :** `O(1)`
 
 ### 41. Concatenate two Strings
+
+**Description:** Interleave characters from two strings alternately, appending remaining characters.
+
+**Examples:**
+```
+Input: s1 = "abc", s2 = "pqr"
+Output: "apbqcr"
+Explanation: Alternating characters from both strings
+
+Input: s1 = "abcd", s2 = "pq"
+Output: "apbqcd"
+Explanation: Append remaining characters from s1
+
+Input: s1 = "ab", s2 = "pqrs"
+Output: "apbqrs"
+Explanation: Append remaining characters from s2
+```
 
 #### Constraints
 - Both strings are not null or empty
@@ -4990,6 +5183,23 @@ Result: dp[8] = true ✓
 
 ### 44. Move Zeroes To End
 
+**Description:** Modify array in-place to move all zeros to the end while maintaining relative order of non-zero elements.
+
+**Examples:**
+```
+Input: nums = [0,1,0,3,12]
+Output: [1,3,12,0,0]
+Explanation: Zeros moved to end, order preserved
+
+Input: nums = [0,0,1]
+Output: [1,0,0]
+Explanation: All zeros moved to end
+
+Input: nums = [1,2,3]
+Output: [1,2,3]
+Explanation: No zeros, no change
+```
+
 #### Constraints
 - Array contains positive numbers only
 - Must modify array in-place
@@ -5135,6 +5345,23 @@ Scenario 2: Array heavily with zeros [0, 0, 0, 1]
 
 ### 45. Duplicate Characters
 
+**Description:** Find and return all characters that appear more than once in a string, preserving order.
+
+**Examples:**
+```
+Input: s = "abcda"
+Output: "a"
+Explanation: 'a' appears twice, others once
+
+Input: s = "abab"
+Output: "ab"
+Explanation: Both 'a' and 'b' appear twice
+
+Input: s = "abcdef"
+Output: ""
+Explanation: No duplicates
+```
+
 #### Constraints
 - Input string is not null
 - Return characters that appear more than once
@@ -5181,6 +5408,23 @@ Step 3: Collect in original order
 - **Space Complexity :** `O(1)`
 
 ### 46. Contains Duplicate
+
+**Description:** Determine if an array contains any duplicate elements.
+
+**Examples:**
+```
+Input: nums = [1,2,3,1]
+Output: true
+Explanation: '1' appears twice
+
+Input: nums = [1,2,3,4]
+Output: false
+Explanation: All elements are unique
+
+Input: nums = [99,99]
+Output: true
+Explanation: Duplicate element found
+```
 
 #### Constraints
 - Array is not null
@@ -5305,6 +5549,23 @@ Hash Set [1, 2, 3, 1]:
     - But early termination on finding duplicate reduces practical space needed
 
 ### 47. Valid Palindrome
+
+**Description:** Check if a string is a palindrome using two-pointer approach, handling case insensitivity.
+
+**Examples:**
+```
+Input: s = "racecar"
+Output: true
+Explanation: Reads same forwards and backwards
+
+Input: s = "hello"
+Output: false
+Explanation: "hello" != "olleh"
+
+Input: s = "A man, a plan, a canal: Panama"
+Output: true
+Explanation: True palindrome (ignoring spaces/punctuation)
+```
 
 #### Constraints
 - Input string is not null
