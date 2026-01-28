@@ -29,230 +29,202 @@ Level 2: Recursion (Optimization Strategy)
 ├── 14. Count digits recursively
 ├── 15. Sum of digits recursively
 ├── 16. Count Zeroes Recursively
-├── 17. Geometric Sum
-├── 18. String to Integer
-├── 19. Number to Text
-├── 20. Flatten
-└── 21. House Robber
+├── 17. String to Integer (Recursive)
+├── 18. Number to Text (Recursive)
+├── 19. Flatten Nested List (Recursive)
+└── 20. House Robber (Recursive)
 
 Level 3: Backtracking (Explore & Constraint Satisfaction)
-├── 22. Print all subsequence
-├── 23. Print All Permutation of String
-├── 24. Staircase
-│   ├── 24.1 [Brute Force - Recursive]
-│   └── 24.2 [Memoization]
-├── 25. Tower of Hanoi
-├── 26. Print Tower of Hanoi
-└── 27. Knight's Tour Problem
-    ├── 27.1 [Backtracking - Brute Force]
-    └── 27.2 [Backtracking - Warnsdorff's Heuristic]
+├── 21. Print all subsequences
+├── 22. Print All Permutation of String
+├── 23. Staircase Problem
+│   ├── 23.1 [Brute Force - Recursive]
+│   └── 23.2 [Memoization]
+├── 24. Tower of Hanoi
+├── 25. Print Tower of Hanoi Moves
+└── 26. Knight's Tour Problem
+    ├── 26.1 [Backtracking - Brute Force]
+    └── 26.2 [Backtracking - Warnsdorff's Heuristic]
 
 Level 4: Bit Manipulation (Advanced Optimization)
-├── 29. Count Number of 1 Bits
-├── 30. Swap Two Numbers Without Temp
-├── 31. Single Number (All appear twice except one)
-├── 32. Find Missing Number in Array
-├── 33. Add Two Numbers Without Arithmetic Operators
-├── 34. Power (Optimized with Bitwise)
-├── 35. Minimum Bit Flips to Convert Number
-└── 36. Generate All Subsets
+├── 27. Count Number of 1 Bits
+├── 28. Swap Two Numbers Without Temp
+├── 29. Single Number (All appear twice except one)
+├── 30. Find Missing Number in Array
+├── 31. Add Two Numbers Without Arithmetic Operators
+├── 32. Power (Optimized with Bitwise)
+├── 33. Minimum Bit Flips to Convert Number
+└── 34. Generate All Subsets
 
 Level 5: String Manipulation (Pattern Matching & Transformation)
-├── 37. Multiply two strings
-├── 38. Reverse String
-├── 39. Check for Anagrams
-├── 40. Length of Last Word
-├── 41. Concatenate two Strings
-├── 42. Valid Palindrome
-│   ├── 42.1 [Brute Force - Alphanumeric Only]
-│   └── 42.2 [Two-Pointer - O(n)]
-├── 43. Isomorphic Strings
-│   ├── 43.1 [HashMap - Character Mapping]
-│   └── 43.2 [Bidirectional Mapping]
-├── 44. First Unique Character in a String
-│   ├── 44.1 [Brute Force - Nested Loop]
-│   └── 44.2 [HashMap - O(n)]
-├── 45. Longest Substring Without Repeating Characters
-│   ├── 45.1 [Brute Force - All Substrings]
-│   └── 45.2 [Sliding Window - O(n)]
-├── 46. Reverse Words in a String
-│   ├── 46.1 [Split and Reverse]
-│   └── 46.2 [Two-Pointer]
-└── 47. Word Break
-    ├── 47.1 [Recursion with Memoization]
-    └── 47.2 [Dynamic Programming - Tabulation]
+├── 35. Multiply two strings
+├── 36. Reverse String
+├── 37. Check for Anagrams
+├── 38. Length of Last Word
+├── 39. Interleave two Strings
+├── 40. Valid Palindrome
+│   ├── 40.1 [Brute Force - Alphanumeric Only]
+│   └── 40.2 [Two-Pointer - O(n)]
+├── 41. Isomorphic Strings
+│   ├── 41.1 [HashMap - Character Mapping]
+│   └── 41.2 [Bidirectional Mapping]
+├── 42. First Unique Character in a String
+│   ├── 42.1 [Brute Force - Nested Loop]
+│   └── 42.2 [HashMap - O(n)]
+├── 43. Longest Substring Without Repeating Characters
+│   ├── 43.1 [Brute Force - All Substrings]
+│   └── 43.2 [Sliding Window - O(n)]
+├── 44. Reverse Words in a String
+│   ├── 44.1 [Split and Reverse]
+│   └── 44.2 [Two-Pointer]
+└── 45. Word Break
+    ├── 45.1 [Recursion with Memoization]
+    └── 45.2 [Dynamic Programming - Tabulation]
 
 Level 6: Array Operations (Collection Handling)
-├── 48. Move Zeroes To End
-│   ├── 48.1 [Brute Force - Two Pass]
-│   └── 48.2 [Two-Pointer - Single Pass]
-├── 49. Duplicate Characters
-├── 50. Contains Duplicate
-│   ├── 50.1 [Brute Force - Nested Loop]
-│   └── 50.2 [Hash Set]
-├── 51. Valid Palindrome
-├── 52. Fizz Buzz
-├── 53. Longest Common Prefix
-└── 54. Merge two sorted arrays
+├── 46. Move Zeroes To End
+│   ├── 46.1 [Brute Force - Two Pass]
+│   └── 46.2 [Two-Pointer - Single Pass]
+├── 47. Duplicate Characters
+├── 48. Contains Duplicate
+│   ├── 48.1 [Brute Force - Nested Loop]
+│   └── 48.2 [Hash Set]
+├── 49. Fizz Buzz
+├── 50. Longest Common Prefix
+└── 51. Merge two sorted arrays
 
 Level 7: Stack Operations (LIFO Data Structure)
-├── 55. Valid Parentheses
-│   ├── 55.1 [Brute Force - Multiple If-Else]
-│   └── 55.2 [Bracket Mapping - Dictionary]
-├── 56. Evaluate Reverse Polish Notation
-├── 57. Remove All Adjacent Duplicates In String
-├── 58. Min Stack
-│   ├── 58.1 [Auxiliary Stack]
-│   └── 58.2 [Single Stack Optimized]
-├── 59. Next Greater Element
-│   ├── 59.1 [Brute Force - Linear Search]
-│   └── 59.2 [Monotonic Stack - O(n)]
-├── 60. Daily Temperatures
-│   ├── 60.1 [Brute Force - Linear Search]
-│   └── 60.2 [Monotonic Stack - O(n)]
-├── 61. Largest Rectangle in Histogram
-│   ├── 61.1 [Brute Force - All Pairs]
-│   └── 61.2 [Monotonic Stack - O(n)]
-└── 62. Decode String
-    ├── 62.1 [Recursion with Stack]
-    └── 62.2 [Iterative Stack Approach]
+├── 52. Valid Parentheses
+│   ├── 52.1 [Brute Force - Multiple If-Else]
+│   └── 52.2 [Bracket Mapping - Dictionary]
+├── 53. Evaluate Reverse Polish Notation
+├── 54. Remove All Adjacent Duplicates In String
+├── 55. Min Stack
+│   ├── 55.1 [Auxiliary Stack]
+│   └── 55.2 [Single Stack Optimized]
+├── 56. Next Greater Element
+│   ├── 56.1 [Brute Force - Linear Search]
+│   └── 56.2 [Monotonic Stack - O(n)]
+├── 57. Daily Temperatures
+│   ├── 57.1 [Brute Force - Linear Search]
+│   └── 57.2 [Monotonic Stack - O(n)]
+├── 58. Largest Rectangle in Histogram
+│   ├── 58.1 [Brute Force - All Pairs]
+│   └── 58.2 [Monotonic Stack - O(n)]
+└── 59. Decode String
+    ├── 59.1 [Recursion with Stack]
+    └── 59.2 [Iterative Stack Approach]
 
 Level 8: Binary Search & Searching (Divide & Conquer Search)
-├── 63. Find First and Last Position of an Element in Sorted Array
-├── 64. Search in Rotated Sorted Array
-├── 65. Find Minimum Element in Sorted Rotated Array
-├── 66. Two Sum
-│   ├── 66.1 [Brute Force - Nested Loop]
-│   └── 66.2 [Hash Map - Two Pass]
-├── 67. Search in 2D Sorted Matrix
-│   ├── 67.1 [Brute Force - Linear Search]
-│   └── 67.2 [Binary Search - Staircase Search]
-└── 68. Spiral Matrix Traversal
-    ├── 68.1 [Brute Force - Layer by Layer]
-    └── 68.2 [Optimized - Boundary Tracking]
+├── 60. Find First and Last Position of an Element in Sorted Array
+├── 61. Search in Rotated Sorted Array
+├── 62. Find Minimum Element in Sorted Rotated Array
+├── 63. Two Sum
+│   ├── 63.1 [Brute Force - Nested Loop]
+│   └── 63.2 [Hash Map - Two Pass]
+├── 64. Search in 2D Sorted Matrix
+│   ├── 64.1 [Brute Force - Linear Search]
+│   └── 64.2 [Binary Search - Staircase Search]
+└── 65. Spiral Matrix Traversal
+    ├── 65.1 [Brute Force - Layer by Layer]
+    └── 65.2 [Optimized - Boundary Tracking]
 
 Level 9: Linked List (Linear Data Structure with Pointers)
-├── 54. Reverse a Linked List
-│   ├── 54.1 [Brute Force - Iterative]
-│   └── 54.2 [Recursive]
-├── 55. Detect Cycle in Linked List
-│   ├── 55.1 [Brute Force - Hash Set]
-│   └── 55.2 [Two-Pointer (Floyd's Cycle Detection)]
-├── 56. Merge Two Sorted Linked Lists
-├── 57. Find Middle of Linked List
-├── 58. Remove Nth Node From End of List
-└── 59. Linked List Palindrome Check
-
-Level 9: Linked List (Linear Data Structure with Pointers)
-├── 69. Reverse a Linked List
-│   ├── 69.1 [Brute Force - Iterative]
-│   └── 69.2 [Recursive]
-├── 70. Detect Cycle in Linked List
-│   ├── 70.1 [Brute Force - Hash Set]
-│   └── 70.2 [Two-Pointer (Floyd's Cycle Detection)]
-├── 71. Merge Two Sorted Linked Lists
-├── 72. Find Middle of Linked List
-├── 73. Remove Nth Node From End of List
-└── 74. Linked List Palindrome Check
+├── 66. Reverse a Linked List
+│   ├── 66.1 [Brute Force - Iterative]
+│   └── 66.2 [Recursive]
+├── 67. Detect Cycle in Linked List
+│   ├── 67.1 [Brute Force - Hash Set]
+│   └── 67.2 [Two-Pointer (Floyd's Cycle Detection)]
+├── 68. Merge Two Sorted Linked Lists
+├── 69. Find Middle of Linked List
+├── 70. Remove Nth Node From End of List
+└── 71. Linked List Palindrome Check
 
 Level 10: Tree (Hierarchical Data Structure)
-├── 75. Tree Traversals (Inorder, Preorder, Postorder)
-│   ├── 75.1 [Brute Force - Recursive]
-│   └── 75.2 [Iterative - Stack]
-├── 76. Level Order Traversal (BFS)
-│   ├── 76.1 [Brute Force - Recursive]
-│   └── 76.2 [Iterative - Queue]
-├── 77. Binary Search Tree Validation
-│   ├── 77.1 [Brute Force - Min/Max Range]
-│   └── 77.2 [Optimized - Recursive Range Check]
-├── 78. Lowest Common Ancestor (LCA)
-│   ├── 78.1 [Brute Force - Store Path]
-│   └── 78.2 [Optimized - Single Pass]
-├── 79. Maximum Path Sum in Binary Tree
-├── 80. Serialize and Deserialize Tree
-└── 81. Balanced Binary Tree Check
+├── 72. Tree Traversals (Inorder, Preorder, Postorder)
+│   ├── 72.1 [Brute Force - Recursive]
+│   └── 72.2 [Iterative - Stack]
+├── 73. Level Order Traversal (BFS)
+│   ├── 73.1 [Brute Force - Recursive]
+│   └── 73.2 [Iterative - Queue]
+├── 74. Binary Search Tree Validation
+│   ├── 74.1 [Brute Force - Min/Max Range]
+│   └── 74.2 [Optimized - Recursive Range Check]
+├── 75. Lowest Common Ancestor (LCA)
+│   ├── 75.1 [Brute Force - Store Path]
+│   └── 75.2 [Optimized - Single Pass]
+├── 76. Maximum Path Sum in Binary Tree
+├── 77. Serialize and Deserialize Tree
+└── 78. Balanced Binary Tree Check
 
 Level 11: Graph (Network & Relationship Modeling)
-├── 82. Graph Traversals (DFS, BFS)
-│   ├── 82.1 [Brute Force - DFS Recursive]
-│   ├── 82.2 [DFS Iterative - Stack]
-│   └── 82.3 [BFS - Queue]
-├── 83. Detect Cycle in Graph
-│   ├── 83.1 [Brute Force - DFS]
-│   └── 83.2 [Union-Find (Disjoint Set)]
-├── 84. Topological Sort
-│   ├── 84.1 [Brute Force - DFS]
-│   └── 84.2 [Kahn's Algorithm - BFS]
-├── 85. Shortest Path (Dijkstra)
-│   ├── 85.1 [Brute Force - Bellman-Ford]
-│   └── 85.2 [Optimized - Dijkstra with Priority Queue]
-├── 86. Minimum Spanning Tree
-│   ├── 86.1 [Kruskal's Algorithm]
-│   └── 86.2 [Prim's Algorithm]
-├── 87. Word Ladder / Connected Components
-└── 88. Rotting Oranges (2D Matrix BFS)
+├── 79. Graph Traversals (DFS, BFS)
+│   ├── 79.1 [Brute Force - DFS Recursive]
+│   ├── 79.2 [DFS Iterative - Stack]
+│   └── 79.3 [BFS - Queue]
+├── 80. Detect Cycle in Graph
+│   ├── 80.1 [Brute Force - DFS]
+│   └── 80.2 [Union-Find (Disjoint Set)]
+├── 81. Topological Sort
+│   ├── 81.1 [Brute Force - DFS]
+│   └── 81.2 [Kahn's Algorithm - BFS]
+├── 82. Shortest Path (Dijkstra)
+│   ├── 82.1 [Brute Force - Bellman-Ford]
+│   └── 82.2 [Optimized - Dijkstra with Priority Queue]
+├── 83. Minimum Spanning Tree
+│   ├── 83.1 [Kruskal's Algorithm]
+│   └── 83.2 [Prim's Algorithm]
+├── 84. Word Ladder / Connected Components
+└── 85. Rotting Oranges (2D Matrix BFS)
 
 Level 12: Dynamic Programming (Optimization Strategy)
-├── 89. Longest Common Subsequence (LCS)
+├── 86. Longest Common Subsequence (LCS)
+│   ├── 86.1 [Brute Force - Recursive]
+│   ├── 86.2 [Memoization]
+│   └── 86.3 [Tabulation - DP Table]
+├── 87. Longest Increasing Subsequence (LIS)
+│   ├── 87.1 [Brute Force - O(2ⁿ)]
+│   ├── 87.2 [DP - O(n²)]
+│   └── 87.3 [Binary Search Optimized - O(n log n)]
+├── 88. 0/1 Knapsack Problem
+│   ├── 88.1 [Brute Force - Exponential]
+│   └── 88.2 [DP Tabulation - O(n*w)]
+├── 89. Coin Change Problem
 │   ├── 89.1 [Brute Force - Recursive]
-│   ├── 89.2 [Memoization]
-│   └── 89.3 [Tabulation - DP Table]
-├── 90. Longest Increasing Subsequence (LIS)
-│   ├── 90.1 [Brute Force - O(2ⁿ)]
-│   ├── 90.2 [DP - O(n²)]
-│   └── 90.3 [Binary Search Optimized - O(n log n)]
-├── 91. 0/1 Knapsack Problem
-│   ├── 91.1 [Brute Force - Exponential]
-│   └── 91.2 [DP Tabulation - O(n*w)]
-├── 92. Coin Change Problem
-│   ├── 92.1 [Brute Force - Recursive]
-│   └── 92.2 [DP - Minimum Coins]
-├── 93. Edit Distance (Levenshtein)
-│   ├── 93.1 [Brute Force - Recursive]
-│   └── 93.2 [DP Tabulation]
-├── 94. Matrix Chain Multiplication
-├── 95. Unique Paths in Grid
-├── 96. Maximum Subarray (Kadane's Algorithm)
-├── 97. Best Time to Buy and Sell Stock
-│   ├── 97.1 [Brute Force - All Pairs]
-│   ├── 97.2 [Dynamic Programming - Max Profit]
-│   └── 97.3 [Greedy - Single Pass]
-└── 98. Trapping Rain Water (Max Water Container)
-    ├── 98.1 [Brute Force - Height Pairs]
-    ├── 98.2 [Two-Pointer Approach]
-    └── 98.3 [Dynamic Programming]
+│   └── 89.2 [DP - Minimum Coins]
+├── 90. Edit Distance (Levenshtein)
+│   ├── 90.1 [Brute Force - Recursive]
+│   └── 90.2 [DP Tabulation]
+├── 91. Matrix Chain Multiplication
+├── 92. Unique Paths in Grid
+├── 93. Maximum Subarray (Kadane's Algorithm)
+├── 94. Best Time to Buy and Sell Stock
+│   ├── 94.1 [Brute Force - All Pairs]
+│   ├── 94.2 [Dynamic Programming - Max Profit]
+│   └── 94.3 [Greedy - Single Pass]
+└── 95. Trapping Rain Water (Max Water Container)
+    ├── 95.1 [Brute Force - Height Pairs]
+    ├── 95.2 [Two-Pointer Approach]
+    └── 95.3 [Dynamic Programming]
 
 Level 13: Greedy Techniques (Local Optimal Choice)
-├── 99. Activity Selection Problem
-│   ├── 99.1 [Brute Force - All Combinations]
-│   └── 99.2 [Greedy - Earliest Finish Time]
-├── 100. Huffman Coding
-│   ├── 100.1 [Brute Force - All Frequencies]
-│   └── 100.2 [Greedy - Min Heap]
-├── 101. Fractional Knapsack Problem
-│   ├── 101.1 [Brute Force - All Permutations]
-│   └── 101.2 [Greedy - Value/Weight Ratio]
-├── 102. Jump Game / Reach End of Array
-│   ├── 102.1 [Brute Force - BFS/DFS]
-│   └── 102.2 [Greedy - Maximum Reach]
-├── 103. Interval Scheduling Maximization
-├── 104. Gas Station / Circuit
-└── 105. Candy Distribution Problem
-│   └── 84.2 [Greedy - Earliest Finish Time]
-├── 85. Huffman Coding
-│   ├── 85.1 [Brute Force - All Frequencies]
-│   └── 85.2 [Greedy - Min Heap]
-├── 86. Fractional Knapsack Problem
-│   ├── 86.1 [Brute Force - All Permutations]
-│   └── 86.2 [Greedy - Value/Weight Ratio]
-├── 87. Jump Game / Reach End of Array
-│   ├── 87.1 [Brute Force - BFS/DFS]
-│   └── 87.2 [Greedy - Maximum Reach]
-├── 88. Interval Scheduling Maximization
-├── 89. Gas Station / Circuit
-└── 90. Candy Distribution Problem
+├── 96. Activity Selection Problem
+│   ├── 96.1 [Brute Force - All Combinations]
+│   └── 96.2 [Greedy - Earliest Finish Time]
+├── 97. Huffman Coding
+│   ├── 97.1 [Brute Force - All Frequencies]
+│   └── 97.2 [Greedy - Min Heap]
+├── 98. Fractional Knapsack Problem
+│   ├── 98.1 [Brute Force - All Permutations]
+│   └── 98.2 [Greedy - Value/Weight Ratio]
+├── 99. Jump Game / Reach End of Array
+│   ├── 99.1 [Brute Force - BFS/DFS]
+│   └── 99.2 [Greedy - Maximum Reach]
+├── 100. Interval Scheduling Maximization
+├── 101. Gas Station / Circuit
+└── 102. Candy Distribution Problem
 ```
-
 ---
 
 # Algorithm Time & Space Complexity Analysis Guide
@@ -5101,9 +5073,545 @@ public static string RemoveDuplicates(string s)
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(n)`
 
+### 58. Min Stack
+
+Design a stack that supports push, pop, top, and retrieving the minimum element in constant time O(1).
+
+```
+Operations:
+- push(x): Push element x onto stack
+- pop(): Remove top element
+- top(): Get top element
+- getMin(): Get minimum element in O(1)
+```
+
+#### 58.1 [Auxiliary Stack]
+
+```csharp
+public class MinStack
+{
+    private Stack<int> mainStack;
+    private Stack<int> minStack;  // Auxiliary stack to track minimums
+
+    public MinStack()
+    {
+        mainStack = new Stack<int>();
+        minStack = new Stack<int>();
+    }
+
+    public void Push(int val)
+    {
+        mainStack.Push(val);
+
+        // Push to minStack: either val or current min
+        if (minStack.Count == 0 || val <= minStack.Peek())
+        {
+            minStack.Push(val);
+        }
+    }
+
+    public void Pop()
+    {
+        if (mainStack.Peek() == minStack.Peek())
+        {
+            minStack.Pop();
+        }
+        mainStack.Pop();
+    }
+
+    public int Top() => mainStack.Peek();
+
+    public int GetMin() => minStack.Peek();
+}
+```
+
+```text
+Operations:
+push(3)  → Main: [3], Min: [3]
+push(2)  → Main: [3,2], Min: [3,2]
+push(4)  → Main: [3,2,4], Min: [3,2] (4 > 2, don't push)
+push(1)  → Main: [3,2,4,1], Min: [3,2,1]
+
+getMin() → 1 ✓ (O(1) lookup)
+
+pop()    → Main: [3,2,4], Min: [3,2] (1 != 2, only pop main)
+pop()    → Main: [3,2], Min: [3,2] (4 != 2, only pop main)
+pop()    → Main: [3], Min: [3] (2 == 2, pop both)
+
+getMin() → 3 ✓
+```
+
+- **Time Complexity:** All operations O(1)
+- **Space Complexity:** `O(n)` - two stacks
+
+#### 58.2 [Single Stack Optimized]
+
+```csharp
+public class MinStackOptimized
+{
+    private Stack<int> stack;
+    private int currentMin;
+
+    public MinStackOptimized()
+    {
+        stack = new Stack<int>();
+        currentMin = int.MaxValue;
+    }
+
+    public void Push(int val)
+    {
+        // If new value is <= current min, push the old min first
+        if (val <= currentMin)
+        {
+            stack.Push(currentMin);
+            currentMin = val;
+        }
+        stack.Push(val);
+    }
+
+    public void Pop()
+    {
+        if (stack.Pop() == currentMin)
+        {
+            currentMin = stack.Pop();
+        }
+    }
+
+    public int Top() => stack.Peek();
+
+    public int GetMin() => currentMin;
+}
+```
+
+- **Time Complexity:** All operations O(1)
+- **Space Complexity:** `O(n)` - only one stack
+
+---
+
+### 59. Next Greater Element
+
+Given an array, for each element find the next greater element to its right. If not found, return -1.
+
+```
+Example: [1, 3, 4, 2]
+- 1: next greater = 3
+- 3: next greater = 4
+- 4: next greater = -1
+- 2: next greater = -1
+
+Result: [3, 4, -1, -1]
+```
+
+#### 59.1 [Brute Force - Linear Search]
+
+```csharp
+public static int[] NextGreaterElement_BruteForce(int[] nums)
+{
+    int[] result = new int[nums.Length];
+
+    for (int i = 0; i < nums.Length; i++)
+    {
+        result[i] = -1;
+        for (int j = i + 1; j < nums.Length; j++)
+        {
+            if (nums[j] > nums[i])
+            {
+                result[i] = nums[j];
+                break;
+            }
+        }
+    }
+
+    return result;
+}
+```
+
+- **Time Complexity:** `O(n²)` - nested loops
+- **Space Complexity:** `O(n)` - result array
+
+#### 59.2 [Monotonic Stack - O(n)]
+
+```csharp
+public static int[] NextGreaterElement_MonotonicStack(int[] nums)
+{
+    int[] result = new int[nums.Length];
+    Array.Fill(result, -1);
+    Stack<int> stack = new();  // Store indices
+
+    // Traverse from right to left
+    for (int i = nums.Length - 1; i >= 0; i--)
+    {
+        // Pop all smaller elements
+        while (stack.Count > 0 && nums[stack.Peek()] <= nums[i])
+        {
+            stack.Pop();
+        }
+
+        // Top of stack is next greater (if exists)
+        if (stack.Count > 0)
+        {
+            result[i] = nums[stack.Peek()];
+        }
+
+        // Push current index
+        stack.Push(i);
+    }
+
+    return result;
+}
+```
+
+```text
+nums: [1, 3, 4, 2]
+
+i=3 (val=2): Stack empty → result[3]=-1, Push 3
+  Stack: [3]
+
+i=2 (val=4): nums[3]=2 <= 4? YES, Pop 3 → Empty
+  Stack empty → result[2]=-1, Push 2
+  Stack: [2]
+
+i=1 (val=3): nums[2]=4 > 3? YES, KEEP
+  result[1]=4, Push 1
+  Stack: [2, 1]
+
+i=0 (val=1): nums[1]=3 > 1? YES, KEEP
+  result[0]=3, Push 0
+  Stack: [2, 1, 0]
+
+Result: [3, 4, -1, -1] ✓
+```
+
+- **Time Complexity:** `O(n)` - each element pushed/popped once
+- **Space Complexity:** `O(n)` - stack size
+
+---
+
+### 60. Daily Temperatures
+
+Given an array of temperatures, return for each day how many days you have to wait until a warmer temperature.
+
+```
+Example: [73, 74, 75, 71, 69, 72, 76, 73]
+- Day 0 (73°): Wait 1 day → 74°
+- Day 1 (74°): Wait 1 day → 75°
+- Day 2 (75°): Wait 4 days → 76°
+- Day 3 (71°): Wait 1 day → 72°
+- Day 4 (69°): Wait 1 day → 72°
+- Day 5 (72°): Wait 1 day → 76°
+- Day 6 (76°): No warmer → 0
+- Day 7 (73°): No warmer → 0
+
+Result: [1, 1, 4, 2, 1, 1, 0, 0]
+```
+
+#### 60.1 [Brute Force - Linear Search]
+
+```csharp
+public static int[] DailyTemperatures_BruteForce(int[] temperatures)
+{
+    int[] result = new int[temperatures.Length];
+
+    for (int i = 0; i < temperatures.Length; i++)
+    {
+        for (int j = i + 1; j < temperatures.Length; j++)
+        {
+            if (temperatures[j] > temperatures[i])
+            {
+                result[i] = j - i;
+                break;
+            }
+        }
+    }
+
+    return result;
+}
+```
+
+- **Time Complexity:** `O(n²)`
+- **Space Complexity:** `O(n)`
+
+#### 60.2 [Monotonic Stack - O(n)]
+
+```csharp
+public static int[] DailyTemperatures_MonotonicStack(int[] temperatures)
+{
+    int[] result = new int[temperatures.Length];
+    Stack<int> stack = new();  // Store indices of decreasing temperatures
+
+    for (int i = 0; i < temperatures.Length; i++)
+    {
+        // While current temp is warmer than stack top
+        while (stack.Count > 0 && temperatures[i] > temperatures[stack.Peek()])
+        {
+            int prevIndex = stack.Pop();
+            result[prevIndex] = i - prevIndex;
+        }
+
+        stack.Push(i);
+    }
+
+    return result;
+}
+```
+
+```text
+temperatures: [73, 74, 75, 71, 69, 72, 76, 73]
+
+i=0 (73°): Stack empty → Push 0
+  Stack: [0]
+
+i=1 (74°): 74 > 73? YES
+  Pop 0, result[0] = 1 - 0 = 1 ✓
+  Push 1
+  Stack: [1]
+
+i=2 (75°): 75 > 74? YES
+  Pop 1, result[1] = 2 - 1 = 1 ✓
+  Push 2
+  Stack: [2]
+
+i=3 (71°): 71 > 75? NO → Push 3
+  Stack: [2, 3]
+
+i=4 (69°): 69 > 71? NO → Push 4
+  Stack: [2, 3, 4]
+
+i=5 (72°): 72 > 69? YES → Pop 4, result[4] = 1 ✓
+          72 > 71? YES → Pop 3, result[3] = 2 ✓
+          72 > 75? NO → Push 5
+  Stack: [2, 5]
+
+i=6 (76°): 76 > 72? YES → Pop 5, result[5] = 1 ✓
+          76 > 75? YES → Pop 2, result[2] = 4 ✓
+          Push 6
+  Stack: [6]
+
+i=7 (73°): 73 > 76? NO → Push 7
+  Stack: [6, 7]
+
+Result: [1, 1, 4, 2, 1, 1, 0, 0] ✓
+```
+
+- **Time Complexity:** `O(n)` - each element processed once
+- **Space Complexity:** `O(n)`
+
+---
+
+### 61. Largest Rectangle in Histogram
+
+Given an array of heights representing a histogram, find the largest rectangle area.
+
+```
+Example: [2, 1, 5, 6, 2, 3]
+
+Visual:
+    6 |       █
+    5 |       █ █
+    4 |   █   █ █
+    3 | █ █ █ █ █
+    2 | █ █ █ █ █
+    1 | █ █ █ █ █
+      ├─┼─┼─┼─┼─┼──
+      0 1 2 3 4 5
+
+Largest rectangle: between indices 2-3, height 5 → area = 5×2 = 10
+```
+
+#### 61.1 [Brute Force - All Pairs]
+
+```csharp
+public static int LargestRectangleArea_BruteForce(int[] heights)
+{
+    int maxArea = 0;
+
+    for (int i = 0; i < heights.Length; i++)
+    {
+        int minHeight = heights[i];
+
+        for (int j = i; j < heights.Length; j++)
+        {
+            minHeight = Math.Min(minHeight, heights[j]);
+            int area = minHeight * (j - i + 1);
+            maxArea = Math.Max(maxArea, area);
+        }
+    }
+
+    return maxArea;
+}
+```
+
+- **Time Complexity:** `O(n²)`
+- **Space Complexity:** `O(1)`
+
+#### 61.2 [Monotonic Stack - O(n)]
+
+```csharp
+public static int LargestRectangleArea_MonotonicStack(int[] heights)
+{
+    Stack<int> stack = new();
+    int maxArea = 0;
+
+    for (int i = 0; i < heights.Length; i++)
+    {
+        // Pop and calculate area for heights taller than current
+        while (stack.Count > 0 && heights[stack.Peek()] > heights[i])
+        {
+            int h = heights[stack.Pop()];
+            int w = stack.Count > 0 ? i - stack.Peek() - 1 : i;
+            int area = h * w;
+            maxArea = Math.Max(maxArea, area);
+        }
+
+        stack.Push(i);
+    }
+
+    // Process remaining heights
+    while (stack.Count > 0)
+    {
+        int h = heights[stack.Pop()];
+        int w = stack.Count > 0 ? heights.Length - stack.Peek() - 1 : heights.Length;
+        int area = h * w;
+        maxArea = Math.Max(maxArea, area);
+    }
+
+    return maxArea;
+}
+```
+
+- **Time Complexity:** `O(n)`
+- **Space Complexity:** `O(n)`
+
+---
+
+### 62. Decode String
+
+Given an encoded string, decode it. The encoding rule is: `k[encoded_string]`, where k is a number and represents repeating the `encoded_string` k times.
+
+```
+Examples:
+- "3[a]2[bc]" → "aaabcbc"
+- "3[a2[c]]" → "accaccacc"
+- "2[abc]3[cd]eaea.at" → "abcabccdcdcdeaea.at"
+```
+
+#### 62.1 [Recursion with Stack]
+
+```csharp
+public static string DecodeString_Recursion(string s)
+{
+    Stack<(StringBuilder, int)> stack = new();
+    StringBuilder current = new();
+    int num = 0;
+
+    foreach (char c in s)
+    {
+        if (char.IsDigit(c))
+        {
+            num = num * 10 + (c - '0');
+        }
+        else if (c == '[')
+        {
+            // Save current state and start new
+            stack.Push((current, num));
+            current = new StringBuilder();
+            num = 0;
+        }
+        else if (c == ']')
+        {
+            // Pop and repeat
+            var (prevStr, count) = stack.Pop();
+            string temp = current.ToString();
+            current = prevStr;
+            for (int i = 0; i < count; i++)
+            {
+                current.Append(temp);
+            }
+        }
+        else
+        {
+            current.Append(c);
+        }
+    }
+
+    return current.ToString();
+}
+```
+
+```text
+Input: "3[a2[c]]"
+
+c='3': num=3
+c='[': Push (new StringBuilder, 3), current=empty, num=0
+c='a': current="a"
+c='2': num=2
+c='[': Push (current="a", 2), current=empty, num=0
+c='c': current="c"
+c=']': Pop (prev="a", count=2)
+       temp="c", current="a" + "c"×2 = "acc"
+c=']': Pop (prev=empty, count=3)
+       temp="acc", current = "acc"×3 = "accaccacc"
+
+Result: "accaccacc" ✓
+```
+
+- **Time Complexity:** `O(max_k^max_depth × n)` where k is max multiplier
+- **Space Complexity:** `O(m)` where m is decoded string length
+
+#### 62.2 [Iterative Stack Approach]
+
+```csharp
+public static string DecodeString_Iterative(string s)
+{
+    Stack<string> strStack = new();
+    Stack<int> numStack = new();
+    string current = "";
+    int num = 0;
+
+    foreach (char c in s)
+    {
+        if (char.IsDigit(c))
+        {
+            num = num * 10 + (c - '0');
+        }
+        else if (c == '[')
+        {
+            // Push to stacks
+            numStack.Push(num);
+            strStack.Push(current);
+            current = "";
+            num = 0;
+        }
+        else if (c == ']')
+        {
+            // Pop and build
+            int count = numStack.Pop();
+            string prev = strStack.Pop();
+            string temp = "";
+            for (int i = 0; i < count; i++)
+            {
+                temp += current;
+            }
+            current = prev + temp;
+        }
+        else
+        {
+            current += c;
+        }
+    }
+
+    return current;
+}
+```
+
+- **Time Complexity:** `O(max_k^max_depth × n)`
+- **Space Complexity:** `O(m)`
+
+---
+
 ## Level 8: Binary Search & Searching (Divide & Conquer Search)
 
-### 48. Find First and Last Position of an Element in Sorted Array
+### 63. Find First and Last Position of an Element in Sorted Array
 
 ```csharp
 public static List<int> FindFirstAndLastPositionOfAnElement(int[] sortedArray, int target)
@@ -5173,7 +5681,7 @@ Result: [3, 4]
     - Total: O(2 log n) = O(log n)
 - **Space Complexity :** `O(1)`
 
-### 49. Search in Rotated Sorted Array
+### 64. Search in Rotated Sorted Array
 There is an integer array nums sorted in ascending order (with distinct values).
 Prior to being passed to your function, nums is possibly left rotated at an unknown index k (1 <= k < nums.length) such that the resulting array is [nums[k], nums[k+1], ..., nums[n-1], nums[0], nums[1], ..., nums[k-1]] (0-indexed). For example, [0,1,2,4,5,6,7] might be left rotated by 3 indices and become [4,5,6,7,0,1,2].
 Given the array nums after the possible rotation and an integer target, return the index of target if it is in nums, or -1 if it is not in nums.
@@ -5258,7 +5766,7 @@ Step 3: New range [4,4] → index 4
 - **Time Complexity :** `O(log n)`
 - **Space Complexity :** `O(1)`
 
-### 50. Find Minimum Element in Sorted Rotated Array
+### 65. Find Minimum Element in Sorted Rotated Array
 Suppose an array of length n sorted in ascending order is rotated between 1 and n times. For example, the array nums = [0,1,2,4,5,6,7] might become:
 •	[4,5,6,7,0,1,2] if it was rotated 4 times.
 •	[0,1,2,4,5,6,7] if it was rotated 7 times.
@@ -5332,7 +5840,7 @@ Found: nums[4] = 0
 
 ---
 
-### 51. Two Sum
+### 66. Two Sum
 
 Given an array of integers `nums` and an integer `target`, return the indices of the two numbers that add up to the target. You may assume each input has exactly one solution, and you cannot use the same element twice.
 
@@ -5466,7 +5974,7 @@ public static int[] TwoSumOnePass(int[] nums, int target)
 
 ---
 
-### 52. Search in 2D Sorted Matrix
+### 67. Search in 2D Sorted Matrix
 
 Given an `m × n` matrix where rows and columns are sorted in ascending order, search for a target value. Return true if found, false otherwise.
 
@@ -5577,7 +6085,7 @@ Start: [0, 4] = 15 > 13 → col--
 
 ---
 
-### 53. Spiral Matrix Traversal
+### 68. Spiral Matrix Traversal
 
 Given an `m × n` matrix, return all elements of the matrix in spiral order (clockwise from outside to inside).
 
