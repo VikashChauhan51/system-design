@@ -960,6 +960,22 @@ LinkedList<int> linked = new LinkedList<int>();
 Both numbers are positive number and greater than zero.
 Also number within the integer range so there is no overflow.
 
+**Pseudocode:**
+```
+FUNCTION Mod(a, b)
+  // Use mathematical definition: a = (quotient × b) + remainder
+  quotient ← INTEGER_DIVIDE(a, b)  // Integer division
+  remainder ← a - (quotient × b)    // Subtraction
+  RETURN remainder
+END FUNCTION
+```
+
+**Logic:**
+- If a=5, b=3: quotient=1, remainder=5-(1×3)=2
+- Keep subtracting b from a until a < b
+
+**Code Implementation:**
+
 ```csharp
 public static int Mod(int a, int b)
 {
@@ -1009,6 +1025,25 @@ public static int Mod(int a, int b)
 Both numbers are positive number and greater than zero.
 Also number within the integer range so there is no overflow.
 
+**Pseudocode:**
+```
+FUNCTION Divide(a, b)
+  count ← 0
+  sum ← b
+  WHILE sum ≤ a DO
+    count ← count + 1
+    sum ← sum + b
+  END WHILE
+  RETURN count
+END FUNCTION
+```
+
+**Logic:**
+- Keep adding b to sum until sum exceeds a
+- Count how many times we added b
+
+**Code Implementation:**
+
 ```csharp
 public static int Divide(int a, int b)
 {
@@ -1045,6 +1080,25 @@ Divide(10, 3)
 ### 3. Square root of a number
 
 The number is a positive number and greater than zero.
+
+**Pseudocode:**
+```
+FUNCTION Sqrt(n)
+  IF n = 0 THEN RETURN 0
+  i ← 1
+  WHILE i × i ≤ n DO
+    i ← i + 1
+  END WHILE
+  RETURN i - 1  // Floor of sqrt
+END FUNCTION
+```
+
+**Logic:**
+- Start from 1 and increment until i² > n
+- Return i-1 (last i where i² ≤ n)
+- Finds floor of square root
+
+**Code Implementation:**
 
 ```csharp
 public static int Sqrt(int n)
@@ -1087,6 +1141,27 @@ return i-1 = 6-1 = 5 ✅
 ### 4. Sum of digits
 
 The number is a positive number and greater than zero.
+
+**Pseudocode:**
+```
+FUNCTION SumOfDigits(num)
+  sum ← 0
+  WHILE num > 0 DO
+    remainder ← num MOD 10      // Extract last digit
+    sum ← sum + remainder       // Add to sum
+    num ← num / 10              // Remove last digit
+  END WHILE
+  RETURN sum
+END FUNCTION
+```
+
+**Logic:**
+- Extract last digit using modulo 10
+- Add to running sum
+- Remove last digit by integer division
+- Repeat until all digits processed
+
+**Code Implementation:**
 
 ```csharp
 public static int SumOfDigits(int num)
