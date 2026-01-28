@@ -9,88 +9,127 @@ Level 1: Number & Basic Operations (Foundation)
 ├── 5. String to Integer
 ├── 6. Geometric Sum
 ├── 7. Count Zeroes
-└── 8. Excel Sheet Column Number
+├── 8. Excel Sheet Column Number
+├── 9. Convert Roman to Integer
+│   ├── 9.1 [Brute Force - Linear Scan]
+│   └── 9.2 [Optimized - HashMap Lookup]
+└── 10. Integer to Roman
+    ├── 10.1 [Brute Force - Greedy with Values]
+    └── 10.2 [Optimized - Symbol Pairs]
 
 Level 2: Recursion (Optimization Strategy)
-├── 9. Factorial of a number
-├── 10. Fibonacci Series
-│   ├── 10.1 [Brute Force - Recursive]
-│   ├── 10.2 [Memoization]
-│   └── 10.3 [Dynamic Programming - Tabulation]
-├── 11. Power of two numbers
-│   ├── 11.1 [Brute Force - Linear]
-│   └── 11.2 [Binary Exponentiation]
-├── 12. Count digits recursively
-├── 13. Sum of digits recursively
-├── 14. Count Zeroes Recursively
-├── 15. Geometric Sum
-├── 16. String to Integer
-├── 17. Number to Text
-├── 18. Flatten
-└── 19. House Robber
+├── 11. Factorial of a number
+├── 12. Fibonacci Series
+│   ├── 12.1 [Brute Force - Recursive]
+│   ├── 12.2 [Memoization]
+│   └── 12.3 [Dynamic Programming - Tabulation]
+├── 13. Power of two numbers
+│   ├── 13.1 [Brute Force - Linear]
+│   └── 13.2 [Binary Exponentiation]
+├── 14. Count digits recursively
+├── 15. Sum of digits recursively
+├── 16. Count Zeroes Recursively
+├── 17. Geometric Sum
+├── 18. String to Integer
+├── 19. Number to Text
+├── 20. Flatten
+└── 21. House Robber
 
 Level 3: Backtracking (Explore & Constraint Satisfaction)
-├── 20. Print all subsequence
-├── 21. Print All Permutation of String
-├── 22. Staircase
-│   ├── 22.1 [Brute Force - Recursive]
-│   └── 22.2 [Memoization]
-├── 23. Tower of Hanoi
-├── 24. Print Tower of Hanoi
-└── 25. Knight's Tour Problem
-    ├── 25.1 [Backtracking - Brute Force]
-    └── 25.2 [Backtracking - Warnsdorff's Heuristic]
+├── 22. Print all subsequence
+├── 23. Print All Permutation of String
+├── 24. Staircase
+│   ├── 24.1 [Brute Force - Recursive]
+│   └── 24.2 [Memoization]
+├── 25. Tower of Hanoi
+├── 26. Print Tower of Hanoi
+└── 27. Knight's Tour Problem
+    ├── 27.1 [Backtracking - Brute Force]
+    └── 27.2 [Backtracking - Warnsdorff's Heuristic]
 
 Level 4: Bit Manipulation (Advanced Optimization)
-├── 25. Count Number of 1 Bits
-├── 26. Swap Two Numbers Without Temp
-├── 27. Single Number (All appear twice except one)
-├── 28. Find Missing Number in Array
-├── 29. Add Two Numbers Without Arithmetic Operators
-├── 30. Power (Optimized with Bitwise)
-├── 31. Minimum Bit Flips to Convert Number
-└── 32. Generate All Subsets
+├── 29. Count Number of 1 Bits
+├── 30. Swap Two Numbers Without Temp
+├── 31. Single Number (All appear twice except one)
+├── 32. Find Missing Number in Array
+├── 33. Add Two Numbers Without Arithmetic Operators
+├── 34. Power (Optimized with Bitwise)
+├── 35. Minimum Bit Flips to Convert Number
+└── 36. Generate All Subsets
 
 Level 5: String Manipulation (Pattern Matching & Transformation)
-├── 33. Multiply two strings
-├── 34. Reverse String
-├── 35. Check for Anagrams
-├── 36. Length of Last Word
-└── 37. Concatenate two Strings
+├── 37. Multiply two strings
+├── 38. Reverse String
+├── 39. Check for Anagrams
+├── 40. Length of Last Word
+├── 41. Concatenate two Strings
+├── 42. Valid Palindrome
+│   ├── 42.1 [Brute Force - Alphanumeric Only]
+│   └── 42.2 [Two-Pointer - O(n)]
+├── 43. Isomorphic Strings
+│   ├── 43.1 [HashMap - Character Mapping]
+│   └── 43.2 [Bidirectional Mapping]
+├── 44. First Unique Character in a String
+│   ├── 44.1 [Brute Force - Nested Loop]
+│   └── 44.2 [HashMap - O(n)]
+├── 45. Longest Substring Without Repeating Characters
+│   ├── 45.1 [Brute Force - All Substrings]
+│   └── 45.2 [Sliding Window - O(n)]
+├── 46. Reverse Words in a String
+│   ├── 46.1 [Split and Reverse]
+│   └── 46.2 [Two-Pointer]
+└── 47. Word Break
+    ├── 47.1 [Recursion with Memoization]
+    └── 47.2 [Dynamic Programming - Tabulation]
 
 Level 6: Array Operations (Collection Handling)
-├── 38. Move Zeroes To End
-│   ├── 38.1 [Brute Force - Two Pass]
-│   └── 38.2 [Two-Pointer - Single Pass]
-├── 39. Duplicate Characters
-├── 40. Contains Duplicate
-│   ├── 40.1 [Brute Force - Nested Loop]
-│   └── 40.2 [Hash Set]
-├── 41. Valid Palindrome
-├── 42. Fizz Buzz
-├── 43. Longest Common Prefix
-└── 44. Merge two sorted arrays
+├── 48. Move Zeroes To End
+│   ├── 48.1 [Brute Force - Two Pass]
+│   └── 48.2 [Two-Pointer - Single Pass]
+├── 49. Duplicate Characters
+├── 50. Contains Duplicate
+│   ├── 50.1 [Brute Force - Nested Loop]
+│   └── 50.2 [Hash Set]
+├── 51. Valid Palindrome
+├── 52. Fizz Buzz
+├── 53. Longest Common Prefix
+└── 54. Merge two sorted arrays
 
 Level 7: Stack Operations (LIFO Data Structure)
-├── 45. Valid Parentheses
-│   ├── 45.1 [Brute Force - Multiple If-Else]
-│   └── 45.2 [Bracket Mapping - Dictionary]
-├── 46. Evaluate Reverse Polish Notation
-└── 47. Remove All Adjacent Duplicates In String
+├── 55. Valid Parentheses
+│   ├── 55.1 [Brute Force - Multiple If-Else]
+│   └── 55.2 [Bracket Mapping - Dictionary]
+├── 56. Evaluate Reverse Polish Notation
+├── 57. Remove All Adjacent Duplicates In String
+├── 58. Min Stack
+│   ├── 58.1 [Auxiliary Stack]
+│   └── 58.2 [Single Stack Optimized]
+├── 59. Next Greater Element
+│   ├── 59.1 [Brute Force - Linear Search]
+│   └── 59.2 [Monotonic Stack - O(n)]
+├── 60. Daily Temperatures
+│   ├── 60.1 [Brute Force - Linear Search]
+│   └── 60.2 [Monotonic Stack - O(n)]
+├── 61. Largest Rectangle in Histogram
+│   ├── 61.1 [Brute Force - All Pairs]
+│   └── 61.2 [Monotonic Stack - O(n)]
+└── 62. Decode String
+    ├── 62.1 [Recursion with Stack]
+    └── 62.2 [Iterative Stack Approach]
 
 Level 8: Binary Search & Searching (Divide & Conquer Search)
-├── 48. Find First and Last Position of an Element in Sorted Array
-├── 49. Search in Rotated Sorted Array
-├── 50. Find Minimum Element in Sorted Rotated Array
-├── 51. Two Sum
-│   ├── 51.1 [Brute Force - Nested Loop]
-│   └── 51.2 [Hash Map - Two Pass]
-├── 52. Search in 2D Sorted Matrix
-│   ├── 52.1 [Brute Force - Linear Search]
-│   └── 52.2 [Binary Search - Staircase Search]
-└── 53. Spiral Matrix Traversal
-    ├── 53.1 [Brute Force - Layer by Layer]
-    └── 53.2 [Optimized - Boundary Tracking]
+├── 63. Find First and Last Position of an Element in Sorted Array
+├── 64. Search in Rotated Sorted Array
+├── 65. Find Minimum Element in Sorted Rotated Array
+├── 66. Two Sum
+│   ├── 66.1 [Brute Force - Nested Loop]
+│   └── 66.2 [Hash Map - Two Pass]
+├── 67. Search in 2D Sorted Matrix
+│   ├── 67.1 [Brute Force - Linear Search]
+│   └── 67.2 [Binary Search - Staircase Search]
+└── 68. Spiral Matrix Traversal
+    ├── 68.1 [Brute Force - Layer by Layer]
+    └── 68.2 [Optimized - Boundary Tracking]
 
 Level 9: Linked List (Linear Data Structure with Pointers)
 ├── 54. Reverse a Linked List
@@ -104,76 +143,101 @@ Level 9: Linked List (Linear Data Structure with Pointers)
 ├── 58. Remove Nth Node From End of List
 └── 59. Linked List Palindrome Check
 
+Level 9: Linked List (Linear Data Structure with Pointers)
+├── 69. Reverse a Linked List
+│   ├── 69.1 [Brute Force - Iterative]
+│   └── 69.2 [Recursive]
+├── 70. Detect Cycle in Linked List
+│   ├── 70.1 [Brute Force - Hash Set]
+│   └── 70.2 [Two-Pointer (Floyd's Cycle Detection)]
+├── 71. Merge Two Sorted Linked Lists
+├── 72. Find Middle of Linked List
+├── 73. Remove Nth Node From End of List
+└── 74. Linked List Palindrome Check
+
 Level 10: Tree (Hierarchical Data Structure)
-├── 60. Tree Traversals (Inorder, Preorder, Postorder)
-│   ├── 60.1 [Brute Force - Recursive]
-│   └── 60.2 [Iterative - Stack]
-├── 61. Level Order Traversal (BFS)
-│   ├── 61.1 [Brute Force - Recursive]
-│   └── 61.2 [Iterative - Queue]
-├── 62. Binary Search Tree Validation
-│   ├── 62.1 [Brute Force - Min/Max Range]
-│   └── 62.2 [Optimized - Recursive Range Check]
-├── 63. Lowest Common Ancestor (LCA)
-│   ├── 63.1 [Brute Force - Store Path]
-│   └── 63.2 [Optimized - Single Pass]
-├── 64. Maximum Path Sum in Binary Tree
-├── 65. Serialize and Deserialize Tree
-└── 66. Balanced Binary Tree Check
+├── 70. Tree Traversals (Inorder, Preorder, Postorder)
+│   ├── 70.1 [Brute Force - Recursive]
+│   └── 70.2 [Iterative - Stack]
+├── 71. Level Order Traversal (BFS)
+│   ├── 71.1 [Brute Force - Recursive]
+│   └── 71.2 [Iterative - Queue]
+├── 72. Binary Search Tree Validation
+│   ├── 72.1 [Brute Force - Min/Max Range]
+│   └── 72.2 [Optimized - Recursive Range Check]
+├── 73. Lowest Common Ancestor (LCA)
+│   ├── 73.1 [Brute Force - Store Path]
+│   └── 73.2 [Optimized - Single Pass]
+├── 74. Maximum Path Sum in Binary Tree
+├── 75. Serialize and Deserialize Tree
+└── 76. Balanced Binary Tree Check
 
 Level 11: Graph (Network & Relationship Modeling)
-├── 67. Graph Traversals (DFS, BFS)
-│   ├── 67.1 [Brute Force - DFS Recursive]
-│   ├── 67.2 [DFS Iterative - Stack]
-│   └── 67.3 [BFS - Queue]
-├── 68. Detect Cycle in Graph
-│   ├── 68.1 [Brute Force - DFS]
-│   └── 68.2 [Union-Find (Disjoint Set)]
-├── 69. Topological Sort
-│   ├── 69.1 [Brute Force - DFS]
-│   └── 69.2 [Kahn's Algorithm - BFS]
-├── 70. Shortest Path (Dijkstra)
-│   ├── 70.1 [Brute Force - Bellman-Ford]
-│   └── 70.2 [Optimized - Dijkstra with Priority Queue]
-├── 71. Minimum Spanning Tree
-│   ├── 71.1 [Kruskal's Algorithm]
-│   └── 71.2 [Prim's Algorithm]
-├── 72. Word Ladder / Connected Components
-└── 73. Rotting Oranges (2D Matrix BFS)
+├── 77. Graph Traversals (DFS, BFS)
+│   ├── 77.1 [Brute Force - DFS Recursive]
+│   ├── 77.2 [DFS Iterative - Stack]
+│   └── 77.3 [BFS - Queue]
+├── 78. Detect Cycle in Graph
+│   ├── 78.1 [Brute Force - DFS]
+│   └── 78.2 [Union-Find (Disjoint Set)]
+├── 79. Topological Sort
+│   ├── 79.1 [Brute Force - DFS]
+│   └── 79.2 [Kahn's Algorithm - BFS]
+├── 80. Shortest Path (Dijkstra)
+│   ├── 80.1 [Brute Force - Bellman-Ford]
+│   └── 80.2 [Optimized - Dijkstra with Priority Queue]
+├── 81. Minimum Spanning Tree
+│   ├── 81.1 [Kruskal's Algorithm]
+│   └── 81.2 [Prim's Algorithm]
+├── 82. Word Ladder / Connected Components
+└── 83. Rotting Oranges (2D Matrix BFS)
 
 Level 12: Dynamic Programming (Optimization Strategy)
-├── 74. Longest Common Subsequence (LCS)
-│   ├── 74.1 [Brute Force - Recursive]
-│   ├── 74.2 [Memoization]
-│   └── 74.3 [Tabulation - DP Table]
-├── 75. Longest Increasing Subsequence (LIS)
-│   ├── 75.1 [Brute Force - O(2ⁿ)]
-│   ├── 75.2 [DP - O(n²)]
-│   └── 75.3 [Binary Search Optimized - O(n log n)]
-├── 76. 0/1 Knapsack Problem
-│   ├── 76.1 [Brute Force - Exponential]
-│   └── 76.2 [DP Tabulation - O(n*w)]
-├── 77. Coin Change Problem
-│   ├── 77.1 [Brute Force - Recursive]
-│   └── 77.2 [DP - Minimum Coins]
-├── 78. Edit Distance (Levenshtein)
-│   ├── 78.1 [Brute Force - Recursive]
-│   └── 78.2 [DP Tabulation]
-├── 79. Matrix Chain Multiplication
-├── 80. Unique Paths in Grid
-├── 81. Maximum Subarray (Kadane's Algorithm)
-├── 82. Best Time to Buy and Sell Stock
-│   ├── 82.1 [Brute Force - All Pairs]
-│   ├── 82.2 [Dynamic Programming - Max Profit]
-│   └── 82.3 [Greedy - Single Pass]
-└── 83. Trapping Rain Water (Max Water Container)
-    ├── 83.1 [Brute Force - Height Pairs]
-    ├── 83.2 [Two-Pointer Approach]
-    └── 83.3 [Dynamic Programming]
+├── 84. Longest Common Subsequence (LCS)
+│   ├── 84.1 [Brute Force - Recursive]
+│   ├── 84.2 [Memoization]
+│   └── 84.3 [Tabulation - DP Table]
+├── 85. Longest Increasing Subsequence (LIS)
+│   ├── 85.1 [Brute Force - O(2ⁿ)]
+│   ├── 85.2 [DP - O(n²)]
+│   └── 85.3 [Binary Search Optimized - O(n log n)]
+├── 86. 0/1 Knapsack Problem
+│   ├── 86.1 [Brute Force - Exponential]
+│   └── 86.2 [DP Tabulation - O(n*w)]
+├── 87. Coin Change Problem
+│   ├── 87.1 [Brute Force - Recursive]
+│   └── 87.2 [DP - Minimum Coins]
+├── 88. Edit Distance (Levenshtein)
+│   ├── 88.1 [Brute Force - Recursive]
+│   └── 88.2 [DP Tabulation]
+├── 89. Matrix Chain Multiplication
+├── 90. Unique Paths in Grid
+├── 91. Maximum Subarray (Kadane's Algorithm)
+├── 92. Best Time to Buy and Sell Stock
+│   ├── 92.1 [Brute Force - All Pairs]
+│   ├── 92.2 [Dynamic Programming - Max Profit]
+│   └── 92.3 [Greedy - Single Pass]
+└── 93. Trapping Rain Water (Max Water Container)
+    ├── 93.1 [Brute Force - Height Pairs]
+    ├── 93.2 [Two-Pointer Approach]
+    └── 93.3 [Dynamic Programming]
 
 Level 13: Greedy Techniques (Local Optimal Choice)
-├── 84. Activity Selection Problem
-│   ├── 84.1 [Brute Force - All Combinations]
+├── 94. Activity Selection Problem
+│   ├── 94.1 [Brute Force - All Combinations]
+│   └── 94.2 [Greedy - Earliest Finish Time]
+├── 95. Huffman Coding
+│   ├── 95.1 [Brute Force - All Frequencies]
+│   └── 95.2 [Greedy - Min Heap]
+├── 96. Fractional Knapsack Problem
+│   ├── 96.1 [Brute Force - All Permutations]
+│   └── 96.2 [Greedy - Value/Weight Ratio]
+├── 97. Jump Game / Reach End of Array
+│   ├── 97.1 [Brute Force - BFS/DFS]
+│   └── 97.2 [Greedy - Maximum Reach]
+├── 98. Interval Scheduling Maximization
+├── 99. Gas Station / Circuit
+└── 100. Candy Distribution Problem
 │   └── 84.2 [Greedy - Earliest Finish Time]
 ├── 85. Huffman Coding
 │   ├── 85.1 [Brute Force - All Frequencies]
@@ -489,9 +553,210 @@ public static int TitleToNumber(string columnTitle)
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(1)`
 
+### 9. Convert Roman to Integer
+
+Given a Roman numeral, convert it to an integer. Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
+
+```
+Symbol  Value
+I       1
+V       5
+X       10
+L       50
+C       100
+D       500
+M       1000
+
+Rules:
+- I can be placed before V (5) and X (10) to make 4 and 9
+- X can be placed before L (50) and C (100) to make 40 and 90
+- C can be placed before D (500) and M (1000) to make 400 and 900
+```
+
+#### 9.1: Brute Force - Linear Scan
+
+```csharp
+public static int RomanToInt_BruteForce(string s)
+{
+    // Brute force: use if-else chains to handle subtraction cases
+    Dictionary<char, int> romanValues = new()
+    {
+        { 'I', 1 },
+        { 'V', 5 },
+        { 'X', 10 },
+        { 'L', 50 },
+        { 'C', 100 },
+        { 'D', 500 },
+        { 'M', 1000 }
+    };
+
+    int result = 0;
+    for (int i = 0; i < s.Length; i++)
+    {
+        // If current value is less than next value, subtract (cases like IV, IX, XL, etc.)
+        if (i + 1 < s.Length && romanValues[s[i]] < romanValues[s[i + 1]])
+        {
+            result -= romanValues[s[i]];
+        }
+        else
+        {
+            result += romanValues[s[i]];
+        }
+    }
+
+    return result;
+}
+```
+
+```text
+Example: "MCMXCIV" = 1994
+
+M    → 1000 (next is C, 100 > 1000? NO) → sum = 1000
+C    → 100  (next is M, 1000 > 100? YES, subtract) → sum = 1000 - 100 = 900
+M    → 1000 (next is X, 10 > 1000? NO) → sum = 1900
+X    → 10   (next is C, 100 > 10? YES, subtract) → sum = 1900 - 10 = 1890
+C    → 100  (next is I, 1 > 100? NO) → sum = 1990
+I    → 1    (next is V, 5 > 1? YES, subtract) → sum = 1990 - 1 = 1989
+V    → 5    (no next) → sum = 1989 + 5 = 1994 ✓
+```
+
+- **Time Complexity:** `O(n)` - single pass through string
+- **Space Complexity:** `O(1)` - dictionary of fixed size 7
+
+#### 9.2: Optimized - HashMap Lookup
+
+```csharp
+public static int RomanToInt_Optimized(string s)
+{
+    // Same algorithm but cleaner implementation
+    Dictionary<char, int> roman = new()
+    {
+        ['I'] = 1, ['V'] = 5, ['X'] = 10, ['L'] = 50,
+        ['C'] = 100, ['D'] = 500, ['M'] = 1000
+    };
+
+    int result = 0;
+    for (int i = s.Length - 1; i >= 0; i--)
+    {
+        int value = roman[s[i]];
+        // If current is smaller than next (scanning right to left), subtract
+        if (i < s.Length - 1 && value < roman[s[i + 1]])
+        {
+            result -= value;
+        }
+        else
+        {
+            result += value;
+        }
+    }
+    return result;
+}
+```
+
+- **Time Complexity:** `O(n)`
+- **Space Complexity:** `O(1)`
+
+---
+
+### 10. Integer to Roman
+
+Convert an integer to its Roman numeral representation.
+
+```
+Example:
+- 3 → "III"
+- 58 → "LVIII"
+- 1994 → "MCMXCIV"
+```
+
+#### 10.1: Brute Force - Greedy with Values
+
+```csharp
+public static string IntToRoman_BruteForce(int num)
+{
+    // Brute force: check each value/symbol pair from largest to smallest
+    List<(int value, string symbol)> values = new()
+    {
+        (1000, "M"), (900, "CM"), (500, "D"), (400, "CD"),
+        (100, "C"), (90, "XC"), (50, "L"), (40, "XL"),
+        (10, "X"), (9, "IX"), (5, "V"), (4, "IV"), (1, "I")
+    };
+
+    string result = "";
+    foreach (var (value, symbol) in values)
+    {
+        while (num >= value)
+        {
+            result += symbol;
+            num -= value;
+        }
+    }
+    return result;
+}
+```
+
+```text
+Example: 1994
+
+num=1994
+├── 1000: 1994 >= 1000? YES → result="M", num=994
+├── 900: 994 >= 900? YES → result="MCM", num=94
+├── 500: 94 >= 500? NO
+├── 400: 94 >= 400? NO
+├── 100: 94 >= 100? NO
+├── 90: 94 >= 90? YES → result="MCMXC", num=4
+├── 50: 4 >= 50? NO
+├── 40: 4 >= 40? NO
+├── 10: 4 >= 10? NO
+├── 9: 4 >= 9? NO
+├── 5: 4 >= 5? NO
+├── 4: 4 >= 4? YES → result="MCMXCIV", num=0
+└── Done!
+
+Result: "MCMXCIV" ✓
+```
+
+- **Time Complexity:** `O(n)` - where n is the result length (max 3999 → ~13 chars)
+- **Space Complexity:** `O(1)` - fixed list of 13 pairs
+
+#### 10.2: Optimized - Symbol Pairs (Pre-computed)
+
+```csharp
+public static string IntToRoman_Optimized(int num)
+{
+    // Optimized: pre-computed array of values in descending order
+    // Includes all subtraction cases (4, 9, 40, 90, 400, 900)
+    int[] values = { 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 };
+    string[] symbols = { "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I" };
+
+    string result = "";
+    for (int i = 0; i < values.Length; i++)
+    {
+        while (num >= values[i])
+        {
+            result += symbols[i];
+            num -= values[i];
+        }
+    }
+    return result;
+}
+```
+
+**Performance Comparison:**
+
+| Input | Output | Iterations | Time |
+|-------|--------|-----------|------|
+| 3 | "III" | 3 | O(1) |
+| 58 | "LVIII" | 5 | O(1) |
+| 1994 | "MCMXCIV" | 6 | O(1) |
+| 3999 | "MMMCMXCIX" | 13 | O(1) |
+
+- **Time Complexity:** `O(1)` - bounded by max iterations (num can be at most 3999)
+- **Space Complexity:** `O(1)` - fixed arrays
+
 
 ## Level 2: Recursion (Optimization Strategy)
-### 9. Factorial of a number
+### 12. Factorial of a number
 
 The number is a positive number and greater than zero.
 
@@ -523,7 +788,7 @@ FactorialRecursive(5)
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(n)`
 
-### 10. Fibonacci Series
+### 13. Fibonacci Series
 
 The number is a positive number and greater than zero.
 
@@ -765,7 +1030,7 @@ No array needed, only two variables!
     - **Tabulation:** `O(n)` (stores all Fibonacci numbers 0 to n)
     - **Space-Optimized:** `O(1)` (only stores two variables)
 
-### 11. Power of two numbers
+### 14. Power of two numbers
 
 Both numbers are positive number and greater than zero.
 Also number within the integer range so there is no overflow/ stack overflow.
@@ -902,7 +1167,7 @@ Power(2, 1000):
 - **Space Complexity :** `O(log n)`
     - Call stack depth: `O(log n)` (depth of recursion tree)
 
-### 12. Count digits recursively
+### 15. Count digits recursively
 
 ```csharp
 public static int CountDigits(int n)
@@ -941,7 +1206,7 @@ CountDigits(1234) = 1 + CountDigits(123)
 - **Time Complexity :** `O(log n)`
 - **Space Complexity :** `O(log n)`
 
-### 13. Sum of digits recursively
+### 16. Sum of digits recursively
 
 ```csharp
 public static int SumOfDigits(int n)
@@ -976,7 +1241,7 @@ returns 6 + 4 = 10
 - **Time Complexity :** `O(log n)`
 - **Space Complexity :** `O(log d)`
 
-### 14. Count Zeroes Recursively
+### 17. Count Zeroes Recursively
 
 ```csharp
 public static int CountZeroes(int n)
@@ -1015,7 +1280,7 @@ returns 3
 - **Time Complexity :** `O(log n)`
 - **Space Complexity :** `O(log d)`
 
-### 15. Geometric Sum
+### 18. Geometric Sum
 Given an integer n, we need to find the geometric sum of the following series using recursion.
 
 1 + 1/2 + 1/4 + 1/8 + ... + 1/(2n)
@@ -1050,7 +1315,7 @@ returns 1.75 + 0.125 = 1.875
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(d)`
 
-### 16. String to Integer
+### 19. String to Integer
 
 ```csharp
 public int StringToInt(string s)
@@ -1089,7 +1354,7 @@ returns 12*10 + 3 = 123
     - Call stack depth: `d` (when going down one branch)
     - String operations create new strings: `O(d²)` total space
 
-### 17. Number to Text
+### 20. Number to Text
 
 ```csharp
 public class NumberToText
@@ -1157,7 +1422,7 @@ ConvertNumberToText(123456)
     - Arrays unitsMap and tensMap are constant size O(1)
 
 
-### 18. Flatten
+### 21. Flatten
 
 ```csharp
 public static List<object> FlattenList(IEnumerable<object> nestedList)
@@ -1222,7 +1487,7 @@ FlattenList([1, [2,3], [4,[5,6]], 7]) (Level 0)
     - Call stack depth = O(d) (number of digit groups)
     - Additional `O(n)` space for result list
 
-### 19. House Robber
+### 22. House Robber
 You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security systems connected and it will automatically contact the police if two adjacent houses were broken into on the same night.
 
 Given an integer array nums representing the amount of money of each house, return the maximum amount of money you can rob tonight without alerting the police.
@@ -1387,7 +1652,7 @@ returns 12*10 + 3 = 123
     - For call stack
 ## Level 3: Backtracking (Explore & Constraint Satisfaction)
 
-### 20. Print all subsequence
+### 23. Print all subsequence
 
 ```csharp
 public void PrintAllSubsequence(string input, string output)
@@ -1443,7 +1708,7 @@ output:
     - Call stack depth: `d` (when going down one branch)
     - String operations create new strings: `O(d²)` total space
 
-### 21. Print All Permutation of String
+### 24. Print All Permutation of String
 
 Given a string s, the task is to return all permutations of a given string in lexicographically sorted order.
 Note: A permutation is the rearrangement of all the elements of a string. Duplicate arrangement can exist.
@@ -1513,7 +1778,7 @@ Initial: ABC (index=0)
     - Call stack depth: `n` (when going down one branch)
     - Character array: `O(n)` modified in-place
 
-### 22. Staircase
+### 25. Staircase
 There are n stairs, and a person standing at the bottom wants to climb stairs to reach the top. The person can climb either 1 stair or 2 stairs at a time, the task is to count the number of ways that a person can reach at the top.
 
 ```
@@ -1530,7 +1795,7 @@ Explanation: There are five ways to reach 4th stair: {1, 1, 1, 1}, {1, 1, 2}, {2
 
 ```
 
-#### 22.1 [Brute Force - Recursive]
+#### 25.1 [Brute Force - Recursive]
 
 ```csharp
 
@@ -1572,7 +1837,7 @@ ClimbStairs(6)
 - **Space Complexity :** `O(n)`
     - Call stack depth: `n` (when going down one branch)
 
-#### 22.2 [Memoization]
+#### 25.2 [Memoization]
 
 The brute force approach has exponential time complexity due to redundant calculations. We can optimize this by storing already computed results using **memoization**.
 
@@ -1668,7 +1933,7 @@ Total calls for n=5: 5 function calls
 
 ---
 
-### 23. Tower of Hanoi
+### 26. Tower of Hanoi
 
 Recursively calculates the minimum moves to solve Tower of Hanoi with n disks using the recurrence relation: `T(n) = 2×T(n-1) + 1`.
 
@@ -1703,7 +1968,7 @@ returns 2×3+1 = 7
     - Call stack depth: `n` (when going down one branch)
 
 
-### 24. Print  Tower of Hanoi
+### 27. Print  Tower of Hanoi
 
 Tower of Hanoi is a mathematical puzzle where we have three rods (A, B, and C) and N disks. Initially, all the disks are stacked in decreasing value of diameter i.e., the smallest disk is placed on the top and they are on rod A. The objective of the puzzle is to move the entire stack to another rod (here considered C), obeying the following simple rules:
 - Only one disk can be moved at a time.
@@ -1775,7 +2040,7 @@ PrintTowerOfHanoiMoves(3, A, C, B)
     - Call stack depth: `n` (when going down one branch)
 
 
-### 25. Knight's Tour Problem
+### 28. Knight's Tour Problem
 
 The Knight's Tour is a sequence of moves of a knight on a chessboard such that the knight visits every square exactly once. Given an `n × n` chessboard and a starting position, find if a complete knight's tour exists. A knight moves in an "L" shape: 2 squares in one direction and 1 square perpendicular (or vice versa).
 
@@ -1797,7 +2062,7 @@ Sample 4x4 solution (starting at 0,0):
  5 12 13  8
 ```
 
-#### 25.1 [Backtracking - Brute Force]
+#### 28.1 [Backtracking - Brute Force]
 
 Try all possible knight moves from each position using backtracking. If a dead-end is reached, backtrack and try different moves.
 
@@ -1926,7 +2191,7 @@ Knight            (x,y)
     - Board matrix: n²
     - Recursion depth: up to n²
 
-#### 25.2 [Backtracking - Warnsdorff's Heuristic]
+#### 28.2 [Backtracking - Warnsdorff's Heuristic]
 
 Instead of trying all moves randomly, use **Warnsdorff's Rule**: Always move the knight to the square from which the knight will have the fewest onward moves. This dramatically reduces backtracking by avoiding dead-ends early.
 
@@ -2099,7 +2364,7 @@ Warnsdorff's heuristic is so effective that it finds a solution (when one exists
 
 
 ## Level 4: Bit Manipulation (Advanced Optimization)
-### 26. Count Number of 1 Bits
+### 29. Count Number of 1 Bits
 
 The number is a positive number and greater than zero.
 
@@ -2128,7 +2393,7 @@ Return: 3
 - **Time Complexity :** `O(log n)`
 - **Space Complexity :** `O(1)`
 
-### 26. Swap Two Numbers Without Temp
+### 30. Swap Two Numbers Without Temp
 
 Both numbers are positive number and greater than zero.
 
@@ -2154,7 +2419,7 @@ Final:   a = 3, b = 5  ✓ Swapped!
 - **Time Complexity :** `O(1)`
 - **Space Complexity :** `O(1)`
 
-### 27. Single Number (All appear twice except one)
+### 31. Single Number (All appear twice except one)
 
 The numbers are positive numbers.
 
@@ -2181,7 +2446,7 @@ public static int SingleNumber(int[] nums)
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(1)`
 
-### 28. Find Missing Number in Array
+### 32. Find Missing Number in Array
 
 Array of size `n` containing numbers from `0` to `n`, one missing.
 
@@ -2222,7 +2487,7 @@ What remains? 2 (only in range, not in array)
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(1)`
 
-### 29. Add Two Numbers Without Arithmetic Operators
+### 33. Add Two Numbers Without Arithmetic Operators
 
 Both numbers are positive number and greater than zero.
 
@@ -2260,7 +2525,7 @@ Final    | 1000 (8)   | 0000 (0)   |       |       |
 - **Time Complexity :** `O(log n)`
 - **Space Complexity :** `O(1)`
 
-### 30. Power (Optimized with Bitwise)
+### 34. Power (Optimized with Bitwise)
 
 Both numbers are positive number and greater than zero.
 
@@ -2300,7 +2565,7 @@ public static int PowerOptimized(int x, int n)
 - **Time Complexity :** `O(log n)`
 - **Space Complexity :** `O(1)`
 
-### 31. Minimum Bit Flips to Convert Number
+### 35. Minimum Bit Flips to Convert Number
 
 The number is a positive number and greater than zero.
 
@@ -2338,7 +2603,7 @@ Result: 3 bit flips needed
 - **Time Complexity :** `O(log n)`
 - **Space Complexity :** `O(1)`
 
-### 32. Generate All Subsets
+### 36. Generate All Subsets
 
 ```csharp
 public static List<List<int>> GenerateSubsets(int[] nums)
@@ -2382,7 +2647,7 @@ public static List<List<int>> GenerateSubsets(int[] nums)
 - **Space Complexity :** `O(n × 2ⁿ)`
 
 ## Level 5: String Manipulation (Pattern Matching & Transformation)
-### 33. Multiply two strings
+### 37. Multiply two strings
 
 Both strings are not null and contains only positive numbers.
 
@@ -2470,7 +2735,7 @@ ITERATION MAP:
 - **Time Complexity :** `O(m*n)`
 - **Space Complexity :** `O(m+n)`
 
-### 34. Reverse String
+### 38. Reverse String
 
 The string is not null.
 
@@ -2510,7 +2775,7 @@ Final:   o  l  l  e  h
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(n)`
 
-### 35. Check for Anagrams
+### 39. Check for Anagrams
 
 An anagram of a string is another string that contains the same characters, only the order of characters can be different.
 
@@ -2556,7 +2821,7 @@ Check:    n✓ a✓ g✓ a✓ r✓ a✓ m✓ → All good!
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(1)`
 
-### 36. Length of Last Word
+### 40. Length of Last Word
 
 The string is not null.
 
@@ -2603,7 +2868,7 @@ Result: 5 characters in last word
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(1)`
 
-### 37. Concatenate two Strings
+### 41. Concatenate two Strings
 
 ```
 str1 = "abc" st2="pqr" o/p - apbqcr
@@ -2652,12 +2917,672 @@ Result: "AXBYCZ"
 - **Time Complexity :** `O(n + m)`
 - **Space Complexity :** `O(n + m)`
 
+### 42. Valid Palindrome
+
+Given a string s, determine if it is a palindrome, considering only alphanumeric characters (a-z, A-Z, 0-9), and ignoring cases.
+
+```
+Examples:
+- "A man, a plan, a canal: Panama" → true
+- "race a car" → false
+- "0P" → false
+```
+
+#### 42.1 [Brute Force - Alphanumeric Only]
+
+```csharp
+public static bool IsPalindrome_BruteForce(string s)
+{
+    // Filter: Keep only alphanumeric characters, convert to lowercase
+    string filtered = "";
+    foreach (char c in s)
+    {
+        if (char.IsLetterOrDigit(c))
+        {
+            filtered += char.ToLower(c);
+        }
+    }
+
+    // Check palindrome
+    for (int i = 0; i < filtered.Length / 2; i++)
+    {
+        if (filtered[i] != filtered[filtered.Length - 1 - i])
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
+```
+
+```text
+Input: "A man, a plan, a canal: Panama"
+
+Step 1: Filter & Convert
+"A man, a plan, a canal: Panama"
+        ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+"amanaplanacanalpanama"
+
+Step 2: Check Palindrome
+a m a n a p l a n a c a n a l p a n a m a
+↑                                       ↑ (a==a ✓)
+  ↑                                   ↑   (m==m ✓)
+    ↑                               ↑     (a==a ✓)
+... Continue until center
+
+Result: true ✓
+```
+
+- **Time Complexity:** `O(n)` - one pass for filtering + one pass for checking
+- **Space Complexity:** `O(n)` - new filtered string
+
+#### 42.2 [Two-Pointer - O(n)]
+
+```csharp
+public static bool IsPalindrome_TwoPointer(string s)
+{
+    int left = 0, right = s.Length - 1;
+
+    while (left < right)
+    {
+        // Skip non-alphanumeric from left
+        while (left < right && !char.IsLetterOrDigit(s[left]))
+        {
+            left++;
+        }
+
+        // Skip non-alphanumeric from right
+        while (left < right && !char.IsLetterOrDigit(s[right]))
+        {
+            right--;
+        }
+
+        // Compare characters (case-insensitive)
+        if (char.ToLower(s[left]) != char.ToLower(s[right]))
+        {
+            return false;
+        }
+
+        left++;
+        right--;
+    }
+
+    return true;
+}
+```
+
+```text
+Input: "A man, a plan, a canal: Panama"
+
+A man, a plan, a canal: Panama
+↑                              ↑
+L → Skip space, comma etc
+R → Skip space, comma etc
+Compare: 'a' vs 'a' ✓
+
+A man, a plan, a canal: Panama
+  ↑                          ↑
+Compare: 'm' vs 'm' ✓
+
+Continue until L >= R
+Result: true ✓
+```
+
+- **Time Complexity:** `O(n)` - single pass with two pointers
+- **Space Complexity:** `O(1)` - no extra space
+
+---
+
+### 43. Isomorphic Strings
+
+Given two strings s and t, determine if they are isomorphic. Two strings are isomorphic if the characters in s can be replaced to get t.
+
+```
+Examples:
+- s = "egg", t = "add" → true (e→a, g→d)
+- s = "badc", t = "baba" → false (a→b, but also a→a conflict)
+```
+
+#### 43.1 [HashMap - Character Mapping]
+
+```csharp
+public static bool IsIsomorphic_HashMap(string s, string t)
+{
+    if (s.Length != t.Length) return false;
+
+    Dictionary<char, char> map = new();
+
+    for (int i = 0; i < s.Length; i++)
+    {
+        char sChar = s[i];
+        char tChar = t[i];
+
+        if (map.ContainsKey(sChar))
+        {
+            if (map[sChar] != tChar)
+            {
+                return false; // Conflict: s[i] maps to different t char
+            }
+        }
+        else
+        {
+            map[sChar] = tChar;
+        }
+    }
+
+    return true;
+}
+```
+
+```text
+s = "egg", t = "add"
+
+i=0: e→a (map: {e→a})
+i=1: g→d (map: {e→a, g→d})
+i=2: g→d (already mapped, g→d ✓)
+
+Result: true ✓
+
+---
+
+s = "badc", t = "baba"
+
+i=0: b→b (map: {b→b})
+i=1: a→a (map: {b→b, a→a})
+i=2: d→b (map: {b→b, a→a, d→b})
+i=3: c→a (map: {b→b, a→a, d→b, c→a})
+
+No conflicts! But wait...
+a maps to 'a' in position 1 and 'a' in position 3 ✓
+But d maps to 'b', and b maps to 'b' → 'b' appears in both!
+
+This algorithm only checks one direction (s→t), not reverse!
+```
+
+- **Time Complexity:** `O(n)` - single pass
+- **Space Complexity:** `O(k)` - where k is size of alphabet (≤256)
+
+#### 43.2 [Bidirectional Mapping]
+
+```csharp
+public static bool IsIsomorphic_Bidirectional(string s, string t)
+{
+    if (s.Length != t.Length) return false;
+
+    Dictionary<char, char> mapStoT = new();
+    Dictionary<char, char> mapTtoS = new();
+
+    for (int i = 0; i < s.Length; i++)
+    {
+        char sChar = s[i];
+        char tChar = t[i];
+
+        // Check s → t mapping
+        if (mapStoT.ContainsKey(sChar))
+        {
+            if (mapStoT[sChar] != tChar) return false;
+        }
+        else
+        {
+            mapStoT[sChar] = tChar;
+        }
+
+        // Check t → s mapping (ensures one-to-one)
+        if (mapTtoS.ContainsKey(tChar))
+        {
+            if (mapTtoS[tChar] != sChar) return false;
+        }
+        else
+        {
+            mapTtoS[tChar] = sChar;
+        }
+    }
+
+    return true;
+}
+```
+
+- **Time Complexity:** `O(n)`
+- **Space Complexity:** `O(k)` - two hash maps
+
+---
+
+### 44. First Unique Character in a String
+
+Given a string s, find the first non-repeating character in it and return its index. If the string does not contain a unique character, return -1.
+
+```
+Examples:
+- s = "leetcode" → 0 (l)
+- s = "loveleetcode" → 2 (v)
+- s = "aabb" → -1
+```
+
+#### 44.1 [Brute Force - Nested Loop]
+
+```csharp
+public static int FirstUniqChar_BruteForce(string s)
+{
+    // For each character, check if it appears elsewhere
+    for (int i = 0; i < s.Length; i++)
+    {
+        bool isUnique = true;
+        for (int j = 0; j < s.Length; j++)
+        {
+            if (i != j && s[i] == s[j])
+            {
+                isUnique = false;
+                break;
+            }
+        }
+
+        if (isUnique)
+        {
+            return i;
+        }
+    }
+
+    return -1;
+}
+```
+
+```text
+s = "leetcode"
+
+i=0 (l): Check against all → appears once → return 0 ✓
+
+Result: 0
+```
+
+- **Time Complexity:** `O(n²)` - nested loops
+- **Space Complexity:** `O(1)` - no extra space
+
+#### 44.2 [HashMap - O(n)]
+
+```csharp
+public static int FirstUniqChar_HashMap(string s)
+{
+    // Count frequency of each character
+    Dictionary<char, int> freq = new();
+    foreach (char c in s)
+    {
+        if (freq.ContainsKey(c))
+            freq[c]++;
+        else
+            freq[c] = 1;
+    }
+
+    // Find first character with frequency 1
+    for (int i = 0; i < s.Length; i++)
+    {
+        if (freq[s[i]] == 1)
+        {
+            return i;
+        }
+    }
+
+    return -1;
+}
+```
+
+```text
+s = "leetcode"
+
+Pass 1 - Count:
+l:1, e:3, t:1, c:1, o:1, d:1
+
+Pass 2 - Find First with count=1:
+i=0: l has count 1 → return 0 ✓
+
+Result: 0
+```
+
+- **Time Complexity:** `O(n)` - two passes
+- **Space Complexity:** `O(k)` - frequency map of alphabet size
+
+---
+
+### 45. Longest Substring Without Repeating Characters
+
+Given a string s, find the length of the longest substring without repeating characters.
+
+```
+Examples:
+- s = "abcabcbb" → 3 ("abc")
+- s = "bbbbb" → 1 ("b")
+- s = "pwwkew" → 3 ("wke")
+```
+
+#### 45.1 [Brute Force - All Substrings]
+
+```csharp
+public static int LengthOfLongestSubstring_BruteForce(string s)
+{
+    int maxLength = 0;
+
+    // Try all substrings
+    for (int i = 0; i < s.Length; i++)
+    {
+        HashSet<char> seen = new();
+        for (int j = i; j < s.Length; j++)
+        {
+            if (seen.Contains(s[j]))
+            {
+                break; // Repeating character found
+            }
+
+            seen.Add(s[j]);
+            maxLength = Math.Max(maxLength, j - i + 1);
+        }
+    }
+
+    return maxLength;
+}
+```
+
+```text
+s = "abcabcbb"
+
+i=0: a,b,c (max=3), hit 'a' → break
+i=1: b,c,a (max=3), hit 'b' → break
+i=2: c,a,b (max=3), hit 'c' → break
+i=3: a,b,c (max=3), hit 'a' → break
+...
+
+Result: 3
+```
+
+- **Time Complexity:** `O(n²)` - nested loops
+- **Space Complexity:** `O(k)` - HashSet
+
+#### 45.2 [Sliding Window - O(n)]
+
+```csharp
+public static int LengthOfLongestSubstring_SlidingWindow(string s)
+{
+    Dictionary<char, int> charIndex = new();
+    int maxLength = 0;
+    int left = 0;
+
+    for (int right = 0; right < s.Length; right++)
+    {
+        char c = s[right];
+
+        // If character already in current window, move left pointer
+        if (charIndex.ContainsKey(c) && charIndex[c] >= left)
+        {
+            left = charIndex[c] + 1;
+        }
+
+        charIndex[c] = right;
+        maxLength = Math.Max(maxLength, right - left + 1);
+    }
+
+    return maxLength;
+}
+```
+
+```text
+s = "abcabcbb"
+
+[a]          left=0, right=0, max=1
+[ab]         left=0, right=1, max=2
+[abc]        left=0, right=2, max=3
+[bca]        left=1, right=3, max=3 (a at 0, move left to 1)
+[cab]        left=2, right=4, max=3 (b at 1, move left to 2)
+[abc]        left=3, right=5, max=3 (c at 2, move left to 3)
+[bc]         left=4, right=6, max=3 (b at 4, move left to 5)
+[b]          left=5, right=7, max=3 (b at 5, move left to 6)
+
+Result: 3
+```
+
+- **Time Complexity:** `O(n)` - single pass with two pointers
+- **Space Complexity:** `O(k)` - HashMap of characters
+
+---
+
+### 46. Reverse Words in a String
+
+Given an input string s, reverse the order of the words. A word is defined as a sequence of non-space characters.
+
+```
+Examples:
+- s = "the sky is blue" → "blue is sky the"
+- s = "  hello world  " → "world hello"
+```
+
+#### 46.1 [Split and Reverse]
+
+```csharp
+public static string ReverseWords_Split(string s)
+{
+    // Split on spaces and filter empty strings
+    string[] words = s.Split(' ', System.StringSplitOptions.RemoveEmptyEntries);
+
+    // Reverse array
+    System.Array.Reverse(words);
+
+    // Join back
+    return string.Join(" ", words);
+}
+```
+
+```text
+s = "the sky is blue"
+
+Split: ["the", "sky", "is", "blue"]
+Reverse: ["blue", "is", "sky", "the"]
+Join: "blue is sky the"
+
+Result: "blue is sky the" ✓
+```
+
+- **Time Complexity:** `O(n)` - split + reverse + join
+- **Space Complexity:** `O(n)` - word array
+
+#### 46.2 [Two-Pointer]
+
+```csharp
+public static string ReverseWords_TwoPointer(string s)
+{
+    char[] chars = s.ToCharArray();
+    int n = chars.Length;
+
+    // Step 1: Reverse entire string
+    Reverse(chars, 0, n - 1);
+
+    // Step 2: Reverse each word
+    int start = 0;
+    for (int i = 0; i <= n; i++)
+    {
+        if (i == n || chars[i] == ' ')
+        {
+            Reverse(chars, start, i - 1);
+            start = i + 1;
+        }
+    }
+
+    // Step 3: Remove extra spaces
+    return CleanSpaces(chars, n);
+}
+
+private static void Reverse(char[] chars, int start, int end)
+{
+    while (start < end)
+    {
+        char temp = chars[start];
+        chars[start] = chars[end];
+        chars[end] = temp;
+        start++;
+        end--;
+    }
+}
+
+private static string CleanSpaces(char[] chars, int n)
+{
+    int j = 0;
+    for (int i = 0; i < n; i++)
+    {
+        if (chars[i] != ' ')
+        {
+            // Add space before word (if not first word)
+            if (j != 0) chars[j++] = ' ';
+            while (i < n && chars[i] != ' ')
+            {
+                chars[j++] = chars[i++];
+            }
+        }
+    }
+    return new string(chars, 0, j);
+}
+```
+
+- **Time Complexity:** `O(n)` - multiple single passes
+- **Space Complexity:** `O(1)` - in-place (after converting to char array)
+
+---
+
+### 47. Word Break
+
+Given a string s and a dictionary of strings wordDict, return true if s can be segmented into a space-separated sequence of dictionary words.
+
+```
+Examples:
+- s = "leetcode", dict = ["leet","code"] → true
+- s = "applepenapple", dict = ["apple","pen"] → true
+- s = "catsandog", dict = ["cat","cats","and","sand","dog"] → false
+```
+
+#### 47.1 [Recursion with Memoization]
+
+```csharp
+public static bool WordBreak_Memoization(string s, IList<string> wordDict)
+{
+    var memo = new Dictionary<int, bool>();
+    var dictSet = new HashSet<string>(wordDict);
+
+    return CanBreak(s, 0, dictSet, memo);
+}
+
+private static bool CanBreak(string s, int start, HashSet<string> dict, Dictionary<int, bool> memo)
+{
+    // Base case
+    if (start == s.Length)
+    {
+        return true;
+    }
+
+    // Check memo
+    if (memo.ContainsKey(start))
+    {
+        return memo[start];
+    }
+
+    // Try all possible words starting at 'start'
+    for (int end = start + 1; end <= s.Length; end++)
+    {
+        string word = s.Substring(start, end - start);
+
+        if (dict.Contains(word) && CanBreak(s, end, dict, memo))
+        {
+            memo[start] = true;
+            return true;
+        }
+    }
+
+    memo[start] = false;
+    return false;
+}
+```
+
+```text
+s = "leetcode", dict = {leet, code}
+
+CanBreak(0):
+  ├─ word="l" → not in dict
+  ├─ word="le" → not in dict
+  ├─ word="lee" → not in dict
+  ├─ word="leet" → in dict! → CanBreak(4)
+  │   ├─ word="c" → not in dict
+  │   ├─ word="co" → not in dict
+  │   ├─ word="cod" → not in dict
+  │   └─ word="code" → in dict! → CanBreak(8)
+  │       └─ start==length → return true ✓
+  └─ return true
+
+Result: true ✓
+```
+
+- **Time Complexity:** `O(n²)` with memoization (each position computed once)
+- **Space Complexity:** `O(n)` - memo dictionary + recursion stack
+
+#### 47.2 [Dynamic Programming - Tabulation]
+
+```csharp
+public static bool WordBreak_DP(string s, IList<string> wordDict)
+{
+    var dictSet = new HashSet<string>(wordDict);
+    var dp = new bool[s.Length + 1];
+    dp[0] = true; // Empty string is always breakable
+
+    for (int i = 1; i <= s.Length; i++)
+    {
+        for (int j = 0; j < i; j++)
+        {
+            // If s[0:j] is breakable and s[j:i] is in dict
+            if (dp[j] && dictSet.Contains(s.Substring(j, i - j)))
+            {
+                dp[i] = true;
+                break;
+            }
+        }
+    }
+
+    return dp[s.Length];
+}
+```
+
+```text
+s = "leetcode", dict = {leet, code}
+
+dp[0] = true (empty)
+
+i=1: s[0:1]="l" → not in dict → dp[1]=false
+i=2: s[0:2]="le" → not in dict → dp[2]=false
+i=3: s[0:3]="lee" → not in dict → dp[3]=false
+i=4: s[0:4]="leet" → in dict, dp[0]=true → dp[4]=true ✓
+i=5: s[4:5]="c" → dp[4]=true but not in dict → dp[5]=false
+...
+i=8: s[4:8]="code" → dp[4]=true, "code" in dict → dp[8]=true ✓
+
+Result: dp[8] = true ✓
+```
+
+| i | s[0:i] | dp[i] | Reason |
+|---|--------|-------|--------|
+| 0 | "" | T | Base case |
+| 1 | "l" | F | Not in dict |
+| 2 | "le" | F | Not in dict |
+| 3 | "lee" | F | Not in dict |
+| 4 | "leet" | T | "leet" in dict |
+| 5 | "leetc" | F | "c" not in dict |
+| 6 | "leetco" | F | "co" not in dict |
+| 7 | "leetcod" | F | "cod" not in dict |
+| 8 | "leetcode" | T | "code" in dict, dp[4]=T |
+
+- **Time Complexity:** `O(n² × m)` - n² substrings, m for substring comparison
+- **Space Complexity:** `O(n)` - DP array
+
+---
+
 ## Level 6: Array Operations (Collection Handling)
-### 38. Move Zeroes To End
+### 48. Move Zeroes To End
 
 The numbers are positive numbers.
 
-#### 38.1 [Brute Force - Two Pass]
+#### 48.1 [Brute Force - Two Pass]
 
 ```csharp
 public static void MoveZeroes(int[] nums)
@@ -2700,7 +3625,7 @@ Final: [4, 2, 1, 3, 0, 0, 0]
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(1)`
 
-#### 38.2 [Two-Pointer - Single Pass]
+#### 48.2 [Two-Pointer - Single Pass]
 
 While the current solution is already O(n) time and O(1) space, we can optimize it further by avoiding redundant assignments when there are no zeros. The **two-pointer** technique only swaps when necessary, reducing write operations.
 
@@ -2792,7 +3717,7 @@ Scenario 2: Array heavily with zeros [0, 0, 0, 1]
 | Current | Two-pass: collect non-zeros, fill zeros | Always n writes | Balanced |
 | Two-Pointer | Single-pass with conditional swap | Fewer when few zeros | Few/no zeros |
 
-### 39. Duplicate Characters
+### 43. Duplicate Characters
 
 The string is not null.
 
@@ -2834,11 +3759,11 @@ Step 3: Collect in original order
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(1)`
 
-### 40. Contains Duplicate
+### 44. Contains Duplicate
 
 The array is not null. Please complete with `O(1)` space complexity.
 
-#### 40.1 [Brute Force - Nested Loop]
+#### 50.1 [Brute Force - Nested Loop]
 
 ```csharp
 public static bool ContainsDuplicate(int[] nums)
@@ -2874,7 +3799,7 @@ Comparisons made:
 - **Time Complexity :** `O(n²)`
 - **Space Complexity :** `O(1)`
 
-#### 40.2 [Hash Set]
+#### 50.2 [Hash Set]
 
 The brute force approach requires comparing each pair, resulting in quadratic time complexity. We can optimize this to linear time by using a **hash set** to track seen elements.
 
@@ -2953,7 +3878,7 @@ Hash Set [1, 2, 3, 1]:
     - Hash set stores up to n elements in worst case (no duplicates)
     - But early termination on finding duplicate reduces practical space needed
 
-### 41. Valid Palindrome
+### 51. Valid Palindrome
 
 The string is not null.
 
@@ -2995,7 +3920,7 @@ String:  r a c e c a r
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(1)`
 
-### 42. Fizz Buzz
+### 52. Fizz Buzz
 
 Given an integer `n`, return a string array answer (1-indexed) where:
 - answer[i] == "FizzBuzz" if i is divisible by 3 and 5.
@@ -3038,7 +3963,7 @@ n = 15
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(n)`
 
-### 43. Longest Common Prefix
+### 53. Longest Common Prefix
 
 The string is not null.
 
@@ -3082,7 +4007,7 @@ Common prefix: "fl"
 - **Space Complexity :** `O(1)`
 
 
-### 44. Merge two sorted arrays
+### 48. Merge two sorted arrays
 Given two sorted arrays arr1[] of size n and arr2[] of size m. Merge these two arrays.
 After the merge, the first n smallest elements of the combined sorted array should be stored in arr1[], and the remaining m largest elements should be stored in arr2[]. After the merging process, both arr1[] and arr2[] must remain sorted in non-decreasing order.
 
@@ -3150,7 +4075,7 @@ Remaining: 8, 9 ✓
 
 ## Level 7: Stack Operations
 
-### 45. Valid Parentheses
+### 49. Valid Parentheses
 
 The string is not null.
 
@@ -3159,7 +4084,7 @@ s = "({[]})"
 Result: true ✓
 ```
 
-#### 45.1 [Brute Force - Multiple If-Else]
+#### 49.1 [Brute Force - Multiple If-Else]
 
 ```csharp
 public static bool IsValid(string s)
@@ -3220,7 +4145,7 @@ All matched → Valid ✓
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(n)`
 
-#### 45.2 [Bracket Mapping - Dictionary]
+#### 49.2 [Bracket Mapping - Dictionary]
 
 The current solution requires multiple if-else statements for bracket matching. We can optimize code clarity and slightly improve performance using a **dictionary** for bracket pair mapping.
 
@@ -3342,7 +4267,7 @@ Benefits:
     - Stack size: O(n) in worst case (all opening brackets)
     - Dictionary size: O(1) constant (always 3 bracket pairs)
 
-### 46. Evaluate Reverse Polish Notation
+### 50. Evaluate Reverse Polish Notation
 You are given an array of strings tokens that represents an arithmetic expression in a Reverse Polish Notation.
 
 The string is not null.
@@ -3409,7 +4334,7 @@ Return: 6 ✓
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(n)`
 
-### 47. Remove All Adjacent Duplicates In String
+### 51. Remove All Adjacent Duplicates In String
 You are given a string s consisting of lowercase English letters. A duplicate removal consists of choosing two adjacent and equal letters and removing them.
 We repeatedly make duplicate removals on s until we no longer can.
 Return the final string after all such duplicate removals have been made. It can be proven that the answer is unique.
