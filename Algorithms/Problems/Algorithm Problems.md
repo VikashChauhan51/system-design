@@ -14,7 +14,12 @@ Level 1: Number & Basic Operations (Foundation)
 Level 2: Recursion (Optimization Strategy)
 ├── 9. Factorial of a number
 ├── 10. Fibonacci Series
+│   ├── 10.1 [Brute Force - Recursive]
+│   ├── 10.2 [Memoization]
+│   └── 10.3 [Dynamic Programming - Tabulation]
 ├── 11. Power of two numbers
+│   ├── 11.1 [Brute Force - Linear]
+│   └── 11.2 [Binary Exponentiation]
 ├── 12. Count digits recursively
 ├── 13. Sum of digits recursively
 ├── 14. Count Zeroes Recursively
@@ -28,6 +33,8 @@ Level 3: Backtracking (Explore & Constraint Satisfaction)
 ├── 20. Print all subsequence
 ├── 21. Print All Permutation of String
 ├── 22. Staircase
+│   ├── 22.1 [Brute Force - Recursive]
+│   └── 22.2 [Memoization]
 ├── 23. Tower of Hanoi
 └── 24. Print Tower of Hanoi
 
@@ -50,8 +57,12 @@ Level 5: String Manipulation (Pattern Matching & Transformation)
 
 Level 6: Array Operations (Collection Handling)
 ├── 38. Move Zeroes To End
+│   ├── 38.1 [Brute Force - Two Pass]
+│   └── 38.2 [Two-Pointer - Single Pass]
 ├── 39. Duplicate Characters
 ├── 40. Contains Duplicate
+│   ├── 40.1 [Brute Force - Nested Loop]
+│   └── 40.2 [Hash Set]
 ├── 41. Valid Palindrome
 ├── 42. Fizz Buzz
 ├── 43. Longest Common Prefix
@@ -59,6 +70,8 @@ Level 6: Array Operations (Collection Handling)
 
 Level 7: Stack Operations (LIFO Data Structure)
 ├── 45. Valid Parentheses
+│   ├── 45.1 [Brute Force - Multiple If-Else]
+│   └── 45.2 [Bracket Mapping - Dictionary]
 ├── 46. Evaluate Reverse Polish Notation
 └── 47. Remove All Adjacent Duplicates In String
 
@@ -66,6 +79,93 @@ Level 8: Binary Search & Searching (Divide & Conquer Search)
 ├── 48. Find First and Last Position of an Element in Sorted Array
 ├── 49. Search in Rotated Sorted Array
 └── 50. Find Minimum Element in Sorted Rotated Array
+
+Level 9: Linked List (Linear Data Structure with Pointers)
+├── 51. Reverse a Linked List
+│   ├── 51.1 [Brute Force - Iterative]
+│   └── 51.2 [Recursive]
+├── 52. Detect Cycle in Linked List
+│   ├── 52.1 [Brute Force - Hash Set]
+│   └── 52.2 [Two-Pointer (Floyd's Cycle Detection)]
+├── 53. Merge Two Sorted Linked Lists
+├── 54. Find Middle of Linked List
+├── 55. Remove Nth Node From End of List
+└── 56. Linked List Palindrome Check
+
+Level 10: Tree (Hierarchical Data Structure)
+├── 57. Tree Traversals (Inorder, Preorder, Postorder)
+│   ├── 57.1 [Brute Force - Recursive]
+│   └── 57.2 [Iterative - Stack]
+├── 58. Level Order Traversal (BFS)
+│   ├── 58.1 [Brute Force - Recursive]
+│   └── 58.2 [Iterative - Queue]
+├── 59. Binary Search Tree Validation
+│   ├── 59.1 [Brute Force - Min/Max Range]
+│   └── 59.2 [Optimized - Recursive Range Check]
+├── 60. Lowest Common Ancestor (LCA)
+│   ├── 60.1 [Brute Force - Store Path]
+│   └── 60.2 [Optimized - Single Pass]
+├── 61. Maximum Path Sum in Binary Tree
+├── 62. Serialize and Deserialize Tree
+└── 63. Balanced Binary Tree Check
+
+Level 11: Graph (Network & Relationship Modeling)
+├── 64. Graph Traversals (DFS, BFS)
+│   ├── 64.1 [Brute Force - DFS Recursive]
+│   ├── 64.2 [DFS Iterative - Stack]
+│   └── 64.3 [BFS - Queue]
+├── 65. Detect Cycle in Graph
+│   ├── 65.1 [Brute Force - DFS]
+│   └── 65.2 [Union-Find (Disjoint Set)]
+├── 66. Topological Sort
+│   ├── 66.1 [Brute Force - DFS]
+│   └── 66.2 [Kahn's Algorithm - BFS]
+├── 67. Shortest Path (Dijkstra)
+│   ├── 67.1 [Brute Force - Bellman-Ford]
+│   └── 67.2 [Optimized - Dijkstra with Priority Queue]
+├── 68. Minimum Spanning Tree
+│   ├── 68.1 [Kruskal's Algorithm]
+│   └── 68.2 [Prim's Algorithm]
+└── 69. Word Ladder / Connected Components
+
+Level 12: Dynamic Programming (Optimization Strategy)
+├── 70. Longest Common Subsequence (LCS)
+│   ├── 70.1 [Brute Force - Recursive]
+│   ├── 70.2 [Memoization]
+│   └── 70.3 [Tabulation - DP Table]
+├── 71. Longest Increasing Subsequence (LIS)
+│   ├── 71.1 [Brute Force - O(2ⁿ)]
+│   ├── 71.2 [DP - O(n²)]
+│   └── 71.3 [Binary Search Optimized - O(n log n)]
+├── 72. 0/1 Knapsack Problem
+│   ├── 72.1 [Brute Force - Exponential]
+│   └── 72.2 [DP Tabulation - O(n*w)]
+├── 73. Coin Change Problem
+│   ├── 73.1 [Brute Force - Recursive]
+│   └── 73.2 [DP - Minimum Coins]
+├── 74. Edit Distance (Levenshtein)
+│   ├── 74.1 [Brute Force - Recursive]
+│   └── 74.2 [DP Tabulation]
+├── 75. Matrix Chain Multiplication
+├── 76. Unique Paths in Grid
+└── 77. Maximum Subarray (Kadane's Algorithm)
+
+Level 13: Greedy Techniques (Local Optimal Choice)
+├── 78. Activity Selection Problem
+│   ├── 78.1 [Brute Force - All Combinations]
+│   └── 78.2 [Greedy - Earliest Finish Time]
+├── 79. Huffman Coding
+│   ├── 79.1 [Brute Force - All Frequencies]
+│   └── 79.2 [Greedy - Min Heap]
+├── 80. Fractional Knapsack Problem
+│   ├── 80.1 [Brute Force - All Permutations]
+│   └── 80.2 [Greedy - Value/Weight Ratio]
+├── 81. Jump Game / Reach End of Array
+│   ├── 81.1 [Brute Force - BFS/DFS]
+│   └── 81.2 [Greedy - Maximum Reach]
+├── 82. Interval Scheduling Maximization
+├── 83. Gas Station / Circuit
+└── 84. Candy Distribution Problem
 ```
 
 ---
@@ -408,6 +508,8 @@ FactorialRecursive(5)
 
 The number is a positive number and greater than zero.
 
+#### 10.1 [Brute Force - Recursive]
+
 ```csharp
 public static int FibonacciRecursive(int n)
 {
@@ -449,10 +551,207 @@ Fib(5) = Fib(4) + Fib(3) = 3 + 2 = 5
 - **Time Complexity :** `O(2ⁿ)`
 - **Space Complexity :** `O(n)`
 
+#### 10.2 [Memoization]
+
+We can optimize by storing already computed results using **memoization**.
+
+```csharp
+public static int FibonacciMemoization(int n, Dictionary<int, int> memo = null)
+{
+    if (memo == null) memo = new Dictionary<int, int>();
+    // Base cases
+    if (n <= 0) return 0;
+    if (n == 1) return 1;
+
+    if (memo.ContainsKey(n))
+    {
+        return memo[n];
+    }
+
+    // Recursive case
+    int result = FibonacciMemoization(n - 1, memo) + FibonacciMemoization(n - 2, memo);
+
+    // Store the result in the memo dictionary
+    memo[n] = result;
+    return result;
+}
+
+```
+
+```text
+                         Fib(5) → computes Fib(4) + Fib(3)
+                         /                     \
+                        /                       \
+               needs Fib(4)                 Fib(3) FROM MEMO!
+               /           \                    (already computed)
+              /             \
+      needs Fib(3)     Fib(2) FROM MEMO!
+     /           \       (already computed)
+    /             \
+needs Fib(2)   Fib(1) FROM MEMO!
+   /     \      (already computed)
+  /       \
+Fib(1)  Fib(0) FROM MEMO!
+(base)   (base)
+```
+- **Time Complexity :** `O(n)`
+    - Each Fibonacci number computed once
+- **Space Complexity :** `O(n)`
+    - For memo dictionary + call stack
+
+#### 10.3 [Dynamic Programming - Tabulation]
+
+The brute force recursive approach has exponential time complexity due to redundant calculations. We can optimize using **dynamic programming (tabulation)** - build up the solution from bottom-up.
+
+The brute force recursive approach has exponential time complexity due to redundant calculations. We can optimize using **dynamic programming (tabulation)** - build up the solution from bottom-up.
+
+```csharp
+public static int FibonacciTabulation(int n)
+{
+    // Handle base cases
+    if (n <= 0) return 0;
+    if (n == 1) return 1;
+
+    // Create a table to store Fibonacci values
+    int[] dp = new int[n + 1];
+
+    // Initialize base cases
+    dp[0] = 0;
+    dp[1] = 1;
+
+    // Fill the table bottom-up
+    for (int i = 2; i <= n; i++)
+    {
+        dp[i] = dp[i - 1] + dp[i - 2];
+    }
+
+    return dp[n];
+}
+```
+
+```text
+Computing Fibonacci(5) with Tabulation:
+
+Step 1: Initialize array
+  dp = [0, 0, 0, 0, 0, 0]
+       [0, 1, ?, ?, ?, ?] (after setting base cases)
+
+Step 2: Build bottom-up
+  i=2: dp[2] = dp[1] + dp[0] = 1 + 0 = 1
+       dp = [0, 1, 1, ?, ?, ?]
+
+  i=3: dp[3] = dp[2] + dp[1] = 1 + 1 = 2
+       dp = [0, 1, 1, 2, ?, ?]
+
+  i=4: dp[4] = dp[3] + dp[2] = 2 + 1 = 3
+       dp = [0, 1, 1, 2, 3, ?]
+
+  i=5: dp[5] = dp[4] + dp[3] = 3 + 2 = 5
+       dp = [0, 1, 1, 2, 3, 5]
+
+Step 3: Return dp[5] = 5 ✓
+
+Computation trace:
+  dp[0]=0  (base case)
+  dp[1]=1  (base case)
+  dp[2]=1  (computed once)
+  dp[3]=2  (computed once)
+  dp[4]=3  (computed once)
+  dp[5]=5  (computed once)
+
+No redundant calculations!
+```
+
+**Comparison: Recursive vs Tabulation**
+
+```text
+Fibonacci(5) - Recursive (Brute Force):
+    Many duplicate calls shown in tree above
+    Total function calls: 15
+
+Fibonacci(5) - Tabulation:
+    Loop iterations: 4 (from i=2 to i=5)
+    Table lookups: 8 (two lookups per iteration)
+    Total operations: 12
+    Linear time!
+
+For larger values:
+
+Fibonacci(10):
+  Recursive: 177 function calls
+  Tabulation: 9 loop iterations ✓
+
+Fibonacci(20):
+  Recursive: 21,891 function calls
+  Tabulation: 19 loop iterations ✓
+```
+
+#### Space-Optimized Fibonacci (Tabulation)
+
+We can further optimize space by only keeping track of the last two values:
+
+```csharp
+public static int FibonacciSpaceOptimized(int n)
+{
+    // Handle base cases
+    if (n <= 0) return 0;
+    if (n == 1) return 1;
+
+    int prev2 = 0;   // F(0)
+    int prev1 = 1;   // F(1)
+
+    // Compute from bottom-up
+    for (int i = 2; i <= n; i++)
+    {
+        int current = prev1 + prev2;
+
+        // Shift values for next iteration
+        prev2 = prev1;
+        prev1 = current;
+    }
+
+    return prev1;
+}
+```
+
+```text
+Computing Fibonacci(5) with Space Optimization:
+
+Initial state:
+  prev2=0 (F(0)), prev1=1 (F(1))
+
+i=2: current = 1+0 = 1, prev2=1, prev1=1 (F(2)=1)
+i=3: current = 1+1 = 2, prev2=1, prev1=2 (F(3)=2)
+i=4: current = 2+1 = 3, prev2=2, prev1=3 (F(4)=3)
+i=5: current = 3+2 = 5, prev2=3, prev1=5 (F(5)=5)
+
+Return: 5 ✓
+
+No array needed, only two variables!
+```
+
+**Complexity Comparison:**
+
+| Approach | Time | Space | Notes |
+|----------|------|-------|-------|
+| **Recursive (Brute Force)** | O(2ⁿ) | O(n) | Exponential calls, exponential slowness |
+| **Memoization** | O(n) | O(n) | Cache prevents redundant calls |
+| **Tabulation** | O(n) | O(n) | Bottom-up DP with table |
+| **Space-Optimized** | O(n) | O(1) | Only stores last 2 values ✓ |
+
+- **Time Complexity :** `O(n)` (both Tabulation and Space-Optimized)
+    - Single loop from 2 to n
+    - Each iteration: constant time operations
+- **Space Complexity :**
+    - **Tabulation:** `O(n)` (stores all Fibonacci numbers 0 to n)
+    - **Space-Optimized:** `O(1)` (only stores two variables)
+
 ### 11. Power of two numbers
 
 Both numbers are positive number and greater than zero.
 Also number within the integer range so there is no overflow/ stack overflow.
+
+#### 11.1 [Brute Force - Linear]
 
 ```csharp
 public static int Power(int a, int n)
@@ -492,6 +791,97 @@ Power(3, 4)
 ```
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(n)`
+
+#### 11.2 [Binary Exponentiation]
+
+The naive approach makes n recursive calls for computing a^n. We can optimize this to O(log n) using **binary exponentiation** by exploiting the following property:
+
+- If n is even: a^n = (a²)^(n/2)
+- If n is odd: a^n = a × a^(n-1) = a × (a²)^((n-1)/2)
+
+```csharp
+public static int PowerBinaryExponentiation(int a, int n)
+{
+    // Handle edge cases
+    if (n < 0)
+    {
+        return -1;
+    }
+
+    // Base case
+    if (n == 0)
+    {
+        return 1;
+    }
+
+    // Recursive case with binary exponentiation
+    int halfPower = PowerBinaryExponentiation(a, n / 2);
+
+    // If n is even: a^n = (a^(n/2))^2
+    if (n % 2 == 0)
+    {
+        return halfPower * halfPower;
+    }
+    else
+    {
+        // If n is odd: a^n = a × (a^(n/2))^2
+        return a * halfPower * halfPower;
+    }
+}
+```
+
+```text
+Power(3, 8) - Binary Exponentiation
+
+Naive Approach:
+3^8 = 3^7 = 3^6 = 3^5 = 3^4 = 3^3 = 3^2 = 3^1 = 3^0
+(8 recursive calls)
+
+Binary Exponentiation:
+        PowerBinaryExp(3, 8)
+        n=8 (even) → compute (a²)^(n/2) = (3²)^4 = 9^4
+                  │
+                  ├─ PowerBinaryExp(3, 4)
+                  │  n=4 (even) → compute (a²)^(n/2) = (3²)^2 = 9^2
+                  │           │
+                  │           ├─ PowerBinaryExp(3, 2)
+                  │           │  n=2 (even) → compute (a²)^(n/2) = (3²)^1 = 9^1
+                  │           │           │
+                  │           │           ├─ PowerBinaryExp(3, 1)
+                  │           │           │  n=1 (odd) → 3 × (3^0)^2 = 3 × 1 = 3
+                  │           │           │
+                  │           │           ├─ halfPower = 3
+                  │           │           └─ return 3^2 = 9
+                  │           │
+                  │           ├─ halfPower = 9
+                  │           └─ return 9^2 = 81
+                  │
+                  ├─ halfPower = 81
+                  └─ return 81^2 = 6561
+
+Result: 3^8 = 6561 ✓
+(Only 4 recursive calls instead of 8!)
+
+Comparison:
+Power(2, 16):
+  Naive: 16 calls
+  Binary Exponentiation: log₂(16) = 4 calls ✓
+
+Power(2, 32):
+  Naive: 32 calls
+  Binary Exponentiation: log₂(32) = 5 calls ✓
+
+Power(2, 1000):
+  Naive: 1000 calls
+  Binary Exponentiation: log₂(1000) ≈ 10 calls ✓
+```
+
+- **Time Complexity :** `O(log n)`
+    - Each recursive call reduces n by half (n/2)
+    - Maximum depth = log₂(n)
+    - Total calls = O(log n)
+- **Space Complexity :** `O(log n)`
+    - Call stack depth: `O(log n)` (depth of recursion tree)
 
 ### 12. Count digits recursively
 
@@ -1121,6 +1511,8 @@ Explanation: There are five ways to reach 4th stair: {1, 1, 1, 1}, {1, 1, 2}, {2
 
 ```
 
+#### 22.1 [Brute Force - Recursive]
+
 ```csharp
 
 public int ClimbStairs(int n)
@@ -1161,6 +1553,101 @@ ClimbStairs(6)
 - **Space Complexity :** `O(n)`
     - Call stack depth: `n` (when going down one branch)
 
+#### 22.2 [Memoization]
+
+The brute force approach has exponential time complexity due to redundant calculations. We can optimize this by storing already computed results using **memoization**.
+
+```csharp
+public int ClimbStairsWithMemo(int n, Dictionary<int, int> memo = null)
+{
+    if (memo == null) memo = new Dictionary<int, int>();
+
+    // Base case
+    if (n == 0 || n == 1)
+    {
+        return 1;
+    }
+
+    if (n == 2)
+    {
+        return 2;
+    }
+
+    // Check if result is already computed
+    if (memo.ContainsKey(n))
+    {
+        return memo[n];
+    }
+
+    // Compute result and store in memo
+    int result = ClimbStairsWithMemo(n - 1, memo) + ClimbStairsWithMemo(n - 2, memo);
+    memo[n] = result;
+    return result;
+}
+```
+
+```text
+ClimbStairs(6) with Memoization
+
+                         ClimbStairs(6) → memo[6]=?
+                         /              \
+                        /                \
+            ClimbStairs(5) → memo[5]=?  ClimbStairs(4) → memo[4] FROM MEMO! ✓
+            /              \            (already computed when processing left branch)
+           /                \
+ClimbStairs(4) → memo[4]=?  ClimbStairs(3) → memo[3] FROM MEMO! ✓
+   /           \
+  /             \
+Compute...  ClimbStairs(2) → memo[2]=2 (base case)
+
+Memoization prevents redundant calculations:
+- ClimbStairs(4): Computed once, then retrieved from memo
+- ClimbStairs(3): Computed once, then retrieved from memo
+- ClimbStairs(2): Computed once, then retrieved from memo
+- ClimbStairs(1): Computed once, then retrieved from memo
+```
+
+Key Improvements:
+- **Before (Brute Force):** ClimbStairs(5) was called **multiple times** with exponential growth
+- **After (Memoization):** Each value computed **only once**, results cached for reuse
+
+```text
+Comparison: n=5
+
+Brute Force Call Tree:
+               ClimbStairs(5)
+              /              \
+          Clim(4)          Clim(3) ← Recalculated!
+         /       \          /      \
+      Clim(3)  Clim(2)  Clim(2)  Clim(1) ← Multiple calculations
+     /    \      (base)  (base)   (base)
+  Clim(2) Clim(1) ...
+
+Total calls for n=5: 15 function calls
+
+Memoization Call Tree:
+               ClimbStairs(5)
+              /              \
+          Clim(4)          Clim(3) ← MEMO!
+         /       \          /      \
+      Clim(3)  Clim(2)   (cached) Clim(1)
+     /    \      (base)           (base)
+  Clim(2) Clim(1)
+   (base)  (base)
+
+Total calls for n=5: 5 function calls
+```
+
+- **Time Complexity :** `O(n)`
+    - Each unique value (0 to n) computed exactly once
+    - Memo lookup: `O(1)` per call
+    - Total: `n` unique computations = `O(n)`
+- **Space Complexity :** `O(n)`
+    - Memo dictionary stores `n` entries
+    - Call stack depth: `O(n)` maximum
+    - Total: `O(n)`
+
+---
 
 ### 23. Tower of Hanoi
 
@@ -1828,6 +2315,8 @@ Result: "AXBYCZ"
 
 The numbers are positive numbers.
 
+#### 38.1 [Brute Force - Two Pass]
+
 ```csharp
 public static void MoveZeroes(int[] nums)
 {
@@ -1868,6 +2357,98 @@ Final: [4, 2, 1, 3, 0, 0, 0]
 ```
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(1)`
+
+#### 38.2 [Two-Pointer - Single Pass]
+
+While the current solution is already O(n) time and O(1) space, we can optimize it further by avoiding redundant assignments when there are no zeros. The **two-pointer** technique only swaps when necessary, reducing write operations.
+
+```csharp
+public static void MoveZeroesTwoPointer(int[] nums)
+{
+    int leftPtr = 0;  // Points to position where next non-zero should go
+
+    // First pass: move all non-zeros to the left
+    for (int rightPtr = 0; rightPtr < nums.Length; rightPtr++)
+    {
+        if (nums[rightPtr] != 0)
+        {
+            // Swap only if pointers are different (zeros exist)
+            if (leftPtr != rightPtr)
+            {
+                nums[leftPtr] = nums[rightPtr];
+                nums[rightPtr] = 0;
+            }
+            leftPtr++;
+        }
+    }
+}
+```
+
+```text
+Input: [0, 1, 0, 3, 12]
+
+Pointers move through array:
+  leftPtr=0 (next position for non-zero)
+  rightPtr=0 (scanning)
+
+Step 1: rightPtr=0, nums[0]=0 → Skip (zero)
+  State: [0, 1, 0, 3, 12]
+           L     R
+
+Step 2: rightPtr=1, nums[1]=1 (non-zero)
+  leftPtr ≠ rightPtr → Swap
+  nums[0]=1, nums[1]=0, leftPtr=1
+  State: [1, 0, 0, 3, 12]
+              L  R
+
+Step 3: rightPtr=2, nums[2]=0 → Skip (zero)
+  State: [1, 0, 0, 3, 12]
+              L     R
+
+Step 4: rightPtr=3, nums[3]=3 (non-zero)
+  leftPtr ≠ rightPtr → Swap
+  nums[1]=3, nums[3]=0, leftPtr=2
+  State: [1, 3, 0, 0, 12]
+                 L  R
+
+Step 5: rightPtr=4, nums[4]=12 (non-zero)
+  leftPtr ≠ rightPtr → Swap
+  nums[2]=12, nums[4]=0, leftPtr=3
+  State: [1, 3, 12, 0, 0]
+                    L  R
+
+Final: [1, 3, 12, 0, 0] ✓
+```
+
+**Key Optimization - Two Scenarios:**
+
+```text
+Scenario 1: Array has no zeros [1, 2, 3, 4]
+  Current approach: 4 assignments in first pass + no zeros to fill = 4 ops
+  Two-pointer: leftPtr==rightPtr always (no swaps) = 0 assignments!
+
+  Better for arrays with few/no zeros!
+
+Scenario 2: Array heavily with zeros [0, 0, 0, 1]
+  Current approach: 4 assignments + 3 assignments = 7 ops
+  Two-pointer: 1 swap (assign twice) = 2 ops
+
+  Better for arrays with many zeros!
+```
+
+- **Time Complexity :** `O(n)`
+    - Single pass through array (rightPtr goes from 0 to n)
+    - Each element visited once
+- **Space Complexity :** `O(1)`
+    - Only two pointers used
+    - In-place modification
+
+**Comparison Summary:**
+
+| Method | Approach | Writes | Best For |
+|--------|----------|--------|----------|
+| Current | Two-pass: collect non-zeros, fill zeros | Always n writes | Balanced |
+| Two-Pointer | Single-pass with conditional swap | Fewer when few zeros | Few/no zeros |
 
 ### 39. Duplicate Characters
 
@@ -1915,6 +2496,8 @@ Step 3: Collect in original order
 
 The array is not null. Please complete with `O(1)` space complexity.
 
+#### 40.1 [Brute Force - Nested Loop]
+
 ```csharp
 public static bool ContainsDuplicate(int[] nums)
 {
@@ -1948,6 +2531,85 @@ Comparisons made:
 ```
 - **Time Complexity :** `O(n²)`
 - **Space Complexity :** `O(1)`
+
+#### 40.2 [Hash Set]
+
+The brute force approach requires comparing each pair, resulting in quadratic time complexity. We can optimize this to linear time by using a **hash set** to track seen elements.
+
+```csharp
+public static bool ContainsDuplicateWithHashSet(int[] nums)
+{
+    HashSet<int> seen = new HashSet<int>();
+
+    foreach (int num in nums)
+    {
+        // If the element is already in the set, we found a duplicate
+        if (seen.Contains(num))
+        {
+            return true;
+        }
+
+        // Add the current element to the set
+        seen.Add(num);
+    }
+
+    return false;
+}
+```
+
+```text
+nums = [1, 2, 3, 1]
+
+Step 1: Process nums[0] = 1
+  seen = {1}
+
+Step 2: Process nums[1] = 2
+  2 in seen? NO → Add 2
+  seen = {1, 2}
+
+Step 3: Process nums[2] = 3
+  3 in seen? NO → Add 3
+  seen = {1, 2, 3}
+
+Step 4: Process nums[3] = 1
+  1 in seen? YES ✓ → Found duplicate!
+  Return true
+
+Early termination at index 3, no further comparisons needed!
+```
+
+**Comparison: Brute Force vs Hash Set**
+
+```text
+Brute Force [1, 2, 3, 1]:
+  Compare (0,1): 1 vs 2 ✗
+  Compare (0,2): 1 vs 3 ✗
+  Compare (0,3): 1 vs 1 ✓ ← Takes 3 comparisons to find duplicate
+  Compare (1,2): 2 vs 3 ✗ (done after finding)
+  Total comparisons: 3
+
+Hash Set [1, 2, 3, 1]:
+  Element 1: Add to set (1 operation)
+  Element 2: Add to set (1 operation)
+  Element 3: Add to set (1 operation)
+  Element 1: Found in set! (1 check) ✓
+  Total operations: 4 simple checks
+  Early termination: YES
+```
+
+**Trade-offs:**
+- **Brute Force:** O(n²) time, O(1) space (no extra data structure)
+- **Hash Set:** O(n) time, O(n) space (stores up to n elements)
+- **When to use Hash Set:** When n is large; time is more critical than space
+
+- **Time Complexity :** `O(n)`
+    - Single pass through array
+    - Each hash set operation (contains/add): `O(1)` average case
+    - Total: `O(n)`
+- **Space Complexity :** `O(min(n, k))`
+    - k = number of unique elements
+    - Hash set stores up to n elements in worst case (no duplicates)
+    - But early termination on finding duplicate reduces practical space needed
 
 ### 41. Valid Palindrome
 
@@ -2155,6 +2817,8 @@ s = "({[]})"
 Result: true ✓
 ```
 
+#### 45.1 [Brute Force - Multiple If-Else]
+
 ```csharp
 public static bool IsValid(string s)
  {
@@ -2214,6 +2878,127 @@ All matched → Valid ✓
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(n)`
 
+#### 45.2 [Bracket Mapping - Dictionary]
+
+The current solution requires multiple if-else statements for bracket matching. We can optimize code clarity and slightly improve performance using a **dictionary** for bracket pair mapping.
+
+```csharp
+public static bool IsValidWithMapping(string s)
+{
+    // Early exit for odd-length strings (can't be balanced)
+    if (s.Length % 2 != 0)
+    {
+        return false;
+    }
+
+    // Define bracket pair mapping
+    Dictionary<char, char> bracketMap = new Dictionary<char, char>
+    {
+        { ')', '(' },
+        { '}', '{' },
+        { ']', '[' }
+    };
+
+    Stack<char> stack = new Stack<char>();
+
+    foreach (char ch in s)
+    {
+        // If current char is a closing bracket
+        if (bracketMap.ContainsKey(ch))
+        {
+            // Check if stack is empty or top doesn't match
+            if (stack.Count == 0 || stack.Pop() != bracketMap[ch])
+            {
+                return false;
+            }
+        }
+        else
+        {
+            // Current char is an opening bracket
+            stack.Push(ch);
+        }
+    }
+
+    // Valid if stack is empty (all brackets matched)
+    return stack.Count == 0;
+}
+```
+
+```text
+String: ({[]})
+Bracket map: { ')' → '(', '}' → '{', ']' → '[' }
+
+Position 0: ch='(' → Opening bracket → Push (
+  Stack: (
+
+Position 1: ch='{' → Opening bracket → Push {
+  Stack: ( {
+
+Position 2: ch='[' → Opening bracket → Push [
+  Stack: ( { [
+
+Position 3: ch=']' → Closing bracket
+  Check: bracketMap[']'] = '[', stack.Pop() = '[' ✓ Match!
+  Stack: ( {
+
+Position 4: ch='}' → Closing bracket
+  Check: bracketMap['}'] = '{', stack.Pop() = '{' ✓ Match!
+  Stack: (
+
+Position 5: ch=')' → Closing bracket
+  Check: bracketMap[')'] = '(', stack.Pop() = '(' ✓ Match!
+  Stack: EMPTY
+
+Return: stack.Count == 0 → true ✓
+
+All brackets matched in order!
+```
+
+**Advantages of Mapping Approach:**
+
+```text
+Original (Multiple if-else):
+  if (ch == ')' && braces.Peek() == '(') { braces.Pop(); }
+  else if (ch == '}' && braces.Peek() == '{') { braces.Pop(); }
+  else if (ch == ']' && braces.Peek() == '[') { braces.Pop(); }
+  else { braces.Push(ch); }
+
+Problems:
+  - 3 separate comparisons per character
+  - Redundant bracket pushing logic
+  - Not scalable to more bracket types
+
+Optimized (Dictionary Mapping):
+  if (bracketMap.ContainsKey(ch)) {
+    if (stack.Pop() != bracketMap[ch]) return false;
+  } else {
+    stack.Push(ch);
+  }
+
+Benefits:
+  - Cleaner, more readable code
+  - Easily extensible for more bracket types
+  - Dictionary lookup is O(1) average case
+  - Single code path for all closing brackets
+```
+
+**Comparison:**
+
+| Aspect | Original | Mapping |
+|--------|----------|---------|
+| **Closing bracket detection** | 3 separate if-else | Dictionary contains check |
+| **Matching logic** | Repeated in each condition | Unified with dictionary lookup |
+| **Extensibility** | Add more if-else for new types | Just add to dictionary |
+| **Code lines** | 10+ | 6-8 |
+| **Logic clarity** | Verbose | Clear intent |
+
+- **Time Complexity :** `O(n)`
+    - Single pass through string
+    - Stack operations (push/pop): O(1)
+    - Dictionary operations (contains/lookup): O(1) average
+- **Space Complexity :** `O(n)`
+    - Stack size: O(n) in worst case (all opening brackets)
+    - Dictionary size: O(1) constant (always 3 bracket pairs)
 
 ### 46. Evaluate Reverse Polish Notation
 You are given an array of strings tokens that represents an arithmetic expression in a Reverse Polish Notation.
@@ -2551,3 +3336,531 @@ Found: nums[4] = 0
 ```
 - **Time Complexity :** `O(log n)`
 - **Space Complexity :** `O(1)`
+---
+
+## Level 9: Linked List (Linear Data Structure with Pointers)
+
+> `Iterative & Recursive techniques`
+
+### 51. Reverse a Linked List
+
+#### 51.1 [Brute Force - Iterative]
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(n)`
+- **Space Complexity :** `O(1)`
+
+#### 51.2 [Recursive]
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(n)`
+- **Space Complexity :** `O(n)` (Call stack)
+
+---
+
+### 52. Detect Cycle in Linked List
+
+#### 52.1 [Brute Force - Hash Set]
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(n)`
+- **Space Complexity :** `O(n)`
+
+#### 52.2 [Two-Pointer (Floyd's Cycle Detection)]
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(n)`
+- **Space Complexity :** `O(1)`
+
+---
+
+### 53. Merge Two Sorted Linked Lists
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(n + m)`
+- **Space Complexity :** `O(1)`
+
+---
+
+### 54. Find Middle of Linked List
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(n)`
+- **Space Complexity :** `O(1)`
+
+---
+
+### 55. Remove Nth Node From End of List
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(n)`
+- **Space Complexity :** `O(1)`
+
+---
+
+### 56. Linked List Palindrome Check
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(n)`
+- **Space Complexity :** `O(1)` or `O(n)`
+
+---
+
+## Level 10: Tree (Hierarchical Data Structure)
+
+> `Traversal & Search techniques`
+
+### 57. Tree Traversals (Inorder, Preorder, Postorder)
+
+#### 57.1 [Brute Force - Recursive]
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(n)`
+- **Space Complexity :** `O(h)` (h = height)
+
+#### 57.2 [Iterative - Stack]
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(n)`
+- **Space Complexity :** `O(h)`
+
+---
+
+### 58. Level Order Traversal (BFS)
+
+#### 58.1 [Brute Force - Recursive]
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(n)`
+- **Space Complexity :** `O(n)`
+
+#### 58.2 [Iterative - Queue]
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(n)`
+- **Space Complexity :** `O(w)` (w = max width)
+
+---
+
+### 59. Binary Search Tree Validation
+
+#### 59.1 [Brute Force - Min/Max Range]
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(n)`
+- **Space Complexity :** `O(h)`
+
+#### 59.2 [Optimized - Recursive Range Check]
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(n)`
+- **Space Complexity :** `O(h)`
+
+---
+
+### 60. Lowest Common Ancestor (LCA)
+
+#### 60.1 [Brute Force - Store Path]
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(n)`
+- **Space Complexity :** `O(h)`
+
+#### 60.2 [Optimized - Single Pass]
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(n)`
+- **Space Complexity :** `O(h)`
+
+---
+
+### 61. Maximum Path Sum in Binary Tree
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(n)`
+- **Space Complexity :** `O(h)`
+
+---
+
+### 62. Serialize and Deserialize Tree
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(n)`
+- **Space Complexity :** `O(n)`
+
+---
+
+### 63. Balanced Binary Tree Check
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(n)`
+- **Space Complexity :** `O(h)`
+
+---
+
+## Level 11: Graph (Network & Relationship Modeling)
+
+> `Traversal & Path Finding techniques`
+
+### 64. Graph Traversals (DFS, BFS)
+
+#### 64.1 [Brute Force - DFS Recursive]
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(V + E)`
+- **Space Complexity :** `O(V)` (Visited set + Call stack)
+
+#### 64.2 [DFS Iterative - Stack]
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(V + E)`
+- **Space Complexity :** `O(V)`
+
+#### 64.3 [BFS - Queue]
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(V + E)`
+- **Space Complexity :** `O(V)`
+
+---
+
+### 65. Detect Cycle in Graph
+
+#### 65.1 [Brute Force - DFS]
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(V + E)`
+- **Space Complexity :** `O(V)`
+
+#### 65.2 [Union-Find (Disjoint Set)]
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O((V + E) * α(V))` (α = inverse Ackermann)
+- **Space Complexity :** `O(V)`
+
+---
+
+### 66. Topological Sort
+
+#### 66.1 [Brute Force - DFS]
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(V + E)`
+- **Space Complexity :** `O(V)`
+
+#### 66.2 [Kahn's Algorithm - BFS]
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(V + E)`
+- **Space Complexity :** `O(V)`
+
+---
+
+### 67. Shortest Path (Dijkstra)
+
+#### 67.1 [Brute Force - Bellman-Ford]
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(V * E)`
+- **Space Complexity :** `O(V)`
+
+#### 67.2 [Optimized - Dijkstra with Priority Queue]
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O((V + E) log V)`
+- **Space Complexity :** `O(V)`
+
+---
+
+### 68. Minimum Spanning Tree
+
+#### 68.1 [Kruskal's Algorithm]
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(E log E)`
+- **Space Complexity :** `O(V)`
+
+#### 68.2 [Prim's Algorithm]
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(V² )` or `O((V + E) log V)` with priority queue
+- **Space Complexity :** `O(V)`
+
+---
+
+### 69. Word Ladder / Connected Components
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(V + E)`
+- **Space Complexity :** `O(V)`
+
+---
+
+## Level 12: Dynamic Programming (Optimization Strategy)
+
+> `Memoization & Tabulation techniques`
+
+### 70. Longest Common Subsequence (LCS)
+
+#### 70.1 [Brute Force - Recursive]
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(2ⁿ⁺ᵐ)`
+- **Space Complexity :** `O(n + m)` (Call stack)
+
+#### 70.2 [Memoization]
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(n * m)`
+- **Space Complexity :** `O(n * m)` (Memo table + Call stack)
+
+#### 70.3 [Tabulation - DP Table]
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(n * m)`
+- **Space Complexity :** `O(n * m)`
+
+---
+
+### 71. Longest Increasing Subsequence (LIS)
+
+#### 71.1 [Brute Force - O(2ⁿ)]
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(2ⁿ)`
+- **Space Complexity :** `O(n)` (Call stack)
+
+#### 71.2 [DP - O(n²)]
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(n²)`
+- **Space Complexity :** `O(n)`
+
+#### 71.3 [Binary Search Optimized - O(n log n)]
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(n log n)`
+- **Space Complexity :** `O(n)`
+
+---
+
+### 72. 0/1 Knapsack Problem
+
+#### 72.1 [Brute Force - Exponential]
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(2ⁿ)`
+- **Space Complexity :** `O(n)`
+
+#### 72.2 [DP Tabulation - O(n*w)]
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(n * w)` (n = items, w = weight capacity)
+- **Space Complexity :** `O(n * w)`
+
+---
+
+### 73. Coin Change Problem
+
+#### 73.1 [Brute Force - Recursive]
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(sum^n)` (sum = target, n = coin types)
+- **Space Complexity :** `O(sum)`
+
+#### 73.2 [DP - Minimum Coins]
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(sum * n)`
+- **Space Complexity :** `O(sum)`
+
+---
+
+### 74. Edit Distance (Levenshtein)
+
+#### 74.1 [Brute Force - Recursive]
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(3ⁿ⁺ᵐ)`
+- **Space Complexity :** `O(n + m)`
+
+#### 74.2 [DP Tabulation]
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(n * m)`
+- **Space Complexity :** `O(n * m)`
+
+---
+
+### 75. Matrix Chain Multiplication
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(n³)`
+- **Space Complexity :** `O(n²)`
+
+---
+
+### 76. Unique Paths in Grid
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(m * n)`
+- **Space Complexity :** `O(m * n)`
+
+---
+
+### 77. Maximum Subarray (Kadane's Algorithm)
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(n)`
+- **Space Complexity :** `O(1)`
+
+---
+
+## Level 13: Greedy Techniques (Local Optimal Choice)
+
+> `Greedy & Optimization techniques`
+
+### 78. Activity Selection Problem
+
+#### 78.1 [Brute Force - All Combinations]
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(2ⁿ)`
+- **Space Complexity :** `O(n)`
+
+#### 78.2 [Greedy - Earliest Finish Time]
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(n log n)` (Sorting)
+- **Space Complexity :** `O(1)`
+
+---
+
+### 79. Huffman Coding
+
+#### 79.1 [Brute Force - All Frequencies]
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(2ⁿ)`
+- **Space Complexity :** `O(n)`
+
+#### 79.2 [Greedy - Min Heap]
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(n log n)`
+- **Space Complexity :** `O(n)`
+
+---
+
+### 80. Fractional Knapsack Problem
+
+#### 80.1 [Brute Force - All Permutations]
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(n!)`
+- **Space Complexity :** `O(n)`
+
+#### 80.2 [Greedy - Value/Weight Ratio]
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(n log n)` (Sorting)
+- **Space Complexity :** `O(1)`
+
+---
+
+### 81. Jump Game / Reach End of Array
+
+#### 81.1 [Brute Force - BFS/DFS]
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(2ⁿ)` or `O(n²)` with optimization
+- **Space Complexity :** `O(n)`
+
+#### 81.2 [Greedy - Maximum Reach]
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(n)`
+- **Space Complexity :** `O(1)`
+
+---
+
+### 82. Interval Scheduling Maximization
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(n log n)`
+- **Space Complexity :** `O(1)`
+
+---
+
+### 83. Gas Station / Circuit
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(n)`
+- **Space Complexity :** `O(1)`
+
+---
+
+### 84. Candy Distribution Problem
+
+**Placeholder for implementation**
+
+- **Time Complexity :** `O(n)`
+- **Space Complexity :** `O(n)`
+
+---
