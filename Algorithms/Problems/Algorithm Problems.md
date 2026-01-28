@@ -156,88 +156,88 @@ Level 9: Linked List (Linear Data Structure with Pointers)
 └── 74. Linked List Palindrome Check
 
 Level 10: Tree (Hierarchical Data Structure)
-├── 70. Tree Traversals (Inorder, Preorder, Postorder)
-│   ├── 70.1 [Brute Force - Recursive]
-│   └── 70.2 [Iterative - Stack]
-├── 71. Level Order Traversal (BFS)
-│   ├── 71.1 [Brute Force - Recursive]
-│   └── 71.2 [Iterative - Queue]
-├── 72. Binary Search Tree Validation
-│   ├── 72.1 [Brute Force - Min/Max Range]
-│   └── 72.2 [Optimized - Recursive Range Check]
-├── 73. Lowest Common Ancestor (LCA)
-│   ├── 73.1 [Brute Force - Store Path]
-│   └── 73.2 [Optimized - Single Pass]
-├── 74. Maximum Path Sum in Binary Tree
-├── 75. Serialize and Deserialize Tree
-└── 76. Balanced Binary Tree Check
+├── 75. Tree Traversals (Inorder, Preorder, Postorder)
+│   ├── 75.1 [Brute Force - Recursive]
+│   └── 75.2 [Iterative - Stack]
+├── 76. Level Order Traversal (BFS)
+│   ├── 76.1 [Brute Force - Recursive]
+│   └── 76.2 [Iterative - Queue]
+├── 77. Binary Search Tree Validation
+│   ├── 77.1 [Brute Force - Min/Max Range]
+│   └── 77.2 [Optimized - Recursive Range Check]
+├── 78. Lowest Common Ancestor (LCA)
+│   ├── 78.1 [Brute Force - Store Path]
+│   └── 78.2 [Optimized - Single Pass]
+├── 79. Maximum Path Sum in Binary Tree
+├── 80. Serialize and Deserialize Tree
+└── 81. Balanced Binary Tree Check
 
 Level 11: Graph (Network & Relationship Modeling)
-├── 77. Graph Traversals (DFS, BFS)
-│   ├── 77.1 [Brute Force - DFS Recursive]
-│   ├── 77.2 [DFS Iterative - Stack]
-│   └── 77.3 [BFS - Queue]
-├── 78. Detect Cycle in Graph
-│   ├── 78.1 [Brute Force - DFS]
-│   └── 78.2 [Union-Find (Disjoint Set)]
-├── 79. Topological Sort
-│   ├── 79.1 [Brute Force - DFS]
-│   └── 79.2 [Kahn's Algorithm - BFS]
-├── 80. Shortest Path (Dijkstra)
-│   ├── 80.1 [Brute Force - Bellman-Ford]
-│   └── 80.2 [Optimized - Dijkstra with Priority Queue]
-├── 81. Minimum Spanning Tree
-│   ├── 81.1 [Kruskal's Algorithm]
-│   └── 81.2 [Prim's Algorithm]
-├── 82. Word Ladder / Connected Components
-└── 83. Rotting Oranges (2D Matrix BFS)
+├── 82. Graph Traversals (DFS, BFS)
+│   ├── 82.1 [Brute Force - DFS Recursive]
+│   ├── 82.2 [DFS Iterative - Stack]
+│   └── 82.3 [BFS - Queue]
+├── 83. Detect Cycle in Graph
+│   ├── 83.1 [Brute Force - DFS]
+│   └── 83.2 [Union-Find (Disjoint Set)]
+├── 84. Topological Sort
+│   ├── 84.1 [Brute Force - DFS]
+│   └── 84.2 [Kahn's Algorithm - BFS]
+├── 85. Shortest Path (Dijkstra)
+│   ├── 85.1 [Brute Force - Bellman-Ford]
+│   └── 85.2 [Optimized - Dijkstra with Priority Queue]
+├── 86. Minimum Spanning Tree
+│   ├── 86.1 [Kruskal's Algorithm]
+│   └── 86.2 [Prim's Algorithm]
+├── 87. Word Ladder / Connected Components
+└── 88. Rotting Oranges (2D Matrix BFS)
 
 Level 12: Dynamic Programming (Optimization Strategy)
-├── 84. Longest Common Subsequence (LCS)
-│   ├── 84.1 [Brute Force - Recursive]
-│   ├── 84.2 [Memoization]
-│   └── 84.3 [Tabulation - DP Table]
-├── 85. Longest Increasing Subsequence (LIS)
-│   ├── 85.1 [Brute Force - O(2ⁿ)]
-│   ├── 85.2 [DP - O(n²)]
-│   └── 85.3 [Binary Search Optimized - O(n log n)]
-├── 86. 0/1 Knapsack Problem
-│   ├── 86.1 [Brute Force - Exponential]
-│   └── 86.2 [DP Tabulation - O(n*w)]
-├── 87. Coin Change Problem
-│   ├── 87.1 [Brute Force - Recursive]
-│   └── 87.2 [DP - Minimum Coins]
-├── 88. Edit Distance (Levenshtein)
-│   ├── 88.1 [Brute Force - Recursive]
-│   └── 88.2 [DP Tabulation]
-├── 89. Matrix Chain Multiplication
-├── 90. Unique Paths in Grid
-├── 91. Maximum Subarray (Kadane's Algorithm)
-├── 92. Best Time to Buy and Sell Stock
-│   ├── 92.1 [Brute Force - All Pairs]
-│   ├── 92.2 [Dynamic Programming - Max Profit]
-│   └── 92.3 [Greedy - Single Pass]
-└── 93. Trapping Rain Water (Max Water Container)
-    ├── 93.1 [Brute Force - Height Pairs]
-    ├── 93.2 [Two-Pointer Approach]
-    └── 93.3 [Dynamic Programming]
+├── 89. Longest Common Subsequence (LCS)
+│   ├── 89.1 [Brute Force - Recursive]
+│   ├── 89.2 [Memoization]
+│   └── 89.3 [Tabulation - DP Table]
+├── 90. Longest Increasing Subsequence (LIS)
+│   ├── 90.1 [Brute Force - O(2ⁿ)]
+│   ├── 90.2 [DP - O(n²)]
+│   └── 90.3 [Binary Search Optimized - O(n log n)]
+├── 91. 0/1 Knapsack Problem
+│   ├── 91.1 [Brute Force - Exponential]
+│   └── 91.2 [DP Tabulation - O(n*w)]
+├── 92. Coin Change Problem
+│   ├── 92.1 [Brute Force - Recursive]
+│   └── 92.2 [DP - Minimum Coins]
+├── 93. Edit Distance (Levenshtein)
+│   ├── 93.1 [Brute Force - Recursive]
+│   └── 93.2 [DP Tabulation]
+├── 94. Matrix Chain Multiplication
+├── 95. Unique Paths in Grid
+├── 96. Maximum Subarray (Kadane's Algorithm)
+├── 97. Best Time to Buy and Sell Stock
+│   ├── 97.1 [Brute Force - All Pairs]
+│   ├── 97.2 [Dynamic Programming - Max Profit]
+│   └── 97.3 [Greedy - Single Pass]
+└── 98. Trapping Rain Water (Max Water Container)
+    ├── 98.1 [Brute Force - Height Pairs]
+    ├── 98.2 [Two-Pointer Approach]
+    └── 98.3 [Dynamic Programming]
 
 Level 13: Greedy Techniques (Local Optimal Choice)
-├── 94. Activity Selection Problem
-│   ├── 94.1 [Brute Force - All Combinations]
-│   └── 94.2 [Greedy - Earliest Finish Time]
-├── 95. Huffman Coding
-│   ├── 95.1 [Brute Force - All Frequencies]
-│   └── 95.2 [Greedy - Min Heap]
-├── 96. Fractional Knapsack Problem
-│   ├── 96.1 [Brute Force - All Permutations]
-│   └── 96.2 [Greedy - Value/Weight Ratio]
-├── 97. Jump Game / Reach End of Array
-│   ├── 97.1 [Brute Force - BFS/DFS]
-│   └── 97.2 [Greedy - Maximum Reach]
-├── 98. Interval Scheduling Maximization
-├── 99. Gas Station / Circuit
-└── 100. Candy Distribution Problem
+├── 99. Activity Selection Problem
+│   ├── 99.1 [Brute Force - All Combinations]
+│   └── 99.2 [Greedy - Earliest Finish Time]
+├── 100. Huffman Coding
+│   ├── 100.1 [Brute Force - All Frequencies]
+│   └── 100.2 [Greedy - Min Heap]
+├── 101. Fractional Knapsack Problem
+│   ├── 101.1 [Brute Force - All Permutations]
+│   └── 101.2 [Greedy - Value/Weight Ratio]
+├── 102. Jump Game / Reach End of Array
+│   ├── 102.1 [Brute Force - BFS/DFS]
+│   └── 102.2 [Greedy - Maximum Reach]
+├── 103. Interval Scheduling Maximization
+├── 104. Gas Station / Circuit
+└── 105. Candy Distribution Problem
 │   └── 84.2 [Greedy - Earliest Finish Time]
 ├── 85. Huffman Coding
 │   ├── 85.1 [Brute Force - All Frequencies]
@@ -252,6 +252,732 @@ Level 13: Greedy Techniques (Local Optimal Choice)
 ├── 89. Gas Station / Circuit
 └── 90. Candy Distribution Problem
 ```
+
+---
+
+# Algorithm Time & Space Complexity Analysis Guide
+
+## **📊 Table of Contents**
+1. [Introduction to Complexity](#introduction)
+2. [Time Complexity Analysis](#time-complexity)
+3. [Space Complexity Analysis](#space-complexity)
+4. [Complexity Classes](#complexity-classes)
+5. [Analysis Techniques](#analysis-techniques)
+6. [Common Patterns](#common-patterns)
+7. [Visual Graphs](#visual-graphs)
+8. [Practical Examples](#practical-examples)
+
+---
+
+## **1. Introduction to Complexity** <a name="introduction"></a>
+
+### **What is Algorithm Complexity?**
+Algorithm complexity measures how the **resource requirements** (time and space) grow as the input size increases.
+
+### **Why It Matters**
+- Predict algorithm performance
+- Compare algorithms
+- Scale applications
+- Optimize code
+- Pass coding interviews
+
+### **Big O Notation (Asymptotic Analysis)**
+Measures worst-case growth rate as n → ∞
+
+| Notation | Name | Description |
+|----------|------|-------------|
+| **O(1)** | Constant | Time/space doesn't change with input |
+| **O(log n)** | Logarithmic | Halves problem each step |
+| **O(n)** | Linear | Grows proportionally with input |
+| **O(n log n)** | Linearithmic | Common in efficient sorts |
+| **O(n²)** | Quadratic | Nested loops |
+| **O(2ⁿ)** | Exponential | Doubles with each addition |
+| **O(n!)** | Factorial | All permutations |
+
+---
+
+## **2. Time Complexity Analysis** <a name="time-complexity"></a>
+
+### **Basic Rules for Analysis**
+
+#### **1. Drop Constants**
+```csharp
+// O(2n) → O(n)
+for (int i = 0; i < n; i++) { }      // O(n)
+for (int j = 0; j < n; j++) { }      // O(n)
+// Total: O(2n) = O(n)
+```
+
+#### **2. Drop Non-Dominant Terms**
+```csharp
+// O(n² + n) → O(n²)
+for (int i = 0; i < n; i++) {        // O(n)
+    for (int j = 0; j < n; j++) { }  // O(n²) - dominant
+}
+```
+
+#### **3. Different Inputs → Different Variables**
+```csharp
+// O(n × m) not O(n²)
+for (int i = 0; i < n; i++) {
+    for (int j = 0; j < m; j++) { }
+}
+```
+
+### **Step-by-Step Analysis Process**
+
+1. **Identify input size `n`**
+2. **Count primitive operations**
+3. **Express as function f(n)**
+4. **Find dominant term**
+5. **Remove constants**
+6. **Use Big O notation**
+
+---
+
+## **3. Space Complexity Analysis** <a name="space-complexity"></a>
+
+### **What Counts Towards Space?**
+- Variables
+- Data structures (arrays, lists, trees)
+- Function call stack (recursion)
+- Auxiliary space (temporary variables)
+
+### **Space Complexity Examples**
+
+```csharp
+// O(1) Space
+public int Sum(int[] arr) {
+    int total = 0;           // O(1)
+    for (int i = 0; i < arr.Length; i++) {
+        total += arr[i];     // O(1)
+    }
+    return total;
+}
+
+// O(n) Space
+public int[] DoubleArray(int[] arr) {
+    int[] result = new int[arr.Length];  // O(n)
+    for (int i = 0; i < arr.Length; i++) {
+        result[i] = arr[i] * 2;
+    }
+    return result;
+}
+
+// O(n) Space (Recursion)
+public int Factorial(int n) {
+    if (n <= 1) return 1;
+    return n * Factorial(n - 1);  // O(n) call stack
+}
+```
+
+---
+
+## **4. Complexity Classes** <a name="complexity-classes"></a>
+
+### **Common Time Complexities**
+
+| Complexity | Example Algorithms | Growth Rate |
+|------------|-------------------|-------------|
+| **O(1)** | Array access, Hash table lookup | Constant |
+| **O(log n)** | Binary search, Balanced BST operations | Very slow growth |
+| **O(n)** | Linear search, Counting sort | Proportional |
+| **O(n log n)** | Merge sort, Heap sort, Quick sort (avg) | Almost linear |
+| **O(n²)** | Bubble sort, Selection sort, Insertion sort | Quadratic |
+| **O(2ⁿ)** | Fibonacci (naive), Subset generation | Exponential |
+| **O(n!)** | Traveling salesman (brute force) | Factorial |
+
+### **Space Complexity Classes**
+
+| Complexity | Description | Examples |
+|------------|-------------|----------|
+| **O(1)** | In-place algorithms | Swap, iterative factorial |
+| **O(log n)** | Recursive divide & conquer | Binary search (recursive) |
+| **O(n)** | Linear storage | Array copy, recursion depth |
+| **O(n²)** | 2D matrices | Adjacency matrix |
+
+---
+
+## **5. Analysis Techniques** <a name="analysis-techniques"></a>
+
+### **1. Counting Operations**
+
+```csharp
+// Example: Linear Search
+public int LinearSearch(int[] arr, int target) {
+    for (int i = 0; i < arr.Length; i++) {  // n iterations
+        if (arr[i] == target) {             // 1 comparison
+            return i;                        // 1 return
+        }
+    }
+    return -1;                               // 1 return
+}
+// Worst case: n comparisons + 1 return = O(n)
+```
+
+### **2. Recursive Analysis (Master Theorem)**
+
+For recurrence: **T(n) = aT(n/b) + f(n)**
+
+| Case | Condition | Complexity |
+|------|-----------|------------|
+| 1 | f(n) = O(n^(log_b a - ε)) | O(n^(log_b a)) |
+| 2 | f(n) = Θ(n^(log_b a)) | O(n^(log_b a) log n) |
+| 3 | f(n) = Ω(n^(log_b a + ε)) | O(f(n)) |
+
+**Example: Merge Sort**
+```
+T(n) = 2T(n/2) + O(n)
+a=2, b=2, log_b a = 1
+f(n) = O(n) = Θ(n¹) → Case 2
+Complexity: O(n log n)
+```
+
+### **3. Amortized Analysis**
+
+```csharp
+// Dynamic array (List<T>) insertion
+// Most insertions: O(1)
+// When resizing: O(n)
+// Amortized: O(1)
+```
+
+---
+
+## **6. Common Patterns** <a name="common-patterns"></a>
+
+### **Pattern 1: Single Loop**
+```csharp
+for (int i = 0; i < n; i++) { }
+// Time: O(n)
+// Space: O(1)
+```
+
+### **Pattern 2: Nested Loops**
+```csharp
+for (int i = 0; i < n; i++) {
+    for (int j = 0; j < n; j++) { }
+}
+// Time: O(n²)
+```
+
+### **Pattern 3: Divide and Conquer**
+```csharp
+public void Process(int[] arr, int start, int end) {
+    if (start >= end) return;
+    int mid = (start + end) / 2;
+    Process(arr, start, mid);     // T(n/2)
+    Process(arr, mid + 1, end);   // T(n/2)
+    Merge(arr, start, mid, end);  // O(n)
+}
+// Time: O(n log n)
+```
+
+### **Pattern 4: Backtracking**
+```csharp
+public void GenerateSubsets(int[] nums, int index, List<int> current) {
+    if (index == nums.Length) {
+        // Process subset
+        return;
+    }
+    // Exclude current
+    GenerateSubsets(nums, index + 1, current);
+    // Include current
+    current.Add(nums[index]);
+    GenerateSubsets(nums, index + 1, current);
+    current.RemoveAt(current.Count - 1);
+}
+// Time: O(2ⁿ) - binary choice at each level
+// Space: O(n) - recursion depth
+```
+
+---
+
+## **7. Visual Growth Graphs** <a name="visual-graphs"></a>
+
+### **Time Complexity Growth Rates**
+```
+Operations
+10^12 ┤
+10^9  ┤
+10^6  ┤           O(2^n)
+10^3  ┤       O(n^2)
+100   ┤   O(n log n)
+10    ┤ O(n)
+1     ┼─────O(log n)─────O(1)─────────►
+      1   10  100  1K   10K   100K   n
+```
+
+### **Comparison Table (Operations for n=1,000,000)**
+
+| Complexity | Operations | Time (1μs/op) |
+|------------|------------|---------------|
+| O(1) | 1 | 1 microsecond |
+| O(log n) | ~20 | 20 μs |
+| O(n) | 1,000,000 | 1 second |
+| O(n log n) | 20,000,000 | 20 seconds |
+| O(n²) | 10¹² | 11.5 days |
+| O(2ⁿ) | 2¹⁰⁰⁰⁰⁰⁰ | 10³⁰¹⁰⁵⁶ years! |
+
+### **Graph: Time Complexity Comparison**
+```
+Operations (log scale)
+│
+│                                  O(2^n)
+│
+│                      O(n^2)
+│
+│          O(n log n)
+│
+│      O(n)
+│
+│  O(log n)
+│
+└───────────►
+   Input Size (n)
+```
+
+---
+
+## **8. Practical Examples** <a name="practical-examples"></a>
+
+### **Example 1: Fibonacci Analysis**
+
+```csharp
+// Naive Recursive - O(2ⁿ) time, O(n) space
+public int Fib(int n) {
+    if (n <= 1) return n;
+    return Fib(n-1) + Fib(n-2);
+    // Recurrence: T(n) = T(n-1) + T(n-2) + O(1)
+    // ≈ φⁿ ≈ 1.618ⁿ exponential
+}
+
+// Memoized - O(n) time, O(n) space
+public int FibMemo(int n, Dictionary<int, int> memo = null) {
+    if (n <= 1) return n;
+    if (memo.ContainsKey(n)) return memo[n];
+    memo[n] = FibMemo(n-1, memo) + FibMemo(n-2, memo);
+    return memo[n];
+}
+
+// Iterative - O(n) time, O(1) space
+public int FibIterative(int n) {
+    if (n <= 1) return n;
+    int prev2 = 0, prev1 = 1;
+    for (int i = 2; i <= n; i++) {
+        int current = prev1 + prev2;
+        prev2 = prev1;
+        prev1 = current;
+    }
+    return prev1;
+}
+```
+
+### **Example 2: Array Algorithms**
+
+```csharp
+// O(n²) - Bubble Sort
+public void BubbleSort(int[] arr) {
+    for (int i = 0; i < arr.Length; i++) {           // O(n)
+        for (int j = 0; j < arr.Length - i - 1; j++) { // O(n)
+            if (arr[j] > arr[j + 1]) {
+                Swap(arr, j, j + 1);                 // O(1)
+            }
+        }
+    }
+    // Total: O(n × n) = O(n²)
+}
+
+// O(n log n) - Merge Sort
+public void MergeSort(int[] arr, int left, int right) {
+    if (left < right) {
+        int mid = (left + right) / 2;
+        MergeSort(arr, left, mid);      // T(n/2)
+        MergeSort(arr, mid + 1, right); // T(n/2)
+        Merge(arr, left, mid, right);   // O(n)
+    }
+    // Recurrence: T(n) = 2T(n/2) + O(n)
+    // Master Theorem: O(n log n)
+}
+```
+
+### **Example 3: Search Algorithms**
+
+```csharp
+// O(n) - Linear Search
+public int LinearSearch(int[] arr, int target) {
+    for (int i = 0; i < arr.Length; i++) {
+        if (arr[i] == target) return i;
+    }
+    return -1;
+}
+
+// O(log n) - Binary Search
+public int BinarySearch(int[] arr, int target) {
+    int left = 0, right = arr.Length - 1;
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+        if (arr[mid] == target) return mid;
+        if (arr[mid] < target) left = mid + 1;
+        else right = mid - 1;
+    }
+    return -1;
+    // Each iteration halves search space
+    // Complexity: O(log₂ n)
+}
+```
+
+---
+
+## **📈 Complexity Cheat Sheet**
+
+```
+TIME COMPLEXITY CHART:
+
+O(1)      - Instant (Hash lookup)
+O(log n)  - Very fast (Binary search)
+O(n)      - Linear (Simple search)
+O(n log n)- Efficient sorts
+O(n²)     - Slow (Nested loops)
+O(2ⁿ)     - Very slow (Subsets)
+O(n!)     - Impractical (Permutations)
+
+SPACE COMPLEXITY CHART:
+
+O(1)      - Fixed memory
+O(log n)  - Recursive depth
+O(n)      - Linear storage
+O(n²)     - 2D structures
+```
+
+# 📚 Data Structures Complexity Cheat Sheet
+
+## **🏗️ Array vs ArrayList vs LinkedList**
+
+### **Array (Fixed Size)**
+| Operation | Time Complexity | Space Complexity | Notes |
+|-----------|----------------|------------------|-------|
+| Access by Index | **O(1)** | O(1) | Direct memory access |
+| Search (Unsorted) | O(n) | O(1) | Linear search |
+| Search (Sorted) | O(log n) | O(1) | Binary search |
+| Insertion (Beginning) | O(n) | O(1) | Need to shift elements |
+| Insertion (End) | O(1) (if space) | O(1) | If not resizing |
+| Insertion (Middle) | O(n) | O(1) | Need to shift elements |
+| Deletion (Beginning) | O(n) | O(1) | Need to shift elements |
+| Deletion (End) | O(1) | O(1) | |
+| Deletion (Middle) | O(n) | O(1) | Need to shift elements |
+| Update | O(1) | O(1) | Direct assignment |
+
+**Key Points:**
+- ✅ **Fast random access** (O(1))
+- ✅ **Memory efficient** (contiguous memory)
+- ❌ **Fixed size** (need to know size in advance)
+- ❌ **Insertion/Deletion expensive** (shifting required)
+- ❌ **Wasted space** if underutilized
+
+### **ArrayList/Dynamic Array (C# List<T>)**
+| Operation | Time Complexity | Space Complexity | Notes |
+|-----------|----------------|------------------|-------|
+| Access by Index | **O(1)** | O(1) | |
+| Search | O(n) | O(1) | |
+| Add (End) | **O(1) amortized** | O(n) | May need to resize |
+| Add (Beginning) | O(n) | O(1) | Need to shift |
+| Insert (Middle) | O(n) | O(1) | Need to shift |
+| Remove (End) | O(1) | O(1) | |
+| Remove (Beginning/Middle) | O(n) | O(1) | Need to shift |
+| Contains | O(n) | O(1) | |
+
+**Key Points:**
+- ✅ **Dynamic resizing** (grows as needed)
+- ✅ **Fast random access** (O(1))
+- ✅ **Cache-friendly** (contiguous memory)
+- ❌ **Insertion at beginning/middle expensive**
+- ❌ **Resizing cost** (doubles capacity when full)
+
+### **Linked List (Singly/Doubly)**
+| Operation | Time Complexity | Space Complexity | Notes |
+|-----------|----------------|------------------|-------|
+| Access by Index | O(n) | O(1) | Must traverse |
+| Search | O(n) | O(1) | Must traverse |
+| Insert (Beginning) | **O(1)** | O(1) | Update head |
+| Insert (End) | O(1) with tail, O(n) without | O(1) | |
+| Insert (Middle) | O(n) for search + O(1) insert | O(1) | |
+| Delete (Beginning) | **O(1)** | O(1) | Update head |
+| Delete (End) | O(n) singly, O(1) doubly | O(1) | |
+| Delete (Middle) | O(n) | O(1) | Need to find node |
+
+**Key Points:**
+- ✅ **Fast insertion/deletion at ends** (O(1))
+- ✅ **Dynamic size** (no resizing needed)
+- ✅ **Efficient memory usage** (no wasted space)
+- ❌ **Slow random access** (O(n))
+- ❌ **Extra memory** for pointers (doubly: 2x pointers)
+- ❌ **Not cache-friendly** (non-contiguous memory)
+
+---
+
+## **🗃️ Hash Tables (Dictionary/HashMap)**
+
+### **C# Dictionary<TKey, TValue>**
+| Operation | Time Complexity | Space Complexity | Notes |
+|-----------|----------------|------------------|-------|
+| Insert/Add | **O(1) average**, O(n) worst | O(n) | Hash collision worst case |
+| Search/ContainsKey | **O(1) average**, O(n) worst | O(1) | |
+| Delete/Remove | **O(1) average**, O(n) worst | O(1) | |
+| Update | **O(1) average**, O(n) worst | O(1) | |
+| Iteration | O(n) | O(1) | |
+| Get Keys/Values | O(n) | O(n) | Creates new collections |
+
+**Key Points:**
+- ✅ **Fast lookups** (average O(1))
+- ✅ **Flexible keys** (any hashable type)
+- ✅ **No ordering** (unordered collection)
+- ❌ **Hash collisions** can degrade to O(n)
+- ❌ **Memory overhead** (load factor, buckets)
+- ❌ **Worst-case O(n)** with bad hash function
+- ❌ **No duplicate keys**
+
+**Load Factor Considerations:**
+- Default load factor: 0.75 (when 75% full, resizes)
+- Resizing: O(n) but amortized O(1)
+- Good hash function essential for performance
+
+---
+
+## **🌳 Trees**
+
+### **Binary Search Tree (BST) - Balanced**
+| Operation | Time Complexity | Space Complexity | Notes |
+|-----------|----------------|------------------|-------|
+| Search | **O(log n)** | O(log n) recursive, O(1) iterative | Height matters |
+| Insert | **O(log n)** | O(log n) recursive, O(1) iterative | |
+| Delete | **O(log n)** | O(log n) recursive, O(1) iterative | |
+| Min/Max | O(log n) | O(log n) | |
+| Traversal | O(n) | O(n) worst, O(log n) average | |
+| Successor/Predecessor | O(log n) | O(1) | |
+
+### **BST - Unbalanced (Worst Case)**
+| Operation | Time Complexity | Space Complexity | Notes |
+|-----------|----------------|------------------|-------|
+| Search | O(n) | O(n) | Degenerates to linked list |
+| Insert | O(n) | O(n) | |
+| Delete | O(n) | O(n) | |
+| Traversal | O(n) | O(n) | |
+
+### **AVL/Red-Black Trees (Self-balancing)**
+| Operation | Time Complexity | Space Complexity | Notes |
+|-----------|----------------|------------------|-------|
+| All operations | **O(log n) guaranteed** | O(log n) | Maintains balance |
+
+**Key Points:**
+- ✅ **Ordered data** (in-order traversal gives sorted order)
+- ✅ **Fast search/insert/delete** when balanced (O(log n))
+- ✅ **Flexible** (supports range queries, successor)
+- ❌ **Can degrade to O(n)** if unbalanced
+- ❌ **Memory overhead** (pointers per node)
+- ❌ **Complex implementation** (balancing)
+
+---
+
+## **⛰️ Heaps (Priority Queue)**
+
+### **Binary Heap (Min/Max Heap)**
+| Operation | Time Complexity | Space Complexity | Notes |
+|-----------|----------------|------------------|-------|
+| Insert/Push | **O(log n)** | O(1) | Heapify-up |
+| Extract Min/Max (Pop) | **O(log n)** | O(1) | Heapify-down |
+| Peek (Get Min/Max) | **O(1)** | O(1) | Root element |
+| Search | O(n) | O(1) | Not designed for search |
+| Delete (arbitrary) | O(n) for find + O(log n) | O(1) | |
+| Heapify (Build Heap) | **O(n)** | O(1) | Bottom-up construction |
+| Heap Sort | O(n log n) | O(1) | In-place |
+
+**Key Points:**
+- ✅ **Fast min/max access** (O(1))
+- ✅ **Efficient insert/remove** (O(log n))
+- ✅ **Memory efficient** (array implementation)
+- ✅ **Priority queue implementation**
+- ❌ **Slow search** (O(n))
+- ❌ **No ordering** (except root)
+- ❌ **No efficient merge** (Fibonacci heaps better)
+
+**Types:**
+- **Min Heap**: Parent ≤ Children
+- **Max Heap**: Parent ≥ Children
+- **Binary Heap**: Complete binary tree in array
+
+---
+
+## **📚 Stack (LIFO)**
+
+### **C# Stack<T>**
+| Operation | Time Complexity | Space Complexity | Notes |
+|-----------|----------------|------------------|-------|
+| Push | **O(1)** average, O(n) worst | O(1) | Resizing if needed |
+| Pop | **O(1)** | O(1) | |
+| Peek/Top | **O(1)** | O(1) | |
+| Search | O(n) | O(1) | Need to pop elements |
+| Contains | O(n) | O(1) | Linear search |
+| IsEmpty | O(1) | O(1) | Count == 0 |
+
+**Key Points:**
+- ✅ **LIFO** (Last-In-First-Out)
+- ✅ **Fast push/pop** (O(1))
+- ✅ **Simple implementation**
+- ✅ **Useful for**: recursion, undo/redo, parsing
+- ❌ **Limited access** (only top element)
+- ❌ **No random access**
+
+**Common Uses:**
+- Function call stack
+- Expression evaluation
+- Backtracking algorithms
+- Browser history
+
+---
+
+## **📥 Queue (FIFO)**
+
+### **C# Queue<T>**
+| Operation | Time Complexity | Space Complexity | Notes |
+|-----------|----------------|------------------|-------|
+| Enqueue | **O(1)** average, O(n) worst | O(1) | Resizing if needed |
+| Dequeue | **O(1)** | O(1) | |
+| Peek/Front | **O(1)** | O(1) | |
+| Search | O(n) | O(1) | |
+| Contains | O(n) | O(1) | Linear search |
+| IsEmpty | O(1) | O(1) | Count == 0 |
+
+**Key Points:**
+- ✅ **FIFO** (First-In-First-Out)
+- ✅ **Fast enqueue/dequeue** (O(1))
+- ✅ **Fair ordering** (first come, first served)
+- ✅ **Useful for**: BFS, task scheduling, buffers
+- ❌ **Limited access** (only front/back)
+- ❌ **No random access**
+
+**Variations:**
+- **Deque (Double-ended Queue)**: Add/remove from both ends
+- **Priority Queue**: Heap-based, priority ordering
+- **Circular Queue**: Fixed size, efficient
+
+---
+
+## **📊 Comparison Summary Table**
+
+| Data Structure | Best For | Access | Search | Insert | Delete | Space |
+|----------------|----------|--------|--------|--------|--------|-------|
+| **Array** | Fixed size collections | O(1) | O(n) | O(n) | O(n) | O(n) |
+| **ArrayList/List** | Dynamic arrays | O(1) | O(n) | O(1) end, O(n) middle | O(n) | O(n) |
+| **LinkedList** | Frequent insert/delete at ends | O(n) | O(n) | O(1) ends | O(1) ends | O(n) |
+| **Hash Table** | Fast lookups, no ordering | O(1) avg | O(1) avg | O(1) avg | O(1) avg | O(n) |
+| **BST (Balanced)** | Ordered data, range queries | O(log n) | O(log n) | O(log n) | O(log n) | O(n) |
+| **Heap** | Priority queue, min/max | O(1) peek | O(n) | O(log n) | O(log n) | O(n) |
+| **Stack** | LIFO operations | O(1) top | O(n) | O(1) push | O(1) pop | O(n) |
+| **Queue** | FIFO operations | O(1) front | O(n) | O(1) enqueue | O(1) dequeue | O(n) |
+
+---
+
+## **🎯 Quick Decision Guide**
+
+### **Choose Based on Your Needs:**
+
+**Need fast access by index?** → **Array/ArrayList** ✅
+```csharp
+// Use when: Random access, known size, cache-friendly
+int[] scores = new int[100];
+List<string> names = new List<string>();
+```
+
+**Need fast insert/delete at ends?** → **LinkedList** ✅
+```csharp
+// Use when: Implementing stacks/queues, frequent modifications
+LinkedList<int> history = new LinkedList<int>();
+```
+
+**Need fast lookups by key?** → **Dictionary/HashTable** ✅
+```csharp
+// Use when: Key-value pairs, no ordering needed
+Dictionary<string, int> wordCount = new Dictionary<string, int>();
+```
+
+**Need sorted data?** → **SortedDictionary/Balanced BST** ✅
+```csharp
+// Use when: Range queries, ordered iteration
+SortedDictionary<int, string> leaderboard = new SortedDictionary<int, string>();
+```
+
+**Need priority queue?** → **Heap** ✅
+```csharp
+// Use when: Always need min/max, task scheduling
+PriorityQueue<T> pq = new PriorityQueue<T>();
+```
+
+**Need LIFO?** → **Stack** ✅
+```csharp
+// Use when: Undo/redo, recursion, parsing
+Stack<int> callStack = new Stack<int>();
+```
+
+**Need FIFO?** → **Queue** ✅
+```csharp
+// Use when: BFS, task scheduling, messaging
+Queue<string> printQueue = new Queue<string>();
+```
+
+---
+
+## **⚡ Performance Tips**
+
+### **Memory Considerations:**
+1. **Arrays**: Most memory efficient (contiguous)
+2. **Linked Lists**: Pointer overhead (especially doubly)
+3. **Hash Tables**: Overhead for buckets (load factor)
+4. **Trees**: Pointer overhead + balancing info
+
+### **Cache Performance:**
+- **Good**: Arrays, ArrayLists (contiguous memory)
+- **Poor**: Linked Lists, Trees (pointer chasing)
+
+### **When to Choose:**
+- **Small data**: Any structure works
+- **Large data**: Consider memory and cache
+- **Frequent modifications**: Linked lists
+- **Mostly reads**: Arrays
+- **Key-based access**: Hash tables
+- **Ordered data**: Balanced trees
+
+### **C# Specific Notes:**
+```csharp
+// List<T>: Good general-purpose
+List<int> list = new List<int>();
+
+// Dictionary: Fast O(1) lookups
+Dictionary<string, int> dict = new Dictionary<string, int>();
+
+// HashSet: Unique elements, no duplicates
+HashSet<int> set = new HashSet<int>();
+
+// SortedDictionary: Red-Black tree implementation
+SortedDictionary<int, string> sorted = new SortedDictionary<int, string>();
+
+// LinkedList: Doubly linked
+LinkedList<int> linked = new LinkedList<int>();
+```
+
+---
+
+## **📈 Real-World Analogy**
+
+| Data Structure | Real-World Analogy | When to Use |
+|----------------|-------------------|-------------|
+| **Array** | Bookshelf with numbered slots | Known size, random access |
+| **LinkedList** | Treasure hunt (clues point to next) | Frequent insert/delete |
+| **Hash Table** | Dictionary (word → definition) | Fast lookups by key |
+| **Stack** | Stack of plates (LIFO) | Undo operations, backtracking |
+| **Queue** | Grocery checkout line (FIFO) | Task scheduling, BFS |
+| **Heap** | Hospital emergency room (priority) | Always need highest priority |
+| **Tree** | Company org chart (hierarchy) | Hierarchical data, sorted |
 
 ---
 
