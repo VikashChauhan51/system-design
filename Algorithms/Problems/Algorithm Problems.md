@@ -1293,6 +1293,19 @@ Explanation: String "0" converts to integer 0
 - Result fits within integer range
 - No need to handle sign (positive only)
 
+**Pseudocode:**
+```
+FUNCTION StringToInt(s)
+    IF s IS EMPTY THEN RETURN 0
+    result ← 0
+    FOR each char c IN s DO
+        digit ← c - '0'
+        result ← result * 10 + digit
+    END FOR
+    RETURN result
+END FUNCTION
+```
+
 ```csharp
 public int StringToInt(string s)
 {
@@ -1341,8 +1354,12 @@ Explanation: Sum = 1 + 0.5 + 0.25 + 0.125 = 1.875
 - Computes sum from 2^0 to 2^n terms
 - Result is a floating-point double
 
+**Pseudocode:**
 ```
-The algorithm computes: ∑_{k=0}^{n} (1/2ᵏ) = 1 + 1/2 + 1/4 + 1/8 + ... + 1/2ⁿ
+FUNCTION GeometricSum(n)
+    IF n == 0 THEN RETURN 1.0
+    RETURN GeometricSum(n-1) + 1.0 / (2^n)
+END FUNCTION
 ```
 
 ```csharp
@@ -1408,12 +1425,25 @@ Explanation: No zeros in the number.
 - Count total number of zero digits
 - No negative numbers
 
+**Pseudocode:**
+```
+FUNCTION CountZeroes(n)
+    IF n <= 0 THEN RETURN 0
+    count ← 0
+    WHILE n > 0 DO
+        IF n % 10 == 0 THEN count ← count + 1
+        n ← n / 10
+    END WHILE
+    RETURN count
+END FUNCTION
+```
+
 ```csharp
 public static int CountZeroes(int n)
 {
-    if (n <= 0) return 0;
-    int count = 0;
-    while (n > 0)
+        if (n <= 0) return 0;
+        int count = 0;
+        while (n > 0)
     {
         if (n % 10 == 0) count++;
         n /= 10;
@@ -1460,15 +1490,26 @@ Explanation: Z=26, Y=25 → ZY = 26*26 + 25 = 701
 - Result is within integer range
 - Excel columns: A (1), B (2), ..., Z (26), AA (27), ...
 
+**Pseudocode:**
+```
+FUNCTION TitleToNumber(columnTitle)
+    result ← 0
+    FOR i FROM 0 TO len(columnTitle)-1 DO
+        result ← result * 26 + (columnTitle[i] - 'A' + 1)
+    END FOR
+    RETURN result
+END FUNCTION
+```
+
 ```csharp
 public static int TitleToNumber(string columnTitle)
 {
-    int result = 0;
-    long power = 1;
-    if (string.IsNullOrEmpty(columnTitle))
-    {
-        return result;
-    }
+        int result = 0;
+        long power = 1;
+        if (string.IsNullOrEmpty(columnTitle))
+        {
+                return result;
+        }
     for (int i = columnTitle.Length - 1; i >= 0; i--)
     {
         // the ASCII value of 'A' is 65
@@ -1518,7 +1559,21 @@ V       5
 X       10
 L       50
 C       100
-D       500
+**Pseudocode:**
+```
+FUNCTION RomanToInt(s)
+    map ← {I:1,V:5,X:10,L:50,C:100,D:500,M:1000}
+    total ← 0
+    FOR i FROM 0 TO len(s)-1 DO
+        IF i+1 < len(s) AND map[s[i]] < map[s[i+1]] THEN
+            total ← total - map[s[i]]
+        ELSE
+            total ← total + map[s[i]]
+        END IF
+    END FOR
+    RETURN total
+END FUNCTION
+```
 M       1000
 
 Rules:
@@ -1649,6 +1704,22 @@ Example:
 - 1994 → "MCMXCIV"
 ```
 
+**Pseudocode:**
+```
+FUNCTION IntToRoman(num)
+    values = [1000,900,500,400,100,90,50,40,10,9,5,4,1]
+    symbols = ["M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"]
+    res ← ""
+    FOR i FROM 0 TO len(values)-1 DO
+        WHILE num >= values[i] DO
+            res ← res + symbols[i]
+            num ← num - values[i]
+        END WHILE
+    END FOR
+    RETURN res
+END FUNCTION
+```
+
 #### 10.1: Brute Force - Greedy with Values
 
 ```csharp
@@ -1763,14 +1834,22 @@ Explanation: 3! = 3 × 2 × 1 = 6
 
 The number is a positive number and greater than zero.
 
+**Pseudocode:**
+```
+FUNCTION Factorial(n)
+    IF n == 0 THEN RETURN 1
+    RETURN n * Factorial(n-1)
+END FUNCTION
+```
+
 ```csharp
 public static int FactorialRecursive(int n)
 {
-    // Base case: 0! = 1
-    if (n == 0) return 1;
+        // Base case: 0! = 1
+        if (n == 0) return 1;
 
-    // Recursive case: n! = n × (n-1)!
-    return n * FactorialRecursive(n - 1);
+        // Recursive case: n! = n × (n-1)!
+        return n * FactorialRecursive(n - 1);
 }
 ```
 
@@ -1816,6 +1895,15 @@ Explanation: Sequence: 0,1,1,2,3,5,8... F(6) = 8
 - Numbers within reasonable range (no overflow for typical use cases)
 
 The number is a positive number and greater than zero.
+
+**Pseudocode:**
+```
+FUNCTION Fibonacci(n)
+    IF n <= 0 THEN RETURN 0
+    IF n == 1 THEN RETURN 1
+    RETURN Fibonacci(n-1) + Fibonacci(n-2)
+END FUNCTION
+```
 
 #### 10.1 [Brute Force - Recursive]
 
@@ -2238,6 +2326,16 @@ Explanation: 1000 has 4 digits
 - Count total number of digits in the number
 - No negative numbers
 
+**Pseudocode:**
+```
+FUNCTION CountDigits(n)
+  IF n <= 0 THEN
+    RETURN 0
+  END IF
+  RETURN 1 + CountDigits(n / 10)
+END FUNCTION
+```
+
 ```csharp
 public static int CountDigits(int n)
 {
@@ -2299,6 +2397,16 @@ Explanation: Single digit
 - Sum all individual digits recursively
 - No negative numbers
 
+**Pseudocode:**
+```
+FUNCTION SumOfDigits(n)
+  IF n <= 0 THEN
+    RETURN 0
+  END IF
+  RETURN SumOfDigits(n / 10) + (n MOD 10)
+END FUNCTION
+```
+
 ```csharp
 public static int SumOfDigits(int n)
 {
@@ -2355,6 +2463,21 @@ Explanation: No zeros
 - Input is a positive integer
 - Count total zero digits using recursion
 - No negative numbers
+
+**Pseudocode:**
+```
+FUNCTION CountZeroes(n)
+  IF n <= 0 THEN
+    RETURN 0
+  END IF
+  small ← CountZeroes(n / 10)
+  IF (n MOD 10) == 0 THEN
+    RETURN small + 1
+  ELSE
+    RETURN small
+  END IF
+END FUNCTION
+```
 
 ```csharp
 public static int CountZeroes(int n)
@@ -2419,7 +2542,17 @@ Explanation: 1 + 1/2 + 1/4 + 1/8 = 1.875
 
 Given an integer n, we need to find the geometric sum of the following series using recursion.
 
-1 + 1/2 + 1/4 + 1/8 + ... + 1/(2n)
+1 + 1/2 + 1/4 + 1/8 + ... + 1/(2^n)
+
+**Pseudocode:**
+```
+FUNCTION GeometricSum(n)
+  IF n == 0 THEN
+    RETURN 1.0
+  END IF
+  RETURN GeometricSum(n - 1) + 1.0 / (2 ^ n)
+END FUNCTION
+```
 
 ```csharp
 public static double GeometricSum(int n)
@@ -2475,6 +2608,18 @@ Explanation: Single digit
 - String contains only digit characters
 - Recursive approach required
 - Result fits within integer range
+
+**Pseudocode:**
+```
+FUNCTION StringToInt(s)
+  IF s IS EMPTY THEN
+    RETURN 0
+  END IF
+  last ← LAST_CHAR(s)
+  rest ← ALL_BUT_LAST(s)
+  RETURN StringToInt(rest) * 10 + (last - '0')
+END FUNCTION
+```
 
 ```csharp
 public int StringToInt(string s)
@@ -2537,6 +2682,18 @@ Explanation: Thousands place
 - Convert digits to their English word equivalents
 - Recursive implementation
 - No negative numbers
+
+**Pseudocode:**
+```
+FUNCTION ConvertNumberToText(number)
+  IF number == 0 THEN RETURN "Zero" END IF
+  IF number < 20 THEN RETURN unitsMap[number] END IF
+  IF number < 100 THEN RETURN tensMap[number / 10] + (IF number % 10 > 0 THEN " " + ConvertNumberToText(number % 10) ELSE "") END IF
+  IF number < 1000 THEN RETURN unitsMap[number / 100] + " Hundred" + (IF number % 100 > 0 THEN " " + ConvertNumberToText(number % 100) ELSE "") END IF
+  IF number < 100000 THEN RETURN ConvertNumberToText(number / 1000) + " Thousand" + (IF number % 1000 > 0 THEN " " + ConvertNumberToText(number % 1000) ELSE "") END IF
+  RETURN ConvertNumberToText(number / 100000) + " Lac" + (IF number % 100000 > 0 THEN " " + ConvertNumberToText(number % 100000) ELSE "")
+END FUNCTION
+```
 
 ```csharp
 public class NumberToText
@@ -2628,6 +2785,21 @@ Explanation: Already flat
 - Flatten all levels recursively
 - Preserve order of elements
 
+**Pseudocode:**
+```
+FUNCTION FlattenList(list)
+  result ← empty list
+  FOR each item IN list DO
+    IF item IS list THEN
+      result.ADD_ALL(FlattenList(item))
+    ELSE
+      result.ADD(item)
+    END IF
+  END FOR
+  RETURN result
+END FUNCTION
+```
+
 ```csharp
 public static List<object> FlattenList(IEnumerable<object> nestedList)
 {
@@ -2708,6 +2880,18 @@ Output: 12
 Explanation: Rob house 1 (money = 2), rob house 3 (money = 9) and rob house 5 (money = 1).
 Total amount you can rob = 2 + 9 + 1 = 12.
 
+```
+
+**Pseudocode:**
+```
+FUNCTION Rob(nums, n)
+  IF n < 0 THEN
+    RETURN 0
+  END IF
+  include ← nums[n] + Rob(nums, n - 2)
+  exclude ← Rob(nums, n - 1)
+  RETURN MAX(include, exclude)
+END FUNCTION
 ```
 
 ```csharp
@@ -2827,7 +3011,41 @@ public static int RobMemo(int[] nums, int n, Dictionary<int, int> memo = null)
 
 ### 22. String to Integer (Memoization)
 
-Imput string is not null or a valid positive numbers string.
+**Description:** Convert a numeric string to integer using recursion with memoization to optimize repeated subproblem calculations.
+
+**Examples:**
+```
+Input: s = "123"
+Output: 123
+Explanation: Build number recursively from right to left
+
+Input: s = "5678"
+Output: 5678
+Explanation: Each digit position contributes to final value
+
+Input: s = "0"
+Output: 0
+Explanation: Single digit
+```
+
+#### Constraints
+- Input string is not null or a valid positive numbers string
+- String contains only digit characters
+- Recursive approach required
+- Result fits within integer range
+
+**Pseudocode:**
+```
+FUNCTION StringToInt(s, index)
+  IF index < 0 THEN
+    RETURN 0
+  END IF
+  digit ← s[index] - '0'
+  remainingValue ← StringToInt(s, index - 1)
+  RETURN remainingValue * 10 + digit
+END FUNCTION
+```
+
 ```csharp
 public static int StringToInt(string s, int index)
 {
@@ -2879,6 +3097,20 @@ Explanation: 2 subsequences
 - Input string is not null or empty
 - Generate all possible subsequences
 - Output order follows natural recursion tree
+
+**Pseudocode:**
+```
+FUNCTION PrintAllSubsequence(input, output)
+  IF input.LENGTH == 0 THEN
+    PRINT output
+    RETURN
+  END IF
+  first ← input[0]
+  rest ← input[1:]
+  PrintAllSubsequence(rest, output + first)
+  PrintAllSubsequence(rest, output)
+END FUNCTION
+```
 
 ```csharp
 public void PrintAllSubsequence(string input, string output)
@@ -2970,6 +3202,22 @@ Output: "XY", "YX"
 Input: s = "AAA"
 Output: "AAA", "AAA", "AAA", "AAA", "AAA", "AAA"
 ```
+
+**Pseudocode:**
+```
+FUNCTION PrintAllPermutationOfString(str, index)
+  IF index >= LENGTH(str) - 1 OR LENGTH(str) == 0 THEN
+    PRINT str
+    RETURN
+  END IF
+  FOR i FROM index TO LENGTH(str) - 1 DO
+    SWAP str[index] WITH str[i]
+    PrintAllPermutationOfString(str, index + 1)
+    SWAP str[index] WITH str[i]  // Backtrack
+  END FOR
+END FUNCTION
+```
+
 ```csharp
 public static void PrintAllPermutationOfString(char[] str, int index)
 {
@@ -3027,10 +3275,13 @@ Initial: ABC (index=0)
     - Character array: `O(n)` modified in-place
 
 ### 25. Staircase
+
+**Description:** Count the number of ways to climb n stairs if you can take either 1 or 2 stairs at a time.
+
 There are n stairs, and a person standing at the bottom wants to climb stairs to reach the top. The person can climb either 1 stair or 2 stairs at a time, the task is to count the number of ways that a person can reach at the top.
 
+**Examples:**
 ```
-Examples:
 Input: n = 1
 Output: 1
 Explanation: There is only one way to climb 1 stair.
@@ -3044,6 +3295,19 @@ Explanation: There are five ways to reach 4th stair: {1, 1, 1, 1}, {1, 1, 2}, {2
 ```
 
 #### 25.1 [Brute Force - Recursive]
+
+**Pseudocode:**
+```
+FUNCTION ClimbStairs(n)
+  IF n == 0 OR n == 1 THEN
+    RETURN 1
+  END IF
+  IF n == 2 THEN
+    RETURN 2
+  END IF
+  RETURN ClimbStairs(n - 1) + ClimbStairs(n - 2)
+END FUNCTION
+```
 
 ```csharp
 
@@ -3208,6 +3472,17 @@ Explanation: 7 moves to transfer all disks
 
 Recursively calculates the minimum moves to solve Tower of Hanoi with n disks using the recurrence relation: `T(n) = 2×T(n-1) + 1`.
 
+**Pseudocode:**
+```
+FUNCTION TowerOfHanoi(n)
+  IF n == 0 THEN
+    RETURN 0
+  END IF
+  smallResult ← TowerOfHanoi(n - 1)
+  RETURN 2 * smallResult + 1
+END FUNCTION
+```
+
 ```csharp
 public static int TowerOfHanoi(int n)
 {
@@ -3241,6 +3516,8 @@ returns 2×3+1 = 7
 
 ### 27. Print  Tower of Hanoi
 
+**Description:** Print the moves required to solve the Tower of Hanoi problem: Move n disks from rod A to rod C using rod B, displaying each move with from-rod and to-rod.
+
 #### Constraints
 - Input n is positive integer (number of disks)
 - Three rods: A (source), B (auxiliary), C (destination)
@@ -3252,8 +3529,8 @@ Tower of Hanoi is a mathematical puzzle where we have three rods (A, B, and C) a
 - Each move consists of taking the upper disk from one of the stacks and placing it on top of another stack i.e. a disk can only be moved if it is the uppermost disk on a stack.
 - No disk may be placed on top of a smaller disk.
 
+**Examples:**
 ```
-Examples:
 Input: 2
 Output: Disk 1 moved from A to B
 Disk 2 moved from A to C
@@ -3268,6 +3545,19 @@ Disk 2 moved from B to C
 Disk 1 moved from A to C
 
 ```
+
+**Pseudocode:**
+```
+FUNCTION PrintTowerOfHanoiMoves(n, source, destination, auxiliary)
+  IF n == 0 THEN
+    RETURN
+  END IF
+  PrintTowerOfHanoiMoves(n - 1, source, auxiliary, destination)
+  PRINT "Move disk" n "from" source "to" destination
+  PrintTowerOfHanoiMoves(n - 1, auxiliary, destination, source)
+END FUNCTION
+```
+
 ```csharp
 public void PrintTowerOfHanoiMoves(int n, char source, char destination, char auxiliary)
 {
@@ -5613,6 +5903,23 @@ String:  r a c e c a r
 - **Space Complexity :** `O(1)`
 
 ### 52. Fizz Buzz
+
+**Description:** Return string array where each number is replaced: 3→"Fizz", 5→"Buzz", 15→"FizzBuzz", else the number itself.
+
+**Examples:**
+```
+Input: n = 3
+Output: ["1","2","Fizz"]
+Explanation: 3 is divisible by 3
+
+Input: n = 5
+Output: ["1","2","Fizz","4","Buzz"]
+Explanation: 3→Fizz, 5→Buzz
+
+Input: n = 15
+Output: ["1","2","Fizz","4","Buzz","Fizz","7","8","Fizz","Buzz","11","Fizz","13","14","FizzBuzz"]
+Explanation: 3,6,9,12→Fizz; 5,10→Buzz; 15→FizzBuzz
+```
 
 #### Constraints
 - Input n is positive integer
