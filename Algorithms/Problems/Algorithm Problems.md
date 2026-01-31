@@ -588,7 +588,7 @@ END FUNCTION
 
 **Logic:**
 - If a=5, b=3: quotient=1, remainder=5-(1×3)=2
-- Keep subtracting b from a until a < b
+- Keep subtracting `b` from `a` until `a < b`
 
 **Code Implementation:**
 
@@ -674,8 +674,8 @@ END FUNCTION
 ```
 
 **Logic:**
-- Keep adding b to sum until sum exceeds a
-- Count how many times we added b
+- Keep adding `b` to `sum` until `sum` exceeds `a`
+- Count how many times we added `b`
 
 **Code Implementation:**
 
@@ -710,6 +710,7 @@ Divide(10, 3)
       └── Return: count=3
 ```
 - **Time Complexity :** `O(a/b)`
+    - Loop runs ceil(a/b) times
 - **Space Complexity :** `O(1)`
 
 ### 3. Square root of a number
@@ -736,6 +737,8 @@ Explanation: √8 ≈ 2.82, floor = 2
 - Return the floor of the square root
 - Assume no floating point arithmetic needed
 
+#### 3.1 [Brute Force Approach]
+
 **Pseudocode:**
 ```
 FUNCTION Sqrt(n)
@@ -749,8 +752,8 @@ END FUNCTION
 ```
 
 **Logic:**
-- Start from 1 and increment until i² > n
-- Return i-1 (last i where i² ≤ n)
+- Start from `1` and increment until `i² > n`
+- Return `i-1` (last `i` where `i² ≤ n`)
 - Finds floor of square root
 
 **Code Implementation:**
@@ -791,6 +794,86 @@ Loop iterations:
 return i-1 = 6-1 = 5 ✅
 ```
 - **Time Complexity :** `O(√n)`
+    - Loop runs while `i² ≤ n` → `i ≤ √n`
+- **Space Complexity :** `O(1)`
+
+#### 3.2 [Sqrt Optimized]
+
+**Pseudocode:**
+```
+FUNCTION sqrt_optimized(n):
+    IF n < 2:
+        RETURN n
+
+    left = 1
+    right = n / 2
+
+    WHILE left <= right:
+        mid = left + (right - left) / 2
+        square = mid * mid
+
+        IF square == n:
+            RETURN mid
+        IF square < n:
+            left = mid + 1
+        ELSE:
+            right = mid - 1
+
+    RETURN right  // Floor sqrt
+```
+
+**Logic:**
+- Use **binary search** between `1` and `n/2` (since √n ≤ n/2 for n ≥ 4)
+- Repeatedly check middle value `mid`:
+  - If `mid² = n`: Found exact square root, return `mid`
+  - If `mid² < n`: Square root is larger, search **right half** (set `left = mid + 1`)
+  - If `mid² > n`: Square root is smaller, search **left half** (set `right = mid - 1`)
+- When search ends (`left > right`), `right` holds the **last valid `mid`** where `mid² ≤ n`
+- Returns **floor of square root** (nearest integer ≤ √n)
+
+**Code Implementation:**
+```csharp
+public static int SqrtOptimized(int n)
+{
+    if (n < 2) return n;
+
+    int left = 1, right = n / 2;
+
+    while (left <= right)
+    {
+        int mid = left + (right - left) / 2;
+        long square = (long)mid * mid;
+
+        if (square == n) return mid;
+        if (square < n) left = mid + 1;
+        else right = mid - 1;
+    }
+
+    return right;
+}
+```
+
+```
+Search space: 1 to 12
+            Check mid=6 (36 > 25)
+            /              \
+       Too big            Too small
+       [1..5]              [7..12] ✗
+
+Check mid=3 (9 < 25)
+        /           \
+   Too small      Too big
+   [4..5]          [1..2] ✗
+
+Check mid=4 (16 < 25)
+        /           \
+   Too small      Too big
+   [5]            [4] ✗
+
+Check mid=5 (25 == 25) ✓ Found!
+```
+- **Time Complexity :** `O(log n)`
+    - Reduces search space by half each iteration
 - **Space Complexity :** `O(1)`
 
 ### 4. Sum of digits
