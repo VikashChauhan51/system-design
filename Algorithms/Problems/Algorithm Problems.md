@@ -1143,7 +1143,7 @@ Return: 30 ✓ (9+8+7+6=30)
 - **Time Complexity :** `O(log n)`
 - **Space Complexity :** `O(1)`
 
-### 5. String to Integer
+### 6. String to Integer
 
 **Description:** Convert a numeric string to its integer representation.
 
@@ -1167,6 +1167,8 @@ Explanation: String "0" converts to integer 0
 - String contains only digit characters
 - Result fits within integer range
 - No need to handle sign (positive only)
+
+#### 6.1 [Basic Conversion Approach]
 
 **Pseudocode:**
 ```
@@ -1205,7 +1207,108 @@ input = "123"
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(1)`
 
-### 6. Geometric Sum
+#### 6.2 [Loop Unrolling Optimization]
+
+**Pseudocode:**
+
+```
+FUNCTION StringToIntUnrolled(s):
+    IF s is null or empty:
+        RETURN 0
+
+    result = 0
+    length = s.Length
+    i = 0
+
+    // Process 4 digits at a time (loop unrolling)
+    WHILE i + 3 < length:
+        batch = (s[i] - '0') × 1000 +
+                (s[i+1] - '0') × 100 +
+                (s[i+2] - '0') × 10 +
+                (s[i+3] - '0')
+
+        result = result × 10000 + batch
+        i = i + 4
+    END WHILE
+
+    // Process remaining digits (1-3 digits)
+    WHILE i < length:
+        result = result × 10 + (s[i] - '0')
+        i = i + 1
+    END WHILE
+
+    RETURN result
+END FUNCTION
+```
+**Logic:**
+- Group processing: Handle 4 digits together as a batch
+- Reduce multiplications: Instead of 4 multiplications, process batch with one
+- Minimize loop overhead: Fewer iterations = less loop control logic
+- Handle leftovers: Process remaining 1-3 digits normally
+
+**Code Implementation:**
+```csharp
+public static int StringToIntUnrolled(string s)
+{
+    if (string.IsNullOrEmpty(s)) return 0;
+
+    int result = 0;
+    int i = 0;
+    int length = s.Length;
+
+    // Process 4 digits at a time (loop unrolling)
+    while (i + 3 < length)
+    {
+        result = result * 10000
+               + (s[i] - '0') * 1000
+               + (s[i+1] - '0') * 100
+               + (s[i+2] - '0') * 10
+               + (s[i+3] - '0');
+        i += 4;
+    }
+
+    // Process remaining digits
+    while (i < length)
+    {
+        result = result * 10 + (s[i] - '0');
+        i++;
+    }
+
+    return result;
+}
+```
+
+```
+Input: s = "12345678" (length = 8)
+
+Step 1: First 4-digit batch (i=0, i+3=3)
+┌─────────────────────────────────────────────────┐
+│ batch = ('1'-'0')*1000 + ('2'-'0')*100 +        │
+│          ('3'-'0')*10 + ('4'-'0')               │
+│        = 1*1000 + 2*100 + 3*10 + 4              │
+│        = 1000 + 200 + 30 + 4 = 1234             │
+│ result = 0*10000 + 1234 = 1234                  │
+│ i = 0 + 4 = 4                                   │
+└─────────────────────────────────────────────────┘
+
+Step 2: Second 4-digit batch (i=4, i+3=7)
+┌─────────────────────────────────────────────────┐
+│ batch = ('5'-'0')*1000 + ('6'-'0')*100 +        │
+│          ('7'-'0')*10 + ('8'-'0')               │
+│        = 5*1000 + 6*100 + 7*10 + 8              │
+│        = 5000 + 600 + 70 + 8 = 5678             │
+│ result = 1234*10000 + 5678                      │
+│        = 12,340,000 + 5,678 = 12,345,678        │
+│ i = 4 + 4 = 8 (end of string)                   │
+└─────────────────────────────────────────────────┘
+
+Final result: 12,345,678 ✅
+```
+- **Time Complexity :** `O(n)`
+    - Still linear with input size but with smaller constant factor than basic approach
+- **Space Complexity :** `O(1)`
+
+### 7. Geometric Sum
 
 **Description:** Calculate the geometric sum: 1 + 1/2 + 1/4 + 1/8 + ... + 1/2ⁿ
 
@@ -1276,7 +1379,7 @@ sum = 1.875 + 0.0625 = 1.9375 = 1 + 1/2 + 1/4 + 1/8 + 1/16
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(1)`
 
-### 7. Count Zeroes
+### 8. Count Zeroes
 
 **Description:** Count the total number of zero digits in a positive integer.
 
@@ -1336,7 +1439,7 @@ Result: 3 ✓
 - **Time Complexity :** `O(log n)`
 - **Space Complexity :** `O(1)`
 
-### 8. Excel Sheet Column Number
+### 9. Excel Sheet Column Number
 
 **Description:** Given a string columnTitle that represents the column title as appears in an Excel sheet, return its corresponding column number.
 
@@ -1379,20 +1482,18 @@ END FUNCTION
 ```csharp
 public static int TitleToNumber(string columnTitle)
 {
-        int result = 0;
-        long power = 1;
-        if (string.IsNullOrEmpty(columnTitle))
-        {
-                return result;
-        }
-    for (int i = columnTitle.Length - 1; i >= 0; i--)
+    int result = 0;
+    if (string.IsNullOrEmpty(columnTitle))
     {
-        // the ASCII value of 'A' is 65
-        int charValue = columnTitle[i] - 64; // 'A' -> 1, 'B' -> 2, ..., 'Z' -> 26
-        result = (int)(result + charValue * power);
-        // increase the power of 26 for the next character as 26 alphabets in English
-        power = power * 26;
+        return result;
     }
+
+    for (int i = 0; i < columnTitle.Length; i++)
+    {
+        // convert to integer
+        result = result * 26 + (columnTitle[i] - 'A' + 1);
+    }
+
     return result;
 }
 
@@ -1400,7 +1501,7 @@ public static int TitleToNumber(string columnTitle)
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(1)`
 
-### 9. Convert Roman to Integer
+### 10. Convert Roman to Integer
 
 **Description:** Convert a Roman numeral string to its integer equivalent.
 
@@ -1434,6 +1535,9 @@ V       5
 X       10
 L       50
 C       100
+M       1000
+```
+
 **Pseudocode:**
 ```
 FUNCTION RomanToInt(s)
@@ -1449,18 +1553,15 @@ FUNCTION RomanToInt(s)
     RETURN total
 END FUNCTION
 ```
-M       1000
 
-Rules:
+**Rules:**
 - I can be placed before V (5) and X (10) to make 4 and 9
 - X can be placed before L (50) and C (100) to make 40 and 90
 - C can be placed before D (500) and M (1000) to make 400 and 900
-```
 
-#### 9.1: Brute Force - Linear Scan
-
+**Code Implementation:**
 ```csharp
-public static int RomanToInt_BruteForce(string s)
+public static int RomanToIntBruteForce(string s)
 {
     // Brute force: use if-else chains to handle subtraction cases
     Dictionary<char, int> romanValues = new()
@@ -1507,42 +1608,9 @@ V    → 5    (no next) → sum = 1989 + 5 = 1994 ✓
 - **Time Complexity:** `O(n)` - single pass through string
 - **Space Complexity:** `O(1)` - dictionary of fixed size 7
 
-#### 9.2: Optimized - HashMap Lookup
-
-```csharp
-public static int RomanToInt_Optimized(string s)
-{
-    // Same algorithm but cleaner implementation
-    Dictionary<char, int> roman = new()
-    {
-        ['I'] = 1, ['V'] = 5, ['X'] = 10, ['L'] = 50,
-        ['C'] = 100, ['D'] = 500, ['M'] = 1000
-    };
-
-    int result = 0;
-    for (int i = s.Length - 1; i >= 0; i--)
-    {
-        int value = roman[s[i]];
-        // If current is smaller than next (scanning right to left), subtract
-        if (i < s.Length - 1 && value < roman[s[i + 1]])
-        {
-            result -= value;
-        }
-        else
-        {
-            result += value;
-        }
-    }
-    return result;
-}
-```
-
-- **Time Complexity:** `O(n)`
-- **Space Complexity:** `O(1)`
-
 ---
 
-### 10. Integer to Roman
+### 11. Integer to Roman
 
 **Description:** Convert an integer to its Roman numeral representation (1-3999).
 
@@ -1594,61 +1662,10 @@ FUNCTION IntToRoman(num)
     RETURN res
 END FUNCTION
 ```
-
-#### 10.1: Brute Force - Greedy with Values
-
-```csharp
-public static string IntToRoman_BruteForce(int num)
-{
-    // Brute force: check each value/symbol pair from largest to smallest
-    List<(int value, string symbol)> values = new()
-    {
-        (1000, "M"), (900, "CM"), (500, "D"), (400, "CD"),
-        (100, "C"), (90, "XC"), (50, "L"), (40, "XL"),
-        (10, "X"), (9, "IX"), (5, "V"), (4, "IV"), (1, "I")
-    };
-
-    string result = "";
-    foreach (var (value, symbol) in values)
-    {
-        while (num >= value)
-        {
-            result += symbol;
-            num -= value;
-        }
-    }
-    return result;
-}
-```
-
-```text
-Example: 1994
-
-num=1994
-├── 1000: 1994 >= 1000? YES → result="M", num=994
-├── 900: 994 >= 900? YES → result="MCM", num=94
-├── 500: 94 >= 500? NO
-├── 400: 94 >= 400? NO
-├── 100: 94 >= 100? NO
-├── 90: 94 >= 90? YES → result="MCMXC", num=4
-├── 50: 4 >= 50? NO
-├── 40: 4 >= 40? NO
-├── 10: 4 >= 10? NO
-├── 9: 4 >= 9? NO
-├── 5: 4 >= 5? NO
-├── 4: 4 >= 4? YES → result="MCMXCIV", num=0
-└── Done!
-
-Result: "MCMXCIV" ✓
-```
-
-- **Time Complexity:** `O(n)` - where n is the result length (max 3999 → ~13 chars)
-- **Space Complexity:** `O(1)` - fixed list of 13 pairs
-
-#### 10.2: Optimized - Symbol Pairs (Pre-computed)
+**Code Implementation**
 
 ```csharp
-public static string IntToRoman_Optimized(int num)
+public static string IntToRoman(int num)
 {
     // Optimized: pre-computed array of values in descending order
     // Includes all subtraction cases (4, 9, 40, 90, 400, 900)
@@ -1667,15 +1684,39 @@ public static string IntToRoman_Optimized(int num)
     return result;
 }
 ```
+```text
+Example: num = 1994
 
-**Performance Comparison:**
+Step-by-step process:
+┌─────────────────────────────────────────────────────────────────────┐
+│ values:  [1000, 900, 500, 400, 100,  90,  50,  40,  10,  9,  5,  4,  1] │
+│ symbols: ["M", "CM","D","CD", "C","XC","L","XL","X","IX","V","IV","I"] │
+└─────────────────────────────────────────────────────────────────────┘
 
-| Input | Output | Iterations | Time |
-|-------|--------|-----------|------|
-| 3 | "III" | 3 | O(1) |
-| 58 | "LVIII" | 5 | O(1) |
-| 1994 | "MCMXCIV" | 6 | O(1) |
-| 3999 | "MMMCMXCIX" | 13 | O(1) |
+Initial: num=1994, result=""
+┌─────────┬──────────────────────────────┬─────────────┬─────────────┐
+│ Value   │ Condition                    │ Operation   │ Result      │
+├─────────┼──────────────────────────────┼─────────────┼─────────────┤
+│ 1000    │ 1994 ≥ 1000 ✓                │ result="M"  │ num=994     │
+│ 1000    │ 994 ≥ 1000 ✗                 │ Skip        │             │
+│ 900     │ 994 ≥ 900 ✓                  │ result="MCM"│ num=94      │
+│ 900     │ 94 ≥ 900 ✗                   │ Skip        │             │
+│ 500     │ 94 ≥ 500 ✗                   │ Skip        │             │
+│ 400     │ 94 ≥ 400 ✗                   │ Skip        │             │
+│ 100     │ 94 ≥ 100 ✗                   │ Skip        │             │
+│ 90      │ 94 ≥ 90 ✓                    │ result="MCMXC"│ num=4      │
+│ 90      │ 4 ≥ 90 ✗                     │ Skip        │             │
+│ 50      │ 4 ≥ 50 ✗                     │ Skip        │             │
+│ 40      │ 4 ≥ 40 ✗                     │ Skip        │             │
+│ 10      │ 4 ≥ 10 ✗                     │ Skip        │             │
+│ 9       │ 4 ≥ 9 ✗                      │ Skip        │             │
+│ 5       │ 4 ≥ 5 ✗                      │ Skip        │             │
+│ 4       │ 4 ≥ 4 ✓                      │ result="MCMXCIV"│ num=0   │
+│ 1       │ 0 ≥ 1 ✗                      │ Skip        │             │
+└─────────┴──────────────────────────────┴─────────────┴─────────────┘
+
+Final result: "MCMXCIV" ✓
+```
 
 - **Time Complexity:** `O(1)` - bounded by max iterations (num can be at most 3999)
 - **Space Complexity:** `O(1)` - fixed arrays
@@ -1683,7 +1724,7 @@ public static string IntToRoman_Optimized(int num)
 
 ## Level 2: Recursion (Optimization Strategy)
 
-### 11. Factorial of a number
+### 12. Factorial of a number
 
 **Description:** Calculate the factorial of a positive integer n (n! = n × (n-1) × ... × 1).
 
@@ -1745,7 +1786,7 @@ FactorialRecursive(5)
 - **Time Complexity :** `O(n)`
 - **Space Complexity :** `O(n)`
 
-### 12. Fibonacci Series
+### 13. Fibonacci Series
 
 **Description:** Generate the Fibonacci number at position n (F(n) = F(n-1) + F(n-2), F(0)=0, F(1)=1).
 
@@ -1771,6 +1812,8 @@ Explanation: Sequence: 0,1,1,2,3,5,8... F(6) = 8
 
 The number is a positive number and greater than zero.
 
+#### 13.1 [Brute Force - Recursive]
+
 **Pseudocode:**
 ```
 FUNCTION Fibonacci(n)
@@ -1779,8 +1822,6 @@ FUNCTION Fibonacci(n)
     RETURN Fibonacci(n-1) + Fibonacci(n-2)
 END FUNCTION
 ```
-
-#### 10.1 [Brute Force - Recursive]
 
 ```csharp
 public static int FibonacciRecursive(int n)
@@ -1823,9 +1864,38 @@ Fib(5) = Fib(4) + Fib(3) = 3 + 2 = 5
 - **Time Complexity :** `O(2ⁿ)`
 - **Space Complexity :** `O(n)`
 
-#### 10.2 [Memoization]
+#### 13.2 [Memoization]
 
 We can optimize by storing already computed results using **memoization**.
+
+**Pseudocode:**
+```
+FUNCTION FibonacciMemoization(n, memo = null):
+    // Initialize memo dictionary if not provided
+    IF memo == null:
+        memo = NEW Dictionary<int, int>()
+
+    // Base cases
+    IF n <= 0:
+        RETURN 0
+    IF n == 1:
+        RETURN 1
+
+    // Check if result already computed
+    IF memo CONTAINS KEY n:
+        RETURN memo[n]
+
+    // Recursive calculation
+    fib_n_minus_1 = FibonacciMemoization(n - 1, memo)
+    fib_n_minus_2 = FibonacciMemoization(n - 2, memo)
+    result = fib_n_minus_1 + fib_n_minus_2
+
+    // Store result in memo for future use
+    memo[n] = result
+
+    RETURN result
+END FUNCTION
+```
 
 ```csharp
 public static int FibonacciMemoization(int n, Dictionary<int, int> memo = null)
@@ -1871,11 +1941,37 @@ Fib(1)  Fib(0) FROM MEMO!
 - **Space Complexity :** `O(n)`
     - For memo dictionary + call stack
 
-#### 10.3 [Dynamic Programming - Tabulation]
+#### 13.3 [Dynamic Programming - Tabulation]
 
 The brute force recursive approach has exponential time complexity due to redundant calculations. We can optimize using **dynamic programming (tabulation)** - build up the solution from bottom-up.
 
 The brute force recursive approach has exponential time complexity due to redundant calculations. We can optimize using **dynamic programming (tabulation)** - build up the solution from bottom-up.
+
+**Pseudocode:**
+```
+FUNCTION FibonacciTabulation(n):
+    // Handle base cases
+    IF n <= 0:
+        RETURN 0
+    IF n == 1:
+        RETURN 1
+
+    // Create dynamic programming table
+    dp = ARRAY[0..n] of integers
+
+    // Initialize base cases in table
+    dp[0] = 0
+    dp[1] = 1
+
+    // Fill table iteratively from smallest to largest
+    FOR i = 2 TO n DO:
+        dp[i] = dp[i-1] + dp[i-2]
+    END FOR
+
+    // Return the nth Fibonacci number
+    RETURN dp[n]
+END FUNCTION
+```
 
 ```csharp
 public static int FibonacciTabulation(int n)
@@ -1933,35 +2029,33 @@ Computation trace:
 
 No redundant calculations!
 ```
+- **Time Complexity :** `O(n)`
+    - Each Fibonacci number computed once
+- **Space Complexity :** `O(n)`
+    - For integer array
 
-**Comparison: Recursive vs Tabulation**
-
-```text
-Fibonacci(5) - Recursive (Brute Force):
-    Many duplicate calls shown in tree above
-    Total function calls: 15
-
-Fibonacci(5) - Tabulation:
-    Loop iterations: 4 (from i=2 to i=5)
-    Table lookups: 8 (two lookups per iteration)
-    Total operations: 12
-    Linear time!
-
-For larger values:
-
-Fibonacci(10):
-  Recursive: 177 function calls
-  Tabulation: 9 loop iterations ✓
-
-Fibonacci(20):
-  Recursive: 21,891 function calls
-  Tabulation: 19 loop iterations ✓
-```
-
-#### Space-Optimized Fibonacci (Tabulation)
+#### 13.4 Space-Optimized Fibonacci (Tabulation)
 
 We can further optimize space by only keeping track of the last two values:
 
+**Pseudocode:**
+```
+FUNCTION FibonacciSpaceOptimized(n):
+    IF n < 2:
+        RETURN n
+
+    a ← 0   // F(0)
+    b ← 1   // F(1)
+
+    FOR i = 2 TO n:
+        c ← a + b
+        a ← b
+        b ← c
+    END FOR
+
+    RETURN b
+END FUNCTION
+```
 ```csharp
 public static int FibonacciSpaceOptimized(int n)
 {
@@ -1969,20 +2063,20 @@ public static int FibonacciSpaceOptimized(int n)
     if (n <= 0) return 0;
     if (n == 1) return 1;
 
-    int prev2 = 0;   // F(0)
-    int prev1 = 1;   // F(1)
+    int a = 0;   // F(0)
+    int b = 1;   // F(1)
 
     // Compute from bottom-up
     for (int i = 2; i <= n; i++)
     {
-        int current = prev1 + prev2;
+        int c = a + b;
 
         // Shift values for next iteration
-        prev2 = prev1;
-        prev1 = current;
+        a = b;
+        b = c;
     }
 
-    return prev1;
+    return b;
 }
 ```
 
@@ -2002,23 +2096,11 @@ Return: 5 ✓
 No array needed, only two variables!
 ```
 
-**Complexity Comparison:**
+- **Time Complexity :** `O(n)`
+    - Each Fibonacci number computed once
+- **Space Complexity :** `O(1)`
 
-| Approach | Time | Space | Notes |
-|----------|------|-------|-------|
-| **Recursive (Brute Force)** | O(2ⁿ) | O(n) | Exponential calls, exponential slowness |
-| **Memoization** | O(n) | O(n) | Cache prevents redundant calls |
-| **Tabulation** | O(n) | O(n) | Bottom-up DP with table |
-| **Space-Optimized** | O(n) | O(1) | Only stores last 2 values ✓ |
-
-- **Time Complexity :** `O(n)` (both Tabulation and Space-Optimized)
-    - Single loop from 2 to n
-    - Each iteration: constant time operations
-- **Space Complexity :**
-    - **Tabulation:** `O(n)` (stores all Fibonacci numbers 0 to n)
-    - **Space-Optimized:** `O(1)` (only stores two variables)
-
-### 13. Power of two numbers
+### 14. Power of two numbers
 
 **Description:** Calculate the power: a^b (a raised to power b).
 
@@ -2045,7 +2127,7 @@ Explanation: Any number^0 = 1
 Both numbers are positive number and greater than zero.
 Also number within the integer range so there is no overflow/ stack overflow.
 
-#### 11.1 [Brute Force - Linear]
+#### 14.1 [Brute Force - Linear]
 
 ```csharp
 public static int Power(int a, int n)
