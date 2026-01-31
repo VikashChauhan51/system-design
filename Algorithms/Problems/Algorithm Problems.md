@@ -660,6 +660,8 @@ Explanation: 10 / 1 = 10
 - Numbers within integer range (no overflow)
 - Cannot use `/` operator
 
+#### 2.1 [Brute Force Approach]
+
 **Pseudocode:**
 ```
 FUNCTION Divide(a, b)
@@ -711,6 +713,68 @@ Divide(10, 3)
 ```
 - **Time Complexity :** `O(a/b)`
     - Loop runs ceil(a/b) times
+- **Space Complexity :** `O(1)`
+
+#### 2.1 [Optimized]
+
+**Pseudocode:**
+```
+FUNCTION DivideOptimized(a, b):
+    // Handle edge cases
+    IF b = 0: RETURN ERROR (division by zero)
+    IF a < b: RETURN 0
+
+    left = 0
+    right = a
+
+    WHILE left <= right:
+        mid = left + (right - left) / 2
+        IF mid * b == a:
+            RETURN mid
+        ELSE IF mid * b < a:
+            left = mid + 1
+        ELSE:
+            right = mid - 1
+
+    RETURN right  // Floor division
+END FUNCTION
+```
+**Code Implementation:**
+
+```csharp
+public static int DivideBinarySearch(int a, int b)
+{
+    if (b == 0) throw new DivideByZeroException();
+    if (a < b) return 0;
+
+    int left = 0;
+    int right = a;
+
+    while (left <= right)
+    {
+        int mid = left + (right - left) / 2;
+        long product = (long)mid * b;
+
+        if (product == a) return mid;
+        if (product < a) left = mid + 1;
+        else right = mid - 1;
+    }
+
+    return right; // Floor division
+}
+```
+
+```
+Search space: [0, 21]
+mid = 10 → 10*4=40 > 21 → right=9
+mid = 4 → 4*4=16 < 21 → left=5
+mid = 7 → 7*4=28 > 21 → right=6
+mid = 5 → 5*4=20 < 21 → left=6
+mid = 6 → 6*4=24 > 21 → right=5
+Stop: left=6 > right=5
+Return right=5 ✅ (21/4 = 5 remainder 1)
+```
+- **Time Complexity :** `O(log a)`
 - **Space Complexity :** `O(1)`
 
 ### 3. Square root of a number
