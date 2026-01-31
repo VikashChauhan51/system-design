@@ -906,6 +906,7 @@ Explanation: 1 is not prime by definition
 ```
 FUNCTION IsPrimeNumber(num)
   IF num ≤ 1 THEN RETURN false
+  IF num = 2 THEN RETURN true
   FOR i = 2 TO num-1 DO
     IF num MOD i = 0 THEN
       RETURN false
@@ -917,6 +918,7 @@ END FUNCTION
 
 **Logic:**
 - Numbers ≤ 1 are not prime
+- 2 is the only even prime
 - Check all numbers from 2 to num-1
 - If any number divides num evenly (remainder = 0), num is not prime
 - If no divisors found, num is prime
@@ -930,6 +932,12 @@ public static bool IsPrimeNumber(int num)
     if (num <= 1)
     {
         return false;
+    }
+
+    // 2 is the only even prime number
+    if (num == 2)
+    {
+        return true;
     }
 
     // Check all numbers from 2 to num-1
