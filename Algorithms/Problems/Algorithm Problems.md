@@ -1398,9 +1398,21 @@ Explanation: Sum = 1 + 0.5 + 0.25 + 0.125 = 1.875
 
 **Pseudocode:**
 ```
-FUNCTION GeometricSum(n)
-    IF n == 0 THEN RETURN 1.0
-    RETURN GeometricSum(n-1) + 1.0 / (2^n)
+FUNCTION GeometricSum(n):
+    // Initialize: 1/2⁰ = 1
+    sum ← 1.0
+    term ← 1.0
+
+    // Loop from i=1 to n (terms 1/2¹ to 1/2ⁿ)
+    FOR i = 1 TO n DO:
+        // Each term is half of previous term
+        term ← term / 2.0
+
+        // Add term to running total
+        sum ← sum + term
+    END FOR
+
+    RETURN sum
 END FUNCTION
 ```
 
