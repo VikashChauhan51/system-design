@@ -6,14 +6,10 @@ const md = new MarkdownIt();
 
 const markdown = fs.readFileSync("input.md", "utf8");
 const htmlContent = md.render(markdown);
-const cssContent = fs.readFileSync("style.css", "utf8");
 
 const html = `
 <html>
 <head>
-<style>
-${cssContent}
-</style>
 </head>
 <body>
   ${htmlContent}
