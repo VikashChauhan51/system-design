@@ -1,4 +1,4 @@
-# Compute Intersection of Two Sorted Arrays
+## Compute Intersection of Two Sorted Arrays
 
 **Description:**
 Given two **sorted arrays**, compute their **intersection**.
