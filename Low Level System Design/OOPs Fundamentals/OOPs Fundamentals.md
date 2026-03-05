@@ -1,0 +1,163 @@
+# OOPs Fundamentals
+
+This document covers the core concepts of Object-Oriented Programming (OOP), SOLID principles, and essential UML diagrams, with examples inspired by "Head First Object-Oriented Analysis and Design" and C# code samples.
+
+## 1. OOP Concepts
+
+### 1.1 Object
+- **Definition:** An object is a real-world entity or concept represented in software. It is an instance of a class, containing state (attributes) and behavior (methods).
+- **Example:**
+
+```csharp
+// Class definition
+public class Dog {
+    public string Name;
+    public void Bark() {
+        Console.WriteLine($"{Name} says Woof!");
+    }
+}
+
+// Creating an object (instance)
+Dog myDog = new Dog();
+myDog.Name = "Buddy";
+myDog.Bark(); // Output: Buddy says Woof!
+```
+
+### 1.2 Instance
+- **Definition:** An instance is a concrete occurrence of any object, existing in memory. When a class is defined, no memory is allocated until an object (instance) is created.
+- **Example:**
+
+```csharp
+Dog dog1 = new Dog(); // dog1 is an instance of Dog
+Dog dog2 = new Dog(); // dog2 is another instance
+```
+
+### 1.3 Encapsulation
+- **Definition:** Bundling data (fields) and methods that operate on the data into a single unit (class), restricting direct access to some of the object's components.
+- **Example:**
+
+```csharp
+public class Dog {
+    private string name;
+    public Dog(string name) {
+        this.name = name;
+    }
+    public void Bark() {
+        Console.WriteLine($"{name} says Woof!");
+    }
+}
+```
+
+### 1.4 Inheritance
+- **Definition:** Mechanism where a new class derives properties and behavior from an existing class.
+- **Example:**
+
+```csharp
+public class Animal {
+    public void Eat() {
+        Console.WriteLine("Animal eats");
+    }
+}
+public class Dog : Animal {
+    public void Bark() {
+        Console.WriteLine("Dog barks");
+    }
+}
+```
+
+### 1.5 Polymorphism
+- **Definition:** Ability to present the same interface for different data types.
+- **Example:**
+
+```csharp
+public class Animal {
+    public virtual void Speak() {
+        Console.WriteLine("Animal speaks");
+    }
+}
+public class Dog : Animal {
+    public override void Speak() {
+        Console.WriteLine("Dog barks");
+    }
+}
+public class Cat : Animal {
+    public override void Speak() {
+        Console.WriteLine("Cat meows");
+    }
+}
+```
+
+
+### 1.6 Abstraction
+- **Definition:** Hiding complex implementation details and showing only the necessary features.
+- **Example:**
+
+```csharp
+public abstract class Animal {
+    public abstract void MakeSound();
+}
+public class Dog : Animal {
+    public override void MakeSound() {
+        Console.WriteLine("Woof!");
+    }
+}
+```
+
+### 1.7 Aggregation
+- **Definition:** Aggregation is a special form of association that represents a "has-a" relationship where the child can exist independently of the parent. It is a weak association.
+- **Example:**
+
+```csharp
+public class Team {
+    public List<Player> Players { get; set; }
+    public Team(List<Player> players) {
+        Players = players;
+    }
+}
+public class Player {
+    public string Name { get; set; }
+    public Player(string name) {
+        Name = name;
+    }
+}
+```
+
+#### UML Class Diagram (Aggregation)
+```mermaid
+classDiagram
+    class Team {
+        +List<Player> Players
+    }
+    class Player {
+        +string Name
+    }
+    Team o-- Player : has
+```
+
+### 1.8 Composition
+- **Definition:** Composition is a strong form of association where the child cannot exist independently of the parent. If the parent is destroyed, so are the children.
+- **Example:**
+
+```csharp
+public class House {
+    public Room Room { get; set; }
+    public House() {
+        Room = new Room();
+    }
+}
+public class Room {
+    public Room() {
+        // Room is created with House
+    }
+}
+```
+
+#### UML Class Diagram (Composition)
+```mermaid
+classDiagram
+    class House {
+        +Room Room
+    }
+    class Room
+    House *-- Room : contains
+```
