@@ -47,6 +47,92 @@ public class Dog {
     }
 }
 ```
+Benefits:
+- Protects internal state
+- Reduces coupling
+- Improves maintainability
+
+Encapsulation keep similar things in a separate class and encapsulate them, it means:
+- Identify related data and behavior
+- Group them into a single class
+- Hide the internal implementation
+- Expose only necessary operations
+
+#### Example Without Encapsulation (Bad Design)
+
+```csharp
+public class EmailService
+{
+    public void SendEmail(string to, string subject, string body)
+    {
+        // validate email
+        if (!to.Contains("@"))
+            throw new Exception("Invalid email");
+
+        // format message
+        string message = $"Subject:{subject}\n{body}";
+
+        // send logic
+        Console.WriteLine("Sending email: " + message);
+    }
+}
+```
+Here the class handles too many responsibilities:
+- validation
+- formatting
+- sending
+
+#### Example With Encapsulation (Better Design)
+
+```csharp
+public class EmailValidator
+{
+    public bool IsValid(string email)
+    {
+        return email.Contains("@");
+    }
+}
+
+public class EmailFormatter
+{
+    public string Format(string subject, string body)
+    {
+        return $"Subject:{subject}\n{body}";
+    }
+}
+
+public class EmailSender
+{
+    public void Send(string message)
+    {
+        Console.WriteLine("Sending email: " + message);
+    }
+}
+
+public class EmailService
+{
+    private readonly EmailValidator _validator = new();
+    private readonly EmailFormatter _formatter = new();
+    private readonly EmailSender _sender = new();
+
+    public void SendEmail(string to, string subject, string body)
+    {
+        if (!_validator.IsValid(to))
+            throw new Exception("Invalid email");
+
+        var message = _formatter.Format(subject, body);
+        _sender.Send(message);
+    }
+}
+```
+
+Encapsulation helps achieve:
+- Low coupling
+- High cohesion
+- Better testability
+- Easier refactoring
+
+> **Note:** If several methods operate on the same data or concept, they probably belong in the same class.
 
 ### 1.4 Inheritance
 - **Definition:** Mechanism where a new class derives properties and behavior from an existing class.
@@ -64,6 +150,10 @@ public class Dog : Animal {
     }
 }
 ```
+Benefits:
+- Code reuse
+- Logical hierarchy
+- Extensibility
 
 ### 1.5 Polymorphism
 - **Definition:** Ability to present the same interface for different data types.
@@ -103,7 +193,55 @@ public class Dog : Animal {
 }
 ```
 
-### 1.7 Aggregation
+### 1.7 Association
+- **Definition:**  Association represents a relationship between two independent classes where one object uses or interacts with another.
+
+Unlike composition or aggregation, association does not imply ownership. The objects can exist independently.
+
+Example relationships:
+- Customer → Order
+- Teacher → Student
+- Doctor → Patient
+
+Association can be:
+- One-to-One
+- One-to-Many
+- Many-to-Many
+
+- **Example:**
+```csharp
+public class Customer
+{
+    public string Name { get; set; }
+
+    public void PlaceOrder(Order order)
+    {
+        Console.WriteLine($"{Name} placed order #{order.Id}");
+    }
+}
+
+public class Order
+{
+    public int Id { get; set; }
+}
+```
+#### UML Class Diagram (Association)
+
+```mermaid
+classDiagram
+    class Customer {
+        +string Name
+        +PlaceOrder(Order)
+    }
+
+    class Order {
+        +int Id
+    }
+
+    Customer --> Order : places
+```
+
+### 1.8 Aggregation
 - **Definition:** Aggregation is a special form of association that represents a "has-a" relationship where the child can exist independently of the parent. It is a weak association.
 - **Example:**
 
@@ -121,7 +259,6 @@ public class Player {
     }
 }
 ```
-
 #### UML Class Diagram (Aggregation)
 ```mermaid
 classDiagram
@@ -134,7 +271,7 @@ classDiagram
     Team o-- Player : has
 ```
 
-### 1.8 Composition
+### 1.9 Composition
 - **Definition:** Composition is a strong form of association where the child cannot exist independently of the parent. If the parent is destroyed, so are the children.
 - **Example:**
 

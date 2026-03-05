@@ -1,122 +1,381 @@
 # UML Diagrams
 
-This document covers the most important UML diagrams used in object-oriented design, including their standard notations, symbols, and annotated examples.
-
-## Table of Contents
-1. UML Diagram Annotations and Symbols
-2. Class Diagram (with Annotations and Symbols)
-3. Flow Diagram (with Annotations and Symbols)
-4. Sequence Diagram (with Annotations and Symbols)
+This document explains the most commonly used **Unified Modeling Language (UML)** diagrams used in **Object-Oriented Analysis and Design (OOAD)**.
+It includes **notations, symbols, and annotated examples**.
 
 ---
 
-## 1. UML Diagram Annotations and Symbols
+# Table of Contents
 
-- **Class:** Rectangle with three compartments (name, attributes, operations)
-- **Association:** Solid line between classes
-- **Aggregation:** Hollow diamond at the aggregate (whole) end
-- **Composition:** Filled diamond at the composite (whole) end
-- **Inheritance (Generalization):** Solid line with a hollow triangle pointing to the parent
-- **Dependency:** Dashed line with an open arrow
-- **Multiplicity:** Numbers near association ends (e.g., 1, 0..*, 1..*)
-- **Activation (Sequence):** Thin rectangle on lifeline
-- **Message (Sequence):** Solid arrow between lifelines
+1. UML Diagram Common Symbols
+2. Class Diagram
+3. Relationship Types in Class Diagrams
+4. Flow Diagram (Activity / Flowchart)
+5. Sequence Diagram
+6. Use Case Diagram
 
 ---
 
-## 2. Class Diagram (with Annotations and Symbols)
+# 1. UML Diagram Common Symbols
 
-**Purpose:** Shows the static structure of a system, including classes, attributes, methods, and relationships.
+| Symbol                    | Meaning                                |
+| ------------------------- | -------------------------------------- |
+| Rectangle                 | Class                                  |
+| Solid Line                | Association                            |
+| Hollow Diamond            | Aggregation                            |
+| Filled Diamond            | Composition                            |
+| Hollow Triangle           | Inheritance / Generalization           |
+| Dashed Line Arrow         | Dependency                             |
+| Dashed Line with Triangle | Realization (Interface implementation) |
+| +                         | Public                                 |
+| -                         | Private                                |
+| #                         | Protected                              |
+| ~                         | Package                                |
 
-**Key Symbols:**
-- Rectangle: Class
-- Line: Association
-- Hollow diamond: Aggregation
-- Filled diamond: Composition
-- Hollow triangle: Inheritance
+Example class structure:
 
-**Example:**
+```
++-------------------+
+|      ClassName    |
++-------------------+
+| -attribute1       |
+| +attribute2       |
++-------------------+
+| +method1()        |
+| -method2()        |
++-------------------+
+```
+
+---
+
+# 2. Class Diagram
+
+## Purpose
+
+A **Class Diagram** represents the **static structure of the system**, showing:
+
+* Classes
+* Attributes
+* Methods
+* Relationships between classes
+
+It is one of the **most important UML diagrams** in OOAD.
+
+---
+
+## Example Class Diagram
+
 ```mermaid
 classDiagram
 	class Animal {
 		+Eat()
 	}
+
 	class Dog {
 		+Bark()
 	}
+
 	class Owner {
 		+name: string
 	}
-	Animal <|-- Dog : Inheritance
-	Owner o-- Dog : Aggregation
-	Dog *-- Collar : Composition
+
 	class Collar {
 		+color: string
 	}
+
+	Animal <|-- Dog : Inheritance
+	Owner "1" o-- "many" Dog : Aggregation
+	Dog *-- Collar : Composition
 ```
-*Annotations:*
-- `<|--` : Inheritance
-- `o--` : Aggregation
-- `*--` : Composition
 
 ---
 
-## 3. Flow Diagram (with Annotations and Symbols)
+## Explanation
 
-**Purpose:** Illustrates the flow of control or data in a process or system.
+| Notation | Meaning     |             |
+| -------- | ----------- | ----------- |
+| `<       | --`         | Inheritance |
+| `o--`    | Aggregation |             |
+| `*--`    | Composition |             |
+| `"1"`    | One         |             |
+| `"many"` | Multiple    |             |
 
-**Key Symbols:**
-- Rectangle: Process/Step
-- Diamond: Decision
-- Arrow: Flow direction
-- Parallelogram: Input/Output
+---
 
-**Example:**
+# 3. Relationship Types in Class Diagrams
+
+Understanding relationships is **critical in OO design**.
+
+---
+
+## 3.1 Association
+
+A **basic relationship between two classes**.
+
+Example:
+A **Teacher teaches Students**.
+
+```mermaid
+classDiagram
+	class Teacher
+	class Student
+
+	Teacher "1" -- "many" Student : teaches
+```
+
+---
+
+## 3.2 Aggregation (Has-A)
+
+Represents **whole–part relationship**, but parts **can exist independently**.
+
+Example:
+
+A **Department has Employees**.
+
+```mermaid
+classDiagram
+	class Department
+	class Employee
+
+	Department o-- Employee
+```
+
+Meaning:
+If the **Department is deleted**, employees still exist.
+
+---
+
+## 3.3 Composition (Strong Has-A)
+
+Stronger relationship where **child cannot exist without parent**.
+
+Example:
+
+A **House contains Rooms**.
+
+```mermaid
+classDiagram
+	class House
+	class Room
+
+	House *-- Room
+```
+
+Meaning:
+
+If the **House is destroyed**, Rooms are destroyed.
+
+---
+
+## 3.4 Inheritance (Is-A)
+
+Represents **parent-child hierarchy**.
+
+Example:
+
+```mermaid
+classDiagram
+	class Vehicle
+	class Car
+	class Bike
+
+	Vehicle <|-- Car
+	Vehicle <|-- Bike
+```
+
+Meaning:
+
+* Car **is a** Vehicle
+* Bike **is a** Vehicle
+
+---
+
+## 3.5 Dependency
+
+Represents **temporary usage relationship**.
+
+Example:
+
+```mermaid
+classDiagram
+	class OrderService
+	class EmailService
+
+	OrderService ..> EmailService : uses
+```
+
+Meaning:
+
+OrderService **depends on EmailService**.
+
+---
+
+## 3.6 Interface / Realization
+
+Represents **interface implementation**.
+
+Example:
+
+```mermaid
+classDiagram
+	class PaymentService {
+		<<interface>>
+		ProcessPayment()
+	}
+
+	class CreditCardPayment
+
+	PaymentService <|.. CreditCardPayment
+```
+
+Meaning:
+
+`CreditCardPayment` implements `PaymentService`.
+
+---
+
+# 4. Flow Diagram (Activity / Flowchart)
+
+## Purpose
+
+A **Flow Diagram** represents **control flow of operations** or **process steps**.
+
+Used to visualize:
+
+* Business processes
+* Algorithms
+* Decision logic
+
+---
+
+## Symbols
+
+| Symbol        | Meaning        |
+| ------------- | -------------- |
+| Oval          | Start / End    |
+| Rectangle     | Process        |
+| Diamond       | Decision       |
+| Arrow         | Flow direction |
+| Parallelogram | Input / Output |
+
+---
+
+## Example
+
 ```mermaid
 flowchart TD
-	A[Start] --> B[Input Data]
+	A([Start]) --> B[Input Data]
 	B --> C{Is Data Valid?}
 	C -- Yes --> D[Process Data]
 	C -- No --> E[Show Error]
-	D --> F[End]
+	D --> F([End])
 	E --> F
 ```
-*Annotations:*
-- `[]` : Process/Step
-- `{}` : Decision
-- `-->` : Flow
 
 ---
 
-## 4. Sequence Diagram (with Annotations and Symbols)
+# 5. Sequence Diagram
 
-**Purpose:** Shows how objects interact in a particular scenario of a use case, focusing on the order of messages.
+## Purpose
 
-**Key Symbols:**
-- Vertical dashed line: Lifeline
-- Solid arrow: Synchronous message
-- Open arrow: Asynchronous message
-- Rectangle on lifeline: Activation
+A **Sequence Diagram** shows **how objects interact over time**.
 
-**Example:**
+It focuses on:
+
+* Order of messages
+* Interaction between objects
+* System behavior in a scenario
+
+---
+
+## Symbols
+
+| Symbol        | Meaning                    |
+| ------------- | -------------------------- |
+| Actor         | External user/system       |
+| Lifeline      | Object existence over time |
+| Activation    | Processing period          |
+| Message Arrow | Communication              |
+| Return Arrow  | Response                   |
+
+---
+
+## Example
+
 ```mermaid
 sequenceDiagram
-	participant User
+	actor User
 	participant System
 	participant Database
+
 	User->>System: Submit Request
 	System->>Database: Query Data
 	Database-->>System: Return Data
 	System-->>User: Show Result
 ```
-*Annotations:*
-- `->>` : Synchronous message
-- `-->>` : Return message
-- `participant` : Actor/object lifeline
 
 ---
 
-> **References:**
-> - UML Distilled by Martin Fowler
-> - Head First Object-Oriented Analysis and Design
-> - Official UML Specification
+## Explanation
+
+| Notation      | Meaning          |
+| ------------- | ---------------- |
+| `actor`       | External user    |
+| `participant` | System component |
+| `->>`         | Message          |
+| `-->>`        | Return message   |
+
+---
+
+# 6. Use Case Diagram
+
+## Purpose
+
+A **Use Case Diagram** describes **system functionality from the user's perspective**.
+
+It identifies:
+
+* Actors
+* Use cases
+* Relationships
+
+---
+
+## Example
+
+```mermaid
+flowchart LR
+	User((User))
+	Admin((Admin))
+
+	User --> Login
+	User --> PlaceOrder
+
+	Admin --> ManageProducts
+	Admin --> ViewReports
+```
+
+---
+
+## Explanation
+
+| Element  | Meaning                                 |
+| -------- | --------------------------------------- |
+| Actor    | External entity interacting with system |
+| Use Case | System functionality                    |
+| Line     | Interaction                             |
+
+---
+
+# Summary
+
+The most important UML diagrams in OOAD are:
+
+| Diagram                 | Purpose                 |
+| ----------------------- | ----------------------- |
+| Class Diagram           | System structure        |
+| Sequence Diagram        | Object interactions     |
+| Activity / Flow Diagram | Process flow            |
+| Use Case Diagram        | User-system interaction |
+
