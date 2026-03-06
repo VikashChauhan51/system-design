@@ -228,6 +228,44 @@ public class Solution
         return hexBuilder.ToString();
     }
 
+    public int ReverseBits(int n)
+    {
+        int result = 0;
+
+        for (int i = 0; i < 32; i++)
+        {
+            // Shift result left to make room for next bit
+            result <<= 1;
+
+            // Add the least significant bit of n to result
+            result |= (n & 1);
+
+            // Shift n right to process next bit
+            n >>= 1;
+        }
+
+        return result;
+    }
+
+    public int MinChanges(int number, int k)
+    {
+        if ((number & k) != k)
+        {
+            return -1; // If k has bits that are not set in number, it's impossible to change number to k
+        }
+
+        int diff = number ^ k; // XOR to find the bits that are different between number and k
+
+        int changes = 0;
+
+        while (diff > 0)
+        {
+            diff &= (diff - 1); // Remove the least significant bit that is set to 1
+            changes++;
+        }
+        return changes;
+    }
+
     public int MinimumFlips(int number)
     {
         string binaryString = Convert.ToString(number, 2); // Convert the number to its binary representation
@@ -240,5 +278,21 @@ public class Solution
             }
         }
         return flips;
+    }
+
+    public char RepeatedCharacter(string s)
+    {
+        int see = 0;
+        foreach (char c in s)
+        {
+            int index = c - 'a'; // Calculate the index for the character (assuming input is lowercase letters)
+            int bit = (1 << index); // Create a bitmask for the character at the index
+            if ((see & bit) != 0) // Check if the bit at the index is already set
+            {
+                return c; // If it is set, we have found the repeated character
+            }
+            see |= bit; // Set the bit at the index to mark that we have seen this character
+        }
+        return '\0'; // Return null character if no repeated character is found
     }
 }
