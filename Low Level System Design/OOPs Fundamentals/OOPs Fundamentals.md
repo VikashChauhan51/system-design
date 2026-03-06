@@ -1,10 +1,8 @@
 # OOPs Fundamentals
 
-This document covers the core concepts of Object-Oriented Programming (OOP), SOLID principles, and essential UML diagrams, with examples inspired by "Head First Object-Oriented Analysis and Design" and C# code samples.
+This document covers the core concepts of Object-Oriented Programming (OOP).
 
-## 1. OOP Concepts
-
-### 1.1 Object
+## 1 Object
 - **Definition:** An object is a real-world entity or concept represented in software. It is an instance of a class, containing state (attributes) and behavior (methods).
 - **Example:**
 
@@ -23,7 +21,7 @@ myDog.Name = "Buddy";
 myDog.Bark(); // Output: Buddy says Woof!
 ```
 
-### 1.2 Instance
+## 2 Instance
 - **Definition:** An instance is a concrete occurrence of any object, existing in memory. When a class is defined, no memory is allocated until an object (instance) is created.
 - **Example:**
 
@@ -32,7 +30,7 @@ Dog dog1 = new Dog(); // dog1 is an instance of Dog
 Dog dog2 = new Dog(); // dog2 is another instance
 ```
 
-### 1.3 Encapsulation
+## 3 Encapsulation
 - **Definition:** Bundling data (fields) and methods that operate on the data into a single unit (class), restricting direct access to some of the object's components.
 - **Example:**
 
@@ -47,16 +45,19 @@ public class Dog {
     }
 }
 ```
-Benefits:
-- Protects internal state
-- Reduces coupling
-- Improves maintainability
 
 Encapsulation keep similar things in a separate class and encapsulate them, it means:
 - Identify related data and behavior
 - Group them into a single class
 - Hide the internal implementation
 - Expose only necessary operations
+
+
+Benefits:
+- Protects internal state
+- Reduces coupling
+- Improves maintainability
+
 
 #### Example Without Encapsulation (Bad Design)
 
@@ -134,7 +135,7 @@ Encapsulation helps achieve:
 
 > **Note:** If several methods operate on the same data or concept, they probably belong in the same class.
 
-### 1.4 Inheritance
+## 4 Inheritance
 - **Definition:** Mechanism where a new class derives properties and behavior from an existing class.
 - **Example:**
 
@@ -155,7 +156,7 @@ Benefits:
 - Logical hierarchy
 - Extensibility
 
-### 1.5 Polymorphism
+## 5 Polymorphism
 - **Definition:** Ability to present the same interface for different data types.
 - **Example:**
 
@@ -178,7 +179,7 @@ public class Cat : Animal {
 ```
 
 
-### 1.6 Abstraction
+## 6 Abstraction
 - **Definition:** Hiding complex implementation details and showing only the necessary features.
 - **Example:**
 
@@ -193,7 +194,7 @@ public class Dog : Animal {
 }
 ```
 
-### 1.7 Association
+## 7 Association
 - **Definition:**  Association represents a relationship between two independent classes where one object uses or interacts with another.
 
 Unlike composition or aggregation, association does not imply ownership. The objects can exist independently.
@@ -225,23 +226,8 @@ public class Order
     public int Id { get; set; }
 }
 ```
-#### UML Class Diagram (Association)
 
-```mermaid
-classDiagram
-    class Customer {
-        +string Name
-        +PlaceOrder(Order)
-    }
-
-    class Order {
-        +int Id
-    }
-
-    Customer --> Order : places
-```
-
-### 1.8 Aggregation
+## 8 Aggregation
 - **Definition:** Aggregation is a special form of association that represents a "has-a" relationship where the child can exist independently of the parent. It is a weak association.
 - **Example:**
 
@@ -259,19 +245,8 @@ public class Player {
     }
 }
 ```
-#### UML Class Diagram (Aggregation)
-```mermaid
-classDiagram
-    class Team {
-        +List<Player> Players
-    }
-    class Player {
-        +string Name
-    }
-    Team o-- Player : has
-```
 
-### 1.9 Composition
+## 9 Composition
 - **Definition:** Composition is a strong form of association where the child cannot exist independently of the parent. If the parent is destroyed, so are the children.
 - **Example:**
 
@@ -287,14 +262,4 @@ public class Room {
         // Room is created with House
     }
 }
-```
-
-#### UML Class Diagram (Composition)
-```mermaid
-classDiagram
-    class House {
-        +Room Room
-    }
-    class Room
-    House *-- Room : contains
 ```

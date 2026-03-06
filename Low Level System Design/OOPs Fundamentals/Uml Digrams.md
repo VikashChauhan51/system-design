@@ -3,9 +3,8 @@
 This document explains the most commonly used **Unified Modeling Language (UML)** diagrams used in **Object-Oriented Analysis and Design (OOAD)**.
 It includes **notations, symbols, and annotated examples**.
 
----
 
-# Table of Contents
+## Table of Contents
 
 1. UML Diagram Common Symbols
 2. Class Diagram
@@ -14,9 +13,9 @@ It includes **notations, symbols, and annotated examples**.
 5. Sequence Diagram
 6. Use Case Diagram
 
----
 
-# 1. UML Diagram Common Symbols
+
+## 1. UML Diagram Common Symbols
 
 | Symbol                    | Meaning                                |
 | ------------------------- | -------------------------------------- |
@@ -46,11 +45,10 @@ Example class structure:
 +-------------------+
 ```
 
----
 
-# 2. Class Diagram
+## 2. Class Diagram
 
-## Purpose
+### Purpose
 
 A **Class Diagram** represents the **static structure of the system**, showing:
 
@@ -61,9 +59,8 @@ A **Class Diagram** represents the **static structure of the system**, showing:
 
 It is one of the **most important UML diagrams** in OOAD.
 
----
 
-## Example Class Diagram
+### Example Class Diagram
 
 ```mermaid
 classDiagram
@@ -88,29 +85,34 @@ classDiagram
 	Dog *-- Collar : Composition
 ```
 
----
 
-## Explanation
+ Explanation
 
-| Notation | Meaning     |             |
-| -------- | ----------- | ----------- |
-| `<       | --`         | Inheritance |
-| `o--`    | Aggregation |             |
-| `*--`    | Composition |             |
-| `"1"`    | One         |             |
-| `"many"` | Multiple    |             |
+| Notation | Meaning     |
+| -------- | ----------- |
+| `<--`    | Inheritance |
+| `o--`    | Aggregation |
+| `*--`    | Composition |
+| `"1"`    | One         |
+| `"many"` | Multiple    |
 
----
 
-# 3. Relationship Types in Class Diagrams
+
+## 3. Relationship Types in Class Diagrams
 
 Understanding relationships is **critical in OO design**.
 
----
 
-## 3.1 Association
+### 3.1 Association
+
+**Definition:**  Association represents a relationship between two independent classes where one object uses or interacts with another.
 
 A **basic relationship between two classes**.
+
+Association can be:
+- One-to-One
+- One-to-Many
+- Many-to-Many
 
 Example:
 A **Teacher teaches Students**.
@@ -123,9 +125,10 @@ classDiagram
 	Teacher "1" -- "many" Student : teaches
 ```
 
----
 
-## 3.2 Aggregation (Has-A)
+### 3.2 Aggregation (Has-A)
+
+**Definition:** Aggregation is a special form of association that represents a "has-a" relationship where the child can exist independently of the parent. It is a weak association.
 
 Represents **whole–part relationship**, but parts **can exist independently**.
 
@@ -144,9 +147,10 @@ classDiagram
 Meaning:
 If the **Department is deleted**, employees still exist.
 
----
 
-## 3.3 Composition (Strong Has-A)
+### 3.3 Composition (Strong Has-A)
+
+**Definition:** Composition is a strong form of association where the child cannot exist independently of the parent. If the parent is destroyed, so are the children.
 
 Stronger relationship where **child cannot exist without parent**.
 
@@ -166,9 +170,8 @@ Meaning:
 
 If the **House is destroyed**, Rooms are destroyed.
 
----
 
-## 3.4 Inheritance (Is-A)
+### 3.4 Inheritance (Is-A)
 
 Represents **parent-child hierarchy**.
 
@@ -189,9 +192,8 @@ Meaning:
 * Car **is a** Vehicle
 * Bike **is a** Vehicle
 
----
 
-## 3.5 Dependency
+### 3.5 Dependency
 
 Represents **temporary usage relationship**.
 
@@ -209,9 +211,8 @@ Meaning:
 
 OrderService **depends on EmailService**.
 
----
 
-## 3.6 Interface / Realization
+### 3.6 Interface / Realization
 
 Represents **interface implementation**.
 
@@ -233,11 +234,10 @@ Meaning:
 
 `CreditCardPayment` implements `PaymentService`.
 
----
 
-# 4. Flow Diagram (Activity / Flowchart)
+## 4. Flow Diagram (Activity / Flowchart)
 
-## Purpose
+### Purpose
 
 A **Flow Diagram** represents **control flow of operations** or **process steps**.
 
@@ -247,9 +247,7 @@ Used to visualize:
 * Algorithms
 * Decision logic
 
----
-
-## Symbols
+### Symbols
 
 | Symbol        | Meaning        |
 | ------------- | -------------- |
@@ -259,9 +257,8 @@ Used to visualize:
 | Arrow         | Flow direction |
 | Parallelogram | Input / Output |
 
----
 
-## Example
+Example
 
 ```mermaid
 flowchart TD
@@ -273,11 +270,9 @@ flowchart TD
 	E --> F
 ```
 
----
+## 5. Sequence Diagram
 
-# 5. Sequence Diagram
-
-## Purpose
+### Purpose
 
 A **Sequence Diagram** shows **how objects interact over time**.
 
@@ -287,9 +282,8 @@ It focuses on:
 * Interaction between objects
 * System behavior in a scenario
 
----
 
-## Symbols
+### Symbols
 
 | Symbol        | Meaning                    |
 | ------------- | -------------------------- |
@@ -299,9 +293,8 @@ It focuses on:
 | Message Arrow | Communication              |
 | Return Arrow  | Response                   |
 
----
 
-## Example
+Example
 
 ```mermaid
 sequenceDiagram
@@ -315,9 +308,7 @@ sequenceDiagram
 	System-->>User: Show Result
 ```
 
----
-
-## Explanation
+Explanation
 
 | Notation      | Meaning          |
 | ------------- | ---------------- |
@@ -326,11 +317,10 @@ sequenceDiagram
 | `->>`         | Message          |
 | `-->>`        | Return message   |
 
----
 
-# 6. Use Case Diagram
+## 6. Use Case Diagram
 
-## Purpose
+### Purpose
 
 A **Use Case Diagram** describes **system functionality from the user's perspective**.
 
@@ -340,9 +330,8 @@ It identifies:
 * Use cases
 * Relationships
 
----
 
-## Example
+Example
 
 ```mermaid
 flowchart LR
@@ -356,9 +345,8 @@ flowchart LR
 	Admin --> ViewReports
 ```
 
----
 
-## Explanation
+Explanation
 
 | Element  | Meaning                                 |
 | -------- | --------------------------------------- |
@@ -366,9 +354,9 @@ flowchart LR
 | Use Case | System functionality                    |
 | Line     | Interaction                             |
 
----
 
-# Summary
+
+## Summary
 
 The most important UML diagrams in OOAD are:
 

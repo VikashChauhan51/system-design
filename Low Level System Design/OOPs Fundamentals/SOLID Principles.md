@@ -2,11 +2,9 @@
 
 This document explains the SOLID principles of object-oriented design, each with a clear definition and C# code example.
 
-These principles help create **maintainable, scalable, and flexible software systems** and align with the design philosophy described in Head First Object-Oriented Analysis and Design.
+These principles help create **maintainable, scalable, and flexible software systems**.
 
----
-
-# 1. Single Responsibility Principle (SRP)
+## 1. Single Responsibility Principle (SRP)
 
 ### Definition
 
@@ -14,9 +12,8 @@ A class should have **only one reason to change**, meaning it should have **only
 
 If a class handles multiple responsibilities, changes in one area may break unrelated functionality.
 
----
 
-## Violation Example (Bad Design)
+### Violation Example (Bad Design)
 
 ```csharp
 public class Report
@@ -43,9 +40,8 @@ Problems:
 
 This creates **multiple reasons to change**.
 
----
 
-## Correct Implementation (Good Design)
+### Correct Implementation (Good Design)
 
 ```csharp
 public class Report
@@ -76,9 +72,8 @@ Benefits:
 * Easier to maintain
 * Easier to test
 
----
 
-# 2. Open/Closed Principle (OCP)
+## 2. Open/Closed Principle (OCP)
 
 ### Definition
 
@@ -91,7 +86,7 @@ This means **new behavior should be added without modifying existing code**.
 
 ---
 
-# Violation Example (Bad Design)
+### Violation Example (Bad Design)
 
 ```csharp
 public class AreaCalculator
@@ -126,7 +121,7 @@ Problems:
 
 ---
 
-# Correct Implementation (Good Design)
+### Correct Implementation (Good Design)
 
 ```csharp
 public abstract class Shape
@@ -157,13 +152,10 @@ public class Square : Shape
 
 Now new shapes can be added without modifying existing code.
 
----
 
-# OCP Using Extension Methods (C#)
+### OCP Using Extension Methods (C#)
 
 Extension methods allow us to **extend existing classes without modifying them**, which perfectly aligns with OCP.
-
-### Example
 
 Suppose we cannot modify an existing `Order` class.
 
@@ -175,8 +167,6 @@ public class Order
 ```
 
 We want to add tax calculation.
-
-### Using Extension Method
 
 ```csharp
 public static class OrderExtensions
@@ -201,17 +191,15 @@ Benefits:
 * New behavior added externally
 * Supports **Open/Closed Principle**
 
----
 
-# 3. Liskov Substitution Principle (LSP)
+## 3. Liskov Substitution Principle (LSP)
 
 ### Definition
 
 Objects of a superclass should be replaceable with objects of its subclasses **without breaking the application**.
 
----
 
-# Violation Example (Bad Design)
+### Violation Example (Bad Design)
 
 ```csharp
 public class Bird
@@ -242,9 +230,8 @@ Problem:
 
 This breaks the **substitutability rule**.
 
----
 
-# Correct Implementation
+### Correct Implementation
 
 ```csharp
 public abstract class Bird
@@ -276,9 +263,8 @@ Now:
 
 This respects LSP.
 
----
 
-# 4. Interface Segregation Principle (ISP)
+## 4. Interface Segregation Principle (ISP)
 
 ### Definition
 
@@ -286,9 +272,8 @@ Clients should **not be forced to depend on interfaces they do not use**.
 
 Large interfaces should be split into **smaller specific interfaces**.
 
----
 
-# Violation Example (Bad Design)
+### Violation Example (Bad Design)
 
 ```csharp
 public interface IMachine
@@ -323,9 +308,8 @@ public class BasicPrinter : IMachine
 }
 ```
 
----
 
-# Correct Implementation
+### Correct Implementation
 
 Split interfaces.
 
@@ -369,18 +353,16 @@ Benefits:
 * More flexible design
 * Avoid unnecessary implementations
 
----
 
-# 5. Dependency Inversion Principle (DIP)
+## 5. Dependency Inversion Principle (DIP)
 
 ### Definition
 
 High-level modules should **not depend on low-level modules**.
 Both should depend on **abstractions**.
 
----
 
-# Violation Example (Bad Design)
+### Violation Example (Bad Design)
 
 ```csharp
 public class EmailSender
