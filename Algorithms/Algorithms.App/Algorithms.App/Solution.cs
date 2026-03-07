@@ -295,4 +295,323 @@ public class Solution
         }
         return '\0'; // Return null character if no repeated character is found
     }
+
+    public string DuplicateCharacters(string s)
+    {
+        char[] charCount = new char[256];
+        foreach (char c in s)
+        {
+            charCount[c]++;
+        }
+
+        StringBuilder result = new StringBuilder();
+        foreach (char c in s)
+        {
+            if (charCount[c] > 1)
+            {
+                result.Append(c);
+            }
+        }
+
+        return result.ToString();
+    }
+
+    public string RemoveDuplicates(string s)
+    {
+
+        char[] charCount = new char[256];
+        StringBuilder result = new StringBuilder();
+        foreach (char c in s)
+        {
+            if (charCount[c] == 0) // Check if the character has not been seen before
+            {
+                result.Append(c); // Append the character to the result
+                charCount[c]++; // Mark the character as seen
+            }
+        }
+        return result.ToString();
+    }
+
+    public string RemoveAdjacentDuplicates(string s)
+    {
+        StringBuilder result = new StringBuilder();
+        foreach (char c in s)
+        {
+            if (result.Length == 0 || result[result.Length - 1] != c) // Check if the current character is different from the last character in the result
+            {
+                result.Append(c); // Append the character to the result if it is different
+            }
+        }
+        return result.ToString();
+    }
+    public int StringToInt(string s)
+    {
+        int result = 0;
+        if (s.Length == 0)
+        {
+            return result;
+        }
+
+        int sign = 1;
+        int index = 0;
+        if (s[0] == '-')
+        {
+            sign = -1;
+            index++;
+        }
+        else if (s[0] == '+')
+        {
+            index++;
+        }
+
+        for (; index < s.Length; index++)
+        {
+            char c = s[index];
+            if (c < '0' || c > '9')
+            {
+                break; // Stop parsing if we encounter a non-digit character
+            }
+            result = result * 10 + (c - '0'); // Convert character to integer and accumulate the result
+        }
+        return sign * result; // Apply the sign to the result and return
+    }
+
+    public int TitleToNumber(string columnTitle)
+    {
+        int result = 0;
+        if (string.IsNullOrEmpty(columnTitle))
+        {
+            return result;
+        }
+
+        for (int i = 0; i < columnTitle.Length; i++)
+        {
+            // convert to integer
+            result = result * 26 + (columnTitle[i] - 'A' + 1);
+        }
+
+        return result;
+    }
+
+    public int LengthOfLastWord(string s)
+    {
+        int length = 0;
+        int i = s.Length - 1;
+
+        // Skip trailing spaces
+        while (i >= 0 && s[i] == ' ') i--;
+
+        // Count last word from end
+        while (i >= 0 && s[i] != ' ')
+        {
+            length++;
+            i--;
+        }
+
+        return length;
+    }
+
+    public int RomanToInt(string s)
+    {
+        Dictionary<char, int> romanValues = new()
+        {
+         { 'I', 1 },
+         { 'V', 5 },
+         { 'X', 10 },
+         { 'L', 50 },
+         { 'C', 100 },
+         { 'D', 500 },
+         { 'M', 1000 }
+        };
+
+        int result = 0;
+        for (int i = 0; i < s.Length; i++)
+        {
+            // If current value is less than next value, subtract (cases like IV, IX, XL, etc.)
+            if (i + 1 < s.Length && romanValues[s[i]] < romanValues[s[i + 1]])
+            {
+                result -= romanValues[s[i]];
+            }
+            else
+            {
+                result += romanValues[s[i]];
+            }
+        }
+
+        return result;
+    }
+
+    public string Multiply(string num1, string num2)
+    {
+        // Both strings are not null and contains only positive numbers.
+        if (num1 == "0" || num2 == "0")
+        {
+            return "0";
+        }
+
+        int m = num1.Length;
+        int n = num2.Length;
+        // (m + n)
+        int[] result = new int[m + n];
+
+        // right to left
+        for (int i = m - 1; i >= 0; i--)
+        {
+            for (int j = n - 1; j >= 0; j--)
+            {
+                // convert to integer
+                int digit1 = num1[i] - '0';
+                int digit2 = num2[j] - '0';
+
+                int mul = digit1 * digit2;
+
+                int carryIndex = i + j;
+                int valueIndex = i + j + 1;
+                int sum = mul + result[valueIndex];  // This adds to existing
+                                                     // (15/10 = 1)
+                int carry = sum / 10;
+                // (15%10 = 5)
+                int digit = sum % 10;
+
+                result[valueIndex] = digit; // Set to digit
+                result[carryIndex] += carry; // Add carry (accumulate)
+
+            }
+        }
+
+        var output = new StringBuilder();
+        for (int a = 0; a < result.Length; a++)
+        {
+            if (output.Length == 0 && result[a] == 0)
+            {
+                // remove leading zeros
+                continue;
+            }
+            output.Append(result[a]);
+        }
+
+        return output.Length > 0 ? output.ToString() : "0";
+    }
+
+    public string LongestCommonPrefix(string[] strs)
+    {
+        if (strs.Length == 0)
+        {
+            return "";
+        }
+
+        string smallStr = strs[0]; // Assume the first string is the smallest prefix
+
+        for (int i = 0; i < smallStr.Length; i++)
+        {
+            for (int j = 1; j < strs.Length; j++)
+            {
+                if (i >= strs[j].Length || strs[j][i] != smallStr[i])
+                {
+                    return smallStr.Substring(0, i);
+                }
+            }
+        }
+
+        return smallStr;
+    }
+
+    public int LengthOfLongestSubstring(string s)
+    {
+        HashSet<char> seen = new();
+        int left = 0;
+        int maxLength = 0;
+        for (int right = 0; right < s.Length; right++)
+        {
+            while (seen.Contains(s[right]))
+            {
+                seen.Remove(s[left]); // Remove the leftmost character until we can add the current character
+                left++;
+            }
+            seen.Add(s[right]); // Add the current character to the set
+            maxLength = Math.Max(maxLength, right - left + 1); // Update max length if needed
+        }
+        return maxLength;
+    }
+
+    public string ValidateIPv4(string ip)
+    {
+        var parts = ip.Split('.');
+        if (parts.Length != 4) return "Neither";
+
+        foreach (var p in parts)
+        {
+            if (p.Length == 0 || p.Length > 3) return "Neither";
+            if (p.Length > 1 && p[0] == '0') return "Neither"; // leading zero
+            foreach (var ch in p) if (!char.IsDigit(ch)) return "Neither";
+            if (!int.TryParse(p, out int val)) return "Neither";
+            if (val < 0 || val > 255) return "Neither";
+        }
+        return "IPv4";
+    }
+
+    public string ValidateIPv6(string ip)
+    {
+        var parts = ip.Split(':');
+        if (parts.Length != 8) return "Neither";
+
+        foreach (var p in parts)
+        {
+            if (p.Length == 0 || p.Length > 4) return "Neither";
+            foreach (var ch in p)
+            {
+                bool isHexDigit = (ch >= '0' && ch <= '9') ||
+                                  (ch >= 'a' && ch <= 'f') ||
+                                  (ch >= 'A' && ch <= 'F');
+                if (!isHexDigit) return "Neither";
+            }
+        }
+        return "IPv6";
+    }
+
+    public string CompressString(string str)
+    {
+
+        if (string.IsNullOrEmpty(str))
+        {
+            return str;
+        }
+        StringBuilder compressed = new StringBuilder();
+        int count = 1;
+        for (int i = 1; i < str.Length; i++)
+        {
+            if (str[i] == str[i - 1])
+            {
+                count++;
+            }
+            else
+            {
+                compressed.Append(str[i - 1]);
+                compressed.Append(count);
+                count = 1; // Reset count for the new character
+            }
+        }
+        // Append the last character and its count
+        compressed.Append(str[str.Length - 1]);
+        compressed.Append(count);
+        string compressedString = compressed.ToString();
+        return compressedString.Length < str.Length ? compressedString : str;
+    }
+
+    public string DecompressString(string compressed)
+    {
+        if (string.IsNullOrEmpty(compressed))
+        {
+            return compressed;
+        }
+        StringBuilder decompressed = new StringBuilder();
+        for (int i = 0; i < compressed.Length; i += 2)
+        {
+            char character = compressed[i];
+            int count = compressed[i + 1] - '0'; // Convert char digit to int
+            decompressed.Append(character, count); // Append the character 'count' times
+        }
+        return decompressed.ToString();
+    }
+
 }
