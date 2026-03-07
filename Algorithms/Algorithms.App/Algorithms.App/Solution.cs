@@ -724,6 +724,33 @@ public class Solution
 
     }
 
+    public int MajorityElement(int[] arrs)
+    {
+        // Moore's algorithm
+        // Majority element is alway count is n/2 
+        int candidate = arrs[0]; // Assuming first element is majority element
+        int count = 1;
+
+        for (int i = 1; i < arrs.Length; i++)
+        {
+            if (arrs[i] == candidate)
+            {
+                count++;
+            }
+            else
+            {
+                count--;
+
+                if (count == 0) // change candidate element
+                {
+                    candidate = arrs[i];
+                    count = 1;
+                }
+            }
+        }
+        return candidate;
+    }
+
     public int[] MergeSortedArrays(int[] num1, int[] num2)
     {
         int m = num1.Length;
@@ -1251,7 +1278,7 @@ public class Solution
         return maxArea;
     }
 
-   
+
 
     public int TrapWater(int[] height)
     {
